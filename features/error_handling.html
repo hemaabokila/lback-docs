@@ -1,0 +1,401 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Error Handling and HTTP Exceptions &mdash; lback 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=95f010fd" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Error Handling &amp; Reporting" href="Error%20Handling%20%26%20Reporting.html" />
+    <link rel="prev" title="Validation Utilities" href="validation_utilities.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            lback
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Configuration%20System.html">Configuration System</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="routing_system.html">Routing System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Views%20%26%20Responses.html">Views &amp; Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Templating%20System.html">Templating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Static%20Files.html">Static Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Media%20Files.html">Media Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file-uploads.html">File Uploads in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Forms.html">Forms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Models%20%26%20Database.html">Models &amp; Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Database%20Migrations%20System.html">Database Migrations System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Authorization.html">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sessions.html">Sessions in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Security%20Features.html">Security Features</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Admin%20Panel.html">Built-in Admin Panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API%20Tools.html">API Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Signal%20System.html">Signal System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Middleware%20System.html">Middleware System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_middlewares.html">Custom Middlewares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logging_config.html">Logging Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="email-sender.html">Email Sending in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="validation_utilities.html">Validation Utilities</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Error Handling and HTTP Exceptions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#base-exception-classes">1. Base Exception Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#common-http-exception-subclasses">2. Common HTTP Exception Subclasses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#raising-and-handling-exceptions">3. Raising and Handling Exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Error%20Handling%20%26%20Reporting.html">Error Handling &amp; Reporting</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Deployment.html">Deployment</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html">Signals from BaseView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-apidocs">Signals from APIDocs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-basemodelserializer">Signals from BaseModelSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-registry-signals.html">Signals from AdminRegistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user.html">Signals from AdminUser and Role Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-manager.html">Signals from AdminUserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-repository.html">Signals from AdminUserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html">Signals from AdminAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-jwtauth">Signals from JWTAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-oauth2auth">Signals from OAuth2Auth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-permissionrequired">Signals from PermissionRequired</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-sessionauth">Signals from SessionAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/error-handler.html">Signals from ErrorHandler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/middleware-manager.html">Signals from MiddlewareManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/migration_commands.html">Signals from MigrationCommands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/permission-repository.html">Signals from PermissionRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/role-repository.html">Signals from RoleRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/session-manager.html">Signals from SessionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/template-renderer.html">Signals from TemplateRenderer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-manager.html">Signals from UserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-model.html">Signals from User Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-repository.html">Signals from UserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/wsgi-application.html">Signals from WSGI Application and Server</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Modules and Classes Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API%20Reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lback/lback.html">lback package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">lback</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Error Handling and HTTP Exceptions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/features/error_handling.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="error-handling-and-http-exceptions">
+<h1>Error Handling and HTTP Exceptions<a class="headerlink" href="#error-handling-and-http-exceptions" title="Link to this heading"></a></h1>
+<p>Robust error handling is crucial for any web application. The Lback Framework provides a structured way to manage exceptions, especially those related to HTTP responses, allowing you to return meaningful error messages and status codes to clients. This section details the core exception classes provided by the framework and how to use them.</p>
+<p>—</p>
+<section id="base-exception-classes">
+<h2>1. Base Exception Classes<a class="headerlink" href="#base-exception-classes" title="Link to this heading"></a></h2>
+<p>All framework-specific exceptions in Lback inherit from a common base, ensuring a consistent approach to error management.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">List</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">FrameworkException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Base exception for all framework-specific errors.</span>
+<span class="sd">    All custom exceptions in the framework should inherit from this.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">HTTPException</span><span class="p">(</span><span class="n">FrameworkException</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Base exception for HTTP-related errors.</span>
+<span class="sd">    When raised, it typically results in an HTTP response with a specific status code.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">status_code</span> <span class="o">=</span> <span class="mi">500</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;An unexpected error occurred.&quot;</span>
+    <span class="n">data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">status_code</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="n">message</span> <span class="k">if</span> <span class="n">message</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="n">message</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">status_code</span> <span class="o">=</span> <span class="n">status_code</span> <span class="k">if</span> <span class="n">status_code</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="n">status_code</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span> <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="n">data</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>FrameworkException</strong>:</p>
+<p>This is the top-level exception for all custom errors originating from the Lback Framework. It provides a common parent for catching any framework-specific issues.</p>
+<p><strong>HTTPException</strong>:</p>
+<p>This is the base class for all exceptions that should result in a specific HTTP response being sent back to the client. It includes attributes to define the <strong>HTTP status code</strong>, a <strong>message</strong> for the client, and optional <strong>additional data</strong> that can be included in the error response (e.g., validation errors).</p>
+<ul class="simple">
+<li><p><strong>status_code</strong>: The HTTP status code (e.g., 200, 400, 404, 500) associated with the error.</p></li>
+<li><p><strong>message</strong>: A human-readable message describing the error.</p></li>
+<li><p><strong>data</strong>: Optional extra data (e.g., a dictionary of validation errors) to be included in the error response payload.</p></li>
+</ul>
+<p>You can raise <code class="docutils literal notranslate"><span class="pre">HTTPException</span></code> directly for generic HTTP errors, or use its specialized subclasses for more specific scenarios.</p>
+<p>—</p>
+</section>
+<section id="common-http-exception-subclasses">
+<h2>2. Common HTTP Exception Subclasses<a class="headerlink" href="#common-http-exception-subclasses" title="Link to this heading"></a></h2>
+<p>The framework provides several pre-defined <code class="docutils literal notranslate"><span class="pre">HTTPException</span></code> subclasses for common HTTP error scenarios. Using these specific exceptions makes your code clearer and helps the framework handle responses appropriately.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">BadRequest</span><span class="p">(</span><span class="n">HTTPException</span><span class="p">):</span>
+    <span class="n">status_code</span> <span class="o">=</span> <span class="mi">400</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Bad Request&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="n">message</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">message</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Validation failed.&quot;</span> <span class="c1"># Default message if data (errors) is provided</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">NotFound</span><span class="p">(</span><span class="n">HTTPException</span><span class="p">):</span>
+    <span class="n">status_code</span> <span class="o">=</span> <span class="mi">404</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Not Found&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="n">message</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">RouteNotFound</span><span class="p">(</span><span class="n">NotFound</span><span class="p">):</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Route Not Found&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">method</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="n">message</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="n">method</span>
+        <span class="k">if</span> <span class="n">message</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;No route found for </span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Unauthorized</span><span class="p">(</span><span class="n">HTTPException</span><span class="p">):</span>
+    <span class="n">status_code</span> <span class="o">=</span> <span class="mi">401</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Unauthorized&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="n">message</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">401</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Forbidden</span><span class="p">(</span><span class="n">HTTPException</span><span class="p">):</span>
+    <span class="n">status_code</span> <span class="o">=</span> <span class="mi">403</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Forbidden&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="n">message</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">403</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">MethodNotAllowed</span><span class="p">(</span><span class="n">HTTPException</span><span class="p">):</span>
+    <span class="n">status_code</span> <span class="o">=</span> <span class="mi">405</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Method Not Allowed&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">method</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">allowed_methods</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="n">message</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">405</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="n">method</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">allowed_methods</span> <span class="o">=</span> <span class="n">allowed_methods</span>
+        <span class="k">if</span> <span class="n">message</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Method </span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2"> not allowed for path </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">. Allowed methods: </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">allowed_methods</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ServerError</span><span class="p">(</span><span class="n">HTTPException</span><span class="p">):</span>
+    <span class="n">status_code</span> <span class="o">=</span> <span class="mi">500</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Internal Server Error&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="n">message</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ConfigurationError</span><span class="p">(</span><span class="n">FrameworkException</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Raised when there&#39;s an issue with the application&#39;s configuration.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ValidationError</span><span class="p">(</span><span class="n">BadRequest</span><span class="p">):</span> <span class="c1"># Inherits from BadRequest (HTTP 400)</span>
+    <span class="n">status_code</span> <span class="o">=</span> <span class="mi">400</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Validation Error&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">errors</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span> <span class="n">message</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="n">message</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">errors</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Validation failed.&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">errors</span> <span class="o">=</span> <span class="n">errors</span> <span class="c1"># Specific attribute to hold validation details</span>
+</pre></div>
+</div>
+<p>Here’s a breakdown of the commonly used HTTP exception classes:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">BadRequest(message:</span> <span class="pre">Optional[str],</span> <span class="pre">data:</span> <span class="pre">Optional[Any])</span></code> <strong>(Status: 400 Bad Request)</strong>:</dt><dd><p>Used when the server cannot process the request due to client error (e.g., malformed syntax, invalid request parameters). If <code class="docutils literal notranslate"><span class="pre">data</span></code> is provided (e.g., a dictionary of validation errors), the default message will be “Validation failed.”.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">NotFound(message:</span> <span class="pre">Optional[str],</span> <span class="pre">data:</span> <span class="pre">Optional[Any])</span></code> <strong>(Status: 404 Not Found)</strong>:</dt><dd><p>Indicates that the requested resource could not be found on the server.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">RouteNotFound(path:</span> <span class="pre">str,</span> <span class="pre">method:</span> <span class="pre">str,</span> <span class="pre">message:</span> <span class="pre">Optional[str])</span></code> <strong>(Status: 404 Not Found)</strong>:</dt><dd><p>A specialized <cite>NotFound</cite> exception, automatically populated with details about the requested path and method when no matching route is found.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">Unauthorized(message:</span> <span class="pre">Optional[str],</span> <span class="pre">data:</span> <span class="pre">Optional[Any])</span></code> <strong>(Status: 401 Unauthorized)</strong>:</dt><dd><p>Signifies that authentication is required or has failed. This typically means the client needs to provide valid authentication credentials.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">Forbidden(message:</span> <span class="pre">Optional[str],</span> <span class="pre">data:</span> <span class="pre">Optional[Any])</span></code> <strong>(Status: 403 Forbidden)</strong>:</dt><dd><p>Indicates that the server understood the request but refuses to authorize it. This implies that the client’s credentials (if any) are valid, but they do not have permission to access the resource.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">MethodNotAllowed(path:</span> <span class="pre">str,</span> <span class="pre">method:</span> <span class="pre">str,</span> <span class="pre">allowed_methods:</span> <span class="pre">list,</span> <span class="pre">message:</span> <span class="pre">Optional[str])</span></code> <strong>(Status: 405 Method Not Allowed)</strong>:</dt><dd><p>Raised when the HTTP method used in the request (e.g., POST) is not supported for the resource identified by the URL. It automatically includes the allowed methods.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">ServerError(message:</span> <span class="pre">Optional[str],</span> <span class="pre">data:</span> <span class="pre">Optional[Any])</span></code> <strong>(Status: 500 Internal Server Error)</strong>:</dt><dd><p>A general-purpose error message, used when an unexpected condition was encountered on the server. This should ideally be caught and handled, but serves as a fallback for uncaught exceptions.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">ConfigurationError</span></code>:</dt><dd><p>This <code class="docutils literal notranslate"><span class="pre">FrameworkException</span></code> (not an <code class="docutils literal notranslate"><span class="pre">HTTPException</span></code>) is specifically for issues related to the application’s setup or settings.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">ValidationError(errors:</span> <span class="pre">Dict[str,</span> <span class="pre">List[str]],</span> <span class="pre">message:</span> <span class="pre">Optional[str])</span></code> <strong>(Status: 400 Bad Request)</strong>:</dt><dd><p>A crucial exception for data validation. It inherits from <code class="docutils literal notranslate"><span class="pre">BadRequest</span></code> and is specifically designed to carry detailed validation error messages, typically as a dictionary where keys are field names and values are lists of error strings for that field.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>—</p>
+</section>
+<section id="raising-and-handling-exceptions">
+<h2>3. Raising and Handling Exceptions<a class="headerlink" href="#raising-and-handling-exceptions" title="Link to this heading"></a></h2>
+<p>You can raise these exceptions directly within your views, middlewares, or utility functions. The framework’s core request handling mechanism is designed to catch <code class="docutils literal notranslate"><span class="pre">HTTPException</span></code> instances and convert them into appropriate HTTP responses.</p>
+<p><strong>Example: Raising a</strong> <code class="docutils literal notranslate"><span class="pre">BadRequest</span></code> <strong>for invalid input</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">lback.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">BadRequest</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.utils.validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">validate_json</span><span class="p">,</span> <span class="n">ValidationError</span> <span class="c1"># Assuming your validation utilities are imported</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">create_user_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Attempt to validate incoming JSON data</span>
+        <span class="n">user_data</span> <span class="o">=</span> <span class="n">validate_json</span><span class="p">(</span>
+            <span class="n">request</span><span class="p">,</span>
+            <span class="n">required_fields</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">},</span>
+            <span class="n">optional_fields</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">}</span>
+        <span class="p">)</span>
+        <span class="c1"># If validation passes, proceed with business logic</span>
+        <span class="c1"># ... create user in database ...</span>
+        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;User created successfully&quot;</span><span class="p">},</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">201</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="n">ValidationError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="c1"># If validate_json raises ValidationError, it means the data is invalid.</span>
+        <span class="c1"># ValidationError itself is a BadRequest, so you can re-raise it,</span>
+        <span class="c1"># and the framework will handle it as a 400 with the error data.</span>
+        <span class="k">raise</span> <span class="n">e</span> <span class="c1"># Or you could catch it and return a custom Response</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="c1"># Catch any other unexpected errors and raise a 500</span>
+        <span class="k">raise</span> <span class="n">ServerError</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="s2">&quot;Failed to create user due to server issue.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Example: Raising</strong> <code class="docutils literal notranslate"><span class="pre">NotFound</span></code> <strong>for missing resources</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">lback.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">NotFound</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_user_detail_view</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">user_id</span><span class="p">):</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">get_user_from_db</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span> <span class="c1"># Assume this function fetches a user</span>
+    <span class="k">if</span> <span class="n">user</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">NotFound</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;User with ID </span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s2"> not found.&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">json</span><span class="o">=</span><span class="n">user</span><span class="o">.</span><span class="n">to_dict</span><span class="p">())</span>
+</pre></div>
+</div>
+<p><strong>Framework’s Default Error Handling</strong>:</p>
+<p>By default, when an <code class="docutils literal notranslate"><span class="pre">HTTPException</span></code> is raised:</p>
+<ul class="simple">
+<li><p>The framework intercepts it.</p></li>
+<li><p>It extracts the <code class="docutils literal notranslate"><span class="pre">status_code</span></code>, <code class="docutils literal notranslate"><span class="pre">message</span></code>, and <code class="docutils literal notranslate"><span class="pre">data</span></code> (if any) from the exception.</p></li>
+<li><p>It constructs an HTTP response with the specified status code and typically a JSON body containing <code class="docutils literal notranslate"><span class="pre">{&quot;detail&quot;:</span> <span class="pre">&quot;Your</span> <span class="pre">error</span> <span class="pre">message</span> <span class="pre">here&quot;,</span> <span class="pre">&quot;data&quot;:</span> <span class="pre">{...}}</span></code>.</p></li>
+<li><p>This response then proceeds through the <code class="docutils literal notranslate"><span class="pre">process_response</span></code> middleware chain.</p></li>
+</ul>
+<p>For unhandled Python exceptions (not instances of <code class="docutils literal notranslate"><span class="pre">HTTPException</span></code>), the framework will typically convert them into a <code class="docutils literal notranslate"><span class="pre">ServerError</span></code> <strong>(500 Internal Server Error)</strong> response, logging the full traceback for debugging purposes (especially when <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> is enabled).</p>
+<p>—</p>
+<p>By leveraging these exception classes, you can provide clear, standardized error responses to clients, making your API more robust and easier to consume.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="validation_utilities.html" class="btn btn-neutral float-left" title="Validation Utilities" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Error%20Handling%20%26%20Reporting.html" class="btn btn-neutral float-right" title="Error Handling &amp; Reporting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ibrahem abo kila.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,574 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>lback.utils.shortcuts &mdash; lback 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=95f010fd" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            lback
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Configuration%20System.html">Configuration System</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/routing_system.html">Routing System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Views%20%26%20Responses.html">Views &amp; Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Templating%20System.html">Templating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Static%20Files.html">Static Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Media%20Files.html">Media Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/file-uploads.html">File Uploads in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Forms.html">Forms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Models%20%26%20Database.html">Models &amp; Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Database%20Migrations%20System.html">Database Migrations System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Authorization.html">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/sessions.html">Sessions in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Security%20Features.html">Security Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Admin%20Panel.html">Built-in Admin Panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/API%20Tools.html">API Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Signal%20System.html">Signal System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Middleware%20System.html">Middleware System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/custom_middlewares.html">Custom Middlewares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/logging_config.html">Logging Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/email-sender.html">Email Sending in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/validation_utilities.html">Validation Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/error_handling.html">Error Handling and HTTP Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Error%20Handling%20%26%20Reporting.html">Error Handling &amp; Reporting</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Deployment.html">Deployment</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/api-signals.html">Signals from BaseView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/api-signals.html#signals-from-apidocs">Signals from APIDocs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/api-signals.html#signals-from-basemodelserializer">Signals from BaseModelSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-registry-signals.html">Signals from AdminRegistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-user.html">Signals from AdminUser and Role Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-user-manager.html">Signals from AdminUserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-user-repository.html">Signals from AdminUserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html">Signals from AdminAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-jwtauth">Signals from JWTAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-oauth2auth">Signals from OAuth2Auth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-permissionrequired">Signals from PermissionRequired</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-sessionauth">Signals from SessionAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/error-handler.html">Signals from ErrorHandler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/middleware-manager.html">Signals from MiddlewareManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/migration_commands.html">Signals from MigrationCommands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/permission-repository.html">Signals from PermissionRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/role-repository.html">Signals from RoleRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/session-manager.html">Signals from SessionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/template-renderer.html">Signals from TemplateRenderer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/user-manager.html">Signals from UserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/user-model.html">Signals from User Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/user-repository.html">Signals from UserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/wsgi-application.html">Signals from WSGI Application and Server</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">Modules and Classes Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../API%20Reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../lback/lback.html">lback package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">lback</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">lback.utils.shortcuts</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for lback.utils.shortcuts</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">List</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">http</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTTPStatus</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy.orm</span><span class="w"> </span><span class="kn">import</span> <span class="n">Session</span> <span class="k">as</span> <span class="n">SQLASession</span><span class="p">,</span> <span class="n">RelationshipProperty</span><span class="p">,</span> <span class="n">Query</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">JSON</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">DateTime</span><span class="p">,</span> <span class="n">Boolean</span><span class="p">,</span> <span class="n">Text</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.core.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">Request</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.core.response</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTMLResponse</span><span class="p">,</span> <span class="n">Response</span><span class="p">,</span> <span class="n">JSONResponse</span><span class="p">,</span> <span class="n">RedirectResponse</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.core.templates</span><span class="w"> </span><span class="kn">import</span> <span class="n">TemplateRenderer</span><span class="p">,</span> <span class="n">TemplateNotFound</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.core.error_handler</span><span class="w"> </span><span class="kn">import</span> <span class="n">ErrorHandler</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.admin.registry</span><span class="w"> </span><span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.utils.static_files</span><span class="w"> </span><span class="kn">import</span> <span class="n">static</span>
+
+
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="render">
+<a class="viewcode-back" href="../../../lback/lback.utils.html#lback.utils.shortcuts.render">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">render</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span> <span class="n">template_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">status_code</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">OK</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Renders a template and returns an HTMLResponse.</span>
+
+<span class="sd">    This is a shortcut function to simplify view functions.</span>
+<span class="sd">    It retrieves the template renderer from the request context</span>
+<span class="sd">    and uses it to render the specified template with the given context.</span>
+<span class="sd">    Also injects common request-related context data into the template.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        request: The incoming Request object.</span>
+<span class="sd">        template_name: The name of the template file (e.g., &quot;admin/login.html&quot;).</span>
+<span class="sd">        context: An optional dictionary of context data to pass to the template.</span>
+<span class="sd">        status_code: The HTTP status code for the response (default is 200 OK).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        An HTMLResponse object containing the rendered template content.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        TemplateNotFound: If the specified template does not exist.</span>
+<span class="sd">        Exception: For any other errors during rendering.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">context</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">context</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">renderer</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">TemplateRenderer</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">template_renderer</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;registered_models&#39;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">get_registered_models</span><span class="p">()</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+
+    <span class="n">config</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;config&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> 
+
+    <span class="k">if</span> <span class="n">config</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Config object not found in request. Cannot add static function to context.&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Application configuration is not available.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">renderer</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;TemplateRenderer not available on request for render shortcut.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">return_500</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Template renderer not available.&quot;</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">full_context_for_rendering</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">full_context_for_rendering</span><span class="p">[</span><span class="s1">&#39;request&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span>
+        <span class="n">full_context_for_rendering</span><span class="p">[</span><span class="s1">&#39;current_user&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span>
+        <span class="n">full_context_for_rendering</span><span class="p">[</span><span class="s1">&#39;session&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span>
+        <span class="n">full_context_for_rendering</span><span class="p">[</span><span class="s1">&#39;config&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">config</span>
+        <span class="n">full_context_for_rendering</span><span class="p">[</span><span class="s1">&#39;csrf_token&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get_context</span><span class="p">(</span><span class="s1">&#39;csrf_token&#39;</span><span class="p">)</span>
+        <span class="n">full_context_for_rendering</span><span class="p">[</span><span class="s1">&#39;router&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">router</span>
+        <span class="n">full_context_for_rendering</span><span class="p">[</span><span class="s1">&#39;getattr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">getattr</span>
+        <span class="n">full_context_for_rendering</span><span class="p">[</span><span class="s1">&#39;static&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">path</span><span class="p">:</span> <span class="n">static</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
+
+
+
+        <span class="n">rendered_html</span> <span class="o">=</span> <span class="n">renderer</span><span class="o">.</span><span class="n">render_to_string</span><span class="p">(</span><span class="n">template_name</span><span class="p">,</span> <span class="o">**</span><span class="n">full_context_for_rendering</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">HTMLResponse</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="n">rendered_html</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="n">status_code</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="n">TemplateNotFound</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Template &#39;</span><span class="si">{</span><span class="n">template_name</span><span class="si">}</span><span class="s2">&#39; not found during render shortcut for </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+        <span class="n">error_handler</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ErrorHandler</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">error_handler</span>
+        <span class="k">if</span> <span class="n">error_handler</span><span class="p">:</span>
+             <span class="k">return</span> <span class="n">error_handler</span><span class="o">.</span><span class="n">handle_404</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+             <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">body</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Template &#39;</span><span class="si">{</span><span class="n">template_name</span><span class="si">}</span><span class="s2">&#39; not found.&quot;</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span> <span class="n">status_code</span><span class="o">=</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">NOT_FOUND</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">})</span>
+
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error rendering template &#39;</span><span class="si">{</span><span class="n">template_name</span><span class="si">}</span><span class="s2">&#39; for </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s2"> using render shortcut.&quot;</span><span class="p">)</span>
+        <span class="n">error_handler</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ErrorHandler</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">error_handler</span>
+        <span class="k">if</span> <span class="n">error_handler</span><span class="p">:</span>
+             <span class="k">return</span> <span class="n">error_handler</span><span class="o">.</span><span class="n">handle_exception</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+             <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">body</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;Internal Server Error: Template rendering failed.&quot;</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">INTERNAL_SERVER_ERROR</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">})</span></div>
+
+
+
+<div class="viewcode-block" id="redirect">
+<a class="viewcode-back" href="../../../lback/lback.utils.html#lback.utils.shortcuts.redirect">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">redirect</span><span class="p">(</span><span class="n">to_url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">status_code</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">FOUND</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RedirectResponse</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns a RedirectResponse.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        to_url: The URL to redirect to.</span>
+<span class="sd">        status_code: The HTTP status code for the redirect (default is 302 Found).</span>
+<span class="sd">                     Common redirect codes: 301 Moved Permanently, 302 Found, 303 See Other, 307 Temporary Redirect, 308 Permanent Redirect.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A RedirectResponse object.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">status_code</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">301</span><span class="p">,</span> <span class="mi">302</span><span class="p">,</span> <span class="mi">303</span><span class="p">,</span> <span class="mi">307</span><span class="p">,</span> <span class="mi">308</span><span class="p">):</span>
+         <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Using non-standard redirect status code: </span><span class="si">{</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Redirecting to: </span><span class="si">{</span><span class="n">to_url</span><span class="si">}</span><span class="s2"> with status </span><span class="si">{</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">RedirectResponse</span><span class="p">(</span><span class="n">to_url</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="n">status_code</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="json_response">
+<a class="viewcode-back" href="../../../lback/lback.utils.html#lback.utils.shortcuts.json_response">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">json_response</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">status_code</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">OK</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">JSONResponse</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns a JSONResponse.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        data: The Python data structure to be serialized to JSON.</span>
+<span class="sd">        status_code: The HTTP status code for the response (default is 200 OK).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A JSONResponse object.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Returning JSON response with status </span><span class="si">{</span><span class="n">status_code</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">JSONResponse</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="n">status_code</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="return_404">
+<a class="viewcode-back" href="../../../lback/lback.utils.html#lback.utils.shortcuts.return_404">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">return_404</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Not Found&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns a 404 Not Found response using the configured error handler if available.</span>
+<span class="sd">    Otherwise, returns a basic 404 text response.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        request: The incoming Request object.</span>
+<span class="sd">        message: An optional message (may or may not be used by the error handler).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A Response object representing a 404 Not Found error.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Returning 404 response for </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s2"> via shortcut.&quot;</span><span class="p">)</span>
+    <span class="n">error_handler</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ErrorHandler</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">error_handler</span>
+
+    <span class="k">if</span> <span class="n">error_handler</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">error_handler</span><span class="o">.</span><span class="n">handle_404</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;Error handler not available on request to return 404. Returning basic 404 response.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">body</span><span class="o">=</span><span class="n">message</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span> <span class="n">status_code</span><span class="o">=</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">NOT_FOUND</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">})</span></div>
+
+
+<div class="viewcode-block" id="return_403">
+<a class="viewcode-back" href="../../../lback/lback.utils.html#lback.utils.shortcuts.return_403">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">return_403</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Forbidden&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns a 403 Forbidden response using the configured error handler if available.</span>
+<span class="sd">    Otherwise, returns a basic 403 text response.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        request: The incoming Request object.</span>
+<span class="sd">        message: An optional message (may or may not be used by the error handler).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A Response object representing a 403 Forbidden error.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Returning 403 response for </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s2"> via shortcut. Message: </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">error_handler</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ErrorHandler</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">error_handler</span>
+
+    <span class="k">if</span> <span class="n">error_handler</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">error_handler</span><span class="o">.</span><span class="n">handle_403</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="n">message</span><span class="p">)</span> 
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;Error handler not available on request to return 403. Returning basic 403 response.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">body</span><span class="o">=</span><span class="n">message</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span> <span class="n">status_code</span><span class="o">=</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">FORBIDDEN</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">})</span></div>
+
+
+
+<div class="viewcode-block" id="return_500">
+<a class="viewcode-back" href="../../../lback/lback.utils.html#lback.utils.shortcuts.return_500">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">return_500</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Internal Server Error&quot;</span><span class="p">,</span> <span class="n">exception</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="ne">Exception</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns a 500 Internal Server Error response using the configured error handler if available.</span>
+<span class="sd">    Otherwise, returns a basic 500 text response.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        request: The incoming Request object.</span>
+<span class="sd">        message: An optional message (may or may not be used by the error handler).</span>
+<span class="sd">        exception: An optional exception that caused the error, for logging/debugging purposes by the error handler.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A Response object representing a 500 Internal Server Error.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Returning 500 response for </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s2"> via shortcut.&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="n">exception</span><span class="p">)</span>
+    <span class="n">error_handler</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ErrorHandler</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">error_handler</span>
+
+    <span class="k">if</span> <span class="n">error_handler</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">error_handler</span><span class="o">.</span><span class="n">handle_exception</span><span class="p">(</span><span class="n">exception</span> <span class="ow">or</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="n">message</span><span class="p">),</span> <span class="n">request</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;Error handler not available on request to return 500. Returning basic 500 response.&quot;</span><span class="p">)</span>
+        <span class="n">response_body</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;Internal Server Error: An unexpected error occurred.&quot;</span>
+        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">body</span><span class="o">=</span><span class="n">response_body</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">INTERNAL_SERVER_ERROR</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">})</span></div>
+
+
+
+<div class="viewcode-block" id="get_model_form_data">
+<a class="viewcode-back" href="../../../lback/lback.utils.html#lback.utils.shortcuts.get_model_form_data">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_model_form_data</span><span class="p">(</span><span class="n">db_session</span><span class="p">:</span> <span class="n">SQLASession</span><span class="p">,</span> <span class="n">mapper</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">obj</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Inspects a SQLAlchemy model&#39;s mapper to determine form fields,</span>
+<span class="sd">    relationship fields with choices, and file upload fields.</span>
+<span class="sd">    Includes support for Many-to-One, One-to-One, and Many-to-Many relationships.</span>
+<span class="sd">    Optionally takes an object to populate current values for change forms.</span>
+<span class="sd">    Returns a tuple: (form_fields_data, relationship_fields_data, file_upload_fields).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">form_fields_data</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">relationship_fields_data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">file_upload_fields</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">mapper</span><span class="o">.</span><span class="n">attrs</span><span class="p">:</span>
+        <span class="n">field_name</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">key</span>
+
+        <span class="n">excluded_fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;created_at&#39;</span><span class="p">,</span> <span class="s1">&#39;updated_at&#39;</span><span class="p">,</span> <span class="s1">&#39;published_at&#39;</span><span class="p">,</span> <span class="s1">&#39;password&#39;</span><span class="p">,</span> <span class="s1">&#39;is_superuser&#39;</span><span class="p">,</span> <span class="s1">&#39;role_id&#39;</span><span class="p">,</span> <span class="s1">&#39;csrfmiddlewaretoken&#39;</span><span class="p">,</span> <span class="s1">&#39;slug&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">field_name</span> <span class="ow">in</span> <span class="n">excluded_fields</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="n">RelationshipProperty</span><span class="p">):</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;_get_model_form_data: Identified Relationship field: </span><span class="si">{</span><span class="n">field_name</span><span class="si">}</span><span class="s2"> with direction </span><span class="si">{</span><span class="n">attr</span><span class="o">.</span><span class="n">direction</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">related_model</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">mapper</span><span class="o">.</span><span class="n">class_</span> 
+            <span class="n">relation_type</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">direction</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> 
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">related_objects</span> <span class="o">=</span> <span class="n">db_session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">related_model</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;_get_model_form_data: Fetched </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">related_objects</span><span class="p">)</span><span class="si">}</span><span class="s2"> related objects for &#39;</span><span class="si">{</span><span class="n">field_name</span><span class="si">}</span><span class="s2">&#39; (</span><span class="si">{</span><span class="n">related_model</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">).&quot;</span><span class="p">)</span>
+                <span class="n">choices</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">related_obj</span> <span class="ow">in</span> <span class="n">related_objects</span><span class="p">:</span>
+                     <span class="n">choice_id</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">related_obj</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                     <span class="n">choices</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                         <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">choice_id</span><span class="p">,</span>
+                         <span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">related_obj</span><span class="p">),</span>
+                     <span class="p">})</span>
+                <span class="k">if</span> <span class="n">relation_type</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;manytoone&#39;</span><span class="p">,</span> <span class="s1">&#39;onetoone&#39;</span><span class="p">):</span>
+                    <span class="n">fk_column_name</span> <span class="o">=</span> <span class="kc">None</span>
+                    <span class="n">current_related_obj_id</span> <span class="o">=</span> <span class="kc">None</span>
+                    <span class="k">if</span> <span class="n">attr</span><span class="o">.</span><span class="n">local_remote_pairs</span><span class="p">:</span>
+                        <span class="n">fk_column</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">local_remote_pairs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+                        <span class="n">fk_column_name</span> <span class="o">=</span> <span class="n">fk_column</span><span class="o">.</span><span class="n">name</span>
+                        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;_get_model_form_data: Identified Foreign Key column name for &#39;</span><span class="si">{</span><span class="n">field_name</span><span class="si">}</span><span class="s2">&#39;: </span><span class="si">{</span><span class="n">fk_column_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="n">obj</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                             <span class="n">current_related_obj_id</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">fk_column_name</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                             <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;_get_model_form_data: Current related object ID for &#39;</span><span class="si">{</span><span class="n">field_name</span><span class="si">}</span><span class="s2">&#39; (</span><span class="si">{</span><span class="n">fk_column_name</span><span class="si">}</span><span class="s2">): </span><span class="si">{</span><span class="n">current_related_obj_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                        <span class="k">for</span> <span class="n">choice</span> <span class="ow">in</span> <span class="n">choices</span><span class="p">:</span>
+                             <span class="n">choice</span><span class="p">[</span><span class="s1">&#39;selected&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">choice</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">current_related_obj_id</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">fk_column_name</span><span class="p">:</span>
+                         <span class="n">relationship_fields_data</span><span class="p">[</span><span class="n">fk_column_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                             <span class="s1">&#39;field_name&#39;</span><span class="p">:</span> <span class="n">fk_column_name</span><span class="p">,</span>
+                             <span class="s1">&#39;relation_name&#39;</span><span class="p">:</span> <span class="n">field_name</span><span class="p">,</span>
+                             <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">relation_type</span><span class="p">,</span>
+                             <span class="s1">&#39;related_model_name&#39;</span><span class="p">:</span> <span class="n">related_model</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+                             <span class="s1">&#39;choices&#39;</span><span class="p">:</span> <span class="n">choices</span><span class="p">,</span>
+                             <span class="s1">&#39;nullable&#39;</span><span class="p">:</span> <span class="n">fk_column</span><span class="o">.</span><span class="n">nullable</span> 
+                         <span class="p">}</span>
+                         <span class="n">form_fields_data</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">fk_column_name</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">relation_type</span><span class="p">,</span> <span class="s1">&#39;nullable&#39;</span><span class="p">:</span> <span class="n">fk_column</span><span class="o">.</span><span class="n">nullable</span><span class="p">})</span>
+                         <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;_get_model_form_data: Added </span><span class="si">{</span><span class="n">relation_type</span><span class="si">}</span><span class="s2"> field data for </span><span class="si">{</span><span class="n">fk_column_name</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+                    <span class="k">else</span><span class="p">:</span>
+                         <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;_get_model_form_data: Could not determine Foreign Key column name for </span><span class="si">{</span><span class="n">relation_type</span><span class="si">}</span><span class="s2"> relationship &#39;</span><span class="si">{</span><span class="n">field_name</span><span class="si">}</span><span class="s2">&#39; on model </span><span class="si">{</span><span class="n">mapper</span><span class="o">.</span><span class="n">class_</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">. Skipping.&quot;</span><span class="p">)</span>
+
+                <span class="k">elif</span> <span class="n">relation_type</span> <span class="o">==</span> <span class="s1">&#39;manytomany&#39;</span><span class="p">:</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;_get_model_form_data: Identified Many-to-Many relationship field: </span><span class="si">{</span><span class="n">field_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="n">current_related_obj_ids</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+                    <span class="k">if</span> <span class="n">obj</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                         <span class="n">currently_linked_objects</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">field_name</span><span class="p">,</span> <span class="p">[])</span>
+                         <span class="n">current_related_obj_ids</span> <span class="o">=</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">linked_obj</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="k">for</span> <span class="n">linked_obj</span> <span class="ow">in</span> <span class="n">currently_linked_objects</span> <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">linked_obj</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">]</span>
+                         <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;_get_model_form_data: Current related object IDs for &#39;</span><span class="si">{</span><span class="n">field_name</span><span class="si">}</span><span class="s2">&#39;: </span><span class="si">{</span><span class="n">current_related_obj_ids</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">choice</span> <span class="ow">in</span> <span class="n">choices</span><span class="p">:</span>
+                         <span class="n">choice</span><span class="p">[</span><span class="s1">&#39;selected&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">choice</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">current_related_obj_ids</span><span class="p">)</span>
+                    <span class="n">relationship_fields_data</span><span class="p">[</span><span class="n">field_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                        <span class="s1">&#39;field_name&#39;</span><span class="p">:</span> <span class="n">field_name</span><span class="p">,</span>
+                        <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">relation_type</span><span class="p">,</span>
+                        <span class="s1">&#39;related_model_name&#39;</span><span class="p">:</span> <span class="n">related_model</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+                        <span class="s1">&#39;choices&#39;</span><span class="p">:</span> <span class="n">choices</span><span class="p">,</span>
+                        <span class="s1">&#39;nullable&#39;</span><span class="p">:</span> <span class="kc">True</span> 
+                    <span class="p">}</span>
+                    <span class="n">form_fields_data</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">field_name</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">relation_type</span><span class="p">,</span> <span class="s1">&#39;nullable&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">})</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;_get_model_form_data: Added manytomany field data for </span><span class="si">{</span><span class="n">field_name</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">related_query_e</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;_get_model_form_data: Error querying related objects for </span><span class="si">{</span><span class="n">relation_type</span><span class="si">}</span><span class="s2"> relationship &#39;</span><span class="si">{</span><span class="n">field_name</span><span class="si">}</span><span class="s2">&#39; on model </span><span class="si">{</span><span class="n">mapper</span><span class="o">.</span><span class="n">class_</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">related_query_e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="s1">&#39;columns&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">attr</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="n">column</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">column_name</span> <span class="o">=</span> <span class="n">column</span><span class="o">.</span><span class="n">name</span>
+            <span class="n">column_value</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">column_name</span><span class="p">)</span> <span class="k">if</span> <span class="n">obj</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span>
+
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">column</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="p">(</span><span class="n">String</span><span class="p">,</span> <span class="n">Text</span><span class="p">))</span> <span class="ow">and</span> <span class="p">(</span><span class="n">column_name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;_file&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">column_name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;_path&#39;</span><span class="p">)):</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;_get_model_form_data: Identified file upload field: </span><span class="si">{</span><span class="n">column_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">file_upload_fields</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">column_name</span><span class="p">)</span>
+                <span class="n">form_fields_data</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">column_name</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;file_upload&#39;</span><span class="p">,</span> <span class="s1">&#39;current_value&#39;</span><span class="p">:</span> <span class="n">column_value</span><span class="p">,</span> <span class="s1">&#39;nullable&#39;</span><span class="p">:</span> <span class="n">column</span><span class="o">.</span><span class="n">nullable</span><span class="p">})</span>
+
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">column</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="n">JSON</span><span class="p">):</span>
+                 <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;_get_model_form_data: Identified JSON field: </span><span class="si">{</span><span class="n">column_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                 <span class="n">json_value_str</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">column_value</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="k">if</span> <span class="n">column_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
+                 <span class="n">form_fields_data</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">column_name</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;json&#39;</span><span class="p">,</span> <span class="s1">&#39;current_value&#39;</span><span class="p">:</span> <span class="n">json_value_str</span><span class="p">,</span> <span class="s1">&#39;nullable&#39;</span><span class="p">:</span> <span class="n">column</span><span class="o">.</span><span class="n">nullable</span><span class="p">})</span>
+                 
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">column</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="n">Boolean</span><span class="p">):</span>
+                 <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;_get_model_form_data: Identified Boolean field: </span><span class="si">{</span><span class="n">column_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                 <span class="n">form_fields_data</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">column_name</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;boolean&#39;</span><span class="p">,</span> <span class="s1">&#39;current_value&#39;</span><span class="p">:</span> <span class="n">column_value</span><span class="p">,</span> <span class="s1">&#39;nullable&#39;</span><span class="p">:</span> <span class="n">column</span><span class="o">.</span><span class="n">nullable</span><span class="p">})</span>
+
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">column</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="n">DateTime</span><span class="p">):</span>
+                 <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;_get_model_form_data: Identified DateTime field: </span><span class="si">{</span><span class="n">column_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                 <span class="n">datetime_value_str</span> <span class="o">=</span> <span class="n">column_value</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">T%H:%M&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">column_value</span><span class="p">,</span> <span class="n">datetime</span><span class="p">)</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
+                 <span class="n">form_fields_data</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">column_name</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;datetime&#39;</span><span class="p">,</span> <span class="s1">&#39;current_value&#39;</span><span class="p">:</span> <span class="n">datetime_value_str</span><span class="p">,</span> <span class="s1">&#39;nullable&#39;</span><span class="p">:</span> <span class="n">column</span><span class="o">.</span><span class="n">nullable</span><span class="p">})</span>
+
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">column</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="n">Integer</span><span class="p">):</span>
+                 <span class="n">is_fk_for_many_to_one</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span>
+                     <span class="nb">isinstance</span><span class="p">(</span><span class="n">rel</span><span class="p">,</span> <span class="n">RelationshipProperty</span><span class="p">)</span> <span class="ow">and</span>
+                     <span class="n">rel</span><span class="o">.</span><span class="n">direction</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;MANYTOONE&#39;</span> <span class="ow">and</span>
+                     <span class="nb">any</span><span class="p">(</span><span class="n">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">column_name</span> <span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">rel</span><span class="o">.</span><span class="n">local_remote_pairs</span><span class="p">)</span>
+                     <span class="k">for</span> <span class="n">rel</span> <span class="ow">in</span> <span class="n">mapper</span><span class="o">.</span><span class="n">relationships</span>
+                 <span class="p">)</span>
+                 <span class="k">if</span> <span class="ow">not</span> <span class="n">is_fk_for_many_to_one</span><span class="p">:</span>
+                      <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;_get_model_form_data: Identified Integer field: </span><span class="si">{</span><span class="n">column_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                      <span class="n">form_fields_data</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">column_name</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;integer&#39;</span><span class="p">,</span> <span class="s1">&#39;current_value&#39;</span><span class="p">:</span> <span class="n">column_value</span><span class="p">,</span> <span class="s1">&#39;nullable&#39;</span><span class="p">:</span> <span class="n">column</span><span class="o">.</span><span class="n">nullable</span><span class="p">})</span>
+                 <span class="k">else</span><span class="p">:</span>
+                      <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;_get_model_form_data: Skipping Integer field </span><span class="si">{</span><span class="n">column_name</span><span class="si">}</span><span class="s2"> as it&#39;s a foreign key for a Many-to-One relationship.&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">column</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="n">String</span><span class="p">):</span>
+                 <span class="k">if</span> <span class="n">column</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">length</span><span class="p">:</span>
+                      <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;_get_model_form_data: Identified String field (CharField-like): </span><span class="si">{</span><span class="n">column_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                      <span class="n">form_fields_data</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">column_name</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span> <span class="s1">&#39;length&#39;</span><span class="p">:</span> <span class="n">column</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">length</span><span class="p">,</span> <span class="s1">&#39;current_value&#39;</span><span class="p">:</span> <span class="n">column_value</span><span class="p">,</span> <span class="s1">&#39;nullable&#39;</span><span class="p">:</span> <span class="n">column</span><span class="o">.</span><span class="n">nullable</span><span class="p">})</span>
+                 <span class="k">else</span><span class="p">:</span> 
+                      <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;_get_model_form_data: Identified String field (TextField-like): </span><span class="si">{</span><span class="n">column_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                      <span class="n">form_fields_data</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">column_name</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="s1">&#39;current_value&#39;</span><span class="p">:</span> <span class="n">column_value</span><span class="p">,</span> <span class="s1">&#39;nullable&#39;</span><span class="p">:</span> <span class="n">column</span><span class="o">.</span><span class="n">nullable</span><span class="p">})</span>
+            <span class="k">else</span><span class="p">:</span>
+                 <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;_get_model_form_data: Identified other field type (</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">column</span><span class="o">.</span><span class="n">type</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">): </span><span class="si">{</span><span class="n">column_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                 <span class="n">form_fields_data</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">column_name</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;other&#39;</span><span class="p">,</span> <span class="s1">&#39;sqlalchemy_type&#39;</span><span class="p">:</span> <span class="nb">type</span><span class="p">(</span><span class="n">column</span><span class="o">.</span><span class="n">type</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="s1">&#39;current_value&#39;</span><span class="p">:</span> <span class="n">column_value</span><span class="p">,</span> <span class="s1">&#39;nullable&#39;</span><span class="p">:</span> <span class="n">column</span><span class="o">.</span><span class="n">nullable</span><span class="p">})</span>
+    <span class="n">form_fields_data</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">form_fields_data</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">form_fields_data</span><span class="p">,</span> <span class="n">relationship_fields_data</span><span class="p">,</span> <span class="n">file_upload_fields</span></div>
+
+
+
+<div class="viewcode-block" id="paginate_query">
+<a class="viewcode-back" href="../../../lback/lback.utils.html#lback.utils.shortcuts.paginate_query">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">paginate_query</span><span class="p">(</span><span class="n">query</span><span class="p">:</span> <span class="n">Query</span><span class="p">,</span> <span class="n">page</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">per_page</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Paginates a SQLAlchemy query.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        query: The SQLAlchemy query object.</span>
+<span class="sd">        page: The current page number (1-based index).</span>
+<span class="sd">        per_page: The number of items per page.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A dictionary containing pagination data:</span>
+<span class="sd">        - objects: List of objects for the current page.</span>
+<span class="sd">        - total_objects: Total number of objects across all pages.</span>
+<span class="sd">        - total_pages: Total number of pages.</span>
+<span class="sd">        - current_page: The current page number.</span>
+<span class="sd">        - per_page: Items per page.</span>
+<span class="sd">        - has_prev: Boolean, whether there is a previous page.</span>
+<span class="sd">        - has_next: Boolean, whether there is a next page.</span>
+<span class="sd">        - prev_num: Previous page number (None if no previous page).</span>
+<span class="sd">        - next_num: Next page number (None if no next page).</span>
+<span class="sd">        - iter_pages: Generator for page numbers to display in pagination control.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">page</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">page</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">per_page</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">per_page</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="n">total_objects</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+    <span class="n">total_pages</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">total_objects</span> <span class="o">/</span> <span class="n">per_page</span><span class="p">)</span> <span class="k">if</span> <span class="n">total_objects</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">page</span> <span class="o">&gt;</span> <span class="n">total_pages</span><span class="p">:</span>
+        <span class="n">page</span> <span class="o">=</span> <span class="n">total_pages</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="p">(</span><span class="n">page</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">per_page</span>
+    <span class="n">paginated_objects</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="n">per_page</span><span class="p">)</span><span class="o">.</span><span class="n">offset</span><span class="p">(</span><span class="n">offset</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+    <span class="n">has_prev</span> <span class="o">=</span> <span class="n">page</span> <span class="o">&gt;</span> <span class="mi">1</span>
+    <span class="n">has_next</span> <span class="o">=</span> <span class="n">page</span> <span class="o">&lt;</span> <span class="n">total_pages</span>
+    <span class="n">prev_num</span> <span class="o">=</span> <span class="n">page</span> <span class="o">-</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">has_prev</span> <span class="k">else</span> <span class="kc">None</span>
+    <span class="n">next_num</span> <span class="o">=</span> <span class="n">page</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">has_next</span> <span class="k">else</span> <span class="kc">None</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">iter_pages</span><span class="p">(</span><span class="n">left_edge</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">left_current</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">right_current</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">right_edge</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+        <span class="n">last</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">total_pages</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">num</span> <span class="o">&lt;=</span> <span class="n">left_edge</span> <span class="ow">or</span> \
+               <span class="p">(</span><span class="n">page</span> <span class="o">-</span> <span class="n">left_current</span> <span class="o">&lt;=</span> <span class="n">num</span> <span class="o">&lt;=</span> <span class="n">page</span> <span class="o">+</span> <span class="n">right_current</span><span class="p">)</span> <span class="ow">or</span> \
+               <span class="n">num</span> <span class="o">&gt;</span> <span class="n">total_pages</span> <span class="o">-</span> <span class="n">right_edge</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">last</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">!=</span> <span class="n">num</span><span class="p">:</span>
+                    <span class="k">yield</span> <span class="kc">None</span>
+                <span class="k">yield</span> <span class="n">num</span>
+                <span class="n">last</span> <span class="o">=</span> <span class="n">num</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;objects&#39;</span><span class="p">:</span> <span class="n">paginated_objects</span><span class="p">,</span>
+        <span class="s1">&#39;total_objects&#39;</span><span class="p">:</span> <span class="n">total_objects</span><span class="p">,</span>
+        <span class="s1">&#39;total_pages&#39;</span><span class="p">:</span> <span class="n">total_pages</span><span class="p">,</span>
+        <span class="s1">&#39;current_page&#39;</span><span class="p">:</span> <span class="n">page</span><span class="p">,</span>
+        <span class="s1">&#39;per_page&#39;</span><span class="p">:</span> <span class="n">per_page</span><span class="p">,</span>
+        <span class="s1">&#39;has_prev&#39;</span><span class="p">:</span> <span class="n">has_prev</span><span class="p">,</span>
+        <span class="s1">&#39;has_next&#39;</span><span class="p">:</span> <span class="n">has_next</span><span class="p">,</span>
+        <span class="s1">&#39;prev_num&#39;</span><span class="p">:</span> <span class="n">prev_num</span><span class="p">,</span>
+        <span class="s1">&#39;next_num&#39;</span><span class="p">:</span> <span class="n">next_num</span><span class="p">,</span>
+        <span class="s1">&#39;iter_pages&#39;</span><span class="p">:</span> <span class="n">iter_pages</span><span class="p">()</span>
+    <span class="p">}</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ibrahem abo kila.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

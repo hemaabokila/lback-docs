@@ -1,0 +1,322 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>lback.utils.file_handlers &mdash; lback 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=95f010fd" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            lback
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Configuration%20System.html">Configuration System</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/routing_system.html">Routing System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Views%20%26%20Responses.html">Views &amp; Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Templating%20System.html">Templating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Static%20Files.html">Static Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Media%20Files.html">Media Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/file-uploads.html">File Uploads in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Forms.html">Forms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Models%20%26%20Database.html">Models &amp; Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Database%20Migrations%20System.html">Database Migrations System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Authorization.html">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/sessions.html">Sessions in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Security%20Features.html">Security Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Admin%20Panel.html">Built-in Admin Panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/API%20Tools.html">API Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Signal%20System.html">Signal System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Middleware%20System.html">Middleware System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/custom_middlewares.html">Custom Middlewares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/logging_config.html">Logging Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/email-sender.html">Email Sending in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/validation_utilities.html">Validation Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/error_handling.html">Error Handling and HTTP Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Error%20Handling%20%26%20Reporting.html">Error Handling &amp; Reporting</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Deployment.html">Deployment</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/api-signals.html">Signals from BaseView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/api-signals.html#signals-from-apidocs">Signals from APIDocs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/api-signals.html#signals-from-basemodelserializer">Signals from BaseModelSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-registry-signals.html">Signals from AdminRegistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-user.html">Signals from AdminUser and Role Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-user-manager.html">Signals from AdminUserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-user-repository.html">Signals from AdminUserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html">Signals from AdminAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-jwtauth">Signals from JWTAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-oauth2auth">Signals from OAuth2Auth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-permissionrequired">Signals from PermissionRequired</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-sessionauth">Signals from SessionAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/error-handler.html">Signals from ErrorHandler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/middleware-manager.html">Signals from MiddlewareManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/migration_commands.html">Signals from MigrationCommands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/permission-repository.html">Signals from PermissionRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/role-repository.html">Signals from RoleRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/session-manager.html">Signals from SessionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/template-renderer.html">Signals from TemplateRenderer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/user-manager.html">Signals from UserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/user-model.html">Signals from User Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/user-repository.html">Signals from UserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/wsgi-application.html">Signals from WSGI Application and Server</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">Modules and Classes Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../API%20Reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../lback/lback.html">lback package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">lback</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">lback.utils.file_handlers</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for lback.utils.file_handlers</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">uuid</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">List</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span> 
+<span class="kn">import</span><span class="w"> </span><span class="nn">magic</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.core.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">UploadedFile</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.core.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">Config</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<div class="viewcode-block" id="validate_uploaded_file">
+<a class="viewcode-back" href="../../../lback/lback.utils.html#lback.utils.file_handlers.validate_uploaded_file">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">validate_uploaded_file</span><span class="p">(</span><span class="n">uploaded_file</span><span class="p">:</span> <span class="n">UploadedFile</span><span class="p">,</span> <span class="n">allowed_types</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">max_size_mb</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Validates an uploaded file based on allowed types and maximum size.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        uploaded_file: The UploadedFile object.</span>
+<span class="sd">        allowed_types: A list of allowed MIME types (e.g., [&#39;image/jpeg&#39;, &#39;image/png&#39;]).</span>
+<span class="sd">                       If None, all types are allowed.</span>
+<span class="sd">        max_size_mb: Maximum allowed file size in megabytes. If None, no size limit.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        None if validation succeeds, otherwise a string with an error message.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">uploaded_file</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">uploaded_file</span><span class="o">.</span><span class="n">file</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;No file uploaded.&quot;</span>
+
+    <span class="k">if</span> <span class="n">max_size_mb</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">max_size_bytes</span> <span class="o">=</span> <span class="n">max_size_mb</span> <span class="o">*</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span>
+        <span class="k">if</span> <span class="n">uploaded_file</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="n">max_size_bytes</span><span class="p">:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;File size exceeds the maximum allowed size of </span><span class="si">{</span><span class="n">max_size_mb</span><span class="si">}</span><span class="s2"> MB.&quot;</span>
+
+    <span class="k">if</span> <span class="n">allowed_types</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">uploaded_file</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">mime_type</span> <span class="o">=</span> <span class="n">magic</span><span class="o">.</span><span class="n">from_buffer</span><span class="p">(</span><span class="n">uploaded_file</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1024</span><span class="p">),</span> <span class="n">mime</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">uploaded_file</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;validate_uploaded_file: Detected MIME type for &#39;</span><span class="si">{</span><span class="n">uploaded_file</span><span class="o">.</span><span class="n">filename</span><span class="si">}</span><span class="s2">&#39;: </span><span class="si">{</span><span class="n">mime_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">mime_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">allowed_types</span><span class="p">:</span>
+                <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;File type &#39;</span><span class="si">{</span><span class="n">mime_type</span><span class="si">}</span><span class="s2">&#39; is not allowed. Allowed types are: </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">allowed_types</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;validate_uploaded_file: Error detecting MIME type for &#39;</span><span class="si">{</span><span class="n">uploaded_file</span><span class="o">.</span><span class="n">filename</span><span class="si">}</span><span class="s2">&#39;: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Could not determine file type for validation.&quot;</span>
+
+    <span class="k">return</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="save_uploaded_file">
+<a class="viewcode-back" href="../../../lback/lback.utils.html#lback.utils.file_handlers.save_uploaded_file">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">save_uploaded_file</span><span class="p">(</span><span class="n">uploaded_file</span><span class="p">:</span> <span class="n">UploadedFile</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Config</span><span class="p">,</span> <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">allowed_types</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">max_size_mb</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Saves an uploaded file to the server&#39;s file system.</span>
+<span class="sd">    Determines save path based on config and model name.</span>
+<span class="sd">    Returns the relative path to the saved file, or None on failure.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">uploaded_file</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">uploaded_file</span><span class="o">.</span><span class="n">file</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;save_uploaded_file: No file or file stream provided.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    
+    <span class="n">validation_error</span> <span class="o">=</span> <span class="n">validate_uploaded_file</span><span class="p">(</span><span class="n">uploaded_file</span><span class="p">,</span> <span class="n">allowed_types</span><span class="p">,</span> <span class="n">max_size_mb</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">validation_error</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;save_uploaded_file: File validation failed for &#39;</span><span class="si">{</span><span class="n">uploaded_file</span><span class="o">.</span><span class="n">filename</span><span class="si">}</span><span class="s2">&#39;: </span><span class="si">{</span><span class="n">validation_error</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">uploaded_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="n">upload_folder_config_value</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="s1">&#39;UPLOAD_FOLDER&#39;</span><span class="p">,</span> <span class="s1">&#39;uploads&#39;</span><span class="p">)</span>
+    <span class="n">project_root</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="s1">&#39;PROJECT_ROOT&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span> 
+    <span class="n">full_upload_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">project_root</span><span class="p">,</span> <span class="n">upload_folder_config_value</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">full_upload_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;save_uploaded_file: Base upload directory is </span><span class="si">{</span><span class="n">full_upload_dir</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;save_uploaded_file: Failed to create base upload directory </span><span class="si">{</span><span class="n">full_upload_dir</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">uploaded_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span> 
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="n">sub_folder</span> <span class="o">=</span> <span class="n">model_name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+    <span class="n">date_sub_folder</span> <span class="o">=</span> <span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y/%m/</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+    <span class="n">save_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">full_upload_dir</span><span class="p">,</span> <span class="n">sub_folder</span><span class="p">,</span> <span class="n">date_sub_folder</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">save_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;save_uploaded_file: Save directory is </span><span class="si">{</span><span class="n">save_dir</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;save_uploaded_file: Failed to create save directory </span><span class="si">{</span><span class="n">save_dir</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">uploaded_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span> 
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="n">file_extension</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">uploaded_file</span><span class="o">.</span><span class="n">filename</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="n">unique_filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()</span><span class="si">}{</span><span class="n">file_extension</span><span class="si">}</span><span class="s2">&quot;</span>
+    
+    <span class="n">full_save_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">save_dir</span><span class="p">,</span> <span class="n">unique_filename</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;save_uploaded_file: Full save path will be </span><span class="si">{</span><span class="n">full_save_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">uploaded_file</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">full_save_path</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">uploaded_file</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+        
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;save_uploaded_file: Successfully saved file to </span><span class="si">{</span><span class="n">full_save_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="n">relative_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">full_save_path</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">full_upload_dir</span><span class="p">)</span>
+        <span class="n">relative_path</span> <span class="o">=</span> <span class="n">relative_path</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">)</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;save_uploaded_file: Relative path to store in DB: </span><span class="si">{</span><span class="n">relative_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">relative_path</span>
+
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;save_uploaded_file: Error saving file </span><span class="si">{</span><span class="n">uploaded_file</span><span class="o">.</span><span class="n">filename</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">uploaded_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="delete_saved_file">
+<a class="viewcode-back" href="../../../lback/lback.utils.html#lback.utils.file_handlers.delete_saved_file">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">delete_saved_file</span><span class="p">(</span><span class="n">relative_file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Config</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Deletes a saved file from the server&#39;s file system based on its relative path.</span>
+<span class="sd">    Returns True if successful, False otherwise.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">relative_file_path</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;delete_saved_file: No relative file path provided.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="n">upload_folder</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="s1">&#39;UPLOAD_FOLDER&#39;</span><span class="p">,</span> <span class="s1">&#39;uploads&#39;</span><span class="p">)</span>
+    <span class="n">project_root</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="s1">&#39;PROJECT_ROOT&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
+    
+    <span class="n">full_upload_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">project_root</span><span class="p">,</span> <span class="n">upload_folder</span><span class="p">)</span> 
+    
+    <span class="n">full_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">full_upload_dir</span><span class="p">,</span> <span class="n">relative_file_path</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">full_file_path</span><span class="p">)</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">full_upload_dir</span><span class="p">)):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;delete_saved_file: Attempted directory traversal detected for path: </span><span class="si">{</span><span class="n">relative_file_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">False</span>
+        
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">full_file_path</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;delete_saved_file: File not found at path: </span><span class="si">{</span><span class="n">full_file_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">False</span>
+        
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">full_file_path</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;delete_saved_file: Successfully deleted file at </span><span class="si">{</span><span class="n">full_file_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;delete_saved_file: Error deleting file at </span><span class="si">{</span><span class="n">full_file_path</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">False</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ibrahem abo kila.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

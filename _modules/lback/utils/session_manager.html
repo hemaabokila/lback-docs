@@ -1,0 +1,703 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>lback.utils.session_manager &mdash; lback 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=95f010fd" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            lback
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Configuration%20System.html">Configuration System</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/routing_system.html">Routing System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Views%20%26%20Responses.html">Views &amp; Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Templating%20System.html">Templating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Static%20Files.html">Static Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Media%20Files.html">Media Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/file-uploads.html">File Uploads in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Forms.html">Forms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Models%20%26%20Database.html">Models &amp; Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Database%20Migrations%20System.html">Database Migrations System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Authorization.html">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/sessions.html">Sessions in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Security%20Features.html">Security Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Admin%20Panel.html">Built-in Admin Panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/API%20Tools.html">API Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Signal%20System.html">Signal System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Middleware%20System.html">Middleware System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/custom_middlewares.html">Custom Middlewares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/logging_config.html">Logging Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/email-sender.html">Email Sending in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/validation_utilities.html">Validation Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/error_handling.html">Error Handling and HTTP Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Error%20Handling%20%26%20Reporting.html">Error Handling &amp; Reporting</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Deployment.html">Deployment</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/api-signals.html">Signals from BaseView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/api-signals.html#signals-from-apidocs">Signals from APIDocs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/api-signals.html#signals-from-basemodelserializer">Signals from BaseModelSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-registry-signals.html">Signals from AdminRegistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-user.html">Signals from AdminUser and Role Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-user-manager.html">Signals from AdminUserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-user-repository.html">Signals from AdminUserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html">Signals from AdminAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-jwtauth">Signals from JWTAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-oauth2auth">Signals from OAuth2Auth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-permissionrequired">Signals from PermissionRequired</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-sessionauth">Signals from SessionAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/error-handler.html">Signals from ErrorHandler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/middleware-manager.html">Signals from MiddlewareManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/migration_commands.html">Signals from MigrationCommands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/permission-repository.html">Signals from PermissionRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/role-repository.html">Signals from RoleRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/session-manager.html">Signals from SessionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/template-renderer.html">Signals from TemplateRenderer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/user-manager.html">Signals from UserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/user-model.html">Signals from User Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/user-repository.html">Signals from UserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/wsgi-application.html">Signals from WSGI Application and Server</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">Modules and Classes Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../API%20Reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../lback/lback.html">lback package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">lback</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">lback.utils.session_manager</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for lback.utils.session_manager</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">secrets</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Dict</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy.orm</span><span class="w"> </span><span class="kn">import</span> <span class="n">Session</span> <span class="k">as</span> <span class="n">DBSession</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy.exc</span><span class="w"> </span><span class="kn">import</span> <span class="n">SQLAlchemyError</span>
+
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.core.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">Request</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.core.signals</span><span class="w"> </span><span class="kn">import</span> <span class="n">dispatcher</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.models.session</span><span class="w"> </span><span class="kn">import</span> <span class="n">Session</span> <span class="k">as</span> <span class="n">DBSessionModel</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="n">SessionDataType</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
+
+<div class="viewcode-block" id="SessionManager">
+<a class="viewcode-back" href="../../../lback/lback.utils.html#lback.utils.session_manager.SessionManager">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">SessionManager</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Manages server-side sessions using a persistent database store.</span>
+<span class="sd">    Receives the request-scoped database session per method call.</span>
+<span class="sd">    Integrates SignalDispatcher to emit events related to session lifecycle and operations.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="SessionManager.__init__">
+<a class="viewcode-back" href="../../../lback/lback.utils.html#lback.utils.session_manager.SessionManager.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeout_minutes</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">30</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes the SessionManager.</span>
+<span class="sd">        Emits &#39;session_manager_initialized&#39; signal.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            timeout_minutes: The duration in minutes after which a session expires</span>
+<span class="sd">                             if not renewed. Defaults to 30 minutes.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">timeout_minutes</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">or</span> <span class="n">timeout_minutes</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid timeout_minutes value: </span><span class="si">{</span><span class="n">timeout_minutes</span><span class="si">}</span><span class="s2">. Must be a positive integer. Using default 30.&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">session_timeout</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">session_timeout</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="n">timeout_minutes</span><span class="p">)</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SessionManager initialized with timeout: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">session_timeout</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">dispatcher</span><span class="p">:</span>
+            <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;session_manager_initialized&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">session_timeout</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Dispatcher is None. Cannot send &#39;session_manager_initialized&#39; signal.&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SessionManager.create_session">
+<a class="viewcode-back" href="../../../lback/lback.utils.html#lback.utils.session_manager.SessionManager.create_session">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">create_session</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">db_session</span><span class="p">:</span> <span class="n">DBSession</span><span class="p">,</span> <span class="n">user_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a new session record in the database and returns its ID.</span>
+
+<span class="sd">        This method generates a unique session ID, sets its creation and expiration</span>
+<span class="sd">        timestamps, and initializes its data payload as an empty JSON string.</span>
+<span class="sd">        The session is flushed to the database to ensure the ID is available immediately.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            db_session: The SQLAlchemy Session for database operations.</span>
+<span class="sd">            user_id: An optional user ID to associate with the session upon creation.</span>
+<span class="sd">                     This value will be stored directly in the `user_id` column of the Session model.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The newly generated unique session ID (string) if successful, otherwise None.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SessionManager: Creating new session for user_id: </span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">new_session</span> <span class="o">=</span> <span class="n">DBSessionModel</span><span class="p">(</span>
+                <span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span><span class="p">,</span>
+                <span class="n">expires_at</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">session_timeout</span><span class="p">,</span>
+                <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({})</span>
+            <span class="p">)</span>
+            <span class="n">db_session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">new_session</span><span class="p">)</span>
+            <span class="n">db_session</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SessionManager: New session object added, ID: </span><span class="si">{</span><span class="n">new_session</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">new_session</span><span class="o">.</span><span class="n">id</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="kn">import</span><span class="w"> </span><span class="nn">traceback</span>
+            <span class="n">traceback</span><span class="o">.</span><span class="n">print_exc</span><span class="p">()</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SessionManager: Failed to create session: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="SessionManager.get">
+<a class="viewcode-back" href="../../../lback/lback.utils.html#lback.utils.session_manager.SessionManager.get">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span> <span class="n">db_session</span><span class="p">:</span> <span class="n">DBSession</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retrieves a specific value from the session data based on the request and key, using the database.</span>
+<span class="sd">        This method extracts the session ID from the request (e.g., from a cookie)</span>
+<span class="sd">        and then retrieves the value from the session data in the database.</span>
+<span class="sd">        Relies on get_session_data which emits signals.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            request: The incoming request object.</span>
+<span class="sd">            db_session: The SQLAlchemy Session for database operations.</span>
+<span class="sd">            key: The key for the data to retrieve from the session.</span>
+<span class="sd">            default: The value to return if the key is not found or session is invalid.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The value associated with the key in the session data, or the default value</span>
+<span class="sd">            if the session is not found/expired or the key is not present.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">session_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_session_id_from_request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">session_id</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SessionManager.get: No session ID found in request for key &#39;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&#39;. Returning default.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">default</span>
+        <span class="n">session_data_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_session_data</span><span class="p">(</span><span class="n">db_session</span><span class="p">,</span> <span class="n">session_id</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">session_data_dict</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SessionManager.get: Session data not found or expired for ID </span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s2"> for key &#39;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&#39;. Returning default.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">default</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">session_data_payload</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">session_data_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">session_data_payload</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">default</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SessionManager.get: Retrieved value for key &#39;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&#39; from session </span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">value</span>
+        <span class="k">except</span> <span class="n">json</span><span class="o">.</span><span class="n">JSONDecodeError</span><span class="p">:</span>
+             <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SessionManager.get: Failed to decode JSON data for session ID </span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s2">. Key: &#39;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&#39;. Returning default.&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+             <span class="k">return</span> <span class="n">default</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_session_id_from_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Extracts the session ID from the request (e.g., from the &#39;Cookie&#39; header).</span>
+<span class="sd">        # No signals here, as this is a low-level parsing utility.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            request: The incoming request object.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The session ID string if found in the cookie, otherwise None.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cookie_header</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;COOKIE&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">cookie_header</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;SessionManager: No &#39;COOKIE&#39; header in request.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="n">cookies</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">cookie_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cookie_header</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;;&#39;</span><span class="p">)]</span>
+            <span class="k">for</span> <span class="n">cookie_pair</span> <span class="ow">in</span> <span class="n">cookie_list</span><span class="p">:</span>
+                <span class="k">if</span> <span class="s1">&#39;=&#39;</span> <span class="ow">in</span> <span class="n">cookie_pair</span><span class="p">:</span>
+                    <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">cookie_pair</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+                    <span class="n">cookies</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SessionManager: Error parsing &#39;COOKIE&#39; header: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="n">session_id</span> <span class="o">=</span> <span class="n">cookies</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;session_id&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">session_id</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SessionManager: Found session ID in cookie: </span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">session_id</span>
+        
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;SessionManager: &#39;session_id&#39; cookie not found in header.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="SessionManager.get_user">
+<a class="viewcode-back" href="../../../lback/lback.utils.html#lback.utils.session_manager.SessionManager.get_user">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">db_session</span><span class="p">:</span> <span class="n">DBSession</span><span class="p">,</span> <span class="n">session_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets the user ID associated with a session ID from the database, if the session is valid.</span>
+<span class="sd">        Relies on get_session_data which emits signals.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            db_session: The SQLAlchemy Session for database operations.</span>
+<span class="sd">            session_id: The ID of the session.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The user ID if the session is valid, otherwise None.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Attempting to get user ID for session ID: </span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="n">session_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_session_data</span><span class="p">(</span><span class="n">db_session</span><span class="p">,</span> <span class="n">session_id</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">session_data</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">session_payload</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">session_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
+                <span class="n">user_id</span> <span class="o">=</span> <span class="n">session_payload</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;user_id&#39;</span><span class="p">)</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;User ID </span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s2"> found for valid session </span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">user_id</span>
+            
+            <span class="k">except</span> <span class="n">json</span><span class="o">.</span><span class="n">JSONDecodeError</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SessionManager.get_user: Failed to decode JSON data for session ID </span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s2">. Returning None.&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">None</span>
+            
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No valid session found for ID </span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s2"> to get user ID.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="SessionManager.get_session_data">
+<a class="viewcode-back" href="../../../lback/lback.utils.html#lback.utils.session_manager.SessionManager.get_session_data">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_session_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">db_session</span><span class="p">:</span> <span class="n">DBSession</span><span class="p">,</span> <span class="n">session_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retrieves the full session data dictionary for a given session ID from the database.</span>
+
+<span class="sd">        This method queries the database for an active (non-expired) session.</span>
+<span class="sd">        If found, it returns a dictionary containing all session details, including</span>
+<span class="sd">        the raw JSON string from the &#39;data&#39; column.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            db_session: The SQLAlchemy Session for database operations.</span>
+<span class="sd">            session_id: The unique ID of the session to retrieve.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A dictionary containing session details (&#39;id&#39;, &#39;user_id&#39;, &#39;created_at&#39;,</span>
+<span class="sd">            &#39;expires_at&#39;, &#39;updated_at&#39;, and &#39;data&#39; as a JSON string) if the session</span>
+<span class="sd">            is valid and active, otherwise None.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SessionManager: Attempting to get session data for ID: </span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">session_obj</span> <span class="o">=</span> <span class="n">db_session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">DBSessionModel</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+            <span class="n">DBSessionModel</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">session_id</span><span class="p">,</span>
+            <span class="n">DBSessionModel</span><span class="o">.</span><span class="n">expires_at</span> <span class="o">&gt;</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">session_obj</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SessionManager: Session object found for ID: </span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s2">. Data type in DB: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">session_obj</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="p">{</span>
+                <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">session_obj</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                <span class="s1">&#39;user_id&#39;</span><span class="p">:</span> <span class="n">session_obj</span><span class="o">.</span><span class="n">user_id</span><span class="p">,</span>
+                <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="n">session_obj</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> 
+                <span class="s1">&#39;created_at&#39;</span><span class="p">:</span> <span class="n">session_obj</span><span class="o">.</span><span class="n">created_at</span><span class="p">,</span>
+                <span class="s1">&#39;expires_at&#39;</span><span class="p">:</span> <span class="n">session_obj</span><span class="o">.</span><span class="n">expires_at</span><span class="p">,</span>
+                <span class="s1">&#39;updated_at&#39;</span><span class="p">:</span> <span class="n">session_obj</span><span class="o">.</span><span class="n">updated_at</span>
+            <span class="p">}</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SessionManager: No active session found for ID: </span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+    
+<div class="viewcode-block" id="SessionManager.save_session_data">
+<a class="viewcode-back" href="../../../lback/lback.utils.html#lback.utils.session_manager.SessionManager.save_session_data">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">save_session_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">db_session</span><span class="p">:</span> <span class="n">DBSession</span><span class="p">,</span> <span class="n">session_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">data_dict</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Saves or updates the entire data payload (as a dictionary) for a specific session in the database.</span>
+
+<span class="sd">        This method serializes the provided Python dictionary (`data_dict`) into a JSON string</span>
+<span class="sd">        and stores it in the &#39;data&#39; column of the session record. It also renews the session&#39;s</span>
+<span class="sd">        expiration time.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            db_session: The SQLAlchemy Session for database operations.</span>
+<span class="sd">            session_id: The unique ID of the session to update.</span>
+<span class="sd">            data_dict: The dictionary containing all session data to be stored.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            True if the session was found and its data was successfully saved, False otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SessionManager: Saving full data dict for session ID: </span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s2">. Keys: </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">data_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">session_obj</span> <span class="o">=</span> <span class="n">db_session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">DBSessionModel</span><span class="p">)</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">session_id</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">session_obj</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">session_obj</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data_dict</span><span class="p">)</span>
+                <span class="n">session_obj</span><span class="o">.</span><span class="n">expires_at</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">session_timeout</span>
+                <span class="n">db_session</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SessionManager: Successfully saved data for session ID: </span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SessionManager: Failed to save data for session ID </span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">False</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SessionManager: Attempted to save data for non-existent session ID: </span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="SessionManager.set_session_data">
+<a class="viewcode-back" href="../../../lback/lback.utils.html#lback.utils.session_manager.SessionManager.set_session_data">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_session_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">db_session</span><span class="p">:</span> <span class="n">DBSession</span><span class="p">,</span> <span class="n">session_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sets a key-value pair within the &#39;data&#39; dictionary of a valid session in the database.</span>
+<span class="sd">        This method is used for storing custom session data (like flash messages).</span>
+<span class="sd">        Emits &#39;session_data_set&#39; signal on success.</span>
+<span class="sd">        Emits &#39;session_operation_failed&#39; signal on failure (session not found/expired).</span>
+<span class="sd">        Args:</span>
+<span class="sd">            db_session: The SQLAlchemy Session for database operations.</span>
+<span class="sd">            session_id: The ID of the session to update.</span>
+<span class="sd">            key: The key for the data item within the session&#39;s &#39;data&#39; dictionary.</span>
+<span class="sd">            value: The value to store. Setting value to None might indicate deletion</span>
+<span class="sd">                   depending on how you want to handle it (current implementation stores None).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Attempting to set data key &#39;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&#39; for session ID: </span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">session_record</span> <span class="o">=</span> <span class="n">db_session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">DBSessionModel</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">DBSessionModel</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">session_id</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">session_record</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">session_data_payload</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">session_record</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
+                <span class="k">except</span> <span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">JSONDecodeError</span><span class="p">,</span> <span class="ne">AttributeError</span><span class="p">):</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SessionManager.set_session_data: Failed to decode JSON data for session ID </span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s2">. Initializing &#39;data&#39; dict.&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">dispatcher</span><span class="p">:</span>
+                         <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;session_operation_failed&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">session_id</span><span class="o">=</span><span class="n">session_id</span><span class="p">,</span> <span class="n">operation</span><span class="o">=</span><span class="s2">&quot;set_data_invalid_structure&quot;</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">key</span><span class="p">,</span> <span class="n">error_type</span><span class="o">=</span><span class="s2">&quot;invalid_data_structure&quot;</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Dispatcher is None. Cannot send &#39;session_operation_failed&#39; signal.&quot;</span><span class="p">)</span>
+                    <span class="n">session_data_payload</span> <span class="o">=</span> <span class="p">{}</span>
+                <span class="n">session_data_payload</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+                <span class="n">session_record</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">session_data_payload</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+                <span class="n">session_record</span><span class="o">.</span><span class="n">updated_at</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>
+                <span class="n">db_session</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Set data key &#39;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&#39; in session </span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">dispatcher</span><span class="p">:</span>
+                    <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;session_data_set&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">session_id</span><span class="o">=</span><span class="n">session_id</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Dispatcher is None. Cannot send &#39;session_data_set&#39; signal.&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to set data for session </span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s2">: Session not found.&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">dispatcher</span><span class="p">:</span>
+                     <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;session_operation_failed&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">session_id</span><span class="o">=</span><span class="n">session_id</span><span class="p">,</span> <span class="n">operation</span><span class="o">=</span><span class="s2">&quot;set_data&quot;</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">key</span><span class="p">,</span> <span class="n">error_type</span><span class="o">=</span><span class="s2">&quot;not_found&quot;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Dispatcher is None. Cannot send &#39;session_operation_failed&#39; signal.&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">SQLAlchemyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Database error setting data key &#39;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&#39; for session </span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">db_session</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">dispatcher</span><span class="p">:</span>
+                 <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;session_operation_failed&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">session_id</span><span class="o">=</span><span class="n">session_id</span><span class="p">,</span> <span class="n">operation</span><span class="o">=</span><span class="s2">&quot;set_data&quot;</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">key</span><span class="p">,</span> <span class="n">error_type</span><span class="o">=</span><span class="s2">&quot;db_error&quot;</span><span class="p">,</span> <span class="n">exception</span><span class="o">=</span><span class="n">e</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Dispatcher is None. Cannot send &#39;session_operation_failed&#39; signal.&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unexpected error setting data key &#39;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&#39; for session </span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">db_session</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">dispatcher</span><span class="p">:</span>
+                 <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;session_operation_failed&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">session_id</span><span class="o">=</span><span class="n">session_id</span><span class="p">,</span> <span class="n">operation</span><span class="o">=</span><span class="s2">&quot;set_data&quot;</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">key</span><span class="p">,</span> <span class="n">error_type</span><span class="o">=</span><span class="s2">&quot;unexpected_error&quot;</span><span class="p">,</span> <span class="n">exception</span><span class="o">=</span><span class="n">e</span><span class="p">)</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Dispatcher is None. Cannot send &#39;session_operation_failed&#39; signal.&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SessionManager.is_session_expired">
+<a class="viewcode-back" href="../../../lback/lback.utils.html#lback.utils.session_manager.SessionManager.is_session_expired">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_session_expired</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Checks if a session dictionary is expired based on its &#39;expires_at&#39; timestamp.</span>
+<span class="sd">        # No signals here, as this is an internal helper method.</span>
+<span class="sd">        Args:</span>
+<span class="sd">            session: The session dictionary retrieved from storage (or SQLAlchemy model).</span>
+<span class="sd">                     Expected to have an &#39;expires_at&#39; key which is a datetime object.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            True if the session is expired, False otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="s1">&#39;expires_at&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">session</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;expires_at&#39;</span><span class="p">),</span> <span class="n">datetime</span><span class="p">):</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Session dictionary missing or has invalid &#39;expires_at&#39; for session with user_id: </span><span class="si">{</span><span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;user_id&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;N/A&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">. Treating as expired.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">session</span><span class="p">[</span><span class="s1">&#39;expires_at&#39;</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="SessionManager.renew_session">
+<a class="viewcode-back" href="../../../lback/lback.utils.html#lback.utils.session_manager.SessionManager.renew_session">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">renew_session</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">db_session</span><span class="p">:</span> <span class="n">DBSession</span><span class="p">,</span> <span class="n">session_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Renews the expiration time of an existing session in the database.</span>
+<span class="sd">        This typically happens automatically with every request to keep active sessions alive.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            db_session: The SQLAlchemy database session object.</span>
+<span class="sd">            session_id: The unique ID of the session to renew.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            True if the session was found and successfully renewed, False otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SessionManager: Renewing session ID: </span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">session_obj</span> <span class="o">=</span> <span class="n">db_session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">DBSessionModel</span><span class="p">)</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">session_id</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">session_obj</span><span class="p">:</span>
+            <span class="n">session_obj</span><span class="o">.</span><span class="n">expires_at</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">session_timeout</span>
+            <span class="n">db_session</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SessionManager: Session ID </span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s2"> renewed.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SessionManager: No session found to renew for ID: </span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="SessionManager.delete_session">
+<a class="viewcode-back" href="../../../lback/lback.utils.html#lback.utils.session_manager.SessionManager.delete_session">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">delete_session</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">db_session</span><span class="p">:</span> <span class="n">DBSession</span><span class="p">,</span> <span class="n">session_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Deletes a specific session from the database.</span>
+<span class="sd">        This is typically used during user logout or when a session needs to be invalidated.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            db_session: The SQLAlchemy database session object.</span>
+<span class="sd">            session_id: The unique ID of the session to delete.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            True if the session was found and successfully deleted, False otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SessionManager: Deleting session ID: </span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">session_obj</span> <span class="o">=</span> <span class="n">db_session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">DBSessionModel</span><span class="p">)</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">session_id</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">session_obj</span><span class="p">:</span>
+            <span class="n">db_session</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">session_obj</span><span class="p">)</span>
+            <span class="n">db_session</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SessionManager: Session ID </span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s2"> deleted.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SessionManager: No session found to delete for ID: </span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="SessionManager.cleanup_sessions">
+<a class="viewcode-back" href="../../../lback/lback.utils.html#lback.utils.session_manager.SessionManager.cleanup_sessions">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">cleanup_sessions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">db_session</span><span class="p">:</span> <span class="n">DBSession</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Removes all expired sessions from the database.</span>
+<span class="sd">        This method should be called periodically (e.g., by a background task).</span>
+<span class="sd">        Emits &#39;session_cleanup_started&#39; and &#39;session_cleanup_finished&#39; signals.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Starting session cleanup.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">dispatcher</span><span class="p">:</span>
+            <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;session_cleanup_started&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Dispatcher is None. Cannot send &#39;session_cleanup_started&#39; signal.&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>
+            <span class="n">expired_sessions</span> <span class="o">=</span> <span class="n">db_session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">DBSessionModel</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">DBSessionModel</span><span class="o">.</span><span class="n">expires_at</span> <span class="o">&lt;</span> <span class="n">now</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+            <span class="n">deleted_count</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">session_record</span> <span class="ow">in</span> <span class="n">expired_sessions</span><span class="p">:</span>
+                <span class="n">session_dict</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">session_record</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                    <span class="s1">&#39;user_id&#39;</span><span class="p">:</span> <span class="n">session_record</span><span class="o">.</span><span class="n">user_id</span><span class="p">,</span>
+                    <span class="s1">&#39;created_at&#39;</span><span class="p">:</span> <span class="n">session_record</span><span class="o">.</span><span class="n">created_at</span><span class="p">,</span>
+                    <span class="s1">&#39;expires_at&#39;</span><span class="p">:</span> <span class="n">session_record</span><span class="o">.</span><span class="n">expires_at</span><span class="p">,</span>
+                    <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="n">session_record</span><span class="o">.</span><span class="n">data</span>
+                <span class="p">}</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_session_expired</span><span class="p">(</span><span class="n">session_dict</span><span class="p">):</span>
+                    <span class="n">db_session</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">session_record</span><span class="p">)</span>
+                    <span class="n">deleted_count</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">db_session</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Session cleanup completed. </span><span class="si">{</span><span class="n">deleted_count</span><span class="si">}</span><span class="s2"> sessions removed from DB.&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">dispatcher</span><span class="p">:</span>
+                <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;session_cleanup_finished&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">removed_count</span><span class="o">=</span><span class="n">deleted_count</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Dispatcher is None. Cannot send &#39;session_cleanup_finished&#39; signal.&quot;</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="n">SQLAlchemyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Database error during session cleanup: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">db_session</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">dispatcher</span><span class="p">:</span>
+                 <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;session_operation_failed&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">operation</span><span class="o">=</span><span class="s2">&quot;cleanup&quot;</span><span class="p">,</span> <span class="n">error_type</span><span class="o">=</span><span class="s2">&quot;db_error&quot;</span><span class="p">,</span> <span class="n">exception</span><span class="o">=</span><span class="n">e</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Dispatcher is None. Cannot send &#39;session_operation_failed&#39; signal.&quot;</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unexpected error during session cleanup: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">db_session</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">dispatcher</span><span class="p">:</span>
+                 <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;session_operation_failed&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">operation</span><span class="o">=</span><span class="s2">&quot;cleanup&quot;</span><span class="p">,</span> <span class="n">error_type</span><span class="o">=</span><span class="s2">&quot;unexpected_error&quot;</span><span class="p">,</span> <span class="n">exception</span><span class="o">=</span><span class="n">e</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Dispatcher is None. Cannot send &#39;session_operation_failed&#39; signal.&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SessionManager.generate_csrf_token">
+<a class="viewcode-back" href="../../../lback/lback.utils.html#lback.utils.session_manager.SessionManager.generate_csrf_token">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">generate_csrf_token</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">db_session</span><span class="p">:</span> <span class="n">DBSession</span><span class="p">,</span> <span class="n">session_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generates a new CSRF token, stores it in the session data in the database, and returns it.</span>
+<span class="sd">        Emits &#39;csrf_token_generated&#39; signal on success.</span>
+<span class="sd">        Emits &#39;session_operation_failed&#39; signal on failure (session not found/expired).</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            db_session: The SQLAlchemy Session for database operations.</span>
+<span class="sd">            session_id: The ID of the session to associate the token with.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The generated CSRF token string if the session is valid, otherwise None.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Attempting to generate CSRF token for session ID: </span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">session_data_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_session_data</span><span class="p">(</span><span class="n">db_session</span><span class="p">,</span> <span class="n">session_id</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">session_data_dict</span><span class="p">:</span>
+            <span class="n">csrf_token</span> <span class="o">=</span> <span class="n">secrets</span><span class="o">.</span><span class="n">token_hex</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_session_data</span><span class="p">(</span><span class="n">db_session</span><span class="p">,</span> <span class="n">session_id</span><span class="p">,</span> <span class="s2">&quot;csrf_token&quot;</span><span class="p">,</span> <span class="n">csrf_token</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Generated and stored CSRF token for session </span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">dispatcher</span><span class="p">:</span>
+                <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;csrf_token_generated&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">session_id</span><span class="o">=</span><span class="n">session_id</span><span class="p">,</span> <span class="n">csrf_token</span><span class="o">=</span><span class="n">csrf_token</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Dispatcher is None. Cannot send &#39;csrf_token_generated&#39; signal.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">csrf_token</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to generate CSRF token: Session </span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s2"> not found or expired.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="SessionManager.validate_csrf_token">
+<a class="viewcode-back" href="../../../lback/lback.utils.html#lback.utils.session_manager.SessionManager.validate_csrf_token">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate_csrf_token</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">db_session</span><span class="p">:</span> <span class="n">DBSession</span><span class="p">,</span> <span class="n">session_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">csrf_token</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Validates the provided CSRF token against the one stored in the session in the database.</span>
+<span class="sd">        Emits &#39;csrf_token_validated&#39; signal on success.</span>
+<span class="sd">        Emits &#39;csrf_token_validation_failed&#39; signal on failure.</span>
+<span class="sd">        Args:</span>
+<span class="sd">            db_session: The SQLAlchemy Session for database operations.</span>
+<span class="sd">            session_id: The ID of the session to validate the token against.</span>
+<span class="sd">            csrf_token: The token provided in the request (e.g., from form data or header).</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            True if the session is valid and the provided token matches the stored token, False otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Attempting to validate CSRF token for session ID: </span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">session_data_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_session_data</span><span class="p">(</span><span class="n">db_session</span><span class="p">,</span> <span class="n">session_id</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">session_data_dict</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to validate CSRF token: Session data not found or expired for ID </span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">dispatcher</span><span class="p">:</span>
+                <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;csrf_token_validation_failed&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">session_id</span><span class="o">=</span><span class="n">session_id</span><span class="p">,</span> <span class="n">error_type</span><span class="o">=</span><span class="s2">&quot;session_invalid&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Dispatcher is None. Cannot send &#39;csrf_token_validation_failed&#39; signal.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">session_data_payload</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">session_data_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
+            <span class="n">stored_token</span> <span class="o">=</span> <span class="n">session_data_payload</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;csrf_token&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">json</span><span class="o">.</span><span class="n">JSONDecodeError</span><span class="p">:</span>
+             <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SessionManager.validate_csrf_token: Failed to decode JSON data for session ID </span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s2">. Returning False.&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+             <span class="k">if</span> <span class="n">dispatcher</span><span class="p">:</span>
+                 <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;csrf_token_validation_failed&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">session_id</span><span class="o">=</span><span class="n">session_id</span><span class="p">,</span> <span class="n">error_type</span><span class="o">=</span><span class="s2">&quot;json_decode_error&quot;</span><span class="p">)</span>
+             <span class="k">else</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Dispatcher is None. Cannot send &#39;csrf_token_validation_failed&#39; signal.&quot;</span><span class="p">)</span>
+             <span class="k">return</span> <span class="kc">False</span>
+        
+        <span class="k">if</span> <span class="n">stored_token</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">stored_token</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">csrf_token</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">secrets</span><span class="o">.</span><span class="n">compare_digest</span><span class="p">(</span><span class="n">stored_token</span><span class="p">,</span> <span class="n">csrf_token</span><span class="p">):</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;CSRF token validated successfully for session </span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">dispatcher</span><span class="p">:</span>
+                <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;csrf_token_validated&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">session_id</span><span class="o">=</span><span class="n">session_id</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Dispatcher is None. Cannot send &#39;csrf_token_validated&#39; signal.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;CSRF token validation failed for session </span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s2">. Stored token present: </span><span class="si">{</span><span class="n">stored_token</span><span class="w"> </span><span class="ow">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="kc">None</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">dispatcher</span><span class="p">:</span>
+                <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;csrf_token_validation_failed&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">session_id</span><span class="o">=</span><span class="n">session_id</span><span class="p">,</span> <span class="n">error_type</span><span class="o">=</span><span class="s2">&quot;token_mismatch&quot;</span><span class="p">,</span> <span class="n">stored_token_present</span><span class="o">=</span><span class="p">(</span><span class="n">stored_token</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Dispatcher is None. Cannot send &#39;csrf_token_validation_failed&#39; signal.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="SessionManager.__repr__">
+<a class="viewcode-back" href="../../../lback/lback.utils.html#lback.utils.session_manager.SessionManager.__repr__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Provides a developer-friendly string representation of the SessionManager.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&lt;SessionManager(timeout=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">session_timeout</span><span class="si">}</span><span class="s2">, storage=&#39;Database&#39;)&gt;&quot;</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ibrahem abo kila.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

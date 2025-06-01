@@ -1,0 +1,671 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>lback.auth_app.web_auth_views &mdash; lback 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=95f010fd" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            lback
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Configuration%20System.html">Configuration System</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/routing_system.html">Routing System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Views%20%26%20Responses.html">Views &amp; Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Templating%20System.html">Templating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Static%20Files.html">Static Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Media%20Files.html">Media Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/file-uploads.html">File Uploads in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Forms.html">Forms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Models%20%26%20Database.html">Models &amp; Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Database%20Migrations%20System.html">Database Migrations System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Authorization.html">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/sessions.html">Sessions in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Security%20Features.html">Security Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Admin%20Panel.html">Built-in Admin Panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/API%20Tools.html">API Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Signal%20System.html">Signal System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Middleware%20System.html">Middleware System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/custom_middlewares.html">Custom Middlewares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/logging_config.html">Logging Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/email-sender.html">Email Sending in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/validation_utilities.html">Validation Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/error_handling.html">Error Handling and HTTP Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Error%20Handling%20%26%20Reporting.html">Error Handling &amp; Reporting</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Deployment.html">Deployment</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/api-signals.html">Signals from BaseView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/api-signals.html#signals-from-apidocs">Signals from APIDocs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/api-signals.html#signals-from-basemodelserializer">Signals from BaseModelSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-registry-signals.html">Signals from AdminRegistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-user.html">Signals from AdminUser and Role Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-user-manager.html">Signals from AdminUserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-user-repository.html">Signals from AdminUserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html">Signals from AdminAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-jwtauth">Signals from JWTAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-oauth2auth">Signals from OAuth2Auth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-permissionrequired">Signals from PermissionRequired</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-sessionauth">Signals from SessionAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/error-handler.html">Signals from ErrorHandler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/middleware-manager.html">Signals from MiddlewareManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/migration_commands.html">Signals from MigrationCommands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/permission-repository.html">Signals from PermissionRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/role-repository.html">Signals from RoleRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/session-manager.html">Signals from SessionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/template-renderer.html">Signals from TemplateRenderer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/user-manager.html">Signals from UserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/user-model.html">Signals from User Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/user-repository.html">Signals from UserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/wsgi-application.html">Signals from WSGI Application and Server</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">Modules and Classes Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../API%20Reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../lback/lback.html">lback package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">lback</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">lback.auth_app.web_auth_views</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for lback.auth_app.web_auth_views</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">http</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTTPStatus</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.auth_forms</span><span class="w"> </span><span class="kn">import</span> <span class="n">RegisterForm</span><span class="p">,</span> <span class="n">LoginForm</span><span class="p">,</span> <span class="n">RequestPasswordResetForm</span><span class="p">,</span> <span class="n">SetNewPasswordForm</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.core.response</span><span class="w"> </span><span class="kn">import</span> <span class="n">Response</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.core.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">Request</span><span class="p">,</span> <span class="n">HTTPMethod</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.utils.shortcuts</span><span class="w"> </span><span class="kn">import</span> <span class="n">render</span><span class="p">,</span> <span class="n">redirect</span><span class="p">,</span> <span class="n">return_500</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.forms.validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">ValidationError</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="show_register_page">
+<a class="viewcode-back" href="../../../lback/lback.auth_app.html#lback.auth_app.web_auth_views.show_register_page">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">show_register_page</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Renders the user registration form page.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Displaying registration page for path: </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">app_session</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span>
+    <span class="k">if</span> <span class="n">app_session</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;AppSession is not available on the request for show_register_page.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">return_500</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Session service unavailable.&quot;</span><span class="p">)</span>
+    <span class="n">form</span> <span class="o">=</span> <span class="n">RegisterForm</span><span class="p">()</span>
+
+    <span class="n">csrf_token_value</span> <span class="o">=</span> <span class="n">app_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;_csrf_token&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">csrf_token_value</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;CSRF token not found in session for show_register_page. &quot;</span>
+                       <span class="s2">&quot;Ensure CSRFMiddleware is correctly configured and positioned.&quot;</span><span class="p">)</span>
+
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;flash_messages&quot;</span><span class="p">:</span> <span class="n">app_session</span><span class="o">.</span><span class="n">get_flashed_messages</span><span class="p">(),</span>
+        <span class="s2">&quot;csrf_token&quot;</span><span class="p">:</span> <span class="n">csrf_token_value</span><span class="p">,</span>
+        <span class="s2">&quot;form&quot;</span><span class="p">:</span> <span class="n">form</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;register.html&quot;</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="handle_register_submit">
+<a class="viewcode-back" href="../../../lback/lback.auth_app.html#lback.auth_app.web_auth_views.handle_register_submit">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">handle_register_submit</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Handles the submission of the new user registration form (POST request).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Received registration form submission for path: </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">user_manager</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">user_manager</span>
+    <span class="n">db_session</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">db_session</span>
+    <span class="n">app_session</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span>
+
+    <span class="k">if</span> <span class="n">user_manager</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">db_session</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">app_session</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;Missing core dependencies (user_manager, db_session, app_session) in handle_register_submit.&quot;</span><span class="p">)</span>
+        <span class="n">app_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="s2">&quot;An internal server error occurred due to missing dependencies.&quot;</span><span class="p">,</span> <span class="s2">&quot;danger&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">return_500</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Internal Server Error: Core dependencies missing.&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">!=</span> <span class="n">HTTPMethod</span><span class="o">.</span><span class="n">POST</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid method for web /auth/register: </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="si">}</span><span class="s2">. Expected POST.&quot;</span><span class="p">)</span>
+        <span class="n">app_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="s2">&quot;Invalid request method.&quot;</span><span class="p">,</span> <span class="s2">&quot;error&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/register/&quot;</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">METHOD_NOT_ALLOWED</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="n">form</span> <span class="o">=</span> <span class="n">RegisterForm</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="n">cleaned_data</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span>
+            <span class="n">username</span> <span class="o">=</span> <span class="n">cleaned_data</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span>
+            <span class="n">email</span> <span class="o">=</span> <span class="n">cleaned_data</span><span class="p">[</span><span class="s1">&#39;email&#39;</span><span class="p">]</span>
+            <span class="n">password</span> <span class="o">=</span> <span class="n">cleaned_data</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">]</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;handle_register_submit: Attempting to register user with email: </span><span class="si">{</span><span class="n">email</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">user</span> <span class="o">=</span> <span class="n">user_manager</span><span class="o">.</span><span class="n">register_user</span><span class="p">(</span><span class="n">db_session</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">user</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;handle_register_submit: User &#39;</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">&#39; registered successfully. Committing DB session.&quot;</span><span class="p">)</span>
+                <span class="n">db_session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+                <span class="n">app_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="s2">&quot;Registration successful! Please check your email to activate your account.&quot;</span><span class="p">,</span> <span class="s2">&quot;success&quot;</span><span class="p">)</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;User &#39;</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">&#39; registered successfully via web form. Redirecting to /login.&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/login/&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;handle_register_submit: user_manager.register_user returned None/False for user: </span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+                <span class="n">app_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="s2">&quot;Registration failed. Please check your input or try again later.&quot;</span><span class="p">,</span> <span class="s2">&quot;error&quot;</span><span class="p">)</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to register user &#39;</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">&#39; via web form. Redirecting to /register.&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/register/&quot;</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Registration form validation failed. Errors: </span><span class="si">{</span><span class="n">form</span><span class="o">.</span><span class="n">errors</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">app_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="s2">&quot;Please correct the errors below.&quot;</span><span class="p">,</span> <span class="s2">&quot;error&quot;</span><span class="p">)</span>
+            <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;flash_messages&quot;</span><span class="p">:</span> <span class="n">app_session</span><span class="o">.</span><span class="n">get_flashed_messages</span><span class="p">(),</span>
+                <span class="s2">&quot;csrf_token&quot;</span><span class="p">:</span> <span class="n">app_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;_csrf_token&#39;</span><span class="p">),</span>
+                <span class="s2">&quot;form&quot;</span><span class="p">:</span> <span class="n">form</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;register.html&quot;</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">BAD_REQUEST</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="n">ValidationError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Validation error during web user registration process. Error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">db_session</span> <span class="ow">and</span> <span class="n">db_session</span><span class="o">.</span><span class="n">is_active</span><span class="p">:</span>
+            <span class="n">db_session</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+        <span class="n">app_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">),</span> <span class="s2">&quot;error&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/register/&quot;</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Critical error during web user registration process: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">db_session</span> <span class="ow">and</span> <span class="n">db_session</span><span class="o">.</span><span class="n">is_active</span><span class="p">:</span>
+            <span class="n">db_session</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+        <span class="n">app_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="s2">&quot;An internal server error occurred. Please contact support. (Missing default user group)&quot;</span><span class="p">,</span> <span class="s2">&quot;danger&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">return_500</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">exception</span><span class="o">=</span><span class="n">e</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Critical error during web user registration process. Exception: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">db_session</span> <span class="ow">and</span> <span class="n">db_session</span><span class="o">.</span><span class="n">is_active</span><span class="p">:</span>
+            <span class="n">db_session</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+        <span class="n">app_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="s2">&quot;An internal error occurred during registration. Please try again later.&quot;</span><span class="p">,</span> <span class="s2">&quot;danger&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">return_500</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">exception</span><span class="o">=</span><span class="n">e</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="show_login_page">
+<a class="viewcode-back" href="../../../lback/lback.auth_app.html#lback.auth_app.web_auth_views.show_login_page">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">show_login_page</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Renders the user login form page.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Displaying login page for path: </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">app_session</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span>
+    <span class="k">if</span> <span class="n">app_session</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;AppSession is not available on the request for show_login_page.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">return_500</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Session service unavailable.&quot;</span><span class="p">)</span>
+
+    <span class="n">form</span> <span class="o">=</span> <span class="n">LoginForm</span><span class="p">()</span>
+
+    <span class="n">csrf_token_value</span> <span class="o">=</span> <span class="n">app_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;_csrf_token&#39;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;CSRF token being passed to login.html template: </span><span class="si">{</span><span class="n">csrf_token_value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;flash_messages&quot;</span><span class="p">:</span> <span class="n">app_session</span><span class="o">.</span><span class="n">get_flashed_messages</span><span class="p">(),</span>
+        <span class="s2">&quot;csrf_token&quot;</span><span class="p">:</span> <span class="n">csrf_token_value</span><span class="p">,</span>
+        <span class="s2">&quot;form&quot;</span><span class="p">:</span> <span class="n">form</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;auth_login&quot;</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="handle_login_submit">
+<a class="viewcode-back" href="../../../lback/lback.auth_app.html#lback.auth_app.web_auth_views.handle_login_submit">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">handle_login_submit</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Handles the submission of the user login form (POST request).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Received login form submission for path: </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">user_manager</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">user_manager</span>
+    <span class="n">db_session</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">db_session</span>
+    <span class="n">app_session</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span>
+
+    <span class="k">if</span> <span class="n">user_manager</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">db_session</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">app_session</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;Missing core dependencies (user_manager, db_session, app_session) in handle_login_submit.&quot;</span><span class="p">)</span>
+        <span class="n">app_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="s2">&quot;An internal server error occurred due to missing dependencies.&quot;</span><span class="p">,</span> <span class="s2">&quot;danger&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">return_500</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Internal Server Error: Core dependencies missing.&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">!=</span> <span class="n">HTTPMethod</span><span class="o">.</span><span class="n">POST</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid method for web /auth/login: </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="si">}</span><span class="s2">. Expected POST.&quot;</span><span class="p">)</span>
+        <span class="n">app_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="s2">&quot;Invalid request method.&quot;</span><span class="p">,</span> <span class="s2">&quot;error&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/login/&quot;</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">METHOD_NOT_ALLOWED</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="n">form</span> <span class="o">=</span> <span class="n">LoginForm</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="n">cleaned_data</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span>
+            <span class="n">identifier</span> <span class="o">=</span> <span class="n">cleaned_data</span><span class="p">[</span><span class="s1">&#39;identifier&#39;</span><span class="p">]</span>
+            <span class="n">password</span> <span class="o">=</span> <span class="n">cleaned_data</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">]</span>
+
+            <span class="n">user</span> <span class="o">=</span> <span class="n">user_manager</span><span class="o">.</span><span class="n">authenticate_user</span><span class="p">(</span><span class="n">db_session</span><span class="p">,</span> <span class="n">identifier</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">user</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">user</span><span class="o">.</span><span class="n">is_active</span><span class="p">:</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Web login attempt by inactive user: </span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+                    <span class="n">app_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="s2">&quot;Your account is inactive. Please contact support.&quot;</span><span class="p">,</span> <span class="s2">&quot;warning&quot;</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">db_session</span><span class="o">.</span><span class="n">is_active</span><span class="p">:</span>
+                        <span class="n">db_session</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+                    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/login/&quot;</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">FORBIDDEN</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">user</span><span class="o">.</span><span class="n">is_email_verified</span><span class="p">:</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Web login attempt by unverified user: </span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s2">. Prompting for verification.&quot;</span><span class="p">)</span>
+                    <span class="n">app_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="s2">&quot;Please verify your email to activate your account.&quot;</span><span class="p">,</span> <span class="s2">&quot;warning&quot;</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">db_session</span><span class="o">.</span><span class="n">is_active</span><span class="p">:</span>
+                        <span class="n">db_session</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+                    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/login/&quot;</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">FORBIDDEN</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+                <span class="n">app_session</span><span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span>
+                <span class="n">app_session</span><span class="p">[</span><span class="s1">&#39;user_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">user_type</span>
+                <span class="n">app_session</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">username</span>
+
+                <span class="n">app_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Welcome, </span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">,</span> <span class="s2">&quot;success&quot;</span><span class="p">)</span>
+                <span class="n">db_session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;User &#39;</span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s2">&#39; logged in successfully via web form. Redirecting to /dashboard.&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;handle_login_submit: Failed web login attempt for identifier: </span><span class="si">{</span><span class="n">identifier</span><span class="si">}</span><span class="s2">. Invalid credentials.&quot;</span><span class="p">)</span>
+                <span class="n">app_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="s2">&quot;Invalid username/email or password.&quot;</span><span class="p">,</span> <span class="s2">&quot;error&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">db_session</span><span class="o">.</span><span class="n">is_active</span><span class="p">:</span>
+                    <span class="n">db_session</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+                <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s2">&quot;flash_messages&quot;</span><span class="p">:</span> <span class="n">app_session</span><span class="o">.</span><span class="n">get_flashed_messages</span><span class="p">(),</span>
+                    <span class="s2">&quot;csrf_token&quot;</span><span class="p">:</span> <span class="n">app_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;_csrf_token&#39;</span><span class="p">),</span>
+                    <span class="s2">&quot;form&quot;</span><span class="p">:</span> <span class="n">form</span>
+                <span class="p">}</span>
+                <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;auth_login&quot;</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">UNAUTHORIZED</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Login form validation failed. Errors: </span><span class="si">{</span><span class="n">form</span><span class="o">.</span><span class="n">errors</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">app_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="s2">&quot;Please correct the errors below.&quot;</span><span class="p">,</span> <span class="s2">&quot;error&quot;</span><span class="p">)</span>
+            <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;flash_messages&quot;</span><span class="p">:</span> <span class="n">app_session</span><span class="o">.</span><span class="n">get_flashed_messages</span><span class="p">(),</span>
+                <span class="s2">&quot;csrf_token&quot;</span><span class="p">:</span> <span class="n">app_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;_csrf_token&#39;</span><span class="p">),</span>
+                <span class="s2">&quot;form&quot;</span><span class="p">:</span> <span class="n">form</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;auth_login&quot;</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">BAD_REQUEST</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="n">ValidationError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Validation error during web login process. Error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">db_session</span> <span class="ow">and</span> <span class="n">db_session</span><span class="o">.</span><span class="n">is_active</span><span class="p">:</span>
+            <span class="n">db_session</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+        <span class="n">app_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">),</span> <span class="s2">&quot;error&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/login/&quot;</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Critical error during web login process. Exception: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">db_session</span> <span class="ow">and</span> <span class="n">db_session</span><span class="o">.</span><span class="n">is_active</span><span class="p">:</span>
+            <span class="n">db_session</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+        <span class="n">app_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="s2">&quot;An unexpected error occurred during login. Please try again later.&quot;</span><span class="p">,</span> <span class="s2">&quot;danger&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">return_500</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">exception</span><span class="o">=</span><span class="n">e</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="show_request_password_reset_page">
+<a class="viewcode-back" href="../../../lback/lback.auth_app.html#lback.auth_app.web_auth_views.show_request_password_reset_page">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">show_request_password_reset_page</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Renders the page for requesting a password reset email.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Displaying request password reset page for path: </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">app_session</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span>
+    <span class="k">if</span> <span class="n">app_session</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;AppSession is not available on the request for show_request_password_reset_page.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">return_500</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Session service unavailable.&quot;</span><span class="p">)</span>
+
+    <span class="n">form</span> <span class="o">=</span> <span class="n">RequestPasswordResetForm</span><span class="p">()</span>
+
+    <span class="n">csrf_token_value</span> <span class="o">=</span> <span class="n">app_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;_csrf_token&#39;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;CSRF token being passed to request_password_reset.html template: </span><span class="si">{</span><span class="n">csrf_token_value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;flash_messages&quot;</span><span class="p">:</span> <span class="n">app_session</span><span class="o">.</span><span class="n">get_flashed_messages</span><span class="p">(),</span>
+        <span class="s2">&quot;csrf_token&quot;</span><span class="p">:</span> <span class="n">csrf_token_value</span><span class="p">,</span>
+        <span class="s2">&quot;form&quot;</span><span class="p">:</span> <span class="n">form</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;request_password_reset.html&quot;</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="handle_request_password_reset_submit">
+<a class="viewcode-back" href="../../../lback/lback.auth_app.html#lback.auth_app.web_auth_views.handle_request_password_reset_submit">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">handle_request_password_reset_submit</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Handles the submission of the password reset request form (POST request).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Received web password reset request for path: </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">user_manager</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">user_manager</span>
+    <span class="n">db_session</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">db_session</span>
+    <span class="n">app_session</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span>
+
+    <span class="k">if</span> <span class="n">user_manager</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">db_session</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">app_session</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;Missing core dependencies in handle_request_password_reset_submit.&quot;</span><span class="p">)</span>
+        <span class="n">app_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="s2">&quot;An internal server error occurred due to missing dependencies.&quot;</span><span class="p">,</span> <span class="s2">&quot;danger&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">return_500</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Internal Server Error: Core dependencies missing.&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">!=</span> <span class="n">HTTPMethod</span><span class="o">.</span><span class="n">POST</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid method for web /auth/request-reset-password: </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="si">}</span><span class="s2">. Expected POST.&quot;</span><span class="p">)</span>
+        <span class="n">app_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="s2">&quot;Invalid request method.&quot;</span><span class="p">,</span> <span class="s2">&quot;error&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/request-reset-password/&quot;</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">METHOD_NOT_ALLOWED</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="n">form</span> <span class="o">=</span> <span class="n">RequestPasswordResetForm</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="n">email</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="p">[</span><span class="s1">&#39;email&#39;</span><span class="p">]</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;handle_request_password_reset_submit: Received email: </span><span class="si">{</span><span class="n">email</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">web_reset_password_confirm_path</span> <span class="o">=</span> <span class="s2">&quot;/reset-password-confirm/&quot;</span>
+            <span class="n">success</span> <span class="o">=</span> <span class="n">user_manager</span><span class="o">.</span><span class="n">reset_password_request</span><span class="p">(</span><span class="n">db_session</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">reset_url_path</span><span class="o">=</span><span class="n">web_reset_password_confirm_path</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Password reset email initiated for: </span><span class="si">{</span><span class="n">email</span><span class="si">}</span><span class="s2"> via web form. Success: </span><span class="si">{</span><span class="n">success</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">app_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="s2">&quot;If an account with that email exists, a password reset link has been sent.&quot;</span><span class="p">,</span> <span class="s2">&quot;info&quot;</span><span class="p">)</span>
+            <span class="n">db_session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/request-reset-password/&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Request password reset form validation failed. Errors: </span><span class="si">{</span><span class="n">form</span><span class="o">.</span><span class="n">errors</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">app_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="s2">&quot;Please correct the errors below.&quot;</span><span class="p">,</span> <span class="s2">&quot;error&quot;</span><span class="p">)</span>
+            <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;flash_messages&quot;</span><span class="p">:</span> <span class="n">app_session</span><span class="o">.</span><span class="n">get_flashed_messages</span><span class="p">(),</span>
+                <span class="s2">&quot;csrf_token&quot;</span><span class="p">:</span> <span class="n">app_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;_csrf_token&#39;</span><span class="p">),</span>
+                <span class="s2">&quot;form&quot;</span><span class="p">:</span> <span class="n">form</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;request_password_reset.html&quot;</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">BAD_REQUEST</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="n">ValidationError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Validation error during web password reset request. Error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">db_session</span> <span class="ow">and</span> <span class="n">db_session</span><span class="o">.</span><span class="n">is_active</span><span class="p">:</span>
+            <span class="n">db_session</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+        <span class="n">app_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">),</span> <span class="s2">&quot;error&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/request-reset-password/&quot;</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Critical error during web password reset request. Exception: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">db_session</span> <span class="ow">and</span> <span class="n">db_session</span><span class="o">.</span><span class="n">is_active</span><span class="p">:</span>
+            <span class="n">db_session</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+        <span class="n">app_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="s2">&quot;An internal error occurred. Please try again later.&quot;</span><span class="p">,</span> <span class="s2">&quot;danger&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">return_500</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">exception</span><span class="o">=</span><span class="n">e</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="show_reset_password_confirm_page">
+<a class="viewcode-back" href="../../../lback/lback.auth_app.html#lback.auth_app.web_auth_views.show_reset_password_confirm_page">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">show_reset_password_confirm_page</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Renders the page for confirming a password reset.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Displaying reset password confirm page for path: </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">app_session</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span>
+    <span class="k">if</span> <span class="n">app_session</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;AppSession is not available on the request for show_reset_password_confirm_page.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">return_500</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Session service unavailable.&quot;</span><span class="p">)</span>
+
+    <span class="n">reset_token</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">query_params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;token&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="n">form</span> <span class="o">=</span> <span class="n">SetNewPasswordForm</span><span class="p">(</span><span class="n">initial</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;token&#39;</span><span class="p">:</span> <span class="n">reset_token</span><span class="p">})</span>
+
+    <span class="n">csrf_token_value</span> <span class="o">=</span> <span class="n">app_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;_csrf_token&#39;</span><span class="p">)</span>
+
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;flash_messages&quot;</span><span class="p">:</span> <span class="n">app_session</span><span class="o">.</span><span class="n">get_flashed_messages</span><span class="p">(),</span>
+        <span class="s2">&quot;csrf_token&quot;</span><span class="p">:</span> <span class="n">csrf_token_value</span><span class="p">,</span>
+        <span class="s2">&quot;form&quot;</span><span class="p">:</span> <span class="n">form</span><span class="p">,</span>
+        <span class="s2">&quot;reset_token&quot;</span><span class="p">:</span> <span class="n">reset_token</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;reset_password_confirm.html&quot;</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="handle_reset_password_confirm_submit">
+<a class="viewcode-back" href="../../../lback/lback.auth_app.html#lback.auth_app.web_auth_views.handle_reset_password_confirm_submit">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">handle_reset_password_confirm_submit</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Handles the submission of the password reset confirmation form (POST request).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Received web password reset confirmation for path: </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">user_manager</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">user_manager</span>
+    <span class="n">db_session</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">db_session</span>
+    <span class="n">app_session</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span>
+
+    <span class="k">if</span> <span class="n">user_manager</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">db_session</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">app_session</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;Missing core dependencies in handle_reset_password_confirm_submit.&quot;</span><span class="p">)</span>
+        <span class="n">app_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="s2">&quot;An internal server error occurred due0 to missing dependencies.&quot;</span><span class="p">,</span> <span class="s2">&quot;danger&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">return_500</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Internal Server Error: Core dependencies missing.&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">!=</span> <span class="n">HTTPMethod</span><span class="o">.</span><span class="n">POST</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid method for web /auth/reset-password: </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="si">}</span><span class="s2">. Expected POST.&quot;</span><span class="p">)</span>
+        <span class="n">app_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="s2">&quot;Invalid request method.&quot;</span><span class="p">,</span> <span class="s2">&quot;error&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/login&quot;</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">METHOD_NOT_ALLOWED</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="n">form</span> <span class="o">=</span> <span class="n">SetNewPasswordForm</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="n">cleaned_data</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span>
+            <span class="n">token</span> <span class="o">=</span> <span class="n">cleaned_data</span><span class="p">[</span><span class="s1">&#39;token&#39;</span><span class="p">]</span>
+            <span class="n">new_password</span> <span class="o">=</span> <span class="n">cleaned_data</span><span class="p">[</span><span class="s1">&#39;new_password&#39;</span><span class="p">]</span>
+
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;handle_reset_password_confirm_submit: Received token (from form): </span><span class="si">{</span><span class="n">token</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">token</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;None&#39;</span><span class="si">}</span><span class="s2">..., password_present=</span><span class="si">{</span><span class="nb">bool</span><span class="p">(</span><span class="n">new_password</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="n">success</span> <span class="o">=</span> <span class="n">user_manager</span><span class="o">.</span><span class="n">reset_password</span><span class="p">(</span><span class="n">db_session</span><span class="p">,</span> <span class="n">token</span><span class="p">,</span> <span class="n">new_password</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
+                <span class="n">db_session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Password successfully reset with token: </span><span class="si">{</span><span class="n">token</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span><span class="si">}</span><span class="s2">... via web form.&quot;</span><span class="p">)</span>
+                <span class="n">app_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="s2">&quot;Your password has been reset successfully. You can now log in with your new password.&quot;</span><span class="p">,</span> <span class="s2">&quot;success&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/login/&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Web password reset failed for token: </span><span class="si">{</span><span class="n">token</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span><span class="si">}</span><span class="s2">....&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">db_session</span><span class="o">.</span><span class="n">is_active</span><span class="p">:</span>
+                    <span class="n">db_session</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+                <span class="n">app_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="s2">&quot;Password reset failed. Perhaps the link is invalid or expired.&quot;</span><span class="p">,</span> <span class="s2">&quot;error&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;/reset-password-confirm/?token=</span><span class="si">{</span><span class="n">token</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="si">}</span><span class="s2">/&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Set new password form validation failed. Errors: </span><span class="si">{</span><span class="n">form</span><span class="o">.</span><span class="n">errors</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">app_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="s2">&quot;Please correct the errors below.&quot;</span><span class="p">,</span> <span class="s2">&quot;error&quot;</span><span class="p">)</span>
+            <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;flash_messages&quot;</span><span class="p">:</span> <span class="n">app_session</span><span class="o">.</span><span class="n">get_flashed_messages</span><span class="p">(),</span>
+                <span class="s2">&quot;csrf_token&quot;</span><span class="p">:</span> <span class="n">app_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;_csrf_token&#39;</span><span class="p">),</span>
+                <span class="s2">&quot;form&quot;</span><span class="p">:</span> <span class="n">form</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;reset_password_confirm.html&quot;</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">BAD_REQUEST</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="n">ValidationError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Validation error during web password reset confirmation. Error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">db_session</span> <span class="ow">and</span> <span class="n">db_session</span><span class="o">.</span><span class="n">is_active</span><span class="p">:</span>
+            <span class="n">db_session</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+        <span class="n">app_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">),</span> <span class="s2">&quot;error&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;/reset-password-confirm/?token=</span><span class="si">{</span><span class="n">token</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="si">}</span><span class="s2">/&quot;</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Critical error during web password reset confirmation. Exception: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">db_session</span> <span class="ow">and</span> <span class="n">db_session</span><span class="o">.</span><span class="n">is_active</span><span class="p">:</span>
+            <span class="n">db_session</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+        <span class="n">app_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="s2">&quot;An internal error occurred. Please try again later.&quot;</span><span class="p">,</span> <span class="s2">&quot;danger&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">return_500</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">exception</span><span class="o">=</span><span class="n">e</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="verify_email_web_view">
+<a class="viewcode-back" href="../../../lback/lback.auth_app.html#lback.auth_app.web_auth_views.verify_email_web_view">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">verify_email_web_view</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Handles email verification via a web link (GET request).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Received web email verification request for path: </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">verification_token</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="n">user_manager</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">user_manager</span>
+    <span class="n">db_session</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">db_session</span>
+    <span class="n">app_session</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span>
+
+    <span class="k">if</span> <span class="n">user_manager</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">db_session</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">app_session</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;Missing core dependencies in verify_email_web_view.&quot;</span><span class="p">)</span>
+        <span class="n">app_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="s2">&quot;An internal server error occurred due to missing dependencies.&quot;</span><span class="p">,</span> <span class="s2">&quot;danger&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">return_500</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Internal Server Error: Core dependencies missing.&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">!=</span> <span class="n">HTTPMethod</span><span class="o">.</span><span class="n">GET</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid method for web /auth/verify-email: </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="si">}</span><span class="s2">. Expected GET.&quot;</span><span class="p">)</span>
+        <span class="n">app_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="s2">&quot;Invalid request method.&quot;</span><span class="p">,</span> <span class="s2">&quot;error&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">METHOD_NOT_ALLOWED</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="n">verification_token</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">query_params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;token&#39;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;verify_email_web_view: Received verification token: </span><span class="si">{</span><span class="n">verification_token</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">verification_token</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;None&#39;</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">verification_token</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Web email verification request missing token parameter.&quot;</span><span class="p">)</span>
+        <span class="n">app_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="s2">&quot;The activation link is invalid or incomplete.&quot;</span><span class="p">,</span> <span class="s2">&quot;error&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">db_session</span><span class="o">.</span><span class="n">is_active</span><span class="p">:</span>
+            <span class="n">db_session</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/login/&quot;</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">BAD_REQUEST</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="n">user_manager</span><span class="o">.</span><span class="n">verify_user_email</span><span class="p">(</span><span class="n">db_session</span><span class="p">,</span> <span class="n">verification_token</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">user</span><span class="p">:</span>
+            <span class="n">db_session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Email successfully verified with token: </span><span class="si">{</span><span class="n">verification_token</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span><span class="si">}</span><span class="s2">... for user &#39;</span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s2">&#39; via web.&quot;</span><span class="p">)</span>
+            <span class="n">app_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="s2">&quot;Your email has been successfully confirmed! You can now log in.&quot;</span><span class="p">,</span> <span class="s2">&quot;success&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/login/&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Web email verification failed for token: </span><span class="si">{</span><span class="n">verification_token</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span><span class="si">}</span><span class="s2">... (User not found or verification failed internally).&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">db_session</span><span class="o">.</span><span class="n">is_active</span><span class="p">:</span>
+                <span class="n">db_session</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+            <span class="n">app_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="s2">&quot;Email confirmation failed. Perhaps the link is invalid or expired.&quot;</span><span class="p">,</span> <span class="s2">&quot;error&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/login/&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">ValidationError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Validation error during web email verification for token: </span><span class="si">{</span><span class="n">verification_token</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">verification_token</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;None&#39;</span><span class="si">}</span><span class="s2">... Error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">db_session</span> <span class="ow">and</span> <span class="n">db_session</span><span class="o">.</span><span class="n">is_active</span><span class="p">:</span>
+            <span class="n">db_session</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+        <span class="n">app_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">),</span> <span class="s2">&quot;error&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/login/&quot;</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Critical error during web email verification for token: </span><span class="si">{</span><span class="n">verification_token</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">verification_token</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;None&#39;</span><span class="si">}</span><span class="s2">... Exception: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">db_session</span> <span class="ow">and</span> <span class="n">db_session</span><span class="o">.</span><span class="n">is_active</span><span class="p">:</span>
+            <span class="n">db_session</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+        <span class="n">app_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="s2">&quot;An internal error occurred during email confirmation. Please try again later.&quot;</span><span class="p">,</span> <span class="s2">&quot;danger&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">return_500</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">exception</span><span class="o">=</span><span class="n">e</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="logout_user_view">
+<a class="viewcode-back" href="../../../lback/lback.auth_app.html#lback.auth_app.web_auth_views.logout_user_view">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">logout_user_view</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Logs out the current user by clearing their session data.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Received logout request for path: </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">app_session</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span>
+    <span class="k">if</span> <span class="n">app_session</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;AppSession is not available on the request for logout_user_view. Cannot perform logout.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/login/&quot;</span><span class="p">)</span>
+
+    <span class="n">app_session</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+    <span class="n">app_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="s2">&quot;You have been successfully logged out.&quot;</span><span class="p">,</span> <span class="s2">&quot;success&quot;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;User logged out successfully. Redirecting to /login.&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/login/&quot;</span><span class="p">)</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ibrahem abo kila.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

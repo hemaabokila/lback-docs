@@ -1,0 +1,343 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Email Sending in Lback Framework &mdash; lback 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=95f010fd" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Validation Utilities" href="validation_utilities.html" />
+    <link rel="prev" title="Logging Configuration" href="logging_config.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            lback
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Configuration%20System.html">Configuration System</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="routing_system.html">Routing System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Views%20%26%20Responses.html">Views &amp; Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Templating%20System.html">Templating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Static%20Files.html">Static Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Media%20Files.html">Media Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file-uploads.html">File Uploads in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Forms.html">Forms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Models%20%26%20Database.html">Models &amp; Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Database%20Migrations%20System.html">Database Migrations System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Authorization.html">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sessions.html">Sessions in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Security%20Features.html">Security Features</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Admin%20Panel.html">Built-in Admin Panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API%20Tools.html">API Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Signal%20System.html">Signal System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Middleware%20System.html">Middleware System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_middlewares.html">Custom Middlewares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logging_config.html">Logging Configuration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Email Sending in Lback Framework</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#the-emailsender-class">1. The <code class="docutils literal notranslate"><span class="pre">EmailSender</span></code> Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#email-configuration-in-settings-py">2. Email Configuration in <code class="docutils literal notranslate"><span class="pre">settings.py</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-the-emailsender-in-views-or-other-modules">3. Using the <code class="docutils literal notranslate"><span class="pre">EmailSender</span></code> in Views (or other modules)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="validation_utilities.html">Validation Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="error_handling.html">Error Handling and HTTP Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Error%20Handling%20%26%20Reporting.html">Error Handling &amp; Reporting</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Deployment.html">Deployment</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html">Signals from BaseView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-apidocs">Signals from APIDocs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-basemodelserializer">Signals from BaseModelSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-registry-signals.html">Signals from AdminRegistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user.html">Signals from AdminUser and Role Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-manager.html">Signals from AdminUserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-repository.html">Signals from AdminUserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html">Signals from AdminAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-jwtauth">Signals from JWTAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-oauth2auth">Signals from OAuth2Auth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-permissionrequired">Signals from PermissionRequired</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-sessionauth">Signals from SessionAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/error-handler.html">Signals from ErrorHandler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/middleware-manager.html">Signals from MiddlewareManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/migration_commands.html">Signals from MigrationCommands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/permission-repository.html">Signals from PermissionRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/role-repository.html">Signals from RoleRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/session-manager.html">Signals from SessionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/template-renderer.html">Signals from TemplateRenderer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-manager.html">Signals from UserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-model.html">Signals from User Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-repository.html">Signals from UserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/wsgi-application.html">Signals from WSGI Application and Server</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Modules and Classes Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API%20Reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lback/lback.html">lback package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">lback</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Email Sending in Lback Framework</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/features/email-sender.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="email-sending-in-lback-framework">
+<h1>Email Sending in Lback Framework<a class="headerlink" href="#email-sending-in-lback-framework" title="Link to this heading"></a></h1>
+<p>Lback provides a dedicated utility for sending emails, encapsulated within the <code class="docutils literal notranslate"><span class="pre">EmailSender</span></code> class. This class is designed to be configurable and flexible, allowing you to integrate email functionalities like account verification, password resets, and general notifications into your application.</p>
+<p>—</p>
+<section id="the-emailsender-class">
+<h2>1. The <code class="docutils literal notranslate"><span class="pre">EmailSender</span></code> Class<a class="headerlink" href="#the-emailsender-class" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">EmailSender</span></code> class (located in your project’s utilities, e.g., <code class="docutils literal notranslate"><span class="pre">lback/utils/email_sender.py</span></code>) is responsible for handling all aspects of sending emails via an SMTP server. It leverages Python’s built-in <code class="docutils literal notranslate"><span class="pre">smtplib</span></code> and <code class="docutils literal notranslate"><span class="pre">email.mime</span></code> modules.</p>
+<p><strong>Key Features:</strong></p>
+<ul class="simple">
+<li><p><strong>Configurable SMTP Settings</strong>: All SMTP server details (host, port, credentials, TLS) are provided during initialization, making the sender reusable.</p></li>
+<li><p><strong>HTML and Plain Text Support</strong>: Easily send emails in either plain text or rich HTML format.</p></li>
+<li><p><strong>Dedicated Methods</strong>: Includes convenience methods for common email types like verification and password reset emails, which generate pre-formatted HTML bodies.</p></li>
+<li><p><strong>Robust Error Logging</strong>: Comprehensive logging helps diagnose any issues during email transmission.</p></li>
+</ul>
+<p><strong>Initialization Parameters:</strong></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">EmailSender</span></code> is initialized with the following parameters:</p>
+<ul class="simple">
+<li><p><strong>smtp_server</strong> (str): The address of your SMTP server (e.g., <code class="docutils literal notranslate"><span class="pre">'smtp.mailprovider.com'</span></code>).</p></li>
+<li><p><strong>smtp_port</strong> (int): The port number for your SMTP server (commonly <code class="docutils literal notranslate"><span class="pre">587</span></code> for TLS or <code class="docutils literal notranslate"><span class="pre">465</span></code> for SSL).</p></li>
+<li><p><strong>smtp_username</strong> (str): The username for SMTP authentication.</p></li>
+<li><p><strong>smtp_password</strong> (str): The password for SMTP authentication.</p></li>
+<li><p><strong>sender_email</strong> (str): The email address that will appear as the sender.</p></li>
+<li><p><strong>use_tls</strong> (bool, <em>default: True</em>): Whether to enable Transport Layer Security (TLS) for a secure connection. Highly recommended.</p></li>
+<li><p><strong>sender_name</strong> (str, <em>default: “Your App Name”</em>): The display name that will appear as the sender (e.g., “Lback App Support”).</p></li>
+</ul>
+<p>—</p>
+</section>
+<section id="email-configuration-in-settings-py">
+<h2>2. Email Configuration in <code class="docutils literal notranslate"><span class="pre">settings.py</span></code><a class="headerlink" href="#email-configuration-in-settings-py" title="Link to this heading"></a></h2>
+<p>To integrate email sending into your Lback application, you should define your SMTP server settings in your <code class="docutils literal notranslate"><span class="pre">settings.py</span></code> file. This allows for easy management and separation of sensitive credentials from your code.</p>
+<p><strong>Example</strong> <code class="docutils literal notranslate"><span class="pre">settings.py</span></code> <strong>Email Settings:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">SMTP_SERVER</span> <span class="o">=</span> <span class="s2">&quot;smtp.example.com&quot;</span>  <span class="c1"># Example: &quot;smtp.gmail.com&quot; for Gmail</span>
+<span class="n">SMTP_PORT</span> <span class="o">=</span> <span class="mi">587</span>
+<span class="n">EMAIL_USERNAME</span> <span class="o">=</span> <span class="s2">&quot;your_app_email@example.com&quot;</span> <span class="c1"># Example: &quot;app.notifications@example.com&quot;.</span>
+<span class="n">EMAIL_PASSWORD</span> <span class="o">=</span> <span class="s2">&quot;your_email_app_password&quot;</span> <span class="c1"># Example: &quot;abcd efgh ijkl mnop&quot; (for app passwords)</span>
+<span class="n">SENDER_EMAIL</span> <span class="o">=</span> <span class="s2">&quot;no-reply@your-domain.com&quot;</span> <span class="c1"># Example: &quot;noreply@example.com&quot;</span>
+<span class="n">USE_TLS</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">SENDER_NAME</span> <span class="o">=</span> <span class="s2">&quot;Your Application&quot;</span> <span class="c1"># Example: &quot;MyProject Notifications&quot;</span>
+</pre></div>
+</div>
+<p><strong>Note:</strong> It’s a best practice to load sensitive information like passwords from environment variables (e.g., using <code class="docutils literal notranslate"><span class="pre">os.environ.get()</span></code>) rather than hardcoding them directly in <code class="docutils literal notranslate"><span class="pre">settings.py</span></code>.</p>
+<p>—</p>
+</section>
+<section id="using-the-emailsender-in-views-or-other-modules">
+<h2>3. Using the <code class="docutils literal notranslate"><span class="pre">EmailSender</span></code> in Views (or other modules)<a class="headerlink" href="#using-the-emailsender-in-views-or-other-modules" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">EmailSender</span></code> object needs to be initialized with your configuration. This is typically done once when your application starts up, and then the instance is made available where needed (e.g., passed to views, or accessed via a global application context).</p>
+<p><strong>Example View: Sending a Password Reset Email</strong></p>
+<p>Let’s say you have a password reset functionality where you generate a unique token and send a link to the user’s email.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># In your views/auth.py or similar file</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.core.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">Request</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.core.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">Config</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.utils.email_sender</span><span class="w"> </span><span class="kn">import</span> <span class="n">EmailSender</span> <span class="c1"># Assuming you put EmailSender in utils/email_sender.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.core.response</span><span class="w"> </span><span class="kn">import</span> <span class="n">Response</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.utils.db_session</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_db_session</span> <span class="c1"># Assuming you have a way to get db_session</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.utils.shortcuts</span><span class="w"> </span><span class="kn">import</span> <span class="n">render</span><span class="p">,</span> <span class="n">redirect</span>
+<span class="c1"># from your_app.models import User, PasswordResetToken # Example models</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">uuid</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">forgot_password_view</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
+    <span class="n">db_session</span> <span class="o">=</span> <span class="n">get_db_session</span><span class="p">(</span><span class="n">request</span><span class="p">)</span> <span class="c1"># Get DB session from request context</span>
+
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="n">email</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">email</span><span class="p">:</span>
+            <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;flash_messages&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="s1">&#39;Please enter your email address.&#39;</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="s1">&#39;error&#39;</span><span class="p">})</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;/forgot-password&#39;</span><span class="p">)</span>
+
+        <span class="n">user</span> <span class="o">=</span> <span class="n">db_session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">User</span><span class="p">)</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">email</span><span class="o">=</span><span class="n">email</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">user</span><span class="p">:</span>
+            <span class="c1"># To prevent email enumeration, always respond as if email was sent</span>
+            <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;flash_messages&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="s1">&#39;If an account with that email exists, a password reset link has been sent.&#39;</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="s1">&#39;info&#39;</span><span class="p">})</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;/forgot-password&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Generate a unique token</span>
+        <span class="n">token</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">())</span>
+        <span class="n">expires_at</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># Link valid for 1 hour</span>
+
+        <span class="c1"># Save the token to the database (associate with user)</span>
+        <span class="n">new_reset_token</span> <span class="o">=</span> <span class="n">PasswordResetToken</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">token</span><span class="o">=</span><span class="n">token</span><span class="p">,</span> <span class="n">expires_at</span><span class="o">=</span><span class="n">expires_at</span><span class="p">)</span>
+        <span class="n">db_session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">new_reset_token</span><span class="p">)</span>
+        <span class="n">db_session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+        <span class="c1"># Construct the reset link (replace with your actual domain and route)</span>
+        <span class="n">reset_link</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">base_url_no_path</span><span class="si">}</span><span class="s2">/reset-password?token=</span><span class="si">{</span><span class="n">token</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="c1"># Instantiate EmailSender with your config (in a real app, this might be a singleton)</span>
+        <span class="n">app_config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span> <span class="c1"># Load config for demonstration</span>
+        <span class="n">email_sender</span> <span class="o">=</span> <span class="n">EmailSender</span><span class="p">(</span>
+            <span class="n">smtp_server</span><span class="o">=</span><span class="n">app_config</span><span class="o">.</span><span class="n">SMTP_SERVER</span><span class="p">,</span>
+            <span class="n">smtp_port</span><span class="o">=</span><span class="n">app_config</span><span class="o">.</span><span class="n">SMTP_PORT</span><span class="p">,</span>
+            <span class="n">smtp_username</span><span class="o">=</span><span class="n">app_config</span><span class="o">.</span><span class="n">SMTP_USERNAME</span><span class="p">,</span>
+            <span class="n">smtp_password</span><span class="o">=</span><span class="n">app_config</span><span class="o">.</span><span class="n">SMTP_PASSWORD</span><span class="p">,</span>
+            <span class="n">sender_email</span><span class="o">=</span><span class="n">app_config</span><span class="o">.</span><span class="n">SENDER_EMAIL</span><span class="p">,</span>
+            <span class="n">use_tls</span><span class="o">=</span><span class="n">app_config</span><span class="o">.</span><span class="n">USE_TLS</span><span class="p">,</span>
+            <span class="n">sender_name</span><span class="o">=</span><span class="n">app_config</span><span class="o">.</span><span class="n">SENDER_NAME</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Send the email</span>
+        <span class="k">if</span> <span class="n">email_sender</span><span class="o">.</span><span class="n">send_password_reset_email</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">,</span> <span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">,</span> <span class="n">reset_link</span><span class="p">):</span>
+            <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;flash_messages&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="s1">&#39;A password reset link has been sent to your email.&#39;</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="s1">&#39;success&#39;</span><span class="p">})</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;flash_messages&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="s1">&#39;Failed to send password reset email. Please try again later.&#39;</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="s1">&#39;error&#39;</span><span class="p">})</span>
+
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;/forgot-password&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;forgot_password.html&#39;</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">contact_us_view</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
+    <span class="n">db_session</span> <span class="o">=</span> <span class="n">get_db_session</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+        <span class="n">email</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">)</span>
+        <span class="n">subject</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;subject&#39;</span><span class="p">)</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Basic validation</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">([</span><span class="n">name</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">subject</span><span class="p">,</span> <span class="n">message</span><span class="p">]):</span>
+            <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;flash_messages&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="s1">&#39;All fields are required.&#39;</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="s1">&#39;error&#39;</span><span class="p">})</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;/contact-us&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Instantiate EmailSender</span>
+        <span class="n">app_config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
+        <span class="n">email_sender</span> <span class="o">=</span> <span class="n">EmailSender</span><span class="p">(</span>
+            <span class="n">smtp_server</span><span class="o">=</span><span class="n">app_config</span><span class="o">.</span><span class="n">SMTP_SERVER</span><span class="p">,</span>
+            <span class="n">smtp_port</span><span class="o">=</span><span class="n">app_config</span><span class="o">.</span><span class="n">SMTP_PORT</span><span class="p">,</span>
+            <span class="n">smtp_username</span><span class="o">=</span><span class="n">app_config</span><span class="o">.</span><span class="n">SMTP_USERNAME</span><span class="p">,</span>
+            <span class="n">smtp_password</span><span class="o">=</span><span class="n">app_config</span><span class="o">.</span><span class="n">SMTP_PASSWORD</span><span class="p">,</span>
+            <span class="n">sender_email</span><span class="o">=</span><span class="n">app_config</span><span class="o">.</span><span class="n">SENDER_EMAIL</span><span class="p">,</span>
+            <span class="n">use_tls</span><span class="o">=</span><span class="n">app_config</span><span class="o">.</span><span class="n">USE_TLS</span><span class="p">,</span>
+            <span class="n">sender_name</span><span class="o">=</span><span class="n">app_config</span><span class="o">.</span><span class="n">SENDER_NAME</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Define the recipient (e.g., your admin email)</span>
+        <span class="n">admin_email</span> <span class="o">=</span> <span class="n">app_config</span><span class="o">.</span><span class="n">ADMIN_EMAIL</span> <span class="c1"># Make sure you have this in your config</span>
+
+        <span class="n">email_body</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">        New Contact Form Submission:</span>
+<span class="s2">        Name: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span>
+<span class="s2">        Email: </span><span class="si">{</span><span class="n">email</span><span class="si">}</span>
+<span class="s2">        Subject: </span><span class="si">{</span><span class="n">subject</span><span class="si">}</span>
+<span class="s2">        Message:</span>
+<span class="s2">        </span><span class="si">{</span><span class="n">message</span><span class="si">}</span>
+<span class="s2">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">email_sender</span><span class="o">.</span><span class="n">send_generic_email</span><span class="p">(</span><span class="n">admin_email</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Contact Form: </span><span class="si">{</span><span class="n">subject</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">email_body</span><span class="p">,</span> <span class="n">is_html</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+            <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;flash_messages&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="s1">&#39;Your message has been sent successfully!&#39;</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="s1">&#39;success&#39;</span><span class="p">})</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;flash_messages&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="s1">&#39;Failed to send your message. Please try again later.&#39;</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="s1">&#39;error&#39;</span><span class="p">})</span>
+
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;/contact-us&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;contact_us.html&#39;</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Important Considerations:</strong></p>
+<ul class="simple">
+<li><p><strong>Asynchronous Sending</strong>: For production applications, sending emails synchronously within a web request can block the response and degrade user experience. Consider implementing an asynchronous task queue (e.g., Celery, RQ) to send emails in the background.</p></li>
+<li><p><strong>Error Handling</strong>: The <code class="docutils literal notranslate"><span class="pre">send_email</span></code> method returns <code class="docutils literal notranslate"><span class="pre">True</span></code> on success and <code class="docutils literal notranslate"><span class="pre">False</span></code> on failure. Always check this return value and provide appropriate feedback to the user.</p></li>
+<li><p><strong>Templating</strong>: For more complex email bodies, especially HTML emails, you might want to use a dedicated templating engine (like Jinja2) to render your email content before passing it to <code class="docutils literal notranslate"><span class="pre">EmailSender</span></code>.</p></li>
+</ul>
+<p>—</p>
+<p>By leveraging the <code class="docutils literal notranslate"><span class="pre">EmailSender</span></code> class and its configuration, you can robustly integrate email communication into your Lback applications.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="logging_config.html" class="btn btn-neutral float-left" title="Logging Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="validation_utilities.html" class="btn btn-neutral float-right" title="Validation Utilities" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ibrahem abo kila.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

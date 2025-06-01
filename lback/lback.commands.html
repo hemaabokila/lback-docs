@@ -1,0 +1,414 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>lback.commands package &mdash; lback 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=95f010fd" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="lback.core package" href="lback.core.html" />
+    <link rel="prev" title="lback.auth_app package" href="lback.auth_app.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            lback
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Configuration%20System.html">Configuration System</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/routing_system.html">Routing System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Views%20%26%20Responses.html">Views &amp; Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Templating%20System.html">Templating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Static%20Files.html">Static Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Media%20Files.html">Media Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/file-uploads.html">File Uploads in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Forms.html">Forms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/Models%20%26%20Database.html">Models &amp; Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Database%20Migrations%20System.html">Database Migrations System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Authorization.html">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/sessions.html">Sessions in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Security%20Features.html">Security Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/Admin%20Panel.html">Built-in Admin Panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/API%20Tools.html">API Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Signal%20System.html">Signal System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Middleware%20System.html">Middleware System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/custom_middlewares.html">Custom Middlewares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/logging_config.html">Logging Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/email-sender.html">Email Sending in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/validation_utilities.html">Validation Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/error_handling.html">Error Handling and HTTP Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Error%20Handling%20%26%20Reporting.html">Error Handling &amp; Reporting</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/Deployment.html">Deployment</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html">Signals from BaseView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-apidocs">Signals from APIDocs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-basemodelserializer">Signals from BaseModelSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-registry-signals.html">Signals from AdminRegistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user.html">Signals from AdminUser and Role Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-manager.html">Signals from AdminUserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-repository.html">Signals from AdminUserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html">Signals from AdminAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-jwtauth">Signals from JWTAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-oauth2auth">Signals from OAuth2Auth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-permissionrequired">Signals from PermissionRequired</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-sessionauth">Signals from SessionAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/error-handler.html">Signals from ErrorHandler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/middleware-manager.html">Signals from MiddlewareManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/migration_commands.html">Signals from MigrationCommands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/permission-repository.html">Signals from PermissionRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/role-repository.html">Signals from RoleRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/session-manager.html">Signals from SessionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/template-renderer.html">Signals from TemplateRenderer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-manager.html">Signals from UserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-model.html">Signals from User Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-repository.html">Signals from UserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/wsgi-application.html">Signals from WSGI Application and Server</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Modules and Classes Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API%20Reference.html">API Reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="lback.html">lback package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="lback.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="lback.admin.html">lback.admin package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.api.html">lback.api package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.auth.html">lback.auth package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.auth_app.html">lback.auth_app package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">lback.commands package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-lback.commands.admin">lback.commands.admin module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-lback.commands.app">lback.commands.app module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-lback.commands.db_seed">lback.commands.db_seed module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-lback.commands.migration">lback.commands.migration module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-lback.commands.project">lback.commands.project module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-lback.commands.runner">lback.commands.runner module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-lback.commands">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lback.core.html">lback.core package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.forms.html">lback.forms package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.middlewares.html">lback.middlewares package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.models.html">lback.models package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.repositories.html">lback.repositories package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.security.html">lback.security package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.utils.html">lback.utils package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lback.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lback.html#module-lback.main">lback.main module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lback.html#module-lback">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">lback</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="lback.html">lback package</a></li>
+      <li class="breadcrumb-item active">lback.commands package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/lback/lback.commands.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="lback-commands-package">
+<h1>lback.commands package<a class="headerlink" href="#lback-commands-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-lback.commands.admin">
+<span id="lback-commands-admin-module"></span><h2>lback.commands.admin module<a class="headerlink" href="#module-lback.commands.admin" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.commands.admin.AdminCommands">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.commands.admin.</span></span><span class="sig-name descname"><span class="pre">AdminCommands</span></span><a class="reference internal" href="../_modules/lback/commands/admin.html#AdminCommands"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.commands.admin.AdminCommands" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Command-line utilities for administrative tasks,
+interacting with the database using the new system.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.commands.admin.AdminCommands.activate_user">
+<span class="sig-name descname"><span class="pre">activate_user</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/commands/admin.html#AdminCommands.activate_user"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.commands.admin.AdminCommands.activate_user" title="Link to this definition"></a></dt>
+<dd><p>Activates a user via command line.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.commands.admin.AdminCommands.create_superuser">
+<span class="sig-name descname"><span class="pre">create_superuser</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/commands/admin.html#AdminCommands.create_superuser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.commands.admin.AdminCommands.create_superuser" title="Link to this definition"></a></dt>
+<dd><p>Creates a new superuser via command line.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.commands.admin.AdminCommands.deactivate_user">
+<span class="sig-name descname"><span class="pre">deactivate_user</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/commands/admin.html#AdminCommands.deactivate_user"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.commands.admin.AdminCommands.deactivate_user" title="Link to this definition"></a></dt>
+<dd><p>Deactivates a user via command line.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.commands.admin.AdminCommands.init_db">
+<span class="sig-name descname"><span class="pre">init_db</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/commands/admin.html#AdminCommands.init_db"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.commands.admin.AdminCommands.init_db" title="Link to this definition"></a></dt>
+<dd><p>Initializes the database schema by creating all tables.
+Note: This bypasses Alembic and is typically for initial setup or testing.
+For production, use Alembic migrations (manage.py migrate).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.commands.admin.AdminCommands.list_users">
+<span class="sig-name descname"><span class="pre">list_users</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/commands/admin.html#AdminCommands.list_users"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.commands.admin.AdminCommands.list_users" title="Link to this definition"></a></dt>
+<dd><p>Lists all registered users via command line.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.commands.admin.AdminCommands.reset_password">
+<span class="sig-name descname"><span class="pre">reset_password</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/commands/admin.html#AdminCommands.reset_password"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.commands.admin.AdminCommands.reset_password" title="Link to this definition"></a></dt>
+<dd><p>Resets a user’s password via command line.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lback.commands.app">
+<span id="lback-commands-app-module"></span><h2>lback.commands.app module<a class="headerlink" href="#module-lback.commands.app" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.commands.app.AppCommands">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.commands.app.</span></span><span class="sig-name descname"><span class="pre">AppCommands</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/commands/app.html#AppCommands"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.commands.app.AppCommands" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.commands.app.AppCommands.startapp">
+<span class="sig-name descname"><span class="pre">startapp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/commands/app.html#AppCommands.startapp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.commands.app.AppCommands.startapp" title="Link to this definition"></a></dt>
+<dd><p>Create a new app structure.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lback.commands.db_seed">
+<span id="lback-commands-db-seed-module"></span><h2>lback.commands.db_seed module<a class="headerlink" href="#module-lback.commands.db_seed" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="lback.commands.db_seed.setup_database_and_defaults">
+<span class="sig-prename descclassname"><span class="pre">lback.commands.db_seed.</span></span><span class="sig-name descname"><span class="pre">setup_database_and_defaults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db_manager_instance</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/commands/db_seed.html#setup_database_and_defaults"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.commands.db_seed.setup_database_and_defaults" title="Link to this definition"></a></dt>
+<dd><p>Initializes the database schema and populates it with default groups and permissions.
+This should be called as part of a dedicated ‘seed_db’ command.</p>
+</dd></dl>
+
+</section>
+<section id="module-lback.commands.migration">
+<span id="lback-commands-migration-module"></span><h2>lback.commands.migration module<a class="headerlink" href="#module-lback.commands.migration" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.commands.migration.MigrationCommands">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.commands.migration.</span></span><span class="sig-name descname"><span class="pre">MigrationCommands</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/commands/migration.html#MigrationCommands"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.commands.migration.MigrationCommands" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Provides command-line interface commands for managing database migrations using Alembic.
+Wraps Alembic subprocess calls and integrates SignalDispatcher to emit events.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.commands.migration.MigrationCommands.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/commands/migration.html#MigrationCommands.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.commands.migration.MigrationCommands.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initializes MigrationCommands.
+Emits ‘migration_commands_initialized’ signal.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.commands.migration.MigrationCommands.history">
+<span class="sig-name descname"><span class="pre">history</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/commands/migration.html#MigrationCommands.history"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.commands.migration.MigrationCommands.history" title="Link to this definition"></a></dt>
+<dd><p>Shows the migration history using Alembic.
+Emits ‘migration_history_command’ signal.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.commands.migration.MigrationCommands.makemigrations">
+<span class="sig-name descname"><span class="pre">makemigrations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'auto'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/commands/migration.html#MigrationCommands.makemigrations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.commands.migration.MigrationCommands.makemigrations" title="Link to this definition"></a></dt>
+<dd><p>Creates a new migration script based on model changes using Alembic.
+Emits ‘migration_makemigrations_command’ signal.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.commands.migration.MigrationCommands.migrate">
+<span class="sig-name descname"><span class="pre">migrate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'head'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/commands/migration.html#MigrationCommands.migrate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.commands.migration.MigrationCommands.migrate" title="Link to this definition"></a></dt>
+<dd><p>Applies pending migrations to the database using Alembic.
+Emits ‘migration_migrate_command’ signal.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.commands.migration.MigrationCommands.rollback">
+<span class="sig-name descname"><span class="pre">rollback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'-1'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/commands/migration.html#MigrationCommands.rollback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.commands.migration.MigrationCommands.rollback" title="Link to this definition"></a></dt>
+<dd><p>Rolls back migrations using Alembic.
+Emits ‘migration_rollback_command’ signal.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lback.commands.project">
+<span id="lback-commands-project-module"></span><h2>lback.commands.project module<a class="headerlink" href="#module-lback.commands.project" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.commands.project.ProjectCommands">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.commands.project.</span></span><span class="sig-name descname"><span class="pre">ProjectCommands</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/commands/project.html#ProjectCommands"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.commands.project.ProjectCommands" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.commands.project.ProjectCommands.startproject">
+<span class="sig-name descname"><span class="pre">startproject</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/commands/project.html#ProjectCommands.startproject"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.commands.project.ProjectCommands.startproject" title="Link to this definition"></a></dt>
+<dd><p>Create a new project structure.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lback.commands.runner">
+<span id="lback-commands-runner-module"></span><h2>lback.commands.runner module<a class="headerlink" href="#module-lback.commands.runner" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.commands.runner.RunnerCommands">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.commands.runner.</span></span><span class="sig-name descname"><span class="pre">RunnerCommands</span></span><a class="reference internal" href="../_modules/lback/commands/runner.html#RunnerCommands"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.commands.runner.RunnerCommands" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.commands.runner.RunnerCommands.collectstatic">
+<span class="sig-name descname"><span class="pre">collectstatic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">static_dirs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'staticfiles'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/commands/runner.html#RunnerCommands.collectstatic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.commands.runner.RunnerCommands.collectstatic" title="Link to this definition"></a></dt>
+<dd><p>Collect static files into a single directory.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.commands.runner.RunnerCommands.runserver">
+<span class="sig-name descname"><span class="pre">runserver</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/commands/runner.html#RunnerCommands.runserver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.commands.runner.RunnerCommands.runserver" title="Link to this definition"></a></dt>
+<dd><p>Run the development server.
+Initializes core server components before running the server.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.commands.runner.RunnerCommands.test">
+<span class="sig-name descname"><span class="pre">test</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">test_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/commands/runner.html#RunnerCommands.test"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.commands.runner.RunnerCommands.test" title="Link to this definition"></a></dt>
+<dd><p>Run tests using pytest.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lback.commands">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-lback.commands" title="Link to this heading"></a></h2>
+<p>This file serves as the initialization point for the ‘lback_framework/lback/commands’ package.
+It is designed to expose the core components necessary for executing various command-line
+utilities and management tasks within the Lback web framework. This package centralizes
+the definition and management of administrative and development-related commands,
+allowing developers to interact with the framework from the terminal.</p>
+<p>—</p>
+<p><strong>Key Components Exposed by this Package:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>AdminCommands (from .admin):</strong>
+A collection of command-line utilities specifically designed for administrative tasks.
+These commands typically facilitate the management of the Lback admin interface,
+such as creating superusers, managing admin configurations, or performing other
+admin-specific operations from the terminal.</p></li>
+<li><p><strong>AppCommands (from .app):</strong>
+A set of command-line utilities related to managing individual applications or modules
+within the Lback project. These commands might include functionalities for creating
+new app templates, managing app-specific configurations, or performing operations
+relevant to the lifecycle of an application.</p></li>
+<li><p><strong>setup_database_and_defaults (from .db_seed):</strong>
+A function or utility responsible for seeding the database with initial data or
+default configurations. This command is crucial for setting up a fresh development
+environment or for populating a database with essential data required for the
+application to function correctly (e.g., default user roles, initial settings).</p></li>
+<li><p><strong>MigrationCommands (from .migration):</strong>
+A collection of command-line utilities for managing database schema migrations.
+These commands typically integrate with a migration tool (like Alembic) to
+create new migration scripts, apply pending migrations to the database,
+or revert previous migrations, ensuring database schema changes are managed
+in a version-controlled manner.</p></li>
+<li><p><strong>ProjectCommands (from .project):</strong>
+A set of command-line utilities related to managing the overall Lback project.
+These commands might include functionalities for initializing a new Lback project,
+setting up project-wide configurations, or performing operations relevant to the
+entire project’s structure and environment.</p></li>
+<li><p><strong>RunnerCommands (from .runner):</strong>
+A collection of command-line utilities for running the Lback application or
+specific development servers. This typically includes commands to start the
+development server, run tests, or execute other processes necessary for
+developing and deploying the Lback application.</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="lback.auth_app.html" class="btn btn-neutral float-left" title="lback.auth_app package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="lback.core.html" class="btn btn-neutral float-right" title="lback.core package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ibrahem abo kila.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

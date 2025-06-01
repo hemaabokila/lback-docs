@@ -1,0 +1,681 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forms &mdash; lback 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=95f010fd" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Models &amp; Database" href="Models%20%26%20Database.html" />
+    <link rel="prev" title="File Uploads in Lback Framework" href="file-uploads.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            lback
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Configuration%20System.html">Configuration System</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="routing_system.html">Routing System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Views%20%26%20Responses.html">Views &amp; Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Templating%20System.html">Templating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Static%20Files.html">Static Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Media%20Files.html">Media Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file-uploads.html">File Uploads in Lback Framework</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Forms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#defining-forms">1- Defining Forms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#form-lifecycle-usage">2- Form Lifecycle &amp; Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#field-types">3- Field Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#widgets">4. Widgets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modelform">6- <code class="docutils literal notranslate"><span class="pre">ModelForm</span></code></a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Models%20%26%20Database.html">Models &amp; Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Database%20Migrations%20System.html">Database Migrations System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Authorization.html">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sessions.html">Sessions in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Security%20Features.html">Security Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Admin%20Panel.html">Built-in Admin Panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API%20Tools.html">API Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Signal%20System.html">Signal System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Middleware%20System.html">Middleware System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_middlewares.html">Custom Middlewares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logging_config.html">Logging Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="email-sender.html">Email Sending in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="validation_utilities.html">Validation Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="error_handling.html">Error Handling and HTTP Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Error%20Handling%20%26%20Reporting.html">Error Handling &amp; Reporting</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Deployment.html">Deployment</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html">Signals from BaseView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-apidocs">Signals from APIDocs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-basemodelserializer">Signals from BaseModelSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-registry-signals.html">Signals from AdminRegistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user.html">Signals from AdminUser and Role Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-manager.html">Signals from AdminUserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-repository.html">Signals from AdminUserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html">Signals from AdminAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-jwtauth">Signals from JWTAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-oauth2auth">Signals from OAuth2Auth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-permissionrequired">Signals from PermissionRequired</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-sessionauth">Signals from SessionAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/error-handler.html">Signals from ErrorHandler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/middleware-manager.html">Signals from MiddlewareManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/migration_commands.html">Signals from MigrationCommands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/permission-repository.html">Signals from PermissionRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/role-repository.html">Signals from RoleRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/session-manager.html">Signals from SessionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/template-renderer.html">Signals from TemplateRenderer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-manager.html">Signals from UserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-model.html">Signals from User Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-repository.html">Signals from UserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/wsgi-application.html">Signals from WSGI Application and Server</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Modules and Classes Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API%20Reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lback/lback.html">lback package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">lback</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Forms</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/features/Forms.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="forms">
+<h1>Forms<a class="headerlink" href="#forms" title="Link to this heading"></a></h1>
+<p>The framework provides a powerful and flexible Forms system designed to handle HTML form rendering, data validation, and processing with ease.</p>
+<p>It abstracts away common boilerplate, allowing you to focus on your application’s logic.</p>
+<section id="defining-forms">
+<h2>1- Defining Forms<a class="headerlink" href="#defining-forms" title="Link to this heading"></a></h2>
+<p>Forms are defined as Python classes that inherit from <code class="docutils literal notranslate"><span class="pre">lback.forms.forms.Form`</span></code>.</p>
+<p>You declare form fields as class attributes, and the framework’s <code class="docutils literal notranslate"><span class="pre">FormMetaclass</span></code> automatically collects the</p>
+<p><strong>Example: A Simple Contact Form</strong></p>
+<p>Let’s look at how you’d define a contact form:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># myapp/forms.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.forms.fields</span><span class="w"> </span><span class="kn">import</span> <span class="n">CharField</span><span class="p">,</span> <span class="n">EmailField</span><span class="p">,</span> <span class="n">IntegerField</span><span class="p">,</span> <span class="n">BooleanField</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.forms.widgets</span><span class="w"> </span><span class="kn">import</span> <span class="n">Textarea</span><span class="p">,</span> <span class="n">CheckboxInput</span><span class="p">,</span> <span class="n">PasswordInput</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.forms.forms</span><span class="w"> </span><span class="kn">import</span> <span class="n">Form</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.forms.validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">ValidationError</span> <span class="c1"># For custom validation</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ContactForm</span><span class="p">(</span><span class="n">Form</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A simple form for contact inquiries.</span>
+<span class="sd">    Demonstrates various field types and custom validation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">CharField</span><span class="p">(</span>
+        <span class="n">min_length</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+        <span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Your Name&quot;</span><span class="p">,</span>
+        <span class="n">help_text</span><span class="o">=</span><span class="s2">&quot;Please enter your full name.&quot;</span>
+    <span class="p">)</span>
+    <span class="n">email</span> <span class="o">=</span> <span class="n">EmailField</span><span class="p">(</span>
+        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Your Email&quot;</span>
+    <span class="p">)</span>
+    <span class="n">age</span> <span class="o">=</span> <span class="n">IntegerField</span><span class="p">(</span>
+        <span class="n">min_value</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span>
+        <span class="n">max_value</span><span class="o">=</span><span class="mi">99</span><span class="p">,</span>
+        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Your Age&quot;</span><span class="p">,</span>
+        <span class="n">help_text</span><span class="o">=</span><span class="s2">&quot;Must be between 18 and 99.&quot;</span>
+    <span class="p">)</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="n">CharField</span><span class="p">(</span>
+        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">widget</span><span class="o">=</span><span class="n">Textarea</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;rows&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;cols&#39;</span><span class="p">:</span> <span class="mi">40</span><span class="p">}),</span> <span class="c1"># Custom widget with HTML attributes</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Your Message&quot;</span>
+    <span class="p">)</span>
+    <span class="n">newsletter_signup</span> <span class="o">=</span> <span class="n">BooleanField</span><span class="p">(</span>
+        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Sign up for newsletter?&quot;</span><span class="p">,</span>
+        <span class="n">widget</span><span class="o">=</span><span class="n">CheckboxInput</span> <span class="c1"># Explicitly setting checkbox widget</span>
+    <span class="p">)</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="n">CharField</span><span class="p">(</span>
+        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">widget</span><span class="o">=</span><span class="n">PasswordInput</span><span class="p">,</span> <span class="c1"># Renders as &lt;input type=&quot;password&quot;&gt;</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Password (optional)&quot;</span>
+    <span class="p">)</span>
+    <span class="n">password_confirm</span> <span class="o">=</span> <span class="n">CharField</span><span class="p">(</span>
+        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">widget</span><span class="o">=</span><span class="n">PasswordInput</span><span class="p">,</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Confirm Password&quot;</span>
+    <span class="p">)</span>
+
+    <span class="c1"># You can add custom validation logic that applies to a single field</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">clean_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Custom validation for the &#39;name&#39; field.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="s2">&quot;admin&quot;</span> <span class="ow">in</span> <span class="n">value</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="n">ValidationError</span><span class="p">(</span><span class="s2">&quot;Name cannot contain &#39;admin&#39;.&quot;</span><span class="p">,</span> <span class="n">code</span><span class="o">=</span><span class="s1">&#39;invalid_name&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">value</span>
+
+    <span class="c1"># You can add custom validation logic that applies to the entire form (multiple fields)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">clean</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Performs form-level validation.</span>
+<span class="sd">        This method is called after individual field validations are complete.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Always call the super().clean() to ensure base validations and initial clean_data.</span>
+        <span class="c1"># This base clean() method already handles password mismatch, for example.</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">clean</span><span class="p">()</span>
+
+        <span class="c1"># Access cleaned data from individual fields</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+        <span class="n">email</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Example of cross-field validation</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">and</span> <span class="n">email</span> <span class="ow">and</span> <span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="n">email</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;@&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="n">ValidationError</span><span class="p">(</span><span class="s2">&quot;Name cannot be the same as the email&#39;s local part.&quot;</span><span class="p">,</span> <span class="n">code</span><span class="o">=</span><span class="s1">&#39;name_email_match&#39;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="form-lifecycle-usage">
+<h2>2- Form Lifecycle &amp; Usage<a class="headerlink" href="#form-lifecycle-usage" title="Link to this heading"></a></h2>
+<p>Working with forms typically involves these steps:</p>
+<p><strong>a. Instantiating a Form</strong></p>
+<p>You can instantiate a form in two main ways:
+* <strong>Unbound Form (GET requests):</strong> Used when initially displaying an empty form or a form pre-filled with initial data.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># To display an empty form</span>
+<span class="n">form</span> <span class="o">=</span> <span class="n">ContactForm</span><span class="p">()</span>
+
+<span class="c1"># To display a form with initial values (e.g., for editing an existing entry)</span>
+<span class="n">initial_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John Doe&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="s1">&#39;john.doe@example.com&#39;</span><span class="p">}</span>
+<span class="n">form</span> <span class="o">=</span> <span class="n">ContactForm</span><span class="p">(</span><span class="n">initial</span><span class="o">=</span><span class="n">initial_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>Bound Form (POST requests):</strong> Used when processing submitted data from a user.</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">data</span></code> and <code class="docutils literal notranslate"><span class="pre">files</span></code> arguments should come directly from your request object (e.g., <code class="docutils literal notranslate"><span class="pre">request.POST</span></code>, <code class="docutils literal notranslate"><span class="pre">request.FILES</span></code>).</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># In your view handling a POST request</span>
+<span class="n">form</span> <span class="o">=</span> <span class="n">ContactForm</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">FILES</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>b. Validating Form Data</strong> (<code class="docutils literal notranslate"><span class="pre">is_valid()</span></code>)</p>
+<p>After instantiating a bound form, you must call the <code class="docutils literal notranslate"><span class="pre">is_valid()</span></code> method to trigger the validation process.</p>
+<p>This method validates each field individually and then calls the form’s <code class="docutils literal notranslate"><span class="pre">clean()</span></code> method for form-level validation.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># In your view</span>
+<span class="n">form</span> <span class="o">=</span> <span class="n">ContactForm</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+    <span class="c1"># Form data is valid, access cleaned data</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+    <span class="n">email</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="p">[</span><span class="s1">&#39;email&#39;</span><span class="p">]</span>
+    <span class="c1"># ... process data (e.g., save to database)</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;/success-page/&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># Form data is invalid, render the form again with errors</span>
+    <span class="c1"># The template will use form.errors to display feedback</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;contact.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;form&#39;</span><span class="p">:</span> <span class="n">form</span><span class="p">})</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>c. Accessing Cleaned Data</strong> (<code class="docutils literal notranslate"><span class="pre">cleaned_data</span></code>)</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">is_valid()</span></code> returns <code class="docutils literal notranslate"><span class="pre">True</span></code>, the validated and converted data for each field is available in the <code class="docutils literal notranslate"><span class="pre">form.cleaned_data</span></code> property.</p>
+<p>This dictionary contains the final, processed values ready for use (e.g., saving to a database).</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+    <span class="n">user_name</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="c1"># This will be the cleaned string</span>
+    <span class="n">user_age</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span>   <span class="c1"># This will be an integer, or None if not required</span>
+    <span class="c1"># ...</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>d. Handling Errors</strong> (<code class="docutils literal notranslate"><span class="pre">errors</span></code>, <code class="docutils literal notranslate"><span class="pre">non_field_errors</span></code>)</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">is_valid()</span></code> returns <code class="docutils literal notranslate"><span class="pre">False</span></code>, you can access the validation errors through:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">form.errors</span></code>: A dictionary where keys are field names and values are lists of <code class="docutils literal notranslate"><span class="pre">ValidationError</span></code> objects for that field.It also contains the <code class="docutils literal notranslate"><span class="pre">__all__</span></code> key for form-level errors.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">form.non_field_errors</span></code>: A convenient property that returns a list of errors that are not specific to any single field (i.e., errors from the <code class="docutils literal notranslate"><span class="pre">clean()</span></code> method).</p></li>
+</ul>
+<p>You typically pass the form object back to your template to display these errors next to the relevant fields.</p>
+</section>
+<section id="field-types">
+<h2>3- Field Types<a class="headerlink" href="#field-types" title="Link to this heading"></a></h2>
+<p>The framework provides a variety of built-in field types to handle different kinds of data:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">CharField</span></code>: For single-line text input.</dt><dd><ul>
+<li><p><strong>Options:</strong> <code class="docutils literal notranslate"><span class="pre">min_length</span></code>, <code class="docutils literal notranslate"><span class="pre">max_length</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EmailField</span></code>: Specifically for email addresses, includes email format validation.</p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">IntegerField</span></code>: For whole numbers.</dt><dd><ul>
+<li><p><strong>Options:</strong> <code class="docutils literal notranslate"><span class="pre">min_value</span></code>, <code class="docutils literal notranslate"><span class="pre">max_value</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BooleanField</span></code>: For true/false values, typically rendered as checkboxes.</p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">ChoiceField</span></code>: For selecting one option from a predefined set.</dt><dd><ul>
+<li><p><strong>Options:</strong> choices (a list of tuples, e.g., <code class="docutils literal notranslate"><span class="pre">[('M',</span> <span class="pre">'Male'),</span> <span class="pre">('F',</span> <span class="pre">'Female')]</span></code>).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DateField</span></code>: For dates.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TimeField</span></code>: For times.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DateTimeField</span></code>: For date and time.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FileField</span></code>: For file uploads.</p></li>
+</ul>
+<p>All fields support common arguments:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">required</span></code>: <code class="docutils literal notranslate"><span class="pre">True</span></code> by default. If <code class="docutils literal notranslate"><span class="pre">False</span></code>, the field can be left empty.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">label</span></code>: The human-readable label for the field in the HTML form.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">initial</span></code>: The initial value to populate the field with when the form is unbound.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">help_text</span></code>: Explanatory text displayed next to the field.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">widget</span></code>: Allows you to specify a custom HTML widget for the field.</p></li>
+</ul>
+</section>
+<section id="widgets">
+<h2>4. Widgets<a class="headerlink" href="#widgets" title="Link to this heading"></a></h2>
+<p>Widgets determine how a form field is rendered as HTML.</p>
+<p>You can specify a custom widget using the <code class="docutils literal notranslate"><span class="pre">widget</span></code> argument when defining a field.
+* <code class="docutils literal notranslate"><span class="pre">TextInput</span></code>: Default for <code class="docutils literal notranslate"><span class="pre">CharField</span></code>, <code class="docutils literal notranslate"><span class="pre">EmailField</span></code>, <code class="docutils literal notranslate"><span class="pre">IntegerField</span></code>.
+* <code class="docutils literal notranslate"><span class="pre">Textarea</span></code>: For multi-line text input.
+* <code class="docutils literal notranslate"><span class="pre">PasswordInput</span></code>: Renders an <code class="docutils literal notranslate"><span class="pre">&lt;input</span> <span class="pre">type=&quot;password&quot;&gt;</span></code> field.
+* <code class="docutils literal notranslate"><span class="pre">CheckboxInput</span></code>: Renders an <code class="docutils literal notranslate"><span class="pre">&lt;input</span> <span class="pre">type=&quot;checkbox&quot;&gt;</span></code> field.
+* <code class="docutils literal notranslate"><span class="pre">Select</span></code>: Renders a <code class="docutils literal notranslate"><span class="pre">&lt;select&gt;</span></code> dropdown for <code class="docutils literal notranslate"><span class="pre">ChoiceField</span></code>.
+* <code class="docutils literal notranslate"><span class="pre">DateInput</span></code>: Renders an <code class="docutils literal notranslate"><span class="pre">&lt;input</span> <span class="pre">type=&quot;date&quot;&gt;`</span> <span class="pre">for</span> <span class="pre">`DateField</span></code>.
+* <code class="docutils literal notranslate"><span class="pre">TimeInput</span></code>: Renders an <code class="docutils literal notranslate"><span class="pre">&lt;input</span> <span class="pre">type=&quot;time&quot;&gt;`</span> <span class="pre">for</span> <span class="pre">`TimeField</span></code>.
+* <code class="docutils literal notranslate"><span class="pre">DateTimeInput</span></code>: Renders an <code class="docutils literal notranslate"><span class="pre">&lt;input</span> <span class="pre">type=&quot;datetime-local&quot;&gt;</span></code> for <code class="docutils literal notranslate"><span class="pre">DateTimeField</span></code>.
+* <code class="docutils literal notranslate"><span class="pre">FileInput</span></code>: Renders an <code class="docutils literal notranslate"><span class="pre">&lt;input</span> <span class="pre">type=&quot;file&quot;&gt;</span></code> for <code class="docutils literal notranslate"><span class="pre">FileField</span></code>.
+You can also pass <code class="docutils literal notranslate"><span class="pre">attrs</span></code> (attributes) to widgets to customize their HTML properties:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">message</span> <span class="o">=</span> <span class="n">CharField</span><span class="p">(</span>
+    <span class="n">widget</span><span class="o">=</span><span class="n">Textarea</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;rows&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;my-custom-textarea&#39;</span><span class="p">}),</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Your Message&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Then, in your <code class="docutils literal notranslate"><span class="pre">contact.html</span></code> template, you can render the form using one of these methods:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">form.as_p</span> <span class="pre">}}</span></code>: Renders each field wrapped in <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code> tags.</p>
+<blockquote>
+<div><div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>
+    {{ form.as_p }}
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>Submit<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">form.as_ul</span> <span class="pre">}}</span></code>: Renders each field wrapped in <code class="docutils literal notranslate"><span class="pre">&lt;li&gt;</span></code> tags, inside a <code class="docutils literal notranslate"><span class="pre">&lt;ul&gt;</span></code>.</p>
+<blockquote>
+<div><div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+        {{ form.as_ul }}
+    <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>Submit<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">form.as_table</span> <span class="pre">}}</span></code>: Renders each field as a row (<code class="docutils literal notranslate"><span class="pre">&lt;tr&gt;</span></code>) in an HTML <code class="docutils literal notranslate"><span class="pre">&lt;table&gt;</span></code>.</p>
+<blockquote>
+<div><div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
+        {{ form.as_table }}
+    <span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>Submit<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+<p>All rendering methods automatically include labels, input fields, error messages, and help text.</p>
+<p>Non-field errors are displayed at the top of the form.</p>
+</section>
+<section id="modelform">
+<h2>6- <code class="docutils literal notranslate"><span class="pre">ModelForm</span></code><a class="headerlink" href="#modelform" title="Link to this heading"></a></h2>
+<p>Connecting Forms to Database Models</p>
+<p><code class="docutils literal notranslate"><span class="pre">ModelForm</span></code> is a powerful tool within this framework, designed to simplify the creation of forms that interact directly with your database models (SQLAlchemy models).</p>
+<p>Instead of manually defining each field in your form, <code class="docutils literal notranslate"><span class="pre">ModelForm</span></code> can automatically generate fields from your model’s columns, saving you significant time and effort while reducing repetitive boilerplate code.</p>
+<p><strong>When to Use</strong> <code class="docutils literal notranslate"><span class="pre">ModelForm</span></code>?</p>
+<p>Use <cite>ModelForm</cite> when you have a database model and want to create a form for entering new data for that model, or for editing existing model instances.</p>
+<p>It’s ideal for common CRUD (Create, Read, Update, Delete) operations related to your database entities.</p>
+<p><strong>How to Define a</strong> <code class="docutils literal notranslate"><span class="pre">ModelForm</span></code></p>
+<p>To define a <code class="docutils literal notranslate"><span class="pre">ModelForm</span></code>, you create a class that inherits <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">lback.forms.models.ModelForm</span></code> and define an inner class named <code class="docutils literal notranslate"><span class="pre">Meta</span></code>.</p>
+<p>Inside <code class="docutils literal notranslate"><span class="pre">Meta</span></code>, you must specify the database model that the form will operate on.</p>
+<p><strong>Example: A Simple Product Form</strong></p>
+<p>Let’s use a <cite>Product</cite> model (assuming the content of <code class="docutils literal notranslate"><span class="pre">myapp/models/product.py</span></code> is as follows):</p>
+<blockquote>
+<div></div></blockquote>
+<p>Now, let’s define the <cite>ModelForm</cite> for this model:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># myapp/forms.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.forms.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModelForm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.forms.fields</span><span class="w"> </span><span class="kn">import</span> <span class="n">CharField</span> <span class="c1"># For adding non-model fields or overriding</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.forms.widgets</span><span class="w"> </span><span class="kn">import</span> <span class="n">Textarea</span><span class="p">,</span> <span class="n">TextInput</span> <span class="c1"># For customizing widgets</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.forms.validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">ValidationError</span> <span class="c1"># For custom validation</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.models.product</span><span class="w"> </span><span class="kn">import</span> <span class="n">Product</span> <span class="c1"># Import your Product model</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ProductForm</span><span class="p">(</span><span class="n">ModelForm</span><span class="p">):</span>
+    <span class="k">class</span><span class="w"> </span><span class="nc">Meta</span><span class="p">:</span>
+        <span class="c1"># Specify the database model this form will interact with</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Product</span>
+
+        <span class="c1"># &#39;fields&#39;: A list of column names from the model to include in the form.</span>
+        <span class="c1"># Fields for these columns will be automatically generated.</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;is_available&#39;</span><span class="p">,</span> <span class="s1">&#39;stock_quantity&#39;</span><span class="p">]</span>
+
+        <span class="c1"># &#39;exclude&#39;: A list of column names from the model to exclude from the form.</span>
+        <span class="c1"># If you specify &#39;fields&#39;, &#39;exclude&#39; is ignored.</span>
+        <span class="c1"># exclude = [&#39;id&#39;, &#39;created_at&#39;]</span>
+
+        <span class="c1"># &#39;widgets&#39;: A dictionary allowing you to specify a custom widget for a</span>
+        <span class="c1"># particular field instead of its default widget.</span>
+        <span class="n">widgets</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="n">Textarea</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;rows&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;form-control-textarea&#39;</span><span class="p">}),</span>
+            <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;placeholder&#39;</span><span class="p">:</span> <span class="s1">&#39;Enter product name&#39;</span><span class="p">}),</span>
+        <span class="p">}</span>
+
+        <span class="c1"># &#39;field_classes&#39;: (Advanced use) A dictionary allowing you to specify a custom</span>
+        <span class="c1"># Field class for a particular field instead of the automatically generated one.</span>
+        <span class="c1"># field_classes = {</span>
+        <span class="c1">#     &#39;name&#39;: CustomCharField # &#39;CustomCharField&#39; would need to be defined</span>
+        <span class="c1"># }</span>
+
+    <span class="c1"># You can define additional fields here that don&#39;t directly correspond to model columns.</span>
+    <span class="c1"># Note that these fields will NOT be automatically saved by form.save() to the model.</span>
+    <span class="c1"># agreement = BooleanField(label=&quot;I agree to terms and conditions&quot;, required=True)</span>
+
+    <span class="c1"># You can also override an automatically generated field from the model by defining it here.</span>
+    <span class="c1"># For example, to increase the min_length for the &#39;name&#39; field or change its label:</span>
+    <span class="c1"># name = CharField(min_length=5, max_length=100, label=&quot;Product Title&quot;)</span>
+
+    <span class="c1"># As with the base Form, you can add custom form-level validation logic here.</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">clean</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Performs form-wide validation.</span>
+<span class="sd">        This method is called after individual field validations are complete.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Always call super().clean() to ensure base validations are applied.</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">clean</span><span class="p">()</span>
+
+        <span class="c1"># Example of cross-field validation:</span>
+        <span class="c1"># Ensure that the product price is not negative if it&#39;s available (hypothetical logic)</span>
+        <span class="n">price</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;price&#39;</span><span class="p">)</span>
+        <span class="n">is_available</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;is_available&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">price</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">price</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">is_available</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_error</span><span class="p">(</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">ValidationError</span><span class="p">(</span><span class="s2">&quot;Product cannot be available with a negative price.&quot;</span><span class="p">,</span> <span class="n">code</span><span class="o">=</span><span class="s1">&#39;invalid_price_availability&#39;</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">ModelForm</span></code> <strong>Lifecycle &amp; Usage</strong></p>
+<p>Using a <code class="docutils literal notranslate"><span class="pre">ModelForm</span></code> follows the same lifecycle as the base <code class="docutils literal notranslate"><span class="pre">Form</span></code>, with a key added benefit: the ability to save data directly to your database.</p>
+<p><strong>a. Instantiating a</strong> <code class="docutils literal notranslate"><span class="pre">ModelForm</span></code></p>
+<ul>
+<li><p><strong>Unbound Form:</strong> Used to display an empty form or a form pre-filled with initial data.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># To display an empty form for creating a new object</span>
+<span class="n">form</span> <span class="o">=</span> <span class="n">ProductForm</span><span class="p">()</span>
+
+<span class="c1"># To display a form pre-filled with initial values (just like a regular Form)</span>
+<span class="n">initial_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Sample Product&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">:</span> <span class="mf">10.99</span><span class="p">}</span>
+<span class="n">form</span> <span class="o">=</span> <span class="n">ProductForm</span><span class="p">(</span><span class="n">initial</span><span class="o">=</span><span class="n">initial_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><strong>Bound Form:</strong> For processing submitted data (typically from a <code class="docutils literal notranslate"><span class="pre">POST</span></code> request).</p>
+<blockquote>
+<div></div></blockquote>
+</li>
+<li><p><strong>Bound Form with an Existing Object</strong> (<code class="docutils literal notranslate"><span class="pre">instance</span></code>): For modifying an existing database</p></li>
+</ul>
+<p>object. This is one of the most powerful features of <code class="docutils literal notranslate"><span class="pre">ModelForm</span></code>.</p>
+<p>When you pass a model instance to the <code class="docutils literal notranslate"><span class="pre">instance</span></code> argument, the form will automatically populate its fields with that object’s current values. When you then save the form, it will update this existing object instead of creating a new one.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">lback.models.product</span><span class="w"> </span><span class="kn">import</span> <span class="n">Product</span> <span class="c1"># Import your Product model</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.models.database</span><span class="w"> </span><span class="kn">import</span> <span class="n">db_session</span> <span class="c1"># Assuming you have a db_session</span>
+
+<span class="c1"># Retrieve an existing Product object from the database</span>
+<span class="n">existing_product</span> <span class="o">=</span> <span class="n">db_session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">Product</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">product_id</span><span class="p">)</span>
+
+<span class="c1"># To populate the form with the product&#39;s data and display it for editing</span>
+<span class="n">form</span> <span class="o">=</span> <span class="n">ProductForm</span><span class="p">(</span><span class="n">instance</span><span class="o">=</span><span class="n">existing_product</span><span class="p">)</span>
+
+<span class="c1"># To process POST data for updating the product</span>
+<span class="n">form</span> <span class="o">=</span> <span class="n">ProductForm</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">files</span><span class="p">,</span> <span class="n">instance</span><span class="o">=</span><span class="n">existing_product</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>b. Validating Form Data (`is_valid()`)</strong></p>
+<p>Just like with <cite>Form</cite>, you must call <cite>is_valid()</cite> to trigger the validation process.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># In your view</span>
+<span class="c1"># ... (Obtain request.form and request.files data)</span>
+<span class="n">form</span> <span class="o">=</span> <span class="n">ProductForm</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">files</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+    <span class="c1"># Data is valid; access it via form.cleaned_data</span>
+    <span class="n">product_name</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+    <span class="c1"># ...</span>
+    <span class="c1"># Now you can proceed to save the data</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># Data is invalid; re-render the form with errors</span>
+    <span class="c1"># Your template will use form.errors to display feedback</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;product_form.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;form&#39;</span><span class="p">:</span> <span class="n">form</span><span class="p">})</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>c. Accessing Cleaned Data</strong> (<code class="docutils literal notranslate"><span class="pre">cleaned_data</span></code>)</p>
+<p>Upon a successful <code class="docutils literal notranslate"><span class="pre">is_valid()</span></code> call, the validated, converted, and processed data for each field will be available in the <code class="docutils literal notranslate"><span class="pre">form.cleaned_data</span></code> property.</p>
+<p>This dictionary contains the final values ready for use (e.g., saving to a database).</p>
+<p><strong>d. Saving Data</strong> (<code class="docutils literal notranslate"><span class="pre">save()</span></code>)</p>
+<p>This is the core feature of <code class="docutils literal notranslate"><span class="pre">ModelForm</span></code>.</p>
+<p>After successful validation, you can use the <code class="docutils literal notranslate"><span class="pre">save()</span></code> method to persist the data to your database.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy.orm</span><span class="w"> </span><span class="kn">import</span> <span class="n">Session</span> <span class="k">as</span> <span class="n">DBSession</span> <span class="c1"># Ensure you import your DB session</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.core.response</span><span class="w"> </span><span class="kn">import</span> <span class="n">Response</span> <span class="c1"># Assuming your Response object</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span> <span class="c1"># For logging errors</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="c1"># ... inside your view after form.is_valid() check</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># If the form was initialized without an &#39;instance&#39;, save() will create a new Product object.</span>
+    <span class="c1"># If the form was initialized with an &#39;instance&#39;, save() will update that existing object.</span>
+
+    <span class="c1"># You MUST pass your SQLAlchemy session to the save() method.</span>
+    <span class="n">product_instance</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">db_session</span><span class="o">=</span><span class="n">db_session</span><span class="p">,</span> <span class="n">commit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># commit=True is the default</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Product &#39;</span><span class="si">{</span><span class="n">product_instance</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; saved successfully!&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="s2">&quot;Product saved successfully!&quot;</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="mi">201</span><span class="p">)</span> <span class="c1"># Or redirect</span>
+
+<span class="k">except</span> <span class="n">SQLAlchemyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="c1"># Handle database-specific errors</span>
+    <span class="n">db_session</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span> <span class="c1"># Rollback any changes in case of a database error</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Database error saving product: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error saving product: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="c1"># Handle unexpected general errors</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unexpected error saving product: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;An unexpected error occurred: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<ul>
+<li><p><strong>commit argument:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>By default, <code class="docutils literal notranslate"><span class="pre">save()</span></code> will perform a <code class="docutils literal notranslate"><span class="pre">db_session.commit()</span></code> after adding/updating the object.</p></li>
+<li><p>If you set <code class="docutils literal notranslate"><span class="pre">commit=False</span></code>, the object will be added/updated in the session but the changes will not be committed to the database.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>This is useful if you need to perform additional operations on the object or session before the final commitment.
+In this case, you will be responsible for calling <code class="docutils literal notranslate"><span class="pre">db_session.commit()</span></code> or <code class="docutils literal notranslate"><span class="pre">db_session.rollback()</span></code> yourself.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example: Saving with commit=False for additional processing</span>
+<span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+    <span class="n">product</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">db_session</span><span class="o">=</span><span class="n">db_session</span><span class="p">,</span> <span class="n">commit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="c1"># Now you can make additional modifications to &#39;product&#39;</span>
+    <span class="c1"># or add other objects to the session</span>
+    <span class="c1"># product.last_edited_by = request.user.id # Assuming you have a user in request</span>
+    <span class="n">db_session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">product</span><span class="p">)</span> <span class="c1"># Re-add if detached or to re-confirm</span>
+    <span class="n">db_session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="s2">&quot;Product saved and processed!&quot;</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>e. Handling File Fields</strong> (<code class="docutils literal notranslate"><span class="pre">FileField</span></code>) <strong>in</strong> <code class="docutils literal notranslate"><span class="pre">ModelForm</span></code></p>
+<p>If your model includes a SQLAlchemy column of type <code class="docutils literal notranslate"><span class="pre">LargeBinary</span></code> (used for storing binary file data), <code class="docutils literal notranslate"><span class="pre">ModelForm</span></code> can automatically handle <code class="docutils literal notranslate"><span class="pre">FileFields</span></code>.</p>
+<p>When a file is uploaded, <code class="docutils literal notranslate"><span class="pre">save()</span></code> will read the file’s content, convert it to bytes, and store it in the LargeBinary column.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># myapp/models/document.py (Example of a model storing files)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy</span><span class="w"> </span><span class="kn">import</span> <span class="n">Column</span><span class="p">,</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="n">LargeBinary</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy.ext.declarative</span><span class="w"> </span><span class="kn">import</span> <span class="n">declarative_base</span>
+
+<span class="n">Base</span> <span class="o">=</span> <span class="n">declarative_base</span><span class="p">()</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Document</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s1">&#39;documents&#39;</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">String</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">LargeBinary</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># This column stores the binary file data</span>
+    <span class="n">original_filename</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">String</span><span class="p">(</span><span class="mi">255</span><span class="p">))</span> <span class="c1"># To store the original file name</span>
+    <span class="n">size_bytes</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">)</span> <span class="c1"># To store the file size</span>
+
+<span class="c1"># myapp/forms.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.forms.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModelForm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.forms.fields</span><span class="w"> </span><span class="kn">import</span> <span class="n">FileField</span> <span class="c1"># Make sure to import FileField</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.forms.validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">ValidationError</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.models.document</span><span class="w"> </span><span class="kn">import</span> <span class="n">Document</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">DocumentForm</span><span class="p">(</span><span class="n">ModelForm</span><span class="p">):</span>
+    <span class="k">class</span><span class="w"> </span><span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Document</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;content&#39;</span><span class="p">]</span> <span class="c1"># &#39;content&#39; is your FileField</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">clean_content</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        You can add file-specific validations here (e.g., file type, max size).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">uploaded_file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">uploaded_file</span><span class="p">:</span>
+            <span class="c1"># You can access properties of the uploaded file</span>
+            <span class="k">if</span> <span class="n">uploaded_file</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">5</span> <span class="o">*</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span><span class="p">:</span> <span class="c1"># 5MB limit</span>
+                <span class="k">raise</span> <span class="n">ValidationError</span><span class="p">(</span><span class="s2">&quot;File size exceeds 5MB.&quot;</span><span class="p">,</span> <span class="n">code</span><span class="o">=</span><span class="s1">&#39;file_too_large&#39;</span><span class="p">)</span>
+
+            <span class="c1"># You can modify cleaned_data to add other file properties to your model</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="p">[</span><span class="s1">&#39;original_filename&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">uploaded_file</span><span class="o">.</span><span class="n">name</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="p">[</span><span class="s1">&#39;size_bytes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">uploaded_file</span><span class="o">.</span><span class="n">size</span>
+        <span class="k">return</span> <span class="n">uploaded_file</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="file-uploads.html" class="btn btn-neutral float-left" title="File Uploads in Lback Framework" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Models%20%26%20Database.html" class="btn btn-neutral float-right" title="Models &amp; Database" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ibrahem abo kila.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

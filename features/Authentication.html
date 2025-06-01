@@ -1,0 +1,456 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Authentication &mdash; lback 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=95f010fd" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Authorization" href="Authorization.html" />
+    <link rel="prev" title="Database Migrations System" href="Database%20Migrations%20System.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            lback
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Configuration%20System.html">Configuration System</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="routing_system.html">Routing System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Views%20%26%20Responses.html">Views &amp; Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Templating%20System.html">Templating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Static%20Files.html">Static Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Media%20Files.html">Media Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file-uploads.html">File Uploads in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Forms.html">Forms</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Models%20%26%20Database.html">Models &amp; Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Database%20Migrations%20System.html">Database Migrations System</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Authentication</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#quick-setup-for-authentication">Quick Setup for Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-the-system-provides-automatically">What the System Provides Automatically</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#authentication-endpoints-reference">Authentication Endpoints Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#web-based-authentication-endpoints">Web-based Authentication Endpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api-authentication-endpoints">API Authentication Endpoints</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Authorization.html">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sessions.html">Sessions in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Security%20Features.html">Security Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Admin%20Panel.html">Built-in Admin Panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API%20Tools.html">API Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Signal%20System.html">Signal System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Middleware%20System.html">Middleware System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_middlewares.html">Custom Middlewares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logging_config.html">Logging Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="email-sender.html">Email Sending in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="validation_utilities.html">Validation Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="error_handling.html">Error Handling and HTTP Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Error%20Handling%20%26%20Reporting.html">Error Handling &amp; Reporting</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Deployment.html">Deployment</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html">Signals from BaseView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-apidocs">Signals from APIDocs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-basemodelserializer">Signals from BaseModelSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-registry-signals.html">Signals from AdminRegistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user.html">Signals from AdminUser and Role Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-manager.html">Signals from AdminUserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-repository.html">Signals from AdminUserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html">Signals from AdminAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-jwtauth">Signals from JWTAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-oauth2auth">Signals from OAuth2Auth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-permissionrequired">Signals from PermissionRequired</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-sessionauth">Signals from SessionAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/error-handler.html">Signals from ErrorHandler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/middleware-manager.html">Signals from MiddlewareManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/migration_commands.html">Signals from MigrationCommands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/permission-repository.html">Signals from PermissionRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/role-repository.html">Signals from RoleRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/session-manager.html">Signals from SessionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/template-renderer.html">Signals from TemplateRenderer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-manager.html">Signals from UserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-model.html">Signals from User Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-repository.html">Signals from UserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/wsgi-application.html">Signals from WSGI Application and Server</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Modules and Classes Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API%20Reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lback/lback.html">lback package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">lback</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Authentication</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/features/Authentication.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="authentication">
+<h1>Authentication<a class="headerlink" href="#authentication" title="Link to this heading"></a></h1>
+<p>The framework provides a comprehensive and ready-to-use system for user management and <strong>authentication</strong>.</p>
+<p>You can quickly integrate a full authentication flow into your application with minimal setup.</p>
+<section id="quick-setup-for-authentication">
+<h2>Quick Setup for Authentication<a class="headerlink" href="#quick-setup-for-authentication" title="Link to this heading"></a></h2>
+<p>To enable and configure the built-in authentication system, follow these simple steps:</p>
+<p><strong>1- Create Authentication Templates:</strong></p>
+<p>The framework expects specific HTML templates for the authentication pages.</p>
+<p>You just need to create these files in your <code class="docutils literal notranslate"><span class="pre">templates</span></code> directory (or wherever your framework is configured to look for templates):</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">register.html</span></code>: For user registration.</p>
+<blockquote>
+<div><div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;/auth/register/&quot;</span><span class="p">&gt;</span>
+    {% if csrf_token %}
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;csrfmiddlewaretoken&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ csrf_token }}&quot;</span><span class="p">&gt;</span>
+    {% endif %}
+
+    {{ form.as_p() | safe }}
+
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>Register<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">auth_login.html</span></code>: For user login.</p>
+<blockquote>
+<div><div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;/auth/login/&quot;</span><span class="p">&gt;</span>
+    {% if csrf_token %}
+        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;csrfmiddlewaretoken&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ csrf_token }}&quot;</span><span class="p">&gt;</span>
+    {% endif %}
+    {{ form.as_p() | safe }}
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>Login<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">request_password_reset.html</span></code>: For requesting a password reset link.</p>
+<blockquote>
+<div><div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;/auth/request-reset-password/&quot;</span><span class="p">&gt;</span>
+    {% if csrf_token %}
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;csrfmiddlewaretoken&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ csrf_token }}&quot;</span><span class="p">&gt;</span>
+    {% endif %}
+
+    {{ form.as_p() | safe }}
+
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>Request Reset Link<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reset_password_confirm.html</span></code>: For setting a new password after a reset request.</p>
+<blockquote>
+<div><div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;/auth/reset-password/&quot;</span><span class="p">&gt;</span>
+    {% if csrf_token %}
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;csrfmiddlewaretoken&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ csrf_token }}&quot;</span><span class="p">&gt;</span>
+    {% endif %}
+
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;token&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ reset_token }}&quot;</span><span class="p">&gt;</span>
+
+    {{ form.as_p() | safe }}
+
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>Set New Password<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+<p>These templates will automatically be rendered by the framework’s internal authentication views, providing a consistent user experience.</p>
+<p><strong>2- Add</strong> <code class="docutils literal notranslate"><span class="pre">auth_app</span></code> <strong>to</strong> <code class="docutils literal notranslate"><span class="pre">INSTALLED_APPS</span></code>:</p>
+<p>Include the authentication application in your project’s settings to enable its functionalities and ensure its views and models are loaded:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># settings.py</span>
+<span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># ... other apps ...</span>
+    <span class="s1">&#39;auth_app&#39;</span><span class="p">,</span> <span class="c1"># Include the built-in authentication application</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>3- Include Authentication URLs:</strong></p>
+<p>Add the <code class="docutils literal notranslate"><span class="pre">auth_app</span></code> URLs to your project’s main <code class="docutils literal notranslate"><span class="pre">urlpatterns</span></code>.</p>
+<p>This makes all the necessary authentication endpoints (both web-based and API) accessible:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># myproject/urls.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.core.urls_utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">include</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">include</span><span class="p">(</span><span class="s1">&#39;lback.auth_app.urls&#39;</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;/auth/&#39;</span><span class="p">),</span>
+    <span class="n">include</span><span class="p">(</span><span class="s1">&#39;lback.admin.urls&#39;</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;/admin/&#39;</span><span class="p">),</span>
+    <span class="c1"># ... other project URLs ...</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>4- Configure Email Settings (for Password Resets &amp; Email Verification):</strong></p>
+<p>For features like password reset emails or email verification, you’ll need to provide your SMTP server details in your <code class="docutils literal notranslate"><span class="pre">settings.py</span></code>:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># settings.py</span>
+<span class="n">SMTP_SERVER</span> <span class="o">=</span> <span class="s2">&quot;smtp.gmail.com&quot;</span>  <span class="c1"># Your SMTP server address</span>
+<span class="n">SMTP_PORT</span> <span class="o">=</span> <span class="mi">587</span>                 <span class="c1"># Your SMTP server port (e.g., 587 for TLS, 465 for SSL)</span>
+<span class="n">EMAIL_USERNAME</span> <span class="o">=</span> <span class="s2">&quot;your_email@example.com&quot;</span> <span class="c1"># The email address for sending</span>
+<span class="n">EMAIL_PASSWORD</span> <span class="o">=</span> <span class="s2">&quot;your_app_password&quot;</span> <span class="c1"># The password for the sending email (use app-specific passwords for security)</span>
+<span class="n">SENDER_EMAIL</span> <span class="o">=</span> <span class="s2">&quot;your_email@example.com&quot;</span> <span class="c1"># The &#39;From&#39; email address</span>
+<span class="n">USE_TLS</span> <span class="o">=</span> <span class="kc">True</span>                  <span class="c1"># Set to True for TLS/SSL encryption</span>
+<span class="n">SENDER_NAME</span> <span class="o">=</span> <span class="s2">&quot;Your App Name&quot;</span>   <span class="c1"># The sender name displayed in emails</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>5- Configure the Default User Group (‘basic_user’):</strong></p>
+<p>Your framework’s User Manager automatically assigns newly registered users to a default group named <code class="docutils literal notranslate"><span class="pre">basic_user</span></code>. It is <strong>crucial</strong> to create and configure this group correctly in your admin panel to ensure new users have the necessary permissions to interact with your application.</p>
+<dl class="simple">
+<dt><strong>Purpose of</strong> <code class="docutils literal notranslate"><span class="pre">basic_user</span></code>:</dt><dd><p>This group defines the base permissions for all standard, non-administrative users. Without this group, new users will not have any permissions assigned, severely limiting their access to your application’s features.</p>
+</dd>
+</dl>
+<p><strong>Mandatory Setup Steps:</strong></p>
+<blockquote>
+<div><ol class="arabic">
+<li><p><strong>Create the Group:</strong> Log in to the <strong>Admin Panel</strong> (typically at <code class="docutils literal notranslate"><span class="pre">/admin</span></code>).
+Navigate to <strong>Authentication &amp; Authorization</strong> -&gt; <strong>User Groups</strong>. Click on “Add Group” and name it <code class="docutils literal notranslate"><span class="pre">basic_user</span></code>.</p></li>
+<li><p><strong>Assign Permissions:</strong> It is essential to assign the appropriate default permissions to the <code class="docutils literal notranslate"><span class="pre">basic_user</span></code> group. While specific permissions depend on your application’s design, common permissions for a basic user include:
+* <cite>app_name.view_content</cite>: Allows users to view publicly accessible content (e.g., articles, products).
+* <cite>app_name.edit_own_profile</cite>: Grants permission to update their own user profile details.
+* <cite>app_name.add_comment</cite>: Allows users to post comments or submit forms.
+* <cite>app_name.access_dashboard</cite>: (If applicable) Grants access to a basic user dashboard.</p>
+<p><strong>Please refer to your application’s specific requirements to determine the full list of permissions necessary for a</strong>  <code class="docutils literal notranslate"><span class="pre">basic_user</span></code>.Select these permissions from the “Available permissions” list and add them to the <code class="docutils literal notranslate"><span class="pre">basic_user</span></code> group.</p>
+</li>
+<li><p><strong>Save:</strong> Click “Save” to create and configure the group.</p></li>
+</ol>
+</div></blockquote>
+<dl class="simple">
+<dt><strong>Important Considerations:</strong></dt><dd><ul class="simple">
+<li><p><strong>Automation:</strong> Currently, this group needs to be created manually. For production deployments, consider scripting this step (e.g., as part of a post-deployment script or initial data migration) to ensure consistency and prevent errors.</p></li>
+<li><p><strong>Security:</strong> Always follow the principle of least privilege. Grant <code class="docutils literal notranslate"><span class="pre">basic_user</span></code> only the permissions absolutely necessary for core functionality.</p></li>
+<li><p><strong>Scalability:</strong> As your application evolves, you might introduce other user groups (e.g., ‘premium_user’, ‘moderator’). Ensure their permissions are carefully defined relative to ‘basic_user’.</p></li>
+</ul>
+</dd>
+</dl>
+<p>This setup enables the framework to send transactional emails required for the authentication process.</p>
+</section>
+<section id="what-the-system-provides-automatically">
+<h2>What the System Provides Automatically<a class="headerlink" href="#what-the-system-provides-automatically" title="Link to this heading"></a></h2>
+<p>Once configured, the framework’s authentication system automatically handles:</p>
+<ul class="simple">
+<li><p><strong>Session-based Authentication:</strong> Manages user sessions using cookies.</p></li>
+<li><p><strong>JWT Authentication:</strong> Supports JSON Web Tokens for API authentication.</p></li>
+<li><p><strong>Secure Password Hashing:</strong> Stores passwords securely using industry-standard hashing.</p></li>
+<li><p><strong>Pre-built Views &amp; Endpoints:</strong> Provides all necessary URL routes and underlying logic for registration, login, logout, email verification, and password reset (both web-based and API endpoints).</p></li>
+<li><p><strong>User Managers:</strong> Utilizes internal helper classes (<code class="docutils literal notranslate"><span class="pre">UserManager</span></code>, <code class="docutils literal notranslate"><span class="pre">AdminUserManager</span></code>, <code class="docutils literal notranslate"><span class="pre">SessionManager</span></code>) for efficient user and session management.</p></li>
+</ul>
+</section>
+<section id="authentication-endpoints-reference">
+<h2>Authentication Endpoints Reference<a class="headerlink" href="#authentication-endpoints-reference" title="Link to this heading"></a></h2>
+<p>The authentication system exposes both web-based URLs for rendering HTML pages and API endpoints for programmatic access (e.g., from a single-page application or mobile app).</p>
+</section>
+<section id="web-based-authentication-endpoints">
+<h2>Web-based Authentication Endpoints<a class="headerlink" href="#web-based-authentication-endpoints" title="Link to this heading"></a></h2>
+<p>These URLs are primarily used for rendering HTML forms and handling form submissions for user authentication in traditional web applications.</p>
+<p><strong>Registration Page:</strong></p>
+<ul class="simple">
+<li><p><strong>URL:</strong> /auth/register/</p></li>
+<li><p><strong>Method:</strong> GET</p></li>
+<li><p><strong>Description:</strong> Displays the user registration form.</p></li>
+<li><p><strong>Named URL:</strong> web_register_page</p></li>
+</ul>
+<p><strong>Handle Registration Submission:</strong></p>
+<ul class="simple">
+<li><p><strong>URL:</strong> /auth/register/</p></li>
+<li><p><strong>Method:</strong> POST</p></li>
+<li><p><strong>Description:</strong> Processes the submitted registration form data.</p></li>
+<li><p><strong>Named URL:</strong> web_handle_register_submit</p></li>
+</ul>
+<p><strong>Login Page:</strong></p>
+<ul class="simple">
+<li><p><strong>URL:</strong> /auth/login/</p></li>
+<li><p><strong>Method:</strong> GET</p></li>
+<li><p><strong>Description:</strong> Displays the user login form.</p></li>
+<li><p><strong>Named URL:</strong> web_login_page</p></li>
+</ul>
+<p><strong>Handle Login Submission:</strong></p>
+<ul class="simple">
+<li><p><strong>URL:</strong> /auth/login/</p></li>
+<li><p><strong>Method:</strong> POST</p></li>
+<li><p><strong>Description:</strong> Processes the submitted login credentials.</p></li>
+<li><p><strong>Named URL:</strong> web_handle_login_submit</p></li>
+</ul>
+<p><strong>Request Password Reset Page:</strong></p>
+<ul class="simple">
+<li><p><strong>URL:</strong> /auth/request-reset-password/</p></li>
+<li><p><strong>Method:</strong> GET</p></li>
+<li><p><strong>Description:</strong> Displays the form to request a password reset email.</p></li>
+<li><p><strong>Named URL:</strong> web_request_reset_password_page</p></li>
+</ul>
+<p><strong>Handle Request Password Reset Submission:</strong></p>
+<ul class="simple">
+<li><p><strong>URL:</strong> /auth/request-reset-password/</p></li>
+<li><p><strong>Method:</strong> POST</p></li>
+<li><p><strong>Description:</strong> Processes the request for a password reset email.</p></li>
+<li><p><strong>Named URL:</strong> web_handle_request_password_reset_submit</p></li>
+</ul>
+<p><strong>Reset Password Confirmation Page:</strong></p>
+<ul class="simple">
+<li><p><strong>URL:</strong> /auth/reset-password-confirm/</p></li>
+<li><p><strong>Method:</strong> GET</p></li>
+<li><p><strong>Description:</strong> Displays the form to set a new password, typically accessed via a link from a password reset email. Requires a token query parameter.</p></li>
+<li><p><strong>Named URL:</strong> web_reset_password_confirm_page</p></li>
+</ul>
+<p><strong>Handle Reset Password Confirmation Submission:</strong></p>
+<ul class="simple">
+<li><p><strong>URL:</strong> /auth/reset-password/</p></li>
+<li><p><strong>Method:</strong> POST</p></li>
+<li><p><strong>Description:</strong> Processes the new password submission for a reset request.</p></li>
+<li><p><strong>Named URL:</strong> web_handle_reset_password_confirm_submit</p></li>
+</ul>
+<p><strong>Verify Email:</strong></p>
+<ul class="simple">
+<li><p><strong>URL:</strong> /auth/verify-email/</p></li>
+<li><p><strong>Method:</strong> GET</p></li>
+<li><p><strong>Description:</strong> Verifies a user’s email address, typically accessed via a link sent to the user’s email. Requires a token query parameter.</p></li>
+<li><p><strong>Named URL:</strong> web_verify_email</p></li>
+</ul>
+<p><strong>Logout User:</strong></p>
+<ul class="simple">
+<li><p><strong>URL:</strong> /auth/logout/</p></li>
+<li><p><strong>Method:</strong> POST, GET</p></li>
+<li><p><strong>Description:</strong> Logs out the currently authenticated user.</p></li>
+<li><p><strong>Named URL:</strong> web_logout_user (for POST), web_logout_user_get (for GET)</p></li>
+</ul>
+</section>
+<section id="api-authentication-endpoints">
+<h2>API Authentication Endpoints<a class="headerlink" href="#api-authentication-endpoints" title="Link to this heading"></a></h2>
+<p>These URLs are designed for use by API clients (e.g., JavaScript frontends, mobile applications) to programmatically interact with the authentication system. They typically return JSON responses.</p>
+<p><strong>Register User:</strong></p>
+<ul class="simple">
+<li><p><strong>URL:</strong> /api/auth/register/</p></li>
+<li><p><strong>Method:</strong> POST</p></li>
+<li><p><strong>Description:</strong> Registers a new user. Expects JSON data (e.g., username, email, password, password_confirm).</p></li>
+<li><p><strong>Named URL:</strong> api_register_user</p></li>
+<li><p><strong>Authentication Required:</strong> No</p></li>
+</ul>
+<p><strong>Login User:</strong></p>
+<ul class="simple">
+<li><p><strong>URL:</strong> /api/auth/login/</p></li>
+<li><p><strong>Method:</strong> POST</p></li>
+<li><p><strong>Description:</strong> Authenticates a user and issues authentication tokens (e.g., JWT). Expects JSON data (e.g., identifier (username or email), password).</p></li>
+<li><p><strong>Named URL:</strong> api_login_user</p></li>
+<li><p><strong>Authentication Required:</strong> No</p></li>
+</ul>
+<p><strong>Verify Email:</strong></p>
+<ul class="simple">
+<li><p><strong>URL:</strong> /api/auth/verify-email/</p></li>
+<li><p><strong>Method:</strong> GET</p></li>
+<li><p><strong>Description:</strong> Verifies a user’s email address using a provided token. Returns a JSON response indicating success or failure.</p></li>
+<li><p><strong>Named URL:</strong> api_verify_email</p></li>
+<li><p><strong>Authentication Required:</strong> No</p></li>
+</ul>
+<p><strong>Request Password Reset:</strong></p>
+<ul class="simple">
+<li><p><strong>URL:</strong> /api/auth/request-reset-password/</p></li>
+<li><p><strong>Method:</strong> POST</p></li>
+<li><p><strong>Description:</strong> Requests a password reset link to be sent to the user’s email. Expects JSON data (e.g., email).</p></li>
+<li><p><strong>Named URL:</strong> api_request_reset_password</p></li>
+<li><p><strong>Authentication Required:</strong> No</p></li>
+</ul>
+<p><strong>Reset Password:</strong></p>
+<ul class="simple">
+<li><p><strong>URL:</strong> /api/auth/reset-password/</p></li>
+<li><p><strong>Method:</strong> POST</p></li>
+<li><p><strong>Description:</strong> Sets a new password for a user using a reset token. Expects JSON data (e.g., token, new_password, confirm_new_password).</p></li>
+<li><p><strong>Named URL:</strong> api_reset_password</p></li>
+<li><p><strong>Authentication Required:</strong> No</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Database%20Migrations%20System.html" class="btn btn-neutral float-left" title="Database Migrations System" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Authorization.html" class="btn btn-neutral float-right" title="Authorization" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ibrahem abo kila.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

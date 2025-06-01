@@ -1,0 +1,420 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>lback.auth.adminauth &mdash; lback 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=95f010fd" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            lback
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Configuration%20System.html">Configuration System</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/routing_system.html">Routing System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Views%20%26%20Responses.html">Views &amp; Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Templating%20System.html">Templating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Static%20Files.html">Static Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Media%20Files.html">Media Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/file-uploads.html">File Uploads in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Forms.html">Forms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Models%20%26%20Database.html">Models &amp; Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Database%20Migrations%20System.html">Database Migrations System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Authorization.html">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/sessions.html">Sessions in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Security%20Features.html">Security Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Admin%20Panel.html">Built-in Admin Panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/API%20Tools.html">API Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Signal%20System.html">Signal System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Middleware%20System.html">Middleware System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/custom_middlewares.html">Custom Middlewares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/logging_config.html">Logging Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/email-sender.html">Email Sending in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/validation_utilities.html">Validation Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/error_handling.html">Error Handling and HTTP Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Error%20Handling%20%26%20Reporting.html">Error Handling &amp; Reporting</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Deployment.html">Deployment</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/api-signals.html">Signals from BaseView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/api-signals.html#signals-from-apidocs">Signals from APIDocs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/api-signals.html#signals-from-basemodelserializer">Signals from BaseModelSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-registry-signals.html">Signals from AdminRegistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-user.html">Signals from AdminUser and Role Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-user-manager.html">Signals from AdminUserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-user-repository.html">Signals from AdminUserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html">Signals from AdminAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-jwtauth">Signals from JWTAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-oauth2auth">Signals from OAuth2Auth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-permissionrequired">Signals from PermissionRequired</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-sessionauth">Signals from SessionAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/error-handler.html">Signals from ErrorHandler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/middleware-manager.html">Signals from MiddlewareManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/migration_commands.html">Signals from MigrationCommands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/permission-repository.html">Signals from PermissionRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/role-repository.html">Signals from RoleRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/session-manager.html">Signals from SessionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/template-renderer.html">Signals from TemplateRenderer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/user-manager.html">Signals from UserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/user-model.html">Signals from User Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/user-repository.html">Signals from UserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/wsgi-application.html">Signals from WSGI Application and Server</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">Modules and Classes Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../API%20Reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../lback/lback.html">lback package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">lback</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">lback.auth.adminauth</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for lback.auth.adminauth</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Any</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy.orm</span><span class="w"> </span><span class="kn">import</span> <span class="n">Session</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.utils.admin_user_manager</span><span class="w"> </span><span class="kn">import</span> <span class="n">AdminUserManager</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.utils.session_manager</span><span class="w"> </span><span class="kn">import</span> <span class="n">SessionManager</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.utils.app_session</span><span class="w"> </span><span class="kn">import</span> <span class="n">AppSession</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.core.signals</span><span class="w"> </span><span class="kn">import</span> <span class="n">dispatcher</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.auth.session_auth</span><span class="w"> </span><span class="kn">import</span> <span class="n">SessionAuth</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.core.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">Request</span>
+
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<div class="viewcode-block" id="AdminAuth">
+<a class="viewcode-back" href="../../../lback/lback.auth.html#lback.auth.adminauth.AdminAuth">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">AdminAuth</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Handles authentication and authorization logic specifically for Admin Users.</span>
+<span class="sd">    Acts as a bridge between AdminUserManager, SessionManager, and the Auth utilities.</span>
+<span class="sd">    Integrates SignalDispatcher to emit events related to admin authentication and authorization.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="AdminAuth.__init__">
+<a class="viewcode-back" href="../../../lback/lback.auth.html#lback.auth.adminauth.AdminAuth.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">admin_user_manager</span><span class="p">:</span> <span class="n">AdminUserManager</span><span class="p">,</span> <span class="n">session_manager</span><span class="p">:</span> <span class="n">SessionManager</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize AdminAuth with necessary managers.</span>
+<span class="sd">        Emits &#39;admin_auth_initialized&#39; signal.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            admin_user_manager (AdminUserManager): Instance of AdminUserManager.</span>
+<span class="sd">            session_manager (SessionManager): Instance of SessionManager for managing sessions.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">admin_user_manager</span><span class="p">,</span> <span class="n">AdminUserManager</span><span class="p">):</span>
+             <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;AdminAuth initialized without a valid AdminUserManager instance.&quot;</span><span class="p">)</span>
+             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;admin_user_manager must be an instance of AdminUserManager.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">session_manager</span><span class="p">,</span> <span class="n">SessionManager</span><span class="p">):</span>
+             <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;AdminAuth initialized without a valid SessionManager instance.&quot;</span><span class="p">)</span>
+             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;session_manager must be an instance of SessionManager.&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">admin_user_manager</span> <span class="o">=</span> <span class="n">admin_user_manager</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">session_manager</span> <span class="o">=</span> <span class="n">session_manager</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">session_auth_utility</span> <span class="o">=</span> <span class="n">SessionAuth</span><span class="p">(</span><span class="n">session_manager</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">session_manager</span><span class="p">)</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;AdminAuth initialized.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">dispatcher</span><span class="p">:</span>
+            <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;admin_auth_initialized&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Signal &#39;admin_auth_initialized&#39; sent.&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Dispatcher is None. Cannot send &#39;admin_auth_initialized&#39; signal.&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="AdminAuth.register">
+<a class="viewcode-back" href="../../../lback/lback.auth.html#lback.auth.adminauth.AdminAuth.register">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">register</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">db_session</span><span class="p">:</span> <span class="n">Session</span><span class="p">,</span> <span class="n">username</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">email</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">password</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Registers a new admin user.</span>
+<span class="sd">        Emits &#39;admin_registration_attempt&#39;, &#39;admin_registration_successful&#39;,</span>
+<span class="sd">        or &#39;admin_registration_failed&#39; signals.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            db_session: The database session.</span>
+<span class="sd">            username: The username for the new admin.</span>
+<span class="sd">            email: The email for the new admin.</span>
+<span class="sd">            password: The plain text password for the new admin.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            True if registration is successful, False otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;AdminAuth: Attempting to register admin user: &#39;</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">dispatcher</span><span class="p">:</span>
+            <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;admin_registration_attempt&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="n">email</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Signal &#39;admin_registration_attempt&#39; sent for admin &#39;</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Dispatcher is None. Cannot send &#39;admin_registration_attempt&#39; signal.&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">admin_user</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">admin_user_manager</span><span class="o">.</span><span class="n">register_admin</span><span class="p">(</span><span class="n">db_session</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">admin_user</span><span class="p">:</span>
+                 <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Admin user &#39;</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">&#39; registered successfully (staged).&quot;</span><span class="p">)</span>
+                 <span class="k">if</span> <span class="n">dispatcher</span><span class="p">:</span>
+                     <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;admin_registration_successful&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">admin_user</span><span class="o">=</span><span class="n">admin_user</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="n">email</span><span class="p">,</span> <span class="n">db_session</span><span class="o">=</span><span class="n">db_session</span><span class="p">)</span>
+                     <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Signal &#39;admin_registration_successful&#39; sent for admin &#39;</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">)</span>
+                 <span class="k">else</span><span class="p">:</span>
+                     <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Dispatcher is None. Cannot send &#39;admin_registration_successful&#39; signal.&quot;</span><span class="p">)</span>
+                 <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">else</span><span class="p">:</span>
+                 <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;AdminUserManager failed to register admin user &#39;</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">&#39; without raising an exception.&quot;</span><span class="p">)</span>
+
+                 <span class="k">if</span> <span class="n">dispatcher</span><span class="p">:</span>
+                     <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;admin_registration_failed&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="n">email</span><span class="p">,</span> <span class="n">error_type</span><span class="o">=</span><span class="s2">&quot;manager_returned_none&quot;</span><span class="p">)</span>
+                     <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Signal &#39;admin_registration_failed&#39; (manager_returned_none) sent for admin &#39;</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">)</span>
+                 <span class="k">else</span><span class="p">:</span>
+                     <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Dispatcher is None. Cannot send &#39;admin_registration_failed&#39; signal.&quot;</span><span class="p">)</span>
+                 <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;AdminAuth: Registration failed for admin user &#39;</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">&#39; due to validation error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">db_session</span><span class="p">:</span> <span class="n">db_session</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+             <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;AdminAuth: An unexpected error occurred during registration for admin user &#39;</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">)</span>
+             <span class="k">if</span> <span class="n">db_session</span><span class="p">:</span> <span class="n">db_session</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+             <span class="k">return</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="AdminAuth.login">
+<a class="viewcode-back" href="../../../lback/lback.auth.html#lback.auth.adminauth.AdminAuth.login">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">login</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span> <span class="n">db_session</span><span class="p">:</span> <span class="n">Session</span><span class="p">,</span> <span class="n">username</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">password</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Authenticates an admin user and logs them in using session authentication.</span>
+<span class="sd">        Emits &#39;admin_login_attempt&#39;, &#39;admin_login_successful&#39;, or &#39;admin_login_failed&#39; signals.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            request: The incoming request object.</span>
+<span class="sd">            db_session: The database session.</span>
+<span class="sd">            username: The username for login.</span>
+<span class="sd">            password: The plain text password for login.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The authenticated AdminUser object if successful, otherwise None.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;AdminAuth: Attempting login for admin user: &#39;</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">dispatcher</span><span class="p">:</span>
+            <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;admin_login_attempt&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Signal &#39;admin_login_attempt&#39; sent for admin &#39;</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Dispatcher is None. Cannot send &#39;admin_login_attempt&#39; signal.&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">admin_user</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">admin_user_manager</span><span class="o">.</span><span class="n">authenticate_admin</span><span class="p">(</span><span class="n">db_session</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">admin_user</span><span class="p">:</span>
+                 <span class="bp">self</span><span class="o">.</span><span class="n">session_auth_utility</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">admin_user</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">user_type</span><span class="o">=</span><span class="s2">&quot;admin&quot;</span><span class="p">)</span>
+                 <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Admin user &#39;</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">&#39; logged in successfully.&quot;</span><span class="p">)</span>
+                 <span class="k">if</span> <span class="n">dispatcher</span><span class="p">:</span> 
+                     <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;admin_login_successful&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">admin_user</span><span class="o">=</span><span class="n">admin_user</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">)</span>
+                     <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Signal &#39;admin_login_successful&#39; sent for admin &#39;</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">)</span>
+                 <span class="k">else</span><span class="p">:</span>
+                     <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Dispatcher is None. Cannot send &#39;admin_login_successful&#39; signal.&quot;</span><span class="p">)</span>
+                 <span class="k">return</span> <span class="n">admin_user</span>
+            <span class="k">else</span><span class="p">:</span>
+                 <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;AdminAuth: Failed login attempt for admin user &#39;</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">&#39;. Invalid credentials or inactive user.&quot;</span><span class="p">)</span>
+                 <span class="k">if</span> <span class="n">dispatcher</span><span class="p">:</span>
+                     <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;admin_login_failed&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">,</span> <span class="n">reason</span><span class="o">=</span><span class="s2">&quot;authentication_failed&quot;</span><span class="p">)</span>
+                     <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Signal &#39;admin_login_failed&#39; (authentication_failed) sent for admin &#39;</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">)</span>
+                 <span class="k">else</span><span class="p">:</span>
+                     <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Dispatcher is None. Cannot send &#39;admin_login_failed&#39; signal.&quot;</span><span class="p">)</span>
+                 <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;AdminAuth: An unexpected error occurred during login for admin user &#39;</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">db_session</span><span class="p">:</span> <span class="n">db_session</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span> 
+            <span class="k">if</span> <span class="n">dispatcher</span><span class="p">:</span>
+                <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;admin_login_failed&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">,</span> <span class="n">reason</span><span class="o">=</span><span class="s2">&quot;exception&quot;</span><span class="p">,</span> <span class="n">exception</span><span class="o">=</span><span class="n">e</span><span class="p">)</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Signal &#39;admin_login_failed&#39; (exception) sent for admin &#39;</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Dispatcher is None. Cannot send &#39;admin_login_failed&#39; signal.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="AdminAuth.logout">
+<a class="viewcode-back" href="../../../lback/lback.auth.html#lback.auth.adminauth.AdminAuth.logout">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">logout</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Logs out the current admin user by ending their session.</span>
+<span class="sd">        Emits &#39;admin_logout_attempt&#39; and &#39;admin_logout_successful&#39; signals.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            request: The incoming request object. Assumes request.session is a valid AppSession instance.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            True if logout process was attempted (session object provided), False otherwise.</span>
+<span class="sd">            Note: The actual session deletion is handled by AppSession.delete().</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;AdminAuth: Attempting admin user logout.&quot;</span><span class="p">)</span>
+
+        <span class="n">user_session</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">AppSession</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span>
+        <span class="n">session_id</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">user_session</span><span class="p">,</span> <span class="s1">&#39;session_id&#39;</span><span class="p">,</span> <span class="s1">&#39;N/A&#39;</span><span class="p">)</span>
+        <span class="n">user_id</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">user_session</span><span class="p">:</span>
+             <span class="n">user_id</span> <span class="o">=</span> <span class="n">user_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;user_id&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">dispatcher</span><span class="p">:</span>
+            <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;admin_logout_attempt&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_session</span><span class="o">=</span><span class="n">user_session</span><span class="p">,</span> <span class="n">session_id</span><span class="o">=</span><span class="n">session_id</span><span class="p">,</span> <span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Signal &#39;admin_logout_attempt&#39; sent for session ID &#39;</span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Dispatcher is None. Cannot send &#39;admin_logout_attempt&#39; signal.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">user_session</span><span class="p">:</span>
+             <span class="k">try</span><span class="p">:</span>
+                 <span class="n">user_session</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+                 <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Admin user session </span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s2"> ended.&quot;</span><span class="p">)</span>
+                 <span class="k">if</span> <span class="n">dispatcher</span><span class="p">:</span>
+                     <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;admin_logout_successful&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">session_id</span><span class="o">=</span><span class="n">session_id</span><span class="p">,</span> <span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span>
+                     <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Signal &#39;admin_logout_successful&#39; sent for session ID &#39;</span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">)</span>
+                 <span class="k">else</span><span class="p">:</span>
+                     <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Dispatcher is None. Cannot send &#39;admin_logout_successful&#39; signal.&quot;</span><span class="p">)</span>
+                 <span class="k">return</span> <span class="kc">True</span>
+             <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                 <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;AdminAuth: An error occurred during session deletion for session ID </span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+                 <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;AdminAuth: Logout called with no AppSession object available on request.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="AdminAuth.is_admin_logged_in">
+<a class="viewcode-back" href="../../../lback/lback.auth.html#lback.auth.adminauth.AdminAuth.is_admin_logged_in">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_admin_logged_in</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Checks if an admin user is currently logged in via session.</span>
+<span class="sd">        Emits &#39;admin_authentication_check&#39; signal, with outcome.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            request: The incoming request object. Assumes request.session is a valid AppSession instance.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            True if a user ID is found in the session and is marked as admin, False otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;AdminAuth: Checking if admin user is logged in.&quot;</span><span class="p">)</span>
+        <span class="n">is_admin</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">reason</span> <span class="o">=</span> <span class="s2">&quot;default_false&quot;</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">is_authenticated_session</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session_auth_utility</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">is_authenticated_session</span><span class="p">:</span>
+                 <span class="n">user_session_instance</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">AppSession</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span>
+                 <span class="k">if</span> <span class="n">user_session_instance</span><span class="p">:</span> 
+                     <span class="n">user_type</span> <span class="o">=</span> <span class="n">user_session_instance</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;user_type&quot;</span><span class="p">)</span>
+                     <span class="n">is_admin</span> <span class="o">=</span> <span class="n">user_type</span> <span class="o">==</span> <span class="s1">&#39;admin&#39;</span>
+                     <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Session authenticated. User type in session: &#39;</span><span class="si">{</span><span class="n">user_type</span><span class="si">}</span><span class="s2">&#39;. Is admin: </span><span class="si">{</span><span class="n">is_admin</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                     <span class="n">reason</span> <span class="o">=</span> <span class="s2">&quot;authenticated_session_is_admin&quot;</span> <span class="k">if</span> <span class="n">is_admin</span> <span class="k">else</span> <span class="s2">&quot;authenticated_session_not_admin&quot;</span>
+                 <span class="k">else</span><span class="p">:</span>
+                     <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;AdminAuth: SessionAuth reported authenticated, but request.session is None.&quot;</span><span class="p">)</span>
+                     <span class="n">reason</span> <span class="o">=</span> <span class="s2">&quot;session_auth_true_but_session_none&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                 <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;AdminAuth: Session authentication check failed. Admin is not logged in via session.&quot;</span><span class="p">)</span>
+                 <span class="n">reason</span> <span class="o">=</span> <span class="s2">&quot;session_authentication_failed&quot;</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s2">&quot;AdminAuth: An unexpected error occurred while checking admin login status.&quot;</span><span class="p">)</span>
+            <span class="n">reason</span> <span class="o">=</span> <span class="s2">&quot;exception&quot;</span>
+
+        <span class="k">if</span> <span class="n">dispatcher</span><span class="p">:</span>
+            <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;admin_authentication_check&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">,</span> <span class="n">is_admin</span><span class="o">=</span><span class="n">is_admin</span><span class="p">,</span> <span class="n">reason</span><span class="o">=</span><span class="n">reason</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Signal &#39;admin_authentication_check&#39; sent. Is admin: </span><span class="si">{</span><span class="n">is_admin</span><span class="si">}</span><span class="s2">, Reason: </span><span class="si">{</span><span class="n">reason</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Dispatcher is None. Cannot send &#39;admin_authentication_check&#39; signal.&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">is_admin</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ibrahem abo kila.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

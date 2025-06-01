@@ -1,0 +1,220 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signals from UserRepository &mdash; lback 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=95f010fd" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Signals from WSGI Application and Server" href="wsgi-application.html" />
+    <link rel="prev" title="Signals from User Model" href="user-model.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            lback
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Configuration%20System.html">Configuration System</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/routing_system.html">Routing System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Views%20%26%20Responses.html">Views &amp; Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Templating%20System.html">Templating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Static%20Files.html">Static Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Media%20Files.html">Media Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/file-uploads.html">File Uploads in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Forms.html">Forms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/Models%20%26%20Database.html">Models &amp; Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Database%20Migrations%20System.html">Database Migrations System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Authorization.html">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/sessions.html">Sessions in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Security%20Features.html">Security Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/Admin%20Panel.html">Built-in Admin Panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/API%20Tools.html">API Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Signal%20System.html">Signal System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Middleware%20System.html">Middleware System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/custom_middlewares.html">Custom Middlewares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/logging_config.html">Logging Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/email-sender.html">Email Sending in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/validation_utilities.html">Validation Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/error_handling.html">Error Handling and HTTP Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Error%20Handling%20%26%20Reporting.html">Error Handling &amp; Reporting</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/Deployment.html">Deployment</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="api-signals.html">Signals from BaseView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-signals.html#signals-from-apidocs">Signals from APIDocs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-signals.html#signals-from-basemodelserializer">Signals from BaseModelSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="admin-registry-signals.html">Signals from AdminRegistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="admin-user.html">Signals from AdminUser and Role Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="admin-user-manager.html">Signals from AdminUserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="admin-user-repository.html">Signals from AdminUserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auth.html">Signals from AdminAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auth.html#signals-from-jwtauth">Signals from JWTAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auth.html#signals-from-oauth2auth">Signals from OAuth2Auth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auth.html#signals-from-permissionrequired">Signals from PermissionRequired</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auth.html#signals-from-sessionauth">Signals from SessionAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="error-handler.html">Signals from ErrorHandler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="middleware-manager.html">Signals from MiddlewareManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration_commands.html">Signals from MigrationCommands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="permission-repository.html">Signals from PermissionRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="role-repository.html">Signals from RoleRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session-manager.html">Signals from SessionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="template-renderer.html">Signals from TemplateRenderer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user-manager.html">Signals from UserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user-model.html">Signals from User Model</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Signals from UserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wsgi-application.html">Signals from WSGI Application and Server</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Modules and Classes Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API%20Reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lback/lback.html">lback package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">lback</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Signals from UserRepository</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/signals/user-repository.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="signals-from-userrepository">
+<span id="user-repository-signals"></span><h1>Signals from UserRepository<a class="headerlink" href="#signals-from-userrepository" title="Link to this heading"></a></h1>
+<p>The <a class="reference internal" href="../lback/lback.repositories.html#lback.repositories.user_repository.UserRepository" title="lback.repositories.user_repository.UserRepository"><code class="xref py py-class docutils literal notranslate"><span class="pre">lback.repositories.user_repository.UserRepository</span></code></a> handles all direct database interactions for <a class="reference internal" href="../lback/lback.models.html#lback.models.user.User" title="lback.models.user.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a> entities. This repository is designed to emit <strong>signals at crucial points in the user lifecycle</strong> (create, update, delete). These signals are invaluable for various purposes, including:</p>
+<ul class="simple">
+<li><p><strong>Auditing</strong>: Tracking changes to user accounts for security and compliance.</p></li>
+<li><p><strong>Notifications</strong>: Triggering emails (e.g., welcome emails, account updates) or other alerts.</p></li>
+<li><p><strong>Integrations</strong>: Synchronizing user data with external systems.</p></li>
+<li><p><strong>Custom Logic</strong>: Implementing bespoke actions before or after user data modifications.</p></li>
+</ul>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 50.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Signal Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Arguments (<cite>kwargs</cite>)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">user_pre_create</span></code></p></td>
+<td><p>Emitted just <strong>before</strong> a new <cite>User</cite> instance is created and added to the database session. This allows for validation or modification of data before persistence.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<a class="reference internal" href="../lback/lback.repositories.html#lback.repositories.user_repository.UserRepository" title="lback.repositories.user_repository.UserRepository"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserRepository</span></code></a>): The repository instance.&lt;br&gt;``data`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>): The dictionary of data used to create the <cite>User</cite> (password is masked for security).&lt;br&gt;``session`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">Session</span></code>): The SQLAlchemy session being used for the operation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">user_post_create</span></code></p></td>
+<td><p>Emitted immediately <strong>after</strong> a new <cite>User</cite> instance has been successfully created and added to the database session (but not yet committed). Useful for post-creation actions like sending welcome emails.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<a class="reference internal" href="../lback/lback.repositories.html#lback.repositories.user_repository.UserRepository" title="lback.repositories.user_repository.UserRepository"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserRepository</span></code></a>): The repository instance.&lt;br&gt;``user`` (<a class="reference internal" href="../lback/lback.models.html#lback.models.user.User" title="lback.models.user.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a>): The newly created <cite>User</cite> instance.&lt;br&gt;``session`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">Session</span></code>): The SQLAlchemy session being used for the operation.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">user_pre_update</span></code></p></td>
+<td><p>Emitted just <strong>before</strong> an existing <cite>User</cite> instance is updated with new data in the database session. This is ideal for pre-update validation or preparing audit trails.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<a class="reference internal" href="../lback/lback.repositories.html#lback.repositories.user_repository.UserRepository" title="lback.repositories.user_repository.UserRepository"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserRepository</span></code></a>): The repository instance.&lt;br&gt;``user`` (<a class="reference internal" href="../lback/lback.models.html#lback.models.user.User" title="lback.models.user.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a>): The <cite>User</cite> instance about to be updated.&lt;br&gt;``update_data`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>): The dictionary of data used for the update (password is masked for security).&lt;br&gt;``session`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">Session</span></code>): The SQLAlchemy session being used for the operation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">user_post_update</span></code></p></td>
+<td><p>Emitted immediately <strong>after</strong> an existing <cite>User</cite> instance has been successfully updated in the database session (but not yet committed). Useful for post-update notifications or cache invalidation.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<a class="reference internal" href="../lback/lback.repositories.html#lback.repositories.user_repository.UserRepository" title="lback.repositories.user_repository.UserRepository"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserRepository</span></code></a>): The repository instance.&lt;br&gt;``user`` (<a class="reference internal" href="../lback/lback.models.html#lback.models.user.User" title="lback.models.user.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a>): The updated <cite>User</cite> instance.&lt;br&gt;``session`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">Session</span></code>): The SQLAlchemy session being used for the operation.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">user_pre_delete</span></code></p></td>
+<td><p>Emitted just <strong>before</strong> a <cite>User</cite> instance is marked for deletion in the database session. This can be used for final checks or archiving data.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<a class="reference internal" href="../lback/lback.repositories.html#lback.repositories.user_repository.UserRepository" title="lback.repositories.user_repository.UserRepository"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserRepository</span></code></a>): The repository instance.&lt;br&gt;``user`` (<a class="reference internal" href="../lback/lback.models.html#lback.models.user.User" title="lback.models.user.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a>): The <cite>User</cite> instance about to be deleted.&lt;br&gt;``session`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">Session</span></code>): The SQLAlchemy session being used for the operation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">user_post_delete</span></code></p></td>
+<td><p>Emitted immediately <strong>after</strong> a <cite>User</cite> instance has been successfully marked for deletion in the database session (but not yet committed). Useful for cleanup tasks or confirming deletion in external systems.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<a class="reference internal" href="../lback/lback.repositories.html#lback.repositories.user_repository.UserRepository" title="lback.repositories.user_repository.UserRepository"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserRepository</span></code></a>): The repository instance.&lt;br&gt;``user_id`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The ID of the <cite>User</cite> that was marked for deletion.&lt;br&gt;``session`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">Session</span></code>): The SQLAlchemy session being used for the operation.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="user-model.html" class="btn btn-neutral float-left" title="Signals from User Model" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="wsgi-application.html" class="btn btn-neutral float-right" title="Signals from WSGI Application and Server" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ibrahem abo kila.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

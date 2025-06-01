@@ -1,0 +1,341 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Usage &mdash; lback 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=95f010fd" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Configuration System" href="features/Configuration%20System.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            lback
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#creating-a-new-project">Creating a New Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#app-management">App Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#database-management-migrations">Database Management &amp; Migrations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#admin-and-user-management">Admin and User Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#server-and-development-utilities">Server and Development Utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="features/Configuration%20System.html">Configuration System</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="features/routing_system.html">Routing System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/Views%20%26%20Responses.html">Views &amp; Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/Templating%20System.html">Templating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/Static%20Files.html">Static Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/Media%20Files.html">Media Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/file-uploads.html">File Uploads in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/Forms.html">Forms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="features/Models%20%26%20Database.html">Models &amp; Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/Database%20Migrations%20System.html">Database Migrations System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/Authorization.html">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/sessions.html">Sessions in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/Security%20Features.html">Security Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="features/Admin%20Panel.html">Built-in Admin Panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/API%20Tools.html">API Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/Signal%20System.html">Signal System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/Middleware%20System.html">Middleware System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/custom_middlewares.html">Custom Middlewares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/logging_config.html">Logging Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/email-sender.html">Email Sending in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/validation_utilities.html">Validation Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/error_handling.html">Error Handling and HTTP Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/Error%20Handling%20%26%20Reporting.html">Error Handling &amp; Reporting</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="features/Deployment.html">Deployment</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="signals/api-signals.html">Signals from BaseView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/api-signals.html#signals-from-apidocs">Signals from APIDocs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/api-signals.html#signals-from-basemodelserializer">Signals from BaseModelSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/admin-registry-signals.html">Signals from AdminRegistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/admin-user.html">Signals from AdminUser and Role Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/admin-user-manager.html">Signals from AdminUserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/admin-user-repository.html">Signals from AdminUserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/auth.html">Signals from AdminAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/auth.html#signals-from-jwtauth">Signals from JWTAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/auth.html#signals-from-oauth2auth">Signals from OAuth2Auth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/auth.html#signals-from-permissionrequired">Signals from PermissionRequired</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/auth.html#signals-from-sessionauth">Signals from SessionAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/error-handler.html">Signals from ErrorHandler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/middleware-manager.html">Signals from MiddlewareManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/migration_commands.html">Signals from MigrationCommands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/permission-repository.html">Signals from PermissionRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/role-repository.html">Signals from RoleRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/session-manager.html">Signals from SessionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/template-renderer.html">Signals from TemplateRenderer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/user-manager.html">Signals from UserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/user-model.html">Signals from User Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/user-repository.html">Signals from UserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/wsgi-application.html">Signals from WSGI Application and Server</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Modules and Classes Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API%20Reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lback/lback.html">lback package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">lback</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Usage</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/usage.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h1>
+<p>This section explains how to use the <strong>lback</strong> framework to build and manage your applications.</p>
+<p>—</p>
+<section id="creating-a-new-project">
+<h2>Creating a New Project<a class="headerlink" href="#creating-a-new-project" title="Link to this heading"></a></h2>
+<p>To create a new Lback project:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lback<span class="w"> </span>createproject<span class="w"> </span>myproject
+</pre></div>
+</div>
+<p>Replace <code class="docutils literal notranslate"><span class="pre">myproject</span></code> with your desired project name. This command sets up a new directory structure for your project, including all necessary files and boilerplate code.</p>
+<p>The new project will include:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>myproject/
+├──<span class="w"> </span>manage.py<span class="w">           </span><span class="c1"># Command-line utility for project management</span>
+├──<span class="w"> </span>myproject/<span class="w">          </span><span class="c1"># Main project package folder</span>
+│<span class="w">   </span>├──<span class="w"> </span>__init__.py
+│<span class="w">   </span>├──<span class="w"> </span>urls.py<span class="w">         </span><span class="c1"># Main URL configurations</span>
+│<span class="w">   </span>└──<span class="w"> </span>wsgi.py<span class="w">         </span><span class="c1"># WSGI entry point for production deployment</span>
+├──<span class="w"> </span>.env<span class="w">                </span><span class="c1"># Environment variables file (optional)</span>
+├──<span class="w"> </span>config.json<span class="w">         </span><span class="c1"># Additional JSON format config file (optional)</span>
+└──<span class="w"> </span>settings.py<span class="w">         </span><span class="c1"># Main settings file</span>
+</pre></div>
+</div>
+<p>—</p>
+</section>
+<section id="app-management">
+<h2>App Management<a class="headerlink" href="#app-management" title="Link to this heading"></a></h2>
+<p>You can create a new app within your project:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>manage.py<span class="w"> </span>startapp<span class="w"> </span>myapp
+</pre></div>
+</div>
+<p>Replace <code class="docutils literal notranslate"><span class="pre">myapp</span></code> with your desired app name. This command creates a new directory structure for your app within the project, pre-filled with essential files.</p>
+<p>The new app will include:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>myproject/
+└──<span class="w"> </span>myapp/<span class="w">              </span><span class="c1"># App folder</span>
+<span class="w">    </span>├──<span class="w"> </span>__init__.py
+<span class="w">    </span>├──<span class="w"> </span>admin.py<span class="w">        </span><span class="c1"># Register models with the admin panel</span>
+<span class="w">    </span>├──<span class="w"> </span>models.py<span class="w">       </span><span class="c1"># Define data models for the app (SQLAlchemy)</span>
+<span class="w">    </span>├──<span class="w"> </span>serializer.py<span class="w">   </span><span class="c1"># Serialization tools for API (if the app has API endpoints)</span>
+<span class="w">    </span>├──<span class="w"> </span>urls.py<span class="w">         </span><span class="c1"># URL configurations for the app</span>
+<span class="w">    </span>└──<span class="w"> </span>views.py<span class="w">        </span><span class="c1"># Define View functions or classes that handle requests</span>
+</pre></div>
+</div>
+<p>—</p>
+</section>
+<section id="database-management-migrations">
+<h2>Database Management &amp; Migrations<a class="headerlink" href="#database-management-migrations" title="Link to this heading"></a></h2>
+<p>Lback leverages database migrations to manage changes to your database schema as your application evolves.</p>
+<ul>
+<li><dl>
+<dt><strong>Create New Migration Files:</strong></dt><dd><p>Scans your models for changes and generates new migration scripts.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>manage.py<span class="w"> </span>makemigrations
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Apply Database Migrations:</strong></dt><dd><p>Applies all pending migration scripts to update your database schema to the latest version.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>manage.py<span class="w"> </span>migrate
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Rollback Migrations for a Table:</strong></dt><dd><p>Reverts migrations for a specific database table to a previous state. Replace <code class="docutils literal notranslate"><span class="pre">&lt;table&gt;</span></code> with the actual table name.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>manage.py<span class="w"> </span>rollback<span class="w"> </span>&lt;table&gt;
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Initialize the Database:</strong></dt><dd><p>Sets up the initial database schema and seeds it with any default data required for your application.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>manage.py<span class="w"> </span>init_db
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+<p>—</p>
+</section>
+<section id="admin-and-user-management">
+<h2>Admin and User Management<a class="headerlink" href="#admin-and-user-management" title="Link to this heading"></a></h2>
+<p>Lback provides a robust command-line interface for managing users and the admin panel.</p>
+<ul>
+<li><dl>
+<dt><strong>Create a Superuser:</strong></dt><dd><p>Initiates an interactive prompt to create a new administrative superuser account, granting full access to the admin dashboard.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>manage.py<span class="w"> </span>createsuperuser
+</pre></div>
+</div>
+<p><em>Login to the admin dashboard via `/admin/` in your browser using your superuser credentials.</em></p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Reset a User’s Password:</strong></dt><dd><p>Resets the password for an existing user.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>manage.py<span class="w"> </span>reset_password
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Deactivate a User:</strong></dt><dd><p>Disables a user’s account, preventing them from logging in.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>manage.py<span class="w"> </span>deactivate_user
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>List All Users:</strong></dt><dd><p>Displays a comprehensive list of all registered user accounts in the system.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>manage.py<span class="w"> </span>list_users
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Activate a User:</strong></dt><dd><p>Re-enables a previously deactivated user account.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>manage.py<span class="w"> </span>activate_user
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+<p>—</p>
+</section>
+<section id="server-and-development-utilities">
+<h2>Server and Development Utilities<a class="headerlink" href="#server-and-development-utilities" title="Link to this heading"></a></h2>
+<p>These commands assist with running your development server and other crucial development tasks.</p>
+<ul>
+<li><dl>
+<dt><strong>Run the Development Server:</strong></dt><dd><p>Starts the Lback development server. By default, it runs on <code class="docutils literal notranslate"><span class="pre">http://127.0.0.1:8000</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>manage.py<span class="w"> </span>runserver
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Run Tests:</strong></dt><dd><p>Executes the entire test suite configured for your Lback project.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>manage.py<span class="w"> </span><span class="nb">test</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Collect Static Files:</strong></dt><dd><p>Gathers static files (CSS, JavaScript, images, etc.) from all your applications and copies them into a single directory, typically for efficient serving in production environments.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>manage.py<span class="w"> </span>collectstatic
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="features/Configuration%20System.html" class="btn btn-neutral float-right" title="Configuration System" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ibrahem abo kila.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,249 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Security Features &mdash; lback 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=95f010fd" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Built-in Admin Panel" href="Admin%20Panel.html" />
+    <link rel="prev" title="Sessions in Lback Framework" href="sessions.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            lback
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Configuration%20System.html">Configuration System</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="routing_system.html">Routing System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Views%20%26%20Responses.html">Views &amp; Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Templating%20System.html">Templating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Static%20Files.html">Static Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Media%20Files.html">Media Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file-uploads.html">File Uploads in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Forms.html">Forms</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Models%20%26%20Database.html">Models &amp; Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Database%20Migrations%20System.html">Database Migrations System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Authorization.html">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sessions.html">Sessions in Lback Framework</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Security Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#security-settings">Security Settings</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Admin%20Panel.html">Built-in Admin Panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API%20Tools.html">API Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Signal%20System.html">Signal System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Middleware%20System.html">Middleware System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_middlewares.html">Custom Middlewares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logging_config.html">Logging Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="email-sender.html">Email Sending in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="validation_utilities.html">Validation Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="error_handling.html">Error Handling and HTTP Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Error%20Handling%20%26%20Reporting.html">Error Handling &amp; Reporting</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Deployment.html">Deployment</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html">Signals from BaseView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-apidocs">Signals from APIDocs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-basemodelserializer">Signals from BaseModelSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-registry-signals.html">Signals from AdminRegistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user.html">Signals from AdminUser and Role Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-manager.html">Signals from AdminUserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-repository.html">Signals from AdminUserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html">Signals from AdminAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-jwtauth">Signals from JWTAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-oauth2auth">Signals from OAuth2Auth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-permissionrequired">Signals from PermissionRequired</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-sessionauth">Signals from SessionAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/error-handler.html">Signals from ErrorHandler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/middleware-manager.html">Signals from MiddlewareManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/migration_commands.html">Signals from MigrationCommands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/permission-repository.html">Signals from PermissionRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/role-repository.html">Signals from RoleRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/session-manager.html">Signals from SessionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/template-renderer.html">Signals from TemplateRenderer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-manager.html">Signals from UserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-model.html">Signals from User Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-repository.html">Signals from UserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/wsgi-application.html">Signals from WSGI Application and Server</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Modules and Classes Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API%20Reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lback/lback.html">lback package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">lback</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Security Features</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/features/Security Features.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="security-features">
+<h1>Security Features<a class="headerlink" href="#security-features" title="Link to this heading"></a></h1>
+<p>In addition to authentication and authorization, the framework provides tools and components to contribute to securing your application:</p>
+<ul class="simple">
+<li><p><strong>CSRF Protection:</strong> Protection against Cross-Site Request Forgery attacks via Middleware.</p></li>
+<li><p><strong>CORS Handling:</strong> Managing Cross-Origin Resource Sharing policies via Middleware.</p></li>
+<li><p><strong>SQL Injection Protection:</strong> Mechanisms (often integrated into the ORM and database interactions).</p></li>
+<li><p><strong>XSS Protection:</strong> Tools to protect against Cross-Site Scripting attacks (perhaps via input sanitization or safe template rendering).</p></li>
+<li><p><strong>Rate Limiting:</strong> Controlling the rate of incoming requests to protect against Denial of Service attacks.</p></li>
+<li><p><strong>Security Headers:</strong> Adding security headers to responses to enhance browser security.</p></li>
+<li><p><strong>Firewall:</strong> Potentially a basic application-level firewall system.</p></li>
+</ul>
+<section id="security-settings">
+<h2>Security Settings<a class="headerlink" href="#security-settings" title="Link to this heading"></a></h2>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># A list of hostnames (e.g., domain names, IP addresses) that your application is allowed to serve.</span>
+<span class="c1"># Requests with a Host header not matching any entry in this list will be rejected.</span>
+<span class="n">ALLOWED_HOSTS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="c1"># Local development IP address</span>
+    <span class="s2">&quot;localhost&quot;</span><span class="p">,</span> <span class="c1"># Standard localhost hostname</span>
+    <span class="c1"># &quot;your-production-domain.com&quot;, # Add your live domain(s) here</span>
+<span class="p">]</span>
+
+<span class="c1"># Firewall specific settings for `FirewallMiddleware`.</span>
+<span class="n">FIREWALL_SETTINGS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># A list of IP addresses that are explicitly allowed to access the application.</span>
+    <span class="s2">&quot;ALLOWED_IPS&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">],</span>
+    <span class="c1"># &quot;DENIED_IPS&quot;: [&quot;192.168.1.100&quot;], # Example: IPs explicitly denied access</span>
+<span class="p">}</span>
+
+<span class="c1"># HTTP Security Headers configuration for `SecurityHeadersMiddleware`.</span>
+<span class="n">SECURITY_HEADERS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># Content Security Policy (CSP): A crucial security header that helps prevent XSS attacks</span>
+    <span class="c1"># by specifying which sources of content (scripts, styles, images, etc.) are allowed to be loaded.</span>
+    <span class="c1"># &#39;self&#39;: Allows resources only from your application&#39;s domain.</span>
+    <span class="c1"># &#39;unsafe-inline&#39;: Allows inline scripts (&lt;script&gt; tags) and styles (&lt;style&gt; tags or style attributes).</span>
+    <span class="c1">#                 Use sparingly, as it reduces CSP&#39;s effectiveness against XSS. Prefer external files.</span>
+    <span class="s2">&quot;CONTENT_SECURITY_POLICY&quot;</span><span class="p">:</span> <span class="s2">&quot;default-src &#39;self&#39;; &quot;</span>
+                            <span class="s2">&quot;script-src &#39;self&#39; &#39;unsafe-inline&#39;; &quot;</span>
+                            <span class="s2">&quot;style-src &#39;self&#39; &#39;unsafe-inline&#39;; &quot;</span>
+                            <span class="s2">&quot;font-src &#39;self&#39;; &quot;</span>
+                            <span class="s2">&quot;img-src &#39;self&#39;; &quot;</span>
+                            <span class="s2">&quot;connect-src &#39;self&#39;; &quot;</span>
+                            <span class="s2">&quot;media-src &#39;none&#39;; &quot;</span>       <span class="c1"># Prevents loading of audio/video from any source</span>
+                            <span class="s2">&quot;object-src &#39;none&#39;; &quot;</span>      <span class="c1"># Prevents loading of Flash, Java applets</span>
+                            <span class="s2">&quot;frame-ancestors &#39;none&#39;;&quot;</span><span class="p">,</span> <span class="c1"># Prevents your site from being embedded in iframes</span>
+
+    <span class="c1"># X-Frame-Options: Protects against Clickjacking attacks by preventing your site from being embedded in iframes.</span>
+    <span class="s2">&quot;X_FRAME_OPTIONS&quot;</span><span class="p">:</span> <span class="s2">&quot;SAMEORIGIN&quot;</span><span class="p">,</span> <span class="c1"># Allows embedding only from the same origin. Use &#39;DENY&#39; to disallow all.</span>
+
+    <span class="c1"># Strict-Transport-Security (HSTS): Forces browsers to connect to your site only over HTTPS for a specified duration.</span>
+    <span class="s2">&quot;STRICT_TRANSPORT_SECURITY&quot;</span><span class="p">:</span> <span class="s2">&quot;max-age=63072000; includeSubDomains; preload&quot;</span><span class="p">,</span> <span class="c1"># 2 years, applies to subdomains, and can be preloaded.</span>
+
+    <span class="c1"># Referrer-Policy: Controls how much referrer information is sent with requests.</span>
+    <span class="s2">&quot;REFERRER_POLICY&quot;</span><span class="p">:</span> <span class="s2">&quot;no-referrer-when-downgrade&quot;</span><span class="p">,</span> <span class="c1"># Sends referrer for HTTPS-&gt;HTTPS, not for HTTPS-&gt;HTTP.</span>
+
+    <span class="c1"># Permissions-Policy (formerly Feature-Policy): Allows or denies the use of browser features and APIs.</span>
+    <span class="s2">&quot;PERMISSIONS_POLICY&quot;</span><span class="p">:</span> <span class="s2">&quot;geolocation=(self)&quot;</span><span class="p">,</span> <span class="c1"># Example: Allows geolocation API usage only from your own origin.</span>
+<span class="p">}</span>
+
+<span class="c1"># Rate Limiting specific settings for `RateLimitingMiddleware`.</span>
+<span class="n">RATE_LIMITING_SETTINGS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># The maximum number of requests allowed from a single client within the `WINDOW_SECONDS` timeframe.</span>
+    <span class="s2">&quot;MAX_REQUESTS&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="c1"># The time window in seconds during which `MAX_REQUESTS` applies.</span>
+    <span class="s2">&quot;WINDOW_SECONDS&quot;</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># The duration, in minutes, after which a user&#39;s session will expire due to inactivity.</span>
+<span class="n">SESSION_TIMEOUT_MINUTES</span> <span class="o">=</span> <span class="mi">30</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sessions.html" class="btn btn-neutral float-left" title="Sessions in Lback Framework" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Admin%20Panel.html" class="btn btn-neutral float-right" title="Built-in Admin Panel" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ibrahem abo kila.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

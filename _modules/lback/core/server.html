@@ -1,0 +1,851 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>lback.core.server &mdash; lback 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=95f010fd" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            lback
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Configuration%20System.html">Configuration System</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/routing_system.html">Routing System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Views%20%26%20Responses.html">Views &amp; Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Templating%20System.html">Templating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Static%20Files.html">Static Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Media%20Files.html">Media Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/file-uploads.html">File Uploads in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Forms.html">Forms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Models%20%26%20Database.html">Models &amp; Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Database%20Migrations%20System.html">Database Migrations System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Authorization.html">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/sessions.html">Sessions in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Security%20Features.html">Security Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Admin%20Panel.html">Built-in Admin Panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/API%20Tools.html">API Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Signal%20System.html">Signal System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Middleware%20System.html">Middleware System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/custom_middlewares.html">Custom Middlewares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/logging_config.html">Logging Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/email-sender.html">Email Sending in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/validation_utilities.html">Validation Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/error_handling.html">Error Handling and HTTP Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Error%20Handling%20%26%20Reporting.html">Error Handling &amp; Reporting</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Deployment.html">Deployment</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/api-signals.html">Signals from BaseView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/api-signals.html#signals-from-apidocs">Signals from APIDocs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/api-signals.html#signals-from-basemodelserializer">Signals from BaseModelSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-registry-signals.html">Signals from AdminRegistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-user.html">Signals from AdminUser and Role Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-user-manager.html">Signals from AdminUserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-user-repository.html">Signals from AdminUserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html">Signals from AdminAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-jwtauth">Signals from JWTAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-oauth2auth">Signals from OAuth2Auth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-permissionrequired">Signals from PermissionRequired</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-sessionauth">Signals from SessionAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/error-handler.html">Signals from ErrorHandler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/middleware-manager.html">Signals from MiddlewareManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/migration_commands.html">Signals from MigrationCommands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/permission-repository.html">Signals from PermissionRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/role-repository.html">Signals from RoleRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/session-manager.html">Signals from SessionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/template-renderer.html">Signals from TemplateRenderer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/user-manager.html">Signals from UserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/user-model.html">Signals from User Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/user-repository.html">Signals from UserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/wsgi-application.html">Signals from WSGI Application and Server</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">Modules and Classes Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../API%20Reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../lback/lback.html">lback package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">lback</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">lback.core.server</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for lback.core.server</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">http</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTTPStatus</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">werkzeug.serving</span><span class="w"> </span><span class="kn">import</span> <span class="n">run_simple</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Union</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">importlib.util</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dotenv</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_dotenv</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.router</span><span class="w"> </span><span class="kn">import</span> <span class="n">Router</span><span class="p">,</span> <span class="n">RouteNotFound</span><span class="p">,</span> <span class="n">MethodNotAllowed</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.middleware_manager</span><span class="w"> </span><span class="kn">import</span> <span class="n">MiddlewareManager</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.response</span><span class="w"> </span><span class="kn">import</span> <span class="n">Response</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.config_manager</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_project_root</span><span class="p">,</span> <span class="n">start_settings_watcher</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.middleware_loader</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_middlewares_from_config</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.app_controller</span><span class="w"> </span><span class="kn">import</span> <span class="n">AppController</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.templates</span><span class="w"> </span><span class="kn">import</span> <span class="n">TemplateRenderer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">Config</span><span class="p">,</span> <span class="n">CONFIG_FILE</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">Request</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.logging_setup</span><span class="w"> </span><span class="kn">import</span> <span class="n">setup_logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.error_handler</span><span class="w"> </span><span class="kn">import</span> <span class="n">ErrorHandler</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.signals</span><span class="w"> </span><span class="kn">import</span> <span class="n">SignalDispatcher</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.signals</span><span class="w"> </span><span class="kn">import</span> <span class="n">dispatcher</span> 
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.utils.session_manager</span><span class="w"> </span><span class="kn">import</span> <span class="n">SessionManager</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.utils.admin_user_manager</span><span class="w"> </span><span class="kn">import</span> <span class="n">AdminUserManager</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.utils.user_manager</span><span class="w"> </span><span class="kn">import</span> <span class="n">UserManager</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.auth.jwt_auth</span><span class="w"> </span><span class="kn">import</span> <span class="n">JWTAuth</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.models.database</span><span class="w"> </span><span class="kn">import</span> <span class="n">DatabaseManager</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.utils.email_sender</span><span class="w"> </span><span class="kn">import</span> <span class="n">EmailSender</span> 
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.utils.validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">PasswordValidator</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">lback.admin.registry</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">admin_registry_module</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">admin_registry_module</span><span class="p">,</span> <span class="s1">&#39;admin&#39;</span><span class="p">):</span>
+        <span class="n">admin</span> <span class="o">=</span> <span class="n">admin_registry_module</span><span class="o">.</span><span class="n">admin</span> 
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">admin</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">admin</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="n">config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Config</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">template_renderer</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">TemplateRenderer</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">router</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Router</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">middleware_manager</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">MiddlewareManager</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">session_manager</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">SessionManager</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">admin_user_manager</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">AdminUserManager</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">user_manager</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">UserManager</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">jwt_auth_utility</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">JWTAuth</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">app_controller</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">AppController</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">db_manager</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">DatabaseManager</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">project_root</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">error_handler_instance</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ErrorHandler</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">_core_components_initialized</span> <span class="o">=</span> <span class="kc">False</span>
+
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<div class="viewcode-block" id="initialize_core_components">
+<a class="viewcode-back" href="../../../lback/lback.core.html#lback.core.server.initialize_core_components">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">initialize_core_components</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Initializes all core framework components and sets module-level variables.</span>
+<span class="sd">    This function should be called once before running the server or adding routes.</span>
+<span class="sd">    Includes loading settings, installed apps, and initializing managers.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">global</span> <span class="n">config</span><span class="p">,</span> <span class="n">template_renderer</span><span class="p">,</span> <span class="n">router</span><span class="p">,</span> <span class="n">middleware_manager</span><span class="p">,</span> \
+           <span class="n">session_manager</span><span class="p">,</span> <span class="n">admin_user_manager</span><span class="p">,</span> <span class="n">user_manager</span><span class="p">,</span> <span class="n">jwt_auth_utility</span><span class="p">,</span> \
+           <span class="n">app_controller</span><span class="p">,</span> <span class="n">db_manager</span><span class="p">,</span> <span class="n">project_root</span><span class="p">,</span> <span class="n">_core_components_initialized</span><span class="p">,</span> \
+           <span class="n">logger</span><span class="p">,</span> <span class="n">dispatcher</span><span class="p">,</span> <span class="n">error_handler_instance</span><span class="p">,</span> <span class="n">admin</span>
+
+    <span class="k">if</span> <span class="n">_core_components_initialized</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Core components already initialized. Skipping.&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;--- Starting Core Components Initialization ---&quot;</span><span class="p">)</span>
+    
+    
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">load_dotenv</span><span class="p">()</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;.env file loaded.&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Could not load .env file: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">project_root</span> <span class="o">=</span> <span class="n">get_project_root</span><span class="p">()</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Project root found: </span><span class="si">{</span><span class="n">project_root</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to determine project root: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">. Cannot proceed.&quot;</span><span class="p">)</span>
+        <span class="k">raise</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">start_settings_watcher</span><span class="p">(</span><span class="n">project_root</span><span class="p">)</span>
+        <span class="n">config_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">project_root</span><span class="p">,</span> <span class="n">CONFIG_FILE</span><span class="p">)</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">(</span><span class="n">config_file</span><span class="o">=</span><span class="n">config_file_path</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Config initialized with project root config file.&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to initialize Config: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">. Cannot proceed.&quot;</span><span class="p">)</span>
+        <span class="k">raise</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">setup_logging</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+        <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Basic logging setup complete.&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to perform basic logging setup: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+  
+    <span class="n">settings_file_name</span> <span class="o">=</span> <span class="s1">&#39;settings.py&#39;</span>
+    <span class="n">settings_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">project_root</span><span class="p">,</span> <span class="n">settings_file_name</span><span class="p">)</span>
+    <span class="n">settings_module_name</span> <span class="o">=</span> <span class="s1">&#39;project_settings&#39;</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">settings_file_path</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Settings file not found at &#39;</span><span class="si">{</span><span class="n">settings_file_path</span><span class="si">}</span><span class="s2">&#39;. Skipping loading settings from file.&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">spec</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">spec_from_file_location</span><span class="p">(</span><span class="n">settings_module_name</span><span class="p">,</span> <span class="n">settings_file_path</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">spec</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Could not create module spec for settings file &#39;</span><span class="si">{</span><span class="n">settings_file_path</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">settings_module</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">module_from_spec</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+                <span class="n">spec</span><span class="o">.</span><span class="n">loader</span><span class="o">.</span><span class="n">exec_module</span><span class="p">(</span><span class="n">settings_module</span><span class="p">)</span>
+
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loading settings from settings file: </span><span class="si">{</span><span class="n">settings_file_path</span><span class="si">}</span><span class="s2"> into current config object.&quot;</span><span class="p">)</span>
+                <span class="n">loaded_settings_count</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">for</span> <span class="n">setting_name</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">settings_module</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">setting_name</span><span class="o">.</span><span class="n">isupper</span><span class="p">()</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">setting_name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;__&#39;</span><span class="p">):</span>
+                        <span class="n">setting_value</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">settings_module</span><span class="p">,</span> <span class="n">setting_name</span><span class="p">)</span>
+                        <span class="nb">setattr</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">setting_name</span><span class="p">,</span> <span class="n">setting_value</span><span class="p">)</span>
+                        <span class="n">loaded_settings_count</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Finished loading </span><span class="si">{</span><span class="n">loaded_settings_count</span><span class="si">}</span><span class="s2"> settings from </span><span class="si">{</span><span class="n">settings_file_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="s1">&#39;ROOT_URLCONF&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="s1">&#39;ROOT_URLCONF&#39;</span><span class="p">):</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ROOT_URLCONF setting was not found or is empty in </span><span class="si">{</span><span class="n">settings_file_path</span><span class="si">}</span><span class="s2"> after loading.&quot;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ROOT_URLCONF found in config: </span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">ROOT_URLCONF</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;An error occurred while loading settings from </span><span class="si">{</span><span class="n">settings_file_path</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">setup_logging</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+        <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Logging re-configured using application settings from config.&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to perform application-level logging setup: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">Config</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Configuration validated successfully.&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Critical Configuration Error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">. Cannot proceed.&quot;</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Critical Configuration Error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">lback.admin.registry</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">admin_registry_module</span> 
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Successfully imported lback.admin.registry (AdminRegistry defined).&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">admin_registry_module</span><span class="p">,</span> <span class="s1">&#39;admin&#39;</span><span class="p">):</span>
+            <span class="n">admin</span> <span class="o">=</span> <span class="n">admin_registry_module</span><span class="o">.</span><span class="n">admin</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Successfully obtained &#39;admin&#39; instance from lback.admin.registry.&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;CRITICAL ERROR: Imported lback.admin.registry module does not have a global &#39;admin&#39; instance.&quot;</span><span class="p">)</span>
+            <span class="n">admin</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">lback.admin.admin</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Successfully imported lback.admin.admin (AdminUser registration attempted).&quot;</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;CRITICAL ERROR: Failed to import lback.admin.registry or lback.admin.admin: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">. Admin functionality will be limited or unavailable.&quot;</span><span class="p">)</span>
+        <span class="n">admin</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;CRITICAL ERROR: An unexpected error occurred during import of admin modules: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">admin</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Attempting to load installed apps and their admin modules.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="s1">&#39;INSTALLED_APPS&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">INSTALLED_APPS</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">app_name</span> <span class="ow">in</span> <span class="n">config</span><span class="o">.</span><span class="n">INSTALLED_APPS</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">app_name</span> <span class="o">==</span> <span class="s1">&#39;admin&#39;</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Skipping built-in &#39;admin&#39; app during installed apps loading.&quot;</span><span class="p">)</span>
+                <span class="k">continue</span>
+
+            <span class="n">admin_module_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">app_name</span><span class="si">}</span><span class="s2">.admin&quot;</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">admin_module_name</span><span class="p">)</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Successfully imported admin module for app: &#39;</span><span class="si">{</span><span class="n">app_name</span><span class="si">}</span><span class="s2">&#39; (</span><span class="si">{</span><span class="n">admin_module_name</span><span class="si">}</span><span class="s2">).&quot;</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No admin module found for app: &#39;</span><span class="si">{</span><span class="n">app_name</span><span class="si">}</span><span class="s2">&#39; (</span><span class="si">{</span><span class="n">admin_module_name</span><span class="si">}</span><span class="s2">). Skipping.&quot;</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error importing admin module for app: &#39;</span><span class="si">{</span><span class="n">app_name</span><span class="si">}</span><span class="s2">&#39; (</span><span class="si">{</span><span class="n">admin_module_name</span><span class="si">}</span><span class="s2">): </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;INSTALLED_APPS setting not found or is not a list/tuple in config. Skipping installed apps loading.&quot;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Finished attempting to load installed apps and their admin modules.&quot;</span><span class="p">)</span>
+    
+    <span class="n">email_sender</span> <span class="o">=</span> <span class="n">EmailSender</span><span class="p">(</span>
+        <span class="n">smtp_server</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">EMAIL_CONFIG</span><span class="p">[</span><span class="s1">&#39;smtp_server&#39;</span><span class="p">],</span>
+        <span class="n">smtp_port</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">EMAIL_CONFIG</span><span class="p">[</span><span class="s1">&#39;smtp_port&#39;</span><span class="p">],</span>
+        <span class="n">smtp_username</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">EMAIL_CONFIG</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">],</span>   
+        <span class="n">smtp_password</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">EMAIL_CONFIG</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">],</span>
+        <span class="n">sender_email</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">EMAIL_CONFIG</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">],</span>
+        <span class="n">sender_name</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">EMAIL_CONFIG</span><span class="p">[</span><span class="s1">&#39;sender_name&#39;</span><span class="p">],</span>
+        <span class="n">use_tls</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;EmailSender initialized.&quot;</span><span class="p">)</span>
+
+    <span class="n">password_validator</span> <span class="o">=</span> <span class="n">PasswordValidator</span><span class="p">()</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;PasswordValidator initialized.&quot;</span><span class="p">)</span>
+
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">router</span> <span class="o">=</span> <span class="n">Router</span><span class="p">()</span>
+        <span class="n">middleware_manager</span> <span class="o">=</span> <span class="n">MiddlewareManager</span><span class="p">()</span> 
+        <span class="n">session_timeout</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="s1">&#39;SESSION_TIMEOUT_MINUTES&#39;</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+        <span class="n">session_manager</span> <span class="o">=</span> <span class="n">SessionManager</span><span class="p">(</span><span class="n">timeout_minutes</span><span class="o">=</span><span class="n">session_timeout</span><span class="p">)</span>
+        <span class="n">admin_user_manager</span> <span class="o">=</span> <span class="n">AdminUserManager</span><span class="p">()</span>
+        <span class="n">user_manager</span> <span class="o">=</span> <span class="n">UserManager</span><span class="p">(</span><span class="n">email_sender</span><span class="o">=</span><span class="n">email_sender</span><span class="p">,</span> <span class="n">password_validator</span><span class="o">=</span><span class="n">password_validator</span><span class="p">)</span>
+
+        <span class="n">jwt_config</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="s1">&#39;JWT_SECRET&#39;</span><span class="p">,</span> <span class="p">{})</span>
+        <span class="n">jwt_secret_key</span> <span class="o">=</span> <span class="n">jwt_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;secret_key&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">jwt_secret_key</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">jwt_secret_key</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;JWT_SECRET_KEY is not set or is not a string in configuration. JWT authentication will fail.&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;JWT_SECRET_KEY (secret_key within JWT_SECRET) is required and must be a string in Config.&quot;</span><span class="p">)</span>
+
+        <span class="n">jwt_auth_utility</span> <span class="o">=</span> <span class="n">JWTAuth</span><span class="p">(</span><span class="n">secret</span><span class="o">=</span><span class="n">jwt_secret_key</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="s2">&quot;HS256&quot;</span><span class="p">)</span>
+
+        
+        <span class="n">db_manager</span> <span class="o">=</span> <span class="n">DatabaseManager</span><span class="o">.</span><span class="n">get_instance</span><span class="p">()</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;DatabaseManager instance obtained.&quot;</span><span class="p">)</span>
+        <span class="n">template_renderer</span> <span class="o">=</span> <span class="n">TemplateRenderer</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
+        <span class="n">error_handler_instance</span> <span class="o">=</span> <span class="n">ErrorHandler</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span> <span class="n">template_renderer</span><span class="o">=</span><span class="n">template_renderer</span><span class="p">,</span> <span class="n">router</span><span class="o">=</span><span class="n">router</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;ErrorHandler initialized.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dispatcher</span><span class="p">,</span> <span class="n">SignalDispatcher</span><span class="p">):</span>
+            <span class="n">dispatcher</span> <span class="o">=</span> <span class="n">SignalDispatcher</span><span class="p">()</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;SignalDispatcher initialized (replaced dummy).&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;SignalDispatcher already initialized.&quot;</span><span class="p">)</span>
+
+        <span class="kn">from</span><span class="w"> </span><span class="nn">lback.security.headers</span><span class="w"> </span><span class="kn">import</span> <span class="n">SecurityHeadersConfigurator</span>
+        <span class="n">headers_configurator</span> <span class="o">=</span> <span class="n">SecurityHeadersConfigurator</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;SecurityHeadersConfigurator initialized.&quot;</span><span class="p">)</span>
+
+        <span class="kn">from</span><span class="w"> </span><span class="nn">lback.security.rate_limiter</span><span class="w"> </span><span class="kn">import</span> <span class="n">RateLimiter</span>
+        <span class="n">rate_limiting_settings</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="s1">&#39;RATE_LIMITING_SETTINGS&#39;</span><span class="p">,</span> <span class="p">{})</span>
+        <span class="n">max_requests</span> <span class="o">=</span> <span class="n">rate_limiting_settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;MAX_REQUESTS&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+        <span class="n">window_seconds</span> <span class="o">=</span> <span class="n">rate_limiting_settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;WINDOW_SECONDS&#39;</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+        <span class="n">rate_limiter_instance</span> <span class="o">=</span> <span class="n">RateLimiter</span><span class="p">(</span>
+            <span class="n">max_requests</span><span class="o">=</span><span class="n">max_requests</span><span class="p">,</span>
+            <span class="n">window_seconds</span><span class="o">=</span><span class="n">window_seconds</span>
+        <span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;RateLimiter initialized with max_requests=</span><span class="si">{</span><span class="n">max_requests</span><span class="si">}</span><span class="s2">, window_seconds=</span><span class="si">{</span><span class="n">window_seconds</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+        <span class="kn">from</span><span class="w"> </span><span class="nn">lback.security.firewall</span><span class="w"> </span><span class="kn">import</span> <span class="n">AdvancedFirewall</span>
+        <span class="n">firewall_settings</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="s1">&#39;FIREWALL_SETTINGS&#39;</span><span class="p">,</span> <span class="p">{})</span>
+        <span class="n">firewall_instance</span> <span class="o">=</span> <span class="n">AdvancedFirewall</span><span class="p">(</span>
+            <span class="n">allowed_ips</span><span class="o">=</span><span class="n">firewall_settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ALLOWED_IPS&#39;</span><span class="p">),</span>
+            <span class="n">blocked_ips</span><span class="o">=</span><span class="n">firewall_settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;BLOCKED_IPS&#39;</span><span class="p">),</span>
+            <span class="n">blocked_networks</span><span class="o">=</span><span class="n">firewall_settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;BLOCKED_NETWORKS&#39;</span><span class="p">),</span>
+            <span class="n">blocked_user_agents</span><span class="o">=</span><span class="n">firewall_settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;BLOCKED_USER_AGENTS&#39;</span><span class="p">),</span>
+            <span class="n">blocked_url_patterns</span><span class="o">=</span><span class="n">firewall_settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;BLOCKED_URL_PATTERNS&#39;</span><span class="p">),</span>
+            <span class="n">ddos_max_requests</span><span class="o">=</span><span class="n">firewall_settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;DDOS_MAX_REQUESTS&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+            <span class="n">ddos_window_seconds</span><span class="o">=</span><span class="n">firewall_settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;DDOS_WINDOW_SECONDS&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+            <span class="n">temp_block_seconds</span><span class="o">=</span><span class="n">firewall_settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;TEMP_BLOCK_SECONDS&#39;</span><span class="p">,</span> <span class="mi">300</span><span class="p">),</span>
+        <span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;AdvancedFirewall initialized.&quot;</span><span class="p">)</span>
+
+        <span class="n">available_dependencies_instances</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;session_manager&#39;</span><span class="p">:</span> <span class="n">session_manager</span><span class="p">,</span>
+            <span class="s1">&#39;admin_user_manager&#39;</span><span class="p">:</span> <span class="n">admin_user_manager</span><span class="p">,</span>
+            <span class="s1">&#39;user_manager&#39;</span><span class="p">:</span> <span class="n">user_manager</span><span class="p">,</span>
+            <span class="s1">&#39;config&#39;</span><span class="p">:</span> <span class="n">config</span><span class="p">,</span>
+            <span class="s1">&#39;jwt_auth&#39;</span><span class="p">:</span> <span class="n">jwt_auth_utility</span><span class="p">,</span>
+            <span class="s1">&#39;db_manager&#39;</span><span class="p">:</span> <span class="n">db_manager</span><span class="p">,</span>
+            <span class="s1">&#39;logger&#39;</span><span class="p">:</span> <span class="n">logger</span><span class="p">,</span>
+            <span class="s1">&#39;template_renderer&#39;</span><span class="p">:</span> <span class="n">template_renderer</span><span class="p">,</span>
+            <span class="s1">&#39;router&#39;</span><span class="p">:</span> <span class="n">router</span><span class="p">,</span>
+            <span class="s1">&#39;error_handler&#39;</span><span class="p">:</span> <span class="n">error_handler_instance</span><span class="p">,</span>
+            <span class="s1">&#39;dispatcher&#39;</span><span class="p">:</span> <span class="n">dispatcher</span><span class="p">,</span>
+            <span class="s1">&#39;firewall&#39;</span><span class="p">:</span> <span class="n">firewall_instance</span><span class="p">,</span>
+            <span class="s1">&#39;headers_configurator&#39;</span><span class="p">:</span> <span class="n">headers_configurator</span><span class="p">,</span>
+            <span class="s1">&#39;rate_limiter&#39;</span><span class="p">:</span> <span class="n">rate_limiter_instance</span><span class="p">,</span>
+            <span class="s1">&#39;admin_registry&#39;</span><span class="p">:</span> <span class="n">admin</span>
+        <span class="p">}</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Core framework components initialized and dependencies dictionary created.&quot;</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to initialize core components: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">. Cannot proceed.&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to initialize core components: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">load_middlewares_from_config</span><span class="p">(</span><span class="n">middleware_manager</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">available_dependencies_instances</span><span class="o">=</span><span class="n">available_dependencies_instances</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Middlewares loaded and configured.&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to load and configure middlewares: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">. Cannot proceed.&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to load and configure middlewares: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Initializing AppController...&quot;</span><span class="p">)</span>
+        <span class="n">app_controller</span> <span class="o">=</span> <span class="n">AppController</span><span class="p">(</span>
+            <span class="n">middleware_manager</span><span class="o">=</span><span class="n">middleware_manager</span><span class="p">,</span>
+            <span class="n">router</span><span class="o">=</span><span class="n">router</span><span class="p">,</span>
+            <span class="n">template_renderer</span><span class="o">=</span><span class="n">template_renderer</span><span class="p">,</span>
+            <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span>
+            <span class="n">admin_user_manager</span><span class="o">=</span><span class="n">admin_user_manager</span><span class="p">,</span>
+            <span class="n">session_manager</span><span class="o">=</span><span class="n">session_manager</span><span class="p">,</span>
+            <span class="n">user_manager</span><span class="o">=</span><span class="n">user_manager</span><span class="p">,</span>
+            <span class="n">available_dependencies_instances</span><span class="o">=</span><span class="n">available_dependencies_instances</span><span class="p">,</span>
+            <span class="n">dispatcher</span><span class="o">=</span><span class="n">dispatcher</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;AppController initialized successfully.&quot;</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;--- Core Components Initialization Complete ---&quot;</span><span class="p">)</span>
+
+        <span class="n">_core_components_initialized</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to initialize AppController: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">. Cannot proceed.&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to initialize AppController: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="wsgi_application">
+<a class="viewcode-back" href="../../../lback/lback.core.html#lback.core.server.wsgi_application">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">wsgi_application</span><span class="p">(</span><span class="n">environ</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">start_response</span><span class="p">:</span> <span class="n">Callable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    WSGI application entry point for handling incoming requests.</span>
+<span class="sd">    Parses WSGI environment, creates a Request object, delegates to AppController,</span>
+<span class="sd">    handles errors, and returns a WSGI-compatible response.</span>
+<span class="sd">    Accesses core components from module-level variables (initialized by initialize_core_components).</span>
+<span class="sd">    CORRECTED: Defers body reading for methods handled by BodyParsingMiddleware</span>
+<span class="sd">               to prevent premature stream exhaustion.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">comp</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">comp</span> <span class="ow">in</span> <span class="p">[</span><span class="n">config</span><span class="p">,</span> <span class="n">app_controller</span><span class="p">,</span> <span class="n">error_handler_instance</span><span class="p">,</span> <span class="n">project_root</span><span class="p">,</span> <span class="n">dispatcher</span><span class="p">,</span>
+                                     <span class="n">db_manager</span><span class="p">,</span> <span class="n">admin_user_manager</span><span class="p">,</span> <span class="n">session_manager</span><span class="p">,</span> <span class="n">user_manager</span><span class="p">,</span>
+                                     <span class="n">jwt_auth_utility</span><span class="p">,</span> <span class="n">admin</span> <span class="k">if</span> <span class="s1">&#39;admin&#39;</span> <span class="ow">in</span> <span class="nb">globals</span><span class="p">()</span> <span class="k">else</span> <span class="kc">None</span><span class="p">]):</span>
+         <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;CRITICAL ERROR: Core framework components are not initialized. Cannot handle WSGI request.&quot;</span><span class="p">)</span>
+         <span class="n">status</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">INTERNAL_SERVER_ERROR</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">INTERNAL_SERVER_ERROR</span><span class="o">.</span><span class="n">phrase</span><span class="si">}</span><span class="s2">&quot;</span>
+         <span class="n">headers_list</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;Content-type&#39;</span><span class="p">,</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">)]</span>
+         <span class="n">start_response</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">headers_list</span><span class="p">)</span>
+         <span class="k">try</span><span class="p">:</span>
+             <span class="k">if</span> <span class="n">dispatcher</span><span class="p">:</span>
+                 <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;wsgi_application_error&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="s2">&quot;wsgi_application&quot;</span><span class="p">,</span> <span class="n">error_type</span><span class="o">=</span><span class="s2">&quot;core_components_not_initialized&quot;</span><span class="p">,</span> <span class="n">environ</span><span class="o">=</span><span class="n">environ</span><span class="p">)</span>
+             <span class="k">else</span><span class="p">:</span>
+                 <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Dispatcher is None. Cannot send &#39;wsgi_application_error&#39; signal.&quot;</span><span class="p">)</span>
+         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e_sig</span><span class="p">:</span> <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error emitting signal: </span><span class="si">{</span><span class="n">e_sig</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+         <span class="k">return</span> <span class="p">[</span><span class="sa">b</span><span class="s2">&quot;Internal Server Error: Framework not initialized.&quot;</span><span class="p">]</span>
+
+    <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">method</span> <span class="o">=</span> <span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;REQUEST_METHOD&#39;</span><span class="p">,</span> <span class="s1">&#39;GET&#39;</span><span class="p">)</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;PATH_INFO&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">)</span>
+    <span class="n">query_string</span> <span class="o">=</span> <span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;QUERY_STRING&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="n">raw_path_with_query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path</span><span class="si">}{</span><span class="s1">&#39;?&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">query_string</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">query_string</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">] &gt;&gt;&gt; Start handling WSGI request for path: </span><span class="si">{</span><span class="n">raw_path_with_query</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;HTTP_&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">():</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">environ</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;HTTP_&#39;</span><span class="p">)}</span>
+        <span class="k">if</span> <span class="s1">&#39;CONTENT_TYPE&#39;</span> <span class="ow">in</span> <span class="n">environ</span><span class="p">:</span>
+             <span class="n">headers</span><span class="p">[</span><span class="s1">&#39;CONTENT-TYPE&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">environ</span><span class="p">[</span><span class="s1">&#39;CONTENT_TYPE&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s1">&#39;CONTENT_LENGTH&#39;</span> <span class="ow">in</span> <span class="n">environ</span><span class="p">:</span>
+             <span class="n">headers</span><span class="p">[</span><span class="s1">&#39;CONTENT-LENGTH&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">environ</span><span class="p">[</span><span class="s1">&#39;CONTENT_LENGTH&#39;</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">dispatcher</span><span class="p">:</span>
+             <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;server_request_received&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="s2">&quot;wsgi_application&quot;</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">full_path</span><span class="o">=</span><span class="n">raw_path_with_query</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">environ</span><span class="o">=</span><span class="n">environ</span><span class="p">)</span>
+             <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Signal &#39;server_request_received&#39; sent for </span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">raw_path_with_query</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+             <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Dispatcher is None. Cannot send &#39;server_request_received&#39; signal.&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error emitting &#39;server_request_received&#39; signal: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">response</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Response</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">request</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Request</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="n">content_length_str</span> <span class="o">=</span> <span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;CONTENT_LENGTH&#39;</span><span class="p">)</span>
+    <span class="n">content_length</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">if</span> <span class="n">content_length_str</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">content_length_str</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">content_length</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">content_length_str</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">] Could not convert CONTENT_LENGTH &#39;</span><span class="si">{</span><span class="n">content_length_str</span><span class="si">}</span><span class="s2">&#39; to int for path: </span><span class="si">{</span><span class="n">raw_path_with_query</span><span class="si">}</span><span class="s2">. Treating as 0.&quot;</span><span class="p">)</span>
+            <span class="n">content_length</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">elif</span> <span class="n">content_length_str</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">content_length_str</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">] Received invalid CONTENT_LENGTH &#39;</span><span class="si">{</span><span class="n">content_length_str</span><span class="si">}</span><span class="s2">&#39; for path: </span><span class="si">{</span><span class="n">raw_path_with_query</span><span class="si">}</span><span class="s2">. Treating as 0.&quot;</span><span class="p">)</span>
+        <span class="n">content_length</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="n">body</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span> 
+
+    <span class="n">max_body_size</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="s1">&#39;MAX_REQUEST_BODY_SIZE&#39;</span><span class="p">,</span> <span class="mi">10</span> <span class="o">*</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">content_length</span> <span class="o">&gt;</span> <span class="n">max_body_size</span><span class="p">:</span>
+         <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">] Request body too large (</span><span class="si">{</span><span class="n">content_length</span><span class="si">}</span><span class="s2"> bytes) for path: </span><span class="si">{</span><span class="n">raw_path_with_query</span><span class="si">}</span><span class="s2">. Max allowed: </span><span class="si">{</span><span class="n">max_body_size</span><span class="si">}</span><span class="s2"> bytes.&quot;</span><span class="p">)</span>
+         <span class="k">if</span> <span class="n">error_handler_instance</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;WSGI Application: error_handler_instance is None for 413 (Payload Too Large).&quot;</span><span class="p">)</span>
+                <span class="n">status</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">REQUEST_ENTITY_TOO_LARGE</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">REQUEST_ENTITY_TOO_LARGE</span><span class="o">.</span><span class="n">phrase</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="n">headers_list</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;Content-type&#39;</span><span class="p">,</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">)]</span>
+                <span class="n">start_response</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">headers_list</span><span class="p">)</span>
+                <span class="k">return</span> <span class="p">[</span><span class="sa">b</span><span class="s2">&quot;Payload Too Large: Error handler not initialized.&quot;</span><span class="p">]</span>
+         <span class="k">try</span><span class="p">:</span>
+             <span class="n">dummy_request</span> <span class="o">=</span> <span class="n">Request</span><span class="p">(</span><span class="n">raw_path_with_query</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">environ</span><span class="o">=</span><span class="n">environ</span><span class="p">)</span>
+         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">req_e</span><span class="p">:</span>
+              <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">] Failed to create dummy Request object for 413 error handling: </span><span class="si">{</span><span class="n">req_e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+              <span class="n">status</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">INTERNAL_SERVER_ERROR</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">INTERNAL_SERVER_ERROR</span><span class="o">.</span><span class="n">phrase</span><span class="si">}</span><span class="s2">&quot;</span>
+              <span class="n">headers_list</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;Content-type&#39;</span><span class="p">,</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">)]</span>
+              <span class="n">start_response</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">headers_list</span><span class="p">)</span>
+              <span class="k">return</span> <span class="p">[</span><span class="sa">b</span><span class="s2">&quot;Internal Server Error: Failed to create request object for error handling.&quot;</span><span class="p">]</span>
+         
+         <span class="n">response</span> <span class="o">=</span> <span class="n">error_handler_instance</span><span class="o">.</span><span class="n">handle_custom_error</span><span class="p">(</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">REQUEST_ENTITY_TOO_LARGE</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="s2">&quot;Request body too large.&quot;</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="n">dummy_request</span><span class="p">)</span>
+         <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;WSGI Application: Handled 413 Request body too large.&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">response</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+         <span class="k">try</span><span class="p">:</span>
+             <span class="n">request</span> <span class="o">=</span> <span class="n">Request</span><span class="p">(</span><span class="n">raw_path_with_query</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">environ</span><span class="o">=</span><span class="n">environ</span><span class="p">)</span>
+             <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;WSGI Application: Main Request object created.&quot;</span><span class="p">)</span>
+         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">req_e</span><span class="p">:</span>
+             <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">] Failed to create main Request object for path: </span><span class="si">{</span><span class="n">raw_path_with_query</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">req_e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+             <span class="k">if</span> <span class="n">error_handler_instance</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;WSGI Application: error_handler_instance is None after critical Request creation error.&quot;</span><span class="p">)</span>
+                <span class="n">status</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">INTERNAL_SERVER_ERROR</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">INTERNAL_SERVER_ERROR</span><span class="o">.</span><span class="n">phrase</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="n">headers_list</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;Content-type&#39;</span><span class="p">,</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">)]</span>
+                <span class="n">start_response</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">headers_list</span><span class="p">)</span>
+                <span class="k">return</span> <span class="p">[</span><span class="sa">b</span><span class="s2">&quot;Internal Server Error: Failed to create request object.&quot;</span><span class="p">]</span>
+
+             <span class="k">try</span><span class="p">:</span>
+                 <span class="n">dummy_request_for_error</span> <span class="o">=</span> <span class="n">Request</span><span class="p">(</span><span class="n">raw_path_with_query</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">environ</span><span class="o">=</span><span class="n">environ</span><span class="p">)</span>
+             <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">final_req_e</span><span class="p">:</span>
+                  <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;WSGI Application: Failed to create final error request object: </span><span class="si">{</span><span class="n">final_req_e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                  <span class="n">status</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">INTERNAL_SERVER_ERROR</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">INTERNAL_SERVER_ERROR</span><span class="o">.</span><span class="n">phrase</span><span class="si">}</span><span class="s2">&quot;</span>
+                  <span class="n">headers_list</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;Content-type&#39;</span><span class="p">,</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">)]</span>
+                  <span class="n">start_response</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">headers_list</span><span class="p">)</span>
+                  <span class="k">return</span> <span class="p">[</span><span class="sa">b</span><span class="s2">&quot;Internal Server Error: Unrecoverable error creating request object.&quot;</span><span class="p">]</span>
+             
+             <span class="n">response</span> <span class="o">=</span> <span class="n">error_handler_instance</span><span class="o">.</span><span class="n">handle_exception</span><span class="p">(</span><span class="n">req_e</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="n">dummy_request_for_error</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">request</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">response</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+         <span class="k">try</span><span class="p">:</span>
+
+             <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;add_context&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">callable</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">add_context</span><span class="p">):</span>
+                  <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;WSGI Application: Request object does not have an add_context method.&quot;</span><span class="p">)</span>
+                  <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Request add_context method is missing. Ensure lback.core.types.Request is correctly updated.&quot;</span><span class="p">)</span>
+
+             <span class="k">if</span> <span class="n">db_manager</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                  <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;WSGI Application: db_manager is None during request processing.&quot;</span><span class="p">)</span>
+                  <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Database Manager not initialized.&quot;</span><span class="p">)</span>
+
+             <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">db_manager</span><span class="p">,</span> <span class="s1">&#39;get_instance&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">callable</span><span class="p">(</span><span class="n">db_manager</span><span class="o">.</span><span class="n">get_instance</span><span class="p">):</span>
+                  <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;WSGI Application: db_manager does not have a get_instance method.&quot;</span><span class="p">)</span>
+                  <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Database Manager get_instance method is missing.&quot;</span><span class="p">)</span>
+
+             <span class="n">db_session</span> <span class="o">=</span> <span class="n">db_manager</span><span class="o">.</span><span class="n">get_instance</span><span class="p">()</span>
+             <span class="n">request</span><span class="o">.</span><span class="n">add_context</span><span class="p">(</span><span class="s1">&#39;db_session&#39;</span><span class="p">,</span> <span class="n">db_session</span><span class="p">)</span>
+             <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;WSGI Application: Added DB session to request context.&quot;</span><span class="p">)</span>
+
+             <span class="k">if</span> <span class="n">config</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">add_context</span><span class="p">(</span><span class="s1">&#39;config&#39;</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+             <span class="k">if</span> <span class="n">template_renderer</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">add_context</span><span class="p">(</span><span class="s1">&#39;template_renderer&#39;</span><span class="p">,</span> <span class="n">template_renderer</span><span class="p">)</span>
+             <span class="k">if</span> <span class="n">router</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">add_context</span><span class="p">(</span><span class="s1">&#39;router&#39;</span><span class="p">,</span> <span class="n">router</span><span class="p">)</span>
+             <span class="k">if</span> <span class="n">admin_user_manager</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">add_context</span><span class="p">(</span><span class="s1">&#39;admin_user_manager&#39;</span><span class="p">,</span> <span class="n">admin_user_manager</span><span class="p">)</span>
+             <span class="k">if</span> <span class="n">session_manager</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">add_context</span><span class="p">(</span><span class="s1">&#39;session_manager&#39;</span><span class="p">,</span> <span class="n">session_manager</span><span class="p">)</span>
+             <span class="k">if</span> <span class="n">user_manager</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">add_context</span><span class="p">(</span><span class="s1">&#39;user_manager&#39;</span><span class="p">,</span> <span class="n">user_manager</span><span class="p">)</span>
+             <span class="k">if</span> <span class="n">jwt_auth_utility</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">add_context</span><span class="p">(</span><span class="s1">&#39;jwt_auth_utility&#39;</span><span class="p">,</span> <span class="n">jwt_auth_utility</span><span class="p">)</span>
+             <span class="k">if</span> <span class="n">error_handler_instance</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">add_context</span><span class="p">(</span><span class="s1">&#39;error_handler&#39;</span><span class="p">,</span> <span class="n">error_handler_instance</span><span class="p">)</span>
+             <span class="k">if</span> <span class="n">dispatcher</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">add_context</span><span class="p">(</span><span class="s1">&#39;dispatcher&#39;</span><span class="p">,</span> <span class="n">dispatcher</span><span class="p">)</span>
+             <span class="k">if</span> <span class="s1">&#39;admin&#39;</span> <span class="ow">in</span> <span class="nb">globals</span><span class="p">()</span> <span class="ow">and</span> <span class="n">admin</span><span class="p">:</span>
+                  <span class="n">request</span><span class="o">.</span><span class="n">add_context</span><span class="p">(</span><span class="s1">&#39;admin_registry&#39;</span><span class="p">,</span> <span class="n">admin</span><span class="p">)</span>
+             <span class="k">if</span> <span class="n">environ</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">add_context</span><span class="p">(</span><span class="s1">&#39;environ&#39;</span><span class="p">,</span> <span class="n">environ</span><span class="p">)</span>
+
+             <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;WSGI Application: Added dependencies to request context.&quot;</span><span class="p">)</span>
+
+         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+             <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;WSGI Application: Error adding dependencies to request context: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+             <span class="k">if</span> <span class="n">error_handler_instance</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                 <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;WSGI Application: error_handler_instance is None after dependency injection error.&quot;</span><span class="p">)</span>
+
+                 <span class="n">status</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">INTERNAL_SERVER_ERROR</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">INTERNAL_SERVER_ERROR</span><span class="o">.</span><span class="n">phrase</span><span class="si">}</span><span class="s2">&quot;</span>
+                 <span class="n">headers_list</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;Content-type&#39;</span><span class="p">,</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">)]</span>
+                 <span class="n">start_response</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">headers_list</span><span class="p">)</span>
+
+                 <span class="k">if</span> <span class="n">request</span><span class="p">:</span>
+                     <span class="n">db_session_from_context</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get_context</span><span class="p">(</span><span class="s1">&#39;db_session&#39;</span><span class="p">)</span>
+                     <span class="k">if</span> <span class="n">db_session_from_context</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">db_session_from_context</span><span class="p">,</span> <span class="s1">&#39;close&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">callable</span><span class="p">(</span><span class="n">db_session_from_context</span><span class="o">.</span><span class="n">close</span><span class="p">):</span>
+                          <span class="k">try</span><span class="p">:</span>
+                               <span class="n">db_session_from_context</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                               <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;WSGI Application: Closed DB session after DI error (request exists).&quot;</span><span class="p">)</span>
+                          <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">close_e</span><span class="p">:</span>
+                               <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;WSGI Application: Error closing DB session after DI error: </span><span class="si">{</span><span class="n">close_e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                 <span class="k">return</span> <span class="p">[</span><span class="sa">b</span><span class="s2">&quot;Internal Server Error: Could not prepare request context.&quot;</span><span class="p">]</span>
+
+             <span class="k">try</span><span class="p">:</span>
+                 <span class="n">dummy_request_for_error</span> <span class="o">=</span> <span class="n">Request</span><span class="p">(</span><span class="n">raw_path_with_query</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">environ</span><span class="o">=</span><span class="n">environ</span><span class="p">)</span>
+             <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">final_req_e</span><span class="p">:</span>
+                  <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;WSGI Application: Failed to create error request object after DI error: </span><span class="si">{</span><span class="n">final_req_e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                  <span class="n">status</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">INTERNAL_SERVER_ERROR</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">INTERNAL_SERVER_ERROR</span><span class="o">.</span><span class="n">phrase</span><span class="si">}</span><span class="s2">&quot;</span>
+                  <span class="n">headers_list</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;Content-type&#39;</span><span class="p">,</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">)]</span>
+                  <span class="n">start_response</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">headers_list</span><span class="p">)</span>
+                  <span class="k">return</span> <span class="p">[</span><span class="sa">b</span><span class="s2">&quot;Internal Server Error: Unrecoverable error creating request object for error handling after DI error.&quot;</span><span class="p">]</span>
+             <span class="n">response</span> <span class="o">=</span> <span class="n">error_handler_instance</span><span class="o">.</span><span class="n">handle_exception</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="n">dummy_request_for_error</span><span class="p">)</span>
+
+    <span class="n">final_response</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Response</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">if</span> <span class="n">response</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+         <span class="k">try</span><span class="p">:</span>
+             <span class="k">if</span> <span class="n">app_controller</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                  <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;WSGI Application: app_controller is None before handling request.&quot;</span><span class="p">)</span>
+                  <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;AppController not initialized.&quot;</span><span class="p">)</span>
+
+             <span class="n">final_response</span> <span class="o">=</span> <span class="n">app_controller</span><span class="o">.</span><span class="n">handle_request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+             <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;WSGI Application: AppController returned response with status </span><span class="si">{</span><span class="nb">getattr</span><span class="p">(</span><span class="n">final_response</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;status_code&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;N/A&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+         <span class="k">except</span> <span class="n">RouteNotFound</span><span class="p">:</span>
+             <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">] Route not found for </span><span class="si">{</span><span class="n">raw_path_with_query</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+             <span class="k">if</span> <span class="n">error_handler_instance</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> 
+                  <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;WSGI Application: error_handler_instance is None for 404.&quot;</span><span class="p">)</span>
+                  <span class="n">status</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">NOT_FOUND</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">NOT_FOUND</span><span class="o">.</span><span class="n">phrase</span><span class="si">}</span><span class="s2">&quot;</span>
+                  <span class="n">headers_list</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;Content-type&#39;</span><span class="p">,</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">)]</span>
+                  <span class="n">start_response</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">headers_list</span><span class="p">)</span>
+                  <span class="k">return</span> <span class="p">[</span><span class="sa">b</span><span class="s2">&quot;Not Found: Error handler not initialized.&quot;</span><span class="p">]</span>
+
+             <span class="n">final_response</span> <span class="o">=</span> <span class="n">error_handler_instance</span><span class="o">.</span><span class="n">handle_404</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+             <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">] &lt;&lt;&lt; Finished handling request (404 Not Found) for path: </span><span class="si">{</span><span class="n">raw_path_with_query</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+         <span class="k">except</span> <span class="n">MethodNotAllowed</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+             <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">] Method not allowed for </span><span class="si">{</span><span class="n">raw_path_with_query</span><span class="si">}</span><span class="s2">. Allowed: </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">allowed_methods</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+             <span class="k">if</span> <span class="n">error_handler_instance</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                  <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;WSGI Application: error_handler_instance is None for 405.&quot;</span><span class="p">)</span>
+
+                  <span class="n">status</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">METHOD_NOT_ALLOWED</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">METHOD_NOT_ALLOWED</span><span class="o">.</span><span class="n">phrase</span><span class="si">}</span><span class="s2">&quot;</span>
+                  <span class="n">headers_list</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;Content-type&#39;</span><span class="p">,</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">)]</span>
+                  <span class="n">start_response</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">headers_list</span><span class="p">)</span>
+                  <span class="k">return</span> <span class="p">[</span><span class="sa">b</span><span class="s2">&quot;Method Not Allowed: Error handler not initialized.&quot;</span><span class="p">]</span>
+
+             <span class="n">final_response</span> <span class="o">=</span> <span class="n">error_handler_instance</span><span class="o">.</span><span class="n">handle_405</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">allowed_methods</span><span class="p">)</span>
+             <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">] &lt;&lt;&lt; Finished handling request (405 Method Not Allowed) for path: </span><span class="si">{</span><span class="n">raw_path_with_query</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+             <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">] Unhandled exception during request processing for </span><span class="si">{</span><span class="n">raw_path_with_query</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+             <span class="k">if</span> <span class="n">error_handler_instance</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                  <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;WSGI Application: error_handler_instance is None for unhandled exception.&quot;</span><span class="p">)</span>
+                  <span class="n">status</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">INTERNAL_SERVER_ERROR</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">INTERNAL_SERVER_ERROR</span><span class="o">.</span><span class="n">phrase</span><span class="si">}</span><span class="s2">&quot;</span>
+                  <span class="n">headers_list</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;Content-type&#39;</span><span class="p">,</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">)]</span>
+                  <span class="n">start_response</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">headers_list</span><span class="p">)</span>
+                  <span class="k">return</span> <span class="p">[</span><span class="sa">b</span><span class="s2">&quot;Internal Server Error: Error handler not initialized.&quot;</span><span class="p">]</span>
+             <span class="n">final_response</span> <span class="o">=</span> <span class="n">error_handler_instance</span><span class="o">.</span><span class="n">handle_exception</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span>
+             <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">] &lt;&lt;&lt; Finished handling request (Unhandled Exception) for path: </span><span class="si">{</span><span class="n">raw_path_with_query</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+         <span class="n">final_response</span> <span class="o">=</span> <span class="n">response</span>
+         <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;WSGI Application: Using pre-generated error response with status </span><span class="si">{</span><span class="nb">getattr</span><span class="p">(</span><span class="n">final_response</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;status_code&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;N/A&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="n">duration</span> <span class="o">=</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span> 
+        <span class="k">if</span> <span class="n">request</span><span class="p">:</span>
+            <span class="n">db_session_from_context</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get_context</span><span class="p">(</span><span class="s1">&#39;db_session&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">db_session_from_context</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">db_session_from_context</span><span class="p">,</span> <span class="s1">&#39;close&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">callable</span><span class="p">(</span><span class="n">db_session_from_context</span><span class="o">.</span><span class="n">close</span><span class="p">):</span>
+                 <span class="k">try</span><span class="p">:</span>
+                      <span class="n">db_session_from_context</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                      <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;WSGI Application: Database session closed in finally block.&quot;</span><span class="p">)</span>
+                 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                      <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;WSGI Application: Error closing database session in finally block: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">request</span><span class="o">.</span><span class="n">get_context</span><span class="p">(</span><span class="s1">&#39;db_session&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                 <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;WSGI Application: DB session object in context (</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">get_context</span><span class="p">(</span><span class="s1">&#39;db_session&#39;</span><span class="p">))</span><span class="si">}</span><span class="s2">) does not have a close method in finally.&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;WSGI Application: Request object was not created. Cannot close DB session in finally block.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">dispatcher</span><span class="p">:</span>
+            <span class="n">final_status</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">final_response</span><span class="p">,</span> <span class="s1">&#39;status_code&#39;</span><span class="p">,</span> <span class="s1">&#39;N/A&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">final_response</span> <span class="k">else</span> <span class="s1">&#39;N/A&#39;</span>
+            <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;server_request_finished&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="s2">&quot;wsgi_application&quot;</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">full_path</span><span class="o">=</span><span class="n">raw_path_with_query</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="n">duration</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="n">final_status</span><span class="p">,</span> <span class="n">response</span><span class="o">=</span><span class="n">final_response</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">)</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Signal &#39;server_request_finished&#39; sent for </span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">raw_path_with_query</span><span class="si">}</span><span class="s2">. Duration: </span><span class="si">{</span><span class="n">duration</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">s, Status: </span><span class="si">{</span><span class="n">final_status</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Dispatcher is None. Cannot send &#39;server_request_finished&#39; signal.&quot;</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;WSGI Application: CRITICAL error in finally block: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">status</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">INTERNAL_SERVER_ERROR</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">INTERNAL_SERVER_ERROR</span><span class="o">.</span><span class="n">phrase</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">headers_list</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;Content-type&#39;</span><span class="p">,</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">)]</span>
+        <span class="n">start_response</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">headers_list</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">[</span><span class="sa">b</span><span class="s2">&quot;Internal Server Error: CRITICAL error during response finalization.&quot;</span><span class="p">]</span>
+    
+    <span class="k">if</span> <span class="n">final_response</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+         <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;WSGI Application: final_response is None after all processing. Returning a default 500 error.&quot;</span><span class="p">)</span>
+         <span class="k">if</span> <span class="n">request</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+              <span class="k">try</span><span class="p">:</span>
+                  <span class="n">request</span> <span class="o">=</span> <span class="n">Request</span><span class="p">(</span><span class="n">raw_path_with_query</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">environ</span><span class="o">=</span><span class="n">environ</span><span class="p">)</span> 
+              <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">req_e</span><span class="p">:</span>
+                   <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">] Failed to create Request object for final 500 handling: </span><span class="si">{</span><span class="n">req_e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                   <span class="k">if</span> <span class="n">error_handler_instance</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                       <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;WSGI Application: error_handler_instance is None for final 500.&quot;</span><span class="p">)</span>
+                       <span class="n">status</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">INTERNAL_SERVER_ERROR</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">INTERNAL_SERVER_ERROR</span><span class="o">.</span><span class="n">phrase</span><span class="si">}</span><span class="s2">&quot;</span>
+                       <span class="n">headers_list</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;Content-type&#39;</span><span class="p">,</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">)]</span>
+                       <span class="n">start_response</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">headers_list</span><span class="p">)</span>
+                       <span class="k">return</span> <span class="p">[</span><span class="sa">b</span><span class="s2">&quot;Internal Server Error: Error handler not initialized.&quot;</span><span class="p">]</span>
+                   <span class="n">final_response</span> <span class="o">=</span> <span class="n">error_handler_instance</span><span class="o">.</span><span class="n">handle_custom_error</span><span class="p">(</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">INTERNAL_SERVER_ERROR</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="s2">&quot;Internal Server Error: No response generated.&quot;</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+              <span class="k">else</span><span class="p">:</span>
+                   <span class="k">if</span> <span class="n">error_handler_instance</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                       <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;WSGI Application: error_handler_instance is None for final 500 (with request).&quot;</span><span class="p">)</span>
+                       <span class="n">status</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">INTERNAL_SERVER_ERROR</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">INTERNAL_SERVER_ERROR</span><span class="o">.</span><span class="n">phrase</span><span class="si">}</span><span class="s2">&quot;</span>
+                       <span class="n">headers_list</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;Content-type&#39;</span><span class="p">,</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">)]</span>
+                       <span class="n">start_response</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">headers_list</span><span class="p">)</span>
+                       <span class="k">return</span> <span class="p">[</span><span class="sa">b</span><span class="s2">&quot;Internal Server Error: Error handler not initialized.&quot;</span><span class="p">]</span>
+
+                   <span class="n">final_response</span> <span class="o">=</span> <span class="n">error_handler_instance</span><span class="o">.</span><span class="n">handle_exception</span><span class="p">(</span><span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;No response generated by application.&quot;</span><span class="p">),</span> <span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">)</span>
+         <span class="k">else</span><span class="p">:</span>
+              <span class="k">if</span> <span class="n">error_handler_instance</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                  <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;WSGI Application: error_handler_instance is None for final 500 (with request).&quot;</span><span class="p">)</span>
+                  <span class="n">status</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">INTERNAL_SERVER_ERROR</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">INTERNAL_SERVER_ERROR</span><span class="o">.</span><span class="n">phrase</span><span class="si">}</span><span class="s2">&quot;</span>
+                  <span class="n">headers_list</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;Content-type&#39;</span><span class="p">,</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">)]</span>
+                  <span class="n">start_response</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">headers_list</span><span class="p">)</span>
+                  <span class="k">return</span> <span class="p">[</span><span class="sa">b</span><span class="s2">&quot;Internal Server Error: Error handler not initialized.&quot;</span><span class="p">]</span>
+
+              <span class="n">final_response</span> <span class="o">=</span> <span class="n">error_handler_instance</span><span class="o">.</span><span class="n">handle_exception</span><span class="p">(</span><span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;No response generated by application.&quot;</span><span class="p">),</span> <span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">final_response</span><span class="p">,</span> <span class="s1">&#39;get_wsgi_response&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">callable</span><span class="p">(</span><span class="n">final_response</span><span class="o">.</span><span class="n">get_wsgi_response</span><span class="p">):</span>
+         <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;WSGI Application: Final response object does not have a get_wsgi_response method. Type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">final_response</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+         <span class="n">status</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">INTERNAL_SERVER_ERROR</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">INTERNAL_SERVER_ERROR</span><span class="o">.</span><span class="n">phrase</span><span class="si">}</span><span class="s2">&quot;</span>
+         <span class="n">headers_list</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;Content-type&#39;</span><span class="p">,</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">)]</span>
+         <span class="n">start_response</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">headers_list</span><span class="p">)</span>
+         <span class="k">return</span> <span class="p">[</span><span class="sa">b</span><span class="s2">&quot;Internal Server Error: Invalid response object generated.&quot;</span><span class="p">]</span>
+
+    <span class="n">status_line</span><span class="p">,</span> <span class="n">header_list_tuples</span><span class="p">,</span> <span class="n">body_iterable</span> <span class="o">=</span> <span class="n">final_response</span><span class="o">.</span><span class="n">get_wsgi_response</span><span class="p">()</span>
+    <span class="n">start_response</span><span class="p">(</span><span class="n">status_line</span><span class="p">,</span> <span class="n">header_list_tuples</span><span class="p">)</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;--- END WSGI APPLICATION REQUEST PROCESSING --- Method: </span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">, Path: </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">, Status: </span><span class="si">{</span><span class="n">status_line</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">body_iterable</span></div>
+
+
+
+<div class="viewcode-block" id="Server">
+<a class="viewcode-back" href="../../../lback/lback.core.html#lback.core.server.Server">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Server</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The main server class to set up and run the application.&quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">_core_components_initialized</span><span class="p">:</span>
+             <span class="n">initialize_core_components</span><span class="p">()</span>
+             <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Server() constructor triggered core components initialization.&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Server.add_route">
+<a class="viewcode-back" href="../../../lback/lback.core.html#lback.core.server.Server.add_route">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_route</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">view</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">methods</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">],</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">requires_auth</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds a route to the application router via the AppController.&quot;&quot;&quot;</span>
+        <span class="c1"># global app_controller</span>
+        <span class="k">if</span> <span class="n">app_controller</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;AppController not initialized. Cannot add route.&quot;</span><span class="p">)</span>
+        <span class="n">app_controller</span><span class="o">.</span><span class="n">add_route</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">view</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="n">methods</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">requires_auth</span><span class="o">=</span><span class="n">requires_auth</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Server.run">
+<a class="viewcode-back" href="../../../lback/lback.core.html#lback.core.server.Server.run">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Starts the WSGI development server.&quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">_core_components_initialized</span> <span class="ow">or</span> <span class="nb">any</span><span class="p">(</span><span class="n">comp</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">comp</span> <span class="ow">in</span> <span class="p">[</span><span class="n">config</span><span class="p">,</span> <span class="n">project_root</span><span class="p">,</span> <span class="n">app_controller</span><span class="p">,</span> <span class="n">error_handler_instance</span><span class="p">,</span> <span class="n">dispatcher</span><span class="p">,</span> <span class="n">logger</span><span class="p">]):</span>
+             <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;Core server components not initialized before calling Server().run(). Calling initialize_core_components() now.&quot;</span><span class="p">)</span>
+             <span class="n">initialize_core_components</span><span class="p">()</span>
+             <span class="k">if</span> <span class="ow">not</span> <span class="n">_core_components_initialized</span> <span class="ow">or</span> <span class="nb">any</span><span class="p">(</span><span class="n">comp</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">comp</span> <span class="ow">in</span> <span class="p">[</span><span class="n">config</span><span class="p">,</span> <span class="n">project_root</span><span class="p">,</span> <span class="n">app_controller</span><span class="p">,</span> <span class="n">error_handler_instance</span><span class="p">,</span> <span class="n">dispatcher</span><span class="p">,</span> <span class="n">logger</span><span class="p">]):</span>
+                  <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Failed to initialize core server components.&quot;</span><span class="p">)</span>
+
+
+        <span class="c1"># threading.Thread(target=start_settings_watcher, args=(project_root,), daemon=True).start()</span>
+        <span class="c1"># logger.info(&quot;Settings watcher thread started.&quot;)</span>
+
+        
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;WSGI Development Server is running on http://</span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">run_simple</span><span class="p">(</span>
+                <span class="n">hostname</span><span class="o">=</span><span class="n">host</span><span class="p">,</span>
+                <span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">,</span>
+                <span class="n">application</span><span class="o">=</span><span class="n">wsgi_application</span><span class="p">,</span>
+                <span class="n">use_reloader</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">use_debugger</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Server stopped by user (KeyboardInterrupt caught).&quot;</span><span class="p">)</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Server shutting down.&quot;</span><span class="p">)</span></div>
+</div>
+
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ibrahem abo kila.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

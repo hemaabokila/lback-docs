@@ -1,0 +1,410 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Authorization &mdash; lback 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=95f010fd" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Sessions in Lback Framework" href="sessions.html" />
+    <link rel="prev" title="Authentication" href="Authentication.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            lback
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Configuration%20System.html">Configuration System</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="routing_system.html">Routing System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Views%20%26%20Responses.html">Views &amp; Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Templating%20System.html">Templating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Static%20Files.html">Static Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Media%20Files.html">Media Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file-uploads.html">File Uploads in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Forms.html">Forms</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Models%20%26%20Database.html">Models &amp; Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Database%20Migrations%20System.html">Database Migrations System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Authentication.html">Authentication</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Authorization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#permissions-system-role-based-access-control-rbac-for-standard-users">1. Permissions System: Role-Based Access Control (RBAC) for Standard Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#managing-permissions-groups-and-users-for-standard-users">2. Managing Permissions, Groups, and Users for Standard Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#admin-user-permissions-and-hierarchy">3. Admin User Permissions and Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#enforcing-authorization-with-permissionrequired-decorator-general-usage">4. Enforcing Authorization with <code class="docutils literal notranslate"><span class="pre">PermissionRequired</span></code> Decorator (General Usage)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-use">How to Use:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#permission-check-flow-denied-access-handling">5. Permission Check Flow &amp; Denied Access Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#signals-for-authorization-flow">6. Signals for Authorization Flow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sessions.html">Sessions in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Security%20Features.html">Security Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Admin%20Panel.html">Built-in Admin Panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API%20Tools.html">API Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Signal%20System.html">Signal System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Middleware%20System.html">Middleware System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_middlewares.html">Custom Middlewares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logging_config.html">Logging Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="email-sender.html">Email Sending in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="validation_utilities.html">Validation Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="error_handling.html">Error Handling and HTTP Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Error%20Handling%20%26%20Reporting.html">Error Handling &amp; Reporting</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Deployment.html">Deployment</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html">Signals from BaseView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-apidocs">Signals from APIDocs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-basemodelserializer">Signals from BaseModelSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-registry-signals.html">Signals from AdminRegistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user.html">Signals from AdminUser and Role Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-manager.html">Signals from AdminUserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-repository.html">Signals from AdminUserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html">Signals from AdminAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-jwtauth">Signals from JWTAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-oauth2auth">Signals from OAuth2Auth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-permissionrequired">Signals from PermissionRequired</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-sessionauth">Signals from SessionAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/error-handler.html">Signals from ErrorHandler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/middleware-manager.html">Signals from MiddlewareManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/migration_commands.html">Signals from MigrationCommands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/permission-repository.html">Signals from PermissionRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/role-repository.html">Signals from RoleRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/session-manager.html">Signals from SessionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/template-renderer.html">Signals from TemplateRenderer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-manager.html">Signals from UserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-model.html">Signals from User Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-repository.html">Signals from UserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/wsgi-application.html">Signals from WSGI Application and Server</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Modules and Classes Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API%20Reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lback/lback.html">lback package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">lback</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Authorization</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/features/Authorization.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="authorization">
+<h1>Authorization<a class="headerlink" href="#authorization" title="Link to this heading"></a></h1>
+<p>Beyond authentication (verifying who a user is), <strong>authorization</strong> controls what an authenticated user is allowed to do.</p>
+<p>The framework provides a flexible and robust system to define and enforce permissions, ensuring users can only access the resources and functionalities they are authorized for.</p>
+<p>—</p>
+<section id="permissions-system-role-based-access-control-rbac-for-standard-users">
+<h2>1. Permissions System: Role-Based Access Control (RBAC) for Standard Users<a class="headerlink" href="#permissions-system-role-based-access-control-rbac-for-standard-users" title="Link to this heading"></a></h2>
+<p>The core of the <strong>standard user authorization system</strong> is built around a <strong>Role-Based Access Control (RBAC)</strong> model, allowing you to define granular permissions and organize them effectively for your application’s regular users.</p>
+<ul class="simple">
+<li><p><strong>``UserPermission`` Model:</strong> This model represents individual, distinct permissions (e.g., <code class="docutils literal notranslate"><span class="pre">blog.add_post</span></code>, <code class="docutils literal notranslate"><span class="pre">users.view_profile</span></code>). You can define as many specific permissions as your application needs for its regular user base.</p></li>
+<li><p><strong>``Group`` Model:</strong> Groups act as roles for standard users. You can create groups (e.g., “Editors”, “Moderators”, “Managers”) and assign a collection of <code class="docutils literal notranslate"><span class="pre">UserPermission</span></code> objects to each group. This simplifies permission management, as you assign users to groups rather than individually assigning many permissions to each user.</p></li>
+<li><p><strong>``User`` Model:</strong> Users are then assigned to one or more <code class="docutils literal notranslate"><span class="pre">Group</span></code> objects. A user inherits all permissions from the groups they belong to. The <code class="docutils literal notranslate"><span class="pre">User</span></code> model includes a robust <code class="docutils literal notranslate"><span class="pre">has_permission(permission_name:</span> <span class="pre">str)</span> <span class="pre">-&gt;</span> <span class="pre">bool</span></code> method which efficiently checks if a user possesses a specific permission, considering their group memberships.</p></li>
+</ul>
+<p><strong>Key Features (Standard Users):</strong></p>
+<ul class="simple">
+<li><p><strong>Granular Control:</strong> Define specific permissions that represent actions or access rights for standard users.</p></li>
+<li><p><strong>Efficient Checks:</strong> The <code class="docutils literal notranslate"><span class="pre">has_permission</span></code> method on the <code class="docutils literal notranslate"><span class="pre">User</span></code> model uses caching to optimize performance, reducing database queries for frequently checked permissions.</p></li>
+</ul>
+<p>—</p>
+</section>
+<section id="managing-permissions-groups-and-users-for-standard-users">
+<h2>2. Managing Permissions, Groups, and Users for Standard Users<a class="headerlink" href="#managing-permissions-groups-and-users-for-standard-users" title="Link to this heading"></a></h2>
+<p>The framework’s <strong>generic Admin Panel</strong> provides a convenient interface for managing your standard user authorization structure:</p>
+<ul class="simple">
+<li><p><strong>Adding Permissions:</strong> Through the Admin Panel, you can define new <code class="docutils literal notranslate"><span class="pre">UserPermission</span></code> entries, giving them a unique name and an optional description. These represent the individual capabilities in your system.</p></li>
+<li><p><strong>Creating Groups:</strong> You can create new <code class="docutils literal notranslate"><span class="pre">Group</span></code> objects (roles) and assign a name and description.</p></li>
+<li><p><strong>Assigning Permissions to Groups:</strong> Crucially, the Admin Panel allows you to easily associate any defined <code class="docutils literal notranslate"><span class="pre">UserPermission</span></code> with specific <code class="docutils literal notranslate"><span class="pre">Group</span></code> objects. For example, you could create an “Editor” group and assign it <code class="docutils literal notranslate"><span class="pre">blog.add_post</span></code>, <code class="docutils literal notranslate"><span class="pre">blog.edit_post</span></code>, and <code class="docutils literal notranslate"><span class="pre">blog.delete_post</span></code> permissions.</p></li>
+<li><p><strong>Assigning Users to Groups:</strong> Finally, you can assign individual <code class="docutils literal notranslate"><span class="pre">User</span></code> accounts to one or more <code class="docutils literal notranslate"><span class="pre">Group</span></code> objects. A user will then inherit all permissions from the groups they are a member of.</p></li>
+</ul>
+<p>This integrated approach means you don’t have to write custom code for basic permission management; it’s all handled through the Admin Panel.</p>
+<p>—</p>
+</section>
+<section id="admin-user-permissions-and-hierarchy">
+<h2>3. Admin User Permissions and Hierarchy<a class="headerlink" href="#admin-user-permissions-and-hierarchy" title="Link to this heading"></a></h2>
+<p>The framework implements a distinct and robust permission system specifically for <strong>administrative users</strong>, operating separately from the standard user permission structure. This section details the permission hierarchy for admin users and how these permissions interact with the generic admin panel views.</p>
+<p>#### Admin User Types and Their Privileges</p>
+<p>The administrative users in your system are categorized into three distinct types, each with varying levels of access and control:</p>
+<ol class="arabic simple">
+<li><p><strong>Supreme Admin (User ID 1): The Ultimate Authority</strong>
+* <strong>Identification:</strong> This is typically the very first admin user created in the system, uniquely identified by having an <code class="docutils literal notranslate"><span class="pre">id</span></code> of <code class="docutils literal notranslate"><span class="pre">1</span></code> in the database.
+* <strong>Permissions:</strong> This user automatically possesses <strong>all possible permissions</strong> across the entire system. They bypass all explicit permission checks and can perform any action, including creating, modifying, and deleting any data or user, including other admin users (Super-admin and Regular Admin types). This user represents the absolute highest level of administrative control.</p></li>
+<li><p><strong>Super-admin (``is_superuser=True``): Elevated Administrative Control</strong>
+* <strong>Identification:</strong> These admin users are designated by having their <code class="docutils literal notranslate"><span class="pre">is_superuser</span></code> flag explicitly set to <code class="docutils literal notranslate"><span class="pre">True</span></code> in their admin user profile.
+* <strong>Permissions:</strong> A <code class="docutils literal notranslate"><span class="pre">Super-admin</span></code> user inherently receives a broad set of elevated permissions across the system. They can manage their own data and, crucially, have the authority to <strong>modify and delete data of Regular Admin users</strong>. However, they <strong>cannot</strong> modify or delete the <code class="docutils literal notranslate"><span class="pre">Supreme</span> <span class="pre">Admin</span></code> (ID 1) or other <code class="docutils literal notranslate"><span class="pre">Super-admin</span></code> users, unless explicitly granted specific additional permissions via the Admin User Groups.
+* <strong>Control:</strong> They are typically responsible for managing the daily administrative operations and overseeing Regular Administrators.</p></li>
+<li><p><strong>Regular Admin:</strong> Standard Administrative Access
+* <strong>Identification:</strong> These are administrative users whose <code class="docutils literal notranslate"><span class="pre">is_superuser</span></code> flag is <code class="docutils literal notranslate"><span class="pre">False</span></code>. Their administrative access is governed by the specific permissions assigned to them through their associated <strong>Admin User Groups</strong>.
+* <strong>Permissions:</strong> Their access is strictly limited to the permissions explicitly granted to them. For example, a Regular Admin might have <code class="docutils literal notranslate"><span class="pre">add_product</span></code> and <code class="docutils literal notranslate"><span class="pre">view_product</span></code> permissions but lack <code class="docutils literal notranslate"><span class="pre">delete_product</span></code>.
+* <strong>Control:</strong> They can only manage the data and sections for which they have explicit permissions. They <strong>cannot</strong> modify or delete other admin users (neither <code class="docutils literal notranslate"><span class="pre">Supreme</span> <span class="pre">Admin</span></code>, <code class="docutils literal notranslate"><span class="pre">Super-admin</span></code>, nor other <code class="docutils literal notranslate"><span class="pre">Regular</span> <span class="pre">Admins</span></code>) unless specific administrative management permissions are assigned to their Admin User Groups (which is generally restricted to higher-tier admins).</p></li>
+</ol>
+<p>—</p>
+<p>#### Generic Admin Panel Permissions Enforcement (<code class="docutils literal notranslate"><span class="pre">&#64;PermissionRequired</span></code>)</p>
+<p>The framework’s generic admin panel views are protected by the <code class="docutils literal notranslate"><span class="pre">&#64;PermissionRequired</span></code> decorator. This decorator dynamically checks if the authenticated <strong>admin user</strong> has the necessary permission to access a specific view or perform an action on a model.</p>
+<p>The permissions required for these generic views are dynamically constructed based on the action and the <code class="docutils literal notranslate"><span class="pre">model_name</span></code> being accessed. Here, <code class="docutils literal notranslate"><span class="pre">model_name</span></code> refers to the lowercase name of the database model (e.g., <code class="docutils literal notranslate"><span class="pre">user</span></code>, <code class="docutils literal notranslate"><span class="pre">product</span></code>, <code class="docutils literal notranslate"><span class="pre">category</span></code>) that the view is interacting with.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Admin Dashboard Access:</strong></dt><dd><ul>
+<li><p><strong>Permission Required:</strong> <code class="docutils literal notranslate"><span class="pre">&#64;PermissionRequired(&quot;view_dashboard&quot;)</span></code></p></li>
+<li><p><strong>Description:</strong> Grants access to the main administrative dashboard.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Add Object View:</strong></dt><dd><ul>
+<li><p><strong>Permission Required:</strong> <code class="docutils literal notranslate"><span class="pre">&#64;PermissionRequired(lambda</span> <span class="pre">request:</span> <span class="pre">f&quot;add_{request.path_params.get('model_name').lower()}&quot;</span> <span class="pre">if</span> <span class="pre">request.path_params</span> <span class="pre">and</span> <span class="pre">request.path_params.get('model_name')</span> <span class="pre">else</span> <span class="pre">&quot;add_unknown_model&quot;)</span></code></p></li>
+<li><p><strong>Example:</strong> To add a new <code class="docutils literal notranslate"><span class="pre">Product</span></code> via the admin panel, the admin user needs the <code class="docutils literal notranslate"><span class="pre">add_product</span></code> permission.</p></li>
+<li><p><strong>Description:</strong> Allows access to the form for creating a new instance of a specified model.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Change Object View:</strong></dt><dd><ul>
+<li><p><strong>Permission Required:</strong> <code class="docutils literal notranslate"><span class="pre">&#64;PermissionRequired(lambda</span> <span class="pre">request:</span> <span class="pre">f&quot;change_{request.path_params.get('model_name').lower()}&quot;</span> <span class="pre">if</span> <span class="pre">request.path_params</span> <span class="pre">and</span> <span class="pre">request.path_params.get('model_name')</span> <span class="pre">else</span> <span class="pre">&quot;change_unknown_model&quot;)</span></code></p></li>
+<li><p><strong>Example:</strong> To edit an existing <code class="docutils literal notranslate"><span class="pre">User</span></code> through the admin panel, the admin user needs the <code class="docutils literal notranslate"><span class="pre">change_user</span></code> permission.</p></li>
+<li><p><strong>Description:</strong> Allows access to the form for modifying an existing instance of a specified model.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>List Objects View:</strong></dt><dd><ul>
+<li><p><strong>Permission Required:</strong> <code class="docutils literal notranslate"><span class="pre">&#64;PermissionRequired(lambda</span> <span class="pre">request:</span> <span class="pre">f&quot;view_{request.path_params.get('model_name').lower()}&quot;</span> <span class="pre">if</span> <span class="pre">request.path_params</span> <span class="pre">and</span> <span class="pre">request.path_params.get('model_name')</span> <span class="pre">else</span> <span class="pre">&quot;view_unknown_model&quot;)</span></code></p></li>
+<li><p><strong>Example:</strong> To view the list of <code class="docutils literal notranslate"><span class="pre">Products</span></code> in the admin panel, the admin user needs the <code class="docutils literal notranslate"><span class="pre">view_product</span></code> permission.</p></li>
+<li><p><strong>Description:</strong> Allows admin users to view a list of all instances for a specified model.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Detail Object View:</strong></dt><dd><ul>
+<li><p><strong>Permission Required:</strong> <code class="docutils literal notranslate"><span class="pre">&#64;PermissionRequired(lambda</span> <span class="pre">request:</span> <span class="pre">f&quot;view_{request.path_params.get('model_name').lower()}&quot;</span> <span class="pre">if</span> <span class="pre">request.path_params</span> <span class="pre">and</span> <span class="pre">request.path_params.get('model_name')</span> <span class="pre">else</span> <span class="pre">&quot;view_unknown_model&quot;)</span></code></p></li>
+<li><p><strong>Example:</strong> To view the detailed information of a single <code class="docutils literal notranslate"><span class="pre">User</span></code> in the admin panel, the admin user needs the <code class="docutils literal notranslate"><span class="pre">view_user</span></code> permission.</p></li>
+<li><p><strong>Description:</strong> Allows admin users to view the detailed information of a single instance of a specified model.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Delete Object View:</strong></dt><dd><ul>
+<li><p><strong>Permission Required:</strong> <code class="docutils literal notranslate"><span class="pre">&#64;PermissionRequired(lambda</span> <span class="pre">request:</span> <span class="pre">f&quot;delete_{request.path_params.get('model_name').lower()}&quot;</span> <span class="pre">if</span> <span class="pre">request.path_params</span> <span class="pre">and</span> <span class="pre">request.path_params.get('model_name')</span> <span class="pre">else</span> <span class="pre">&quot;delete_unknown_model&quot;)</span></code></p></li>
+<li><p><strong>Example:</strong> To delete a <code class="docutils literal notranslate"><span class="pre">Category</span></code> via the admin panel, the admin user needs the <code class="docutils literal notranslate"><span class="pre">delete_category</span></code> permission.</p></li>
+<li><p><strong>Description:</strong> Allows admin users to delete an instance of a specified model.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>Important Note on Dynamic Permissions:</strong> The <code class="docutils literal notranslate"><span class="pre">lambda</span></code> function within <code class="docutils literal notranslate"><span class="pre">&#64;PermissionRequired</span></code> dynamically constructs the required permission string based on the <code class="docutils literal notranslate"><span class="pre">model_name</span></code> extracted from the URL path parameters. This ensures that permissions are granular and model-specific. If <code class="docutils literal notranslate"><span class="pre">model_name</span></code> is not found, a default “unknown_model” permission is used, which typically denies access.</p>
+<p>—</p>
+<p>#### Admin Panel Group and Role Management for Admin Users</p>
+<p>Admin user permissions are managed within the framework’s <strong>Admin Panel</strong> itself under the <strong>Authentication &amp; Authorization</strong> section. This is where you configure the specific administrative roles and their corresponding permissions.</p>
+<ul class="simple">
+<li><p><strong>Create and Manage Admin User Groups:</strong> Define new groups specifically for administrative roles (e.g., <code class="docutils literal notranslate"><span class="pre">Content_Administrators</span></code>, <code class="docutils literal notranslate"><span class="pre">Product_Supervisors</span></code>, <code class="docutils literal notranslate"><span class="pre">System_Auditors</span></code>).</p></li>
+<li><p><strong>Assign Permissions to Admin Groups:</strong> Crucially, select specific administrative permissions (e.g., <code class="docutils literal notranslate"><span class="pre">admin.add_user_permission</span></code>, <code class="docutils literal notranslate"><span class="pre">app_name.change_order</span></code>, <code class="docutils literal notranslate"><span class="pre">app_name.delete_product</span></code>) and assign them to the relevant Admin User Groups.</p></li>
+<li><p><strong>Assign Admin Users to Admin Groups:</strong> Finally, assign individual Admin User accounts to one or more Admin User Groups. An admin user will then inherit all permissions from the admin groups they are a member of.</p></li>
+<li><p><strong>Manage ``is_superuser`` Flag:</strong> For <code class="docutils literal notranslate"><span class="pre">Super-admin</span></code> users, ensure their <code class="docutils literal notranslate"><span class="pre">is_superuser</span></code> flag is explicitly set to <code class="docutils literal notranslate"><span class="pre">True</span></code> in their individual admin user profile within the Admin Panel.</p></li>
+</ul>
+<p>By carefully configuring Admin User Groups and assigning the appropriate permissions, you can precisely control access levels for all your administrative users, ensuring secure and efficient management of your application.</p>
+<p>—</p>
+</section>
+<section id="enforcing-authorization-with-permissionrequired-decorator-general-usage">
+<h2>4. Enforcing Authorization with <code class="docutils literal notranslate"><span class="pre">PermissionRequired</span></code> Decorator (General Usage)<a class="headerlink" href="#enforcing-authorization-with-permissionrequired-decorator-general-usage" title="Link to this heading"></a></h2>
+<p>The primary way to enforce authorization on your views, for both standard users and admin users, is by using the <code class="docutils literal notranslate"><span class="pre">PermissionRequired</span></code> <strong>decorator</strong>. This decorator ensures that only users (of any type) with the necessary permissions can access a particular view.</p>
+</section>
+<section id="how-to-use">
+<h2>How to Use:<a class="headerlink" href="#how-to-use" title="Link to this heading"></a></h2>
+<p>You can apply the <code class="docutils literal notranslate"><span class="pre">PermissionRequired</span></code> decorator to your view functions or methods. It accepts one or more permission strings:</p>
+<ul>
+<li><p><strong>Single Permission:</strong></p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># myapp/views.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.auth.permissions</span><span class="w"> </span><span class="kn">import</span> <span class="n">PermissionRequired</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.utils.shortcuts</span><span class="w"> </span><span class="kn">import</span> <span class="n">render</span>
+
+<span class="nd">@PermissionRequired</span><span class="p">(</span><span class="s2">&quot;blog.view_posts&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">view_blog_posts</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="c1"># This view requires the &#39;blog.view_posts&#39; permission</span>
+    <span class="c1"># ... fetch blog posts ...</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;blog/list.html&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;posts&quot;</span><span class="p">:</span> <span class="n">posts</span><span class="p">})</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><strong>Multiple Permissions (User needs ALL of them):</strong></p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># myapp/views.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.auth.permissions</span><span class="w"> </span><span class="kn">import</span> <span class="n">PermissionRequired</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.utils.shortcuts</span><span class="w"> </span><span class="kn">import</span> <span class="n">render</span>
+
+<span class="nd">@PermissionRequired</span><span class="p">([</span><span class="s2">&quot;blog.add_post&quot;</span><span class="p">,</span> <span class="s2">&quot;blog.publish_post&quot;</span><span class="p">])</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_and_publish_post</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="c1"># This view requires BOTH &#39;blog.add_post&#39; AND &#39;blog.publish_post&#39; permissions</span>
+    <span class="c1"># ... logic to create and publish a post ...</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;blog/new_post_success.html&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><dl>
+<dt><strong>Dynamic Permissions (Permissions based on request context):</strong></dt><dd><p>For more complex scenarios, you can provide a callable (a function) to <code class="docutils literal notranslate"><span class="pre">PermissionRequired</span></code>. This function will receive the <code class="docutils literal notranslate"><span class="pre">request</span></code> object and should return the required permission(s) dynamically.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># myapp/views.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.auth.permissions</span><span class="w"> </span><span class="kn">import</span> <span class="n">PermissionRequired</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.utils.shortcuts</span><span class="w"> </span><span class="kn">import</span> <span class="n">render</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_dynamic_edit_permission</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="c1"># Example: permission based on the type of user or object being edited</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span> <span class="ow">and</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_staff</span><span class="p">:</span> <span class="c1"># Assuming &#39;is_staff&#39; property on User model</span>
+        <span class="k">return</span> <span class="s2">&quot;article.edit_all&quot;</span>
+    <span class="k">return</span> <span class="s2">&quot;article.edit_own&quot;</span>
+
+<span class="nd">@PermissionRequired</span><span class="p">(</span><span class="n">get_dynamic_edit_permission</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">edit_article_view</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">article_id</span><span class="p">):</span>
+    <span class="c1"># Permissions are determined by the &#39;get_dynamic_edit_permission&#39; function at runtime</span>
+    <span class="c1"># ... logic to edit an article ...</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;articles/edit.html&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;article_id&quot;</span><span class="p">:</span> <span class="n">article_id</span><span class="p">})</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+<p>—</p>
+</section>
+<section id="permission-check-flow-denied-access-handling">
+<h2>5. Permission Check Flow &amp; Denied Access Handling<a class="headerlink" href="#permission-check-flow-denied-access-handling" title="Link to this heading"></a></h2>
+<p>When a view decorated with <code class="docutils literal notranslate"><span class="pre">PermissionRequired</span></code> is accessed:</p>
+<ol class="arabic simple">
+<li><p>The framework attempts to retrieve the authenticated <code class="docutils literal notranslate"><span class="pre">user</span></code> object from the <code class="docutils literal notranslate"><span class="pre">request</span></code>.</p></li>
+<li><p>If the user is a <strong>Supreme Admin</strong> (User ID 1) or a <strong>Super-admin</strong> (<code class="docutils literal notranslate"><span class="pre">is_superuser=True</span></code>), access is immediately granted.</p></li>
+<li><p>Otherwise, the system calls the <code class="docutils literal notranslate"><span class="pre">user.has_permission()</span></code> method for each required permission.</p></li>
+<li><p>If the user lacks any of the specified permissions, access is denied.</p></li>
+<li><p><strong>Denied Access Handling:</strong>
+* If the user is <strong>not authenticated</strong> at all, they are redirected to the login page (<code class="docutils literal notranslate"><span class="pre">/auth/login/</span></code>) with a flash message.
+* If the user is authenticated but <strong>lacks the required permissions</strong>, they are redirected to a 403 Forbidden page (<code class="docutils literal notranslate"><span class="pre">return_403</span></code>) with a flash message indicating denied access.</p></li>
+</ol>
+<p>—</p>
+</section>
+<section id="signals-for-authorization-flow">
+<h2>6. Signals for Authorization Flow<a class="headerlink" href="#signals-for-authorization-flow" title="Link to this heading"></a></h2>
+<p>The authorization process also dispatches signals, allowing you to hook into the permission checking lifecycle for custom logic or logging:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">permission_check_started</span></code>: Broadcast when a permission check begins.</dt><dd><ul>
+<li><p><strong>Sender:</strong> <code class="docutils literal notranslate"><span class="pre">PermissionRequired</span></code> instance</p></li>
+<li><p><strong>Kwargs:</strong> <code class="docutils literal notranslate"><span class="pre">request</span></code>, <code class="docutils literal notranslate"><span class="pre">required_permissions</span></code> (set of permissions being checked), <code class="docutils literal notranslate"><span class="pre">user</span></code> (the user object), <code class="docutils literal notranslate"><span class="pre">view_func_name</span></code> (name of the view function).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">permission_check_succeeded</span></code>: Broadcast when a user successfully passes a permission check.</dt><dd><ul>
+<li><p><strong>Sender:</strong> <code class="docutils literal notranslate"><span class="pre">PermissionRequired</span></code> instance</p></li>
+<li><p><strong>Kwargs:</strong> <code class="docutils literal notranslate"><span class="pre">request</span></code>, <code class="docutils literal notranslate"><span class="pre">required_permissions</span></code>, <code class="docutils literal notranslate"><span class="pre">user</span></code>, <code class="docutils literal notranslate"><span class="pre">view_func_name</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">permission_check_failed</span></code>: Broadcast when a user fails a permission check.</dt><dd><ul>
+<li><p><strong>Sender:</strong> <code class="docutils literal notranslate"><span class="pre">PermissionRequired</span></code> instance</p></li>
+<li><p><strong>Kwargs:</strong> <code class="docutils literal notranslate"><span class="pre">request</span></code>, <code class="docutils literal notranslate"><span class="pre">required_permissions</span></code>, <code class="docutils literal notranslate"><span class="pre">user</span></code>, <code class="docutils literal notranslate"><span class="pre">view_func_name</span></code>, <code class="docutils literal notranslate"><span class="pre">reason</span></code> (e.g., “user_not_authenticated”, “permission_missing”).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Authentication.html" class="btn btn-neutral float-left" title="Authentication" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sessions.html" class="btn btn-neutral float-right" title="Sessions in Lback Framework" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ibrahem abo kila.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

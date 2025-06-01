@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signals from BaseView &mdash; lback 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=95f010fd" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Signals from AdminRegistry" href="admin-registry-signals.html" />
+    <link rel="prev" title="Deployment" href="../features/Deployment.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            lback
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Configuration%20System.html">Configuration System</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/routing_system.html">Routing System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Views%20%26%20Responses.html">Views &amp; Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Templating%20System.html">Templating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Static%20Files.html">Static Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Media%20Files.html">Media Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/file-uploads.html">File Uploads in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Forms.html">Forms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/Models%20%26%20Database.html">Models &amp; Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Database%20Migrations%20System.html">Database Migrations System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Authorization.html">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/sessions.html">Sessions in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Security%20Features.html">Security Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/Admin%20Panel.html">Built-in Admin Panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/API%20Tools.html">API Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Signal%20System.html">Signal System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Middleware%20System.html">Middleware System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/custom_middlewares.html">Custom Middlewares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/logging_config.html">Logging Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/email-sender.html">Email Sending in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/validation_utilities.html">Validation Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/error_handling.html">Error Handling and HTTP Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Error%20Handling%20%26%20Reporting.html">Error Handling &amp; Reporting</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/Deployment.html">Deployment</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Signals from BaseView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#signals-from-apidocs">Signals from APIDocs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#signals-from-basemodelserializer">Signals from BaseModelSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="admin-registry-signals.html">Signals from AdminRegistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="admin-user.html">Signals from AdminUser and Role Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="admin-user-manager.html">Signals from AdminUserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="admin-user-repository.html">Signals from AdminUserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auth.html">Signals from AdminAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auth.html#signals-from-jwtauth">Signals from JWTAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auth.html#signals-from-oauth2auth">Signals from OAuth2Auth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auth.html#signals-from-permissionrequired">Signals from PermissionRequired</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auth.html#signals-from-sessionauth">Signals from SessionAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="error-handler.html">Signals from ErrorHandler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="middleware-manager.html">Signals from MiddlewareManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration_commands.html">Signals from MigrationCommands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="permission-repository.html">Signals from PermissionRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="role-repository.html">Signals from RoleRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session-manager.html">Signals from SessionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="template-renderer.html">Signals from TemplateRenderer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user-manager.html">Signals from UserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user-model.html">Signals from User Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user-repository.html">Signals from UserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wsgi-application.html">Signals from WSGI Application and Server</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Modules and Classes Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API%20Reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lback/lback.html">lback package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">lback</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Signals from BaseView</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/signals/api-signals.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="signals-from-baseview">
+<span id="base-view-signals"></span><h1>Signals from BaseView<a class="headerlink" href="#signals-from-baseview" title="Link to this heading"></a></h1>
+<p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">lback.views.base_view.BaseView</span></code> class, serving as the foundation for all view handlers, emits signals throughout its request dispatching process. These signals offer valuable insights into the lifecycle of a request within a view and enable you to execute custom logic at pivotal moments.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 50.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Signal Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Arguments (<cite>kwargs</cite>)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">view_dispatch_started</span></code></p></td>
+<td><p>Emitted at the very beginning of the <code class="xref py py-meth docutils literal notranslate"><span class="pre">dispatch()</span></code> method, indicating that an incoming request is about to be handled by a specific view instance.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<code class="xref py py-class docutils literal notranslate"><span class="pre">BaseView</span></code>): The instance of the view handling the request.&lt;br&gt;``view_instance`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">BaseView</span></code>): A direct reference to the view instance (same as <cite>sender</cite>).&lt;br&gt;``request`` (<a class="reference internal" href="../lback/lback.core.html#lback.core.types.Request" title="lback.core.types.Request"><code class="xref py py-class docutils literal notranslate"><span class="pre">Request</span></code></a>): The incoming request object.&lt;br&gt;``method`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The HTTP method of the request (e.g., “GET”, “POST”).&lt;br&gt;``path`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The URL path of the incoming request.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">view_method_not_allowed</span></code></p></td>
+<td><p>Emitted when the HTTP request method is not permitted by the <code class="xref py py-attr docutils literal notranslate"><span class="pre">methods</span></code> attribute of the view (e.g., a POST request attempting to access a view configured for GET only). This occurs before raising a <a class="reference internal" href="../lback/lback.core.html#lback.core.exceptions.MethodNotAllowed" title="lback.core.exceptions.MethodNotAllowed"><code class="xref py py-exc docutils literal notranslate"><span class="pre">MethodNotAllowed</span></code></a> exception.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<code class="xref py py-class docutils literal notranslate"><span class="pre">BaseView</span></code>): The view instance.&lt;br&gt;``view_instance`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">BaseView</span></code>): A direct reference to the view instance.&lt;br&gt;``request`` (<a class="reference internal" href="../lback/lback.core.html#lback.core.types.Request" title="lback.core.types.Request"><code class="xref py py-class docutils literal notranslate"><span class="pre">Request</span></code></a>): The incoming request object.&lt;br&gt;``method`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The disallowed HTTP method.&lt;br&gt;``path`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The URL path of the incoming request.&lt;br&gt;``allowed_methods`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): A list of methods explicitly allowed by the view.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">view_handler_not_implemented</span></code></p></td>
+<td><p>Emitted when the view technically allows a specific HTTP method but <em>lacks</em> a corresponding callable handler method (e.g., a “GET” request is permitted, but no <code class="xref py py-meth docutils literal notranslate"><span class="pre">get()</span></code> method is defined in the view). This occurs before raising a <code class="xref py py-exc docutils literal notranslate"><span class="pre">NotImplementedError</span></code>.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<code class="xref py py-class docutils literal notranslate"><span class="pre">BaseView</span></code>): The view instance.&lt;br&gt;``view_instance`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">BaseView</span></code>): A direct reference to the view instance.&lt;br&gt;``request`` (<a class="reference internal" href="../lback/lback.core.html#lback.core.types.Request" title="lback.core.types.Request"><code class="xref py py-class docutils literal notranslate"><span class="pre">Request</span></code></a>): The incoming request object.&lt;br&gt;``method`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The HTTP method for which the handler is absent.&lt;br&gt;``path`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The URL path of the incoming request.&lt;br&gt;``handler_name`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The expected name of the handler method (e.g., “get”, “post”).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">view_dispatch_succeeded</span></code></p></td>
+<td><p>Emitted after a view’s method handler (e.g., <code class="xref py py-meth docutils literal notranslate"><span class="pre">get()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">post()</span></code>) has successfully executed and returned a response.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<code class="xref py py-class docutils literal notranslate"><span class="pre">BaseView</span></code>): The view instance.&lt;br&gt;``view_instance`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">BaseView</span></code>): A direct reference to the view instance.&lt;br&gt;``request`` (<a class="reference internal" href="../lback/lback.core.html#lback.core.types.Request" title="lback.core.types.Request"><code class="xref py py-class docutils literal notranslate"><span class="pre">Request</span></code></a>): The incoming request object.&lt;br&gt;``method`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The HTTP method that was successfully handled.&lt;br&gt;``path`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The URL path of the incoming request.&lt;br&gt;``response`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">Any</span></code>): The response object or data returned by the successful handler.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="signals-from-apidocs">
+<span id="api-docs-signals"></span><h1>Signals from APIDocs<a class="headerlink" href="#signals-from-apidocs" title="Link to this heading"></a></h1>
+<p>The <a class="reference internal" href="../lback/lback.api.html#lback.api.docs.APIDocs" title="lback.api.docs.APIDocs"><code class="xref py py-class docutils literal notranslate"><span class="pre">lback.api.docs.APIDocs</span></code></a> class, which handles the generation of OpenAPI (Swagger) documentation, emits signals at various key points throughout its documentation process. These signals offer powerful hooks for <strong>monitoring, extending, or deeply customizing</strong> how your API documentation is generated and integrated.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 50.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Signal Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Arguments (<cite>kwargs</cite>)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">api_docs_initialized</span></code></p></td>
+<td><p>Emitted right after the <code class="xref py py-class docutils literal notranslate"><span class="pre">APIDocs</span></code> instance is created and set up with its initial configuration (like title, version, and description).</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<a class="reference internal" href="../lback/lback.api.html#lback.api.docs.APIDocs" title="lback.api.docs.APIDocs"><code class="xref py py-class docutils literal notranslate"><span class="pre">APIDocs</span></code></a>): The specific instance of the API documentation generator.&lt;br&gt;``title`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The configured title for the API documentation.&lt;br&gt;``version`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The configured API version.&lt;br&gt;``description`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The configured description of the API.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">api_docs_collection_started</span></code></p></td>
+<td><p>Emitted just as the <a class="reference internal" href="../lback/lback.api.html#lback.api.docs.APIDocs.collect_documentation" title="lback.api.docs.APIDocs.collect_documentation"><code class="xref py py-meth docutils literal notranslate"><span class="pre">collect_documentation()</span></code></a> method begins. This signifies the start of gathering documentation details from all registered routes and views.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<a class="reference internal" href="../lback/lback.api.html#lback.api.docs.APIDocs" title="lback.api.docs.APIDocs"><code class="xref py py-class docutils literal notranslate"><span class="pre">APIDocs</span></code></a>): The API documentation generator instance.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">api_docs_collection_finished</span></code></p></td>
+<td><p>Emitted once the <a class="reference internal" href="../lback/lback.api.html#lback.api.docs.APIDocs.collect_documentation" title="lback.api.docs.APIDocs.collect_documentation"><code class="xref py py-meth docutils literal notranslate"><span class="pre">collect_documentation()</span></code></a> method has finished scanning all routes and views.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<a class="reference internal" href="../lback/lback.api.html#lback.api.docs.APIDocs" title="lback.api.docs.APIDocs"><code class="xref py py-class docutils literal notranslate"><span class="pre">APIDocs</span></code></a>): The API documentation generator instance.&lt;br&gt;``paths_count`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>): The total count of unique API paths that were successfully documented.&lt;br&gt;``processed_routes`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>): The number of routes that were processed for documentation, meaning an attempt was made to document them.&lt;br&gt;``skipped_routes`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>): The number of routes that were not documented, often due to missing information or uncallable handlers.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">api_docs_route_documented</span></code></p></td>
+<td><p>Emitted each time a specific route’s HTTP methods are successfully inspected and documented for the OpenAPI specification.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<a class="reference internal" href="../lback/lback.api.html#lback.api.docs.APIDocs" title="lback.api.docs.APIDocs"><code class="xref py py-class docutils literal notranslate"><span class="pre">APIDocs</span></code></a>): The API documentation generator instance.&lt;br&gt;``route`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">Route</span></code>): The route object that was documented.&lt;br&gt;``path`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The original path string for the route.&lt;br&gt;``documented_methods_count`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>): The number of individual HTTP methods (e.g., GET, POST, PUT) found and documented for this particular route.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">api_docs_route_skipped</span></code></p></td>
+<td><p>Emitted when a route cannot be documented. This is typically due to issues like missing HTTP methods on its associated view class, or if no callable handlers are found for the declared methods.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<a class="reference internal" href="../lback/lback.api.html#lback.api.docs.APIDocs" title="lback.api.docs.APIDocs"><code class="xref py py-class docutils literal notranslate"><span class="pre">APIDocs</span></code></a>): The API documentation generator instance.&lt;br&gt;``route`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">Route</span></code>): The route object that was skipped.&lt;br&gt;``reason`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): A descriptive string explaining why the route was skipped (e.g., “no_methods”, “no_callable_methods”).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">openapi_spec_generated</span></code></p></td>
+<td><p>Emitted after the complete OpenAPI specification dictionary (the final Swagger JSON structure) has been successfully assembled.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<a class="reference internal" href="../lback/lback.api.html#lback.api.docs.APIDocs" title="lback.api.docs.APIDocs"><code class="xref py py-class docutils literal notranslate"><span class="pre">APIDocs</span></code></a>): The API documentation generator instance.&lt;br&gt;``spec`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>): The entire OpenAPI specification dictionary.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">api_docs_serializer_schema_registered</span></code></p></td>
+<td><p>Emitted just before a <a class="reference internal" href="../lback/lback.api.html#lback.api.serializer.BaseModelSerializer" title="lback.api.serializer.BaseModelSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModelSerializer</span></code></a> class is analyzed to generate its corresponding OpenAPI schema and add it to the global components.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<a class="reference internal" href="../lback/lback.api.html#lback.api.docs.APIDocs" title="lback.api.docs.APIDocs"><code class="xref py py-class docutils literal notranslate"><span class="pre">APIDocs</span></code></a>): The API documentation generator instance.&lt;br&gt;``serializer_class`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">Type`[:py:class:`~lback.api.serializer.BaseModelSerializer</span></code>]): The specific serializer class being processed.&lt;br&gt;``schema_name`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The name under which this schema will be known within the OpenAPI <code class="docutils literal notranslate"><span class="pre">#/components/schemas/</span></code> section.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">api_docs_serializer_schema_registered_finished</span></code></p></td>
+<td><p>Emitted after a serializer’s schema has been fully generated and successfully added to the OpenAPI components section.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<a class="reference internal" href="../lback/lback.api.html#lback.api.docs.APIDocs" title="lback.api.docs.APIDocs"><code class="xref py py-class docutils literal notranslate"><span class="pre">APIDocs</span></code></a>): The API documentation generator instance.&lt;br&gt;``schema_name`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The name of the schema that was just registered.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="signals-from-basemodelserializer">
+<span id="base-model-serializer-signals"></span><h1>Signals from BaseModelSerializer<a class="headerlink" href="#signals-from-basemodelserializer" title="Link to this heading"></a></h1>
+<p>The <a class="reference internal" href="../lback/lback.api.html#lback.api.serializer.BaseModelSerializer" title="lback.api.serializer.BaseModelSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">lback.api.serializer.BaseModelSerializer</span></code></a> class, a foundational component for data serialization and validation within the framework, emits a comprehensive range of signals throughout its operational lifecycle. These signals are incredibly valuable, offering powerful extension points for <strong>auditing data operations, integrating with other parts of your application, or implementing custom logic at critical serialization and validation stages.</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 50.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Signal Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Arguments (<cite>kwargs</cite>)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">serializer_initialized</span></code></p></td>
+<td><p>Emitted immediately after a serializer instance has been fully initialized and is ready for use.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<a class="reference internal" href="../lback/lback.api.html#lback.api.serializer.BaseModelSerializer" title="lback.api.serializer.BaseModelSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModelSerializer</span></code></a>): The specific serializer instance that was initialized.&lt;br&gt;``serializer`` (<a class="reference internal" href="../lback/lback.api.html#lback.api.serializer.BaseModelSerializer" title="lback.api.serializer.BaseModelSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModelSerializer</span></code></a>): A direct reference to the same serializer instance (identical to <code class="docutils literal notranslate"><span class="pre">sender</span></code>).&lt;br&gt;``many`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>): Indicates if the serializer is configured to handle multiple model instances (e.g., a list of objects).&lt;br&gt;``partial`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>): Indicates if the serializer is configured to allow partial updates (i.e., not all required fields must be present).&lt;br&gt;``context`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>): Any context dictionary passed to the serializer upon initialization.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">serializer_pre_serialize</span></code></p></td>
+<td><p>Emitted just before the serialization process commences. This is the stage where a model instance (or instances) is about to be transformed into its dictionary representation.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<a class="reference internal" href="../lback/lback.api.html#lback.api.serializer.BaseModelSerializer" title="lback.api.serializer.BaseModelSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModelSerializer</span></code></a>): The serializer instance.&lt;br&gt;``serializer`` (<a class="reference internal" href="../lback/lback.api.html#lback.api.serializer.BaseModelSerializer" title="lback.api.serializer.BaseModelSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModelSerializer</span></code></a>): A direct reference to the serializer instance.&lt;br&gt;``instance`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">Any</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>): The model instance(s) that are currently being prepared for serialization.&lt;br&gt;``many`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>): Indicates if multiple instances are being serialized in this operation.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">serializer_post_serialize</span></code></p></td>
+<td><p>Emitted immediately after the serialization process has successfully completed, and the dictionary representation of the data is now fully available.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<a class="reference internal" href="../lback/lback.api.html#lback.api.serializer.BaseModelSerializer" title="lback.api.serializer.BaseModelSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModelSerializer</span></code></a>): The serializer instance.&lt;br&gt;``serializer`` (<a class="reference internal" href="../lback/lback.api.html#lback.api.serializer.BaseModelSerializer" title="lback.api.serializer.BaseModelSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModelSerializer</span></code></a>): A direct reference to the serializer instance.&lt;br&gt;``serialized_data`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>): The final data output from the serialization process.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">serializer_validation_started</span></code></p></td>
+<td><p>Emitted precisely when the validation process begins. This is the stage where raw input data is being processed and checked for correctness, prior to being converted into a clean, validated dictionary. <strong>Sensitive data like passwords will be masked within ``raw_data`` for security.</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<a class="reference internal" href="../lback/lback.api.html#lback.api.serializer.BaseModelSerializer" title="lback.api.serializer.BaseModelSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModelSerializer</span></code></a>): The serializer instance.&lt;br&gt;``serializer`` (<a class="reference internal" href="../lback/lback.api.html#lback.api.serializer.BaseModelSerializer" title="lback.api.serializer.BaseModelSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModelSerializer</span></code></a>): A direct reference to the serializer instance.&lt;br&gt;``raw_data`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>): The raw input data dictionary submitted for validation. (Note: sensitive fields like ‘password’ are masked).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">serializer_validation_succeeded</span></code></p></td>
+<td><p>Emitted when the entire validation process successfully finishes, providing the cleaned, type-converted, and fully validated data.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<a class="reference internal" href="../lback/lback.api.html#lback.api.serializer.BaseModelSerializer" title="lback.api.serializer.BaseModelSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModelSerializer</span></code></a>): The serializer instance.&lt;br&gt;``serializer`` (<a class="reference internal" href="../lback/lback.api.html#lback.api.serializer.BaseModelSerializer" title="lback.api.serializer.BaseModelSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModelSerializer</span></code></a>): A direct reference to the serializer instance.&lt;br&gt;``validated_data`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>): The dictionary containing the validated and cleaned data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">serializer_validation_failed</span></code></p></td>
+<td><p>Emitted when the validation process encounters one or more errors. This signal provides details about the validation failures.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<a class="reference internal" href="../lback/lback.api.html#lback.api.serializer.BaseModelSerializer" title="lback.api.serializer.BaseModelSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModelSerializer</span></code></a>): The serializer instance.&lt;br&gt;``serializer`` (<a class="reference internal" href="../lback/lback.api.html#lback.api.serializer.BaseModelSerializer" title="lback.api.serializer.BaseModelSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModelSerializer</span></code></a>): A direct reference to the serializer instance.&lt;br&gt;``errors`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>): A dictionary where keys represent field names, and values are lists of associated error messages.&lt;br&gt;``exception`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code>, <em>optional</em>): The exception object if the validation failure was caused by an unexpected runtime error.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">serializer_pre_save</span></code></p></td>
+<td><p>Emitted just before a new model instance is created or an existing one is updated in the database, using the data that has already been validated by the serializer. <strong>Sensitive data like passwords will be masked within ``validated_data`` for security.</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<a class="reference internal" href="../lback/lback.api.html#lback.api.serializer.BaseModelSerializer" title="lback.api.serializer.BaseModelSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModelSerializer</span></code></a>): The serializer instance.&lt;br&gt;``serializer`` (<a class="reference internal" href="../lback/lback.api.html#lback.api.serializer.BaseModelSerializer" title="lback.api.serializer.BaseModelSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModelSerializer</span></code></a>): A direct reference to the serializer instance.&lt;br&gt;``validated_data`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>): The validated data dictionary (with sensitive fields masked) that is about to be used for the database save operation.&lt;br&gt;``instance`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">Any</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">None</span></code>): The existing model instance being updated, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if a brand new instance is being created.&lt;br&gt;``session`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">Any</span></code>): The database session object that will be utilized for the save operation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">serializer_post_save</span></code></p></td>
+<td><p>Emitted immediately after a model instance has been successfully either created or updated in the database.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<a class="reference internal" href="../lback/lback.api.html#lback.api.serializer.BaseModelSerializer" title="lback.api.serializer.BaseModelSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModelSerializer</span></code></a>): The serializer instance.&lt;br&gt;``serializer`` (<a class="reference internal" href="../lback/lback.api.html#lback.api.serializer.BaseModelSerializer" title="lback.api.serializer.BaseModelSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModelSerializer</span></code></a>): A direct reference to the serializer instance.&lt;br&gt;``instance`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">Any</span></code>): The newly created or updated model instance that was persisted to the database.&lt;br&gt;``session`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">Any</span></code>): The database session object that was used for the save operation.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../features/Deployment.html" class="btn btn-neutral float-left" title="Deployment" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="admin-registry-signals.html" class="btn btn-neutral float-right" title="Signals from AdminRegistry" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ibrahem abo kila.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

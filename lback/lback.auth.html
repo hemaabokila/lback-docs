@@ -1,0 +1,723 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>lback.auth package &mdash; lback 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=95f010fd" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="lback.auth_app package" href="lback.auth_app.html" />
+    <link rel="prev" title="lback.api package" href="lback.api.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            lback
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Configuration%20System.html">Configuration System</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/routing_system.html">Routing System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Views%20%26%20Responses.html">Views &amp; Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Templating%20System.html">Templating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Static%20Files.html">Static Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Media%20Files.html">Media Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/file-uploads.html">File Uploads in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Forms.html">Forms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/Models%20%26%20Database.html">Models &amp; Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Database%20Migrations%20System.html">Database Migrations System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Authorization.html">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/sessions.html">Sessions in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Security%20Features.html">Security Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/Admin%20Panel.html">Built-in Admin Panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/API%20Tools.html">API Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Signal%20System.html">Signal System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Middleware%20System.html">Middleware System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/custom_middlewares.html">Custom Middlewares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/logging_config.html">Logging Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/email-sender.html">Email Sending in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/validation_utilities.html">Validation Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/error_handling.html">Error Handling and HTTP Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Error%20Handling%20%26%20Reporting.html">Error Handling &amp; Reporting</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/Deployment.html">Deployment</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html">Signals from BaseView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-apidocs">Signals from APIDocs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-basemodelserializer">Signals from BaseModelSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-registry-signals.html">Signals from AdminRegistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user.html">Signals from AdminUser and Role Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-manager.html">Signals from AdminUserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-repository.html">Signals from AdminUserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html">Signals from AdminAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-jwtauth">Signals from JWTAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-oauth2auth">Signals from OAuth2Auth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-permissionrequired">Signals from PermissionRequired</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-sessionauth">Signals from SessionAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/error-handler.html">Signals from ErrorHandler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/middleware-manager.html">Signals from MiddlewareManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/migration_commands.html">Signals from MigrationCommands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/permission-repository.html">Signals from PermissionRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/role-repository.html">Signals from RoleRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/session-manager.html">Signals from SessionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/template-renderer.html">Signals from TemplateRenderer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-manager.html">Signals from UserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-model.html">Signals from User Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-repository.html">Signals from UserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/wsgi-application.html">Signals from WSGI Application and Server</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Modules and Classes Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API%20Reference.html">API Reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="lback.html">lback package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="lback.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="lback.admin.html">lback.admin package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.api.html">lback.api package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">lback.auth package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-lback.auth.adminauth">lback.auth.adminauth module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-lback.auth.jwt_auth">lback.auth.jwt_auth module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-lback.auth.oauth">lback.auth.oauth module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-lback.auth.password_hashing">lback.auth.password_hashing module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-lback.auth.permissions">lback.auth.permissions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-lback.auth.session_auth">lback.auth.session_auth module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-lback.auth">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lback.auth_app.html">lback.auth_app package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.commands.html">lback.commands package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.core.html">lback.core package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.forms.html">lback.forms package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.middlewares.html">lback.middlewares package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.models.html">lback.models package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.repositories.html">lback.repositories package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.security.html">lback.security package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.utils.html">lback.utils package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lback.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lback.html#module-lback.main">lback.main module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lback.html#module-lback">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">lback</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="lback.html">lback package</a></li>
+      <li class="breadcrumb-item active">lback.auth package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/lback/lback.auth.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="lback-auth-package">
+<h1>lback.auth package<a class="headerlink" href="#lback-auth-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-lback.auth.adminauth">
+<span id="lback-auth-adminauth-module"></span><h2>lback.auth.adminauth module<a class="headerlink" href="#module-lback.auth.adminauth" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.auth.adminauth.AdminAuth">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.auth.adminauth.</span></span><span class="sig-name descname"><span class="pre">AdminAuth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">admin_user_manager</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.utils.html#lback.utils.admin_user_manager.AdminUserManager" title="lback.utils.admin_user_manager.AdminUserManager"><span class="pre">AdminUserManager</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">session_manager</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.utils.html#lback.utils.session_manager.SessionManager" title="lback.utils.session_manager.SessionManager"><span class="pre">SessionManager</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/auth/adminauth.html#AdminAuth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth.adminauth.AdminAuth" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Handles authentication and authorization logic specifically for Admin Users.
+Acts as a bridge between AdminUserManager, SessionManager, and the Auth utilities.
+Integrates SignalDispatcher to emit events related to admin authentication and authorization.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.auth.adminauth.AdminAuth.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">admin_user_manager</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.utils.html#lback.utils.admin_user_manager.AdminUserManager" title="lback.utils.admin_user_manager.AdminUserManager"><span class="pre">AdminUserManager</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">session_manager</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.utils.html#lback.utils.session_manager.SessionManager" title="lback.utils.session_manager.SessionManager"><span class="pre">SessionManager</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/auth/adminauth.html#AdminAuth.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth.adminauth.AdminAuth.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize AdminAuth with necessary managers.
+Emits ‘admin_auth_initialized’ signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>admin_user_manager</strong> (<a class="reference internal" href="lback.utils.html#lback.utils.admin_user_manager.AdminUserManager" title="lback.utils.admin_user_manager.AdminUserManager"><em>AdminUserManager</em></a>) – Instance of AdminUserManager.</p></li>
+<li><p><strong>session_manager</strong> (<a class="reference internal" href="lback.utils.html#lback.utils.session_manager.SessionManager" title="lback.utils.session_manager.SessionManager"><em>SessionManager</em></a>) – Instance of SessionManager for managing sessions.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.auth.adminauth.AdminAuth.is_admin_logged_in">
+<span class="sig-name descname"><span class="pre">is_admin_logged_in</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.core.html#lback.core.types.Request" title="lback.core.types.Request"><span class="pre">Request</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/lback/auth/adminauth.html#AdminAuth.is_admin_logged_in"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth.adminauth.AdminAuth.is_admin_logged_in" title="Link to this definition"></a></dt>
+<dd><p>Checks if an admin user is currently logged in via session.
+Emits ‘admin_authentication_check’ signal, with outcome.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> – The incoming request object. Assumes request.session is a valid AppSession instance.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if a user ID is found in the session and is marked as admin, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.auth.adminauth.AdminAuth.login">
+<span class="sig-name descname"><span class="pre">login</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.core.html#lback.core.types.Request" title="lback.core.types.Request"><span class="pre">Request</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">db_session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Session</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/lback/auth/adminauth.html#AdminAuth.login"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth.adminauth.AdminAuth.login" title="Link to this definition"></a></dt>
+<dd><p>Authenticates an admin user and logs them in using session authentication.
+Emits ‘admin_login_attempt’, ‘admin_login_successful’, or ‘admin_login_failed’ signals.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> – The incoming request object.</p></li>
+<li><p><strong>db_session</strong> – The database session.</p></li>
+<li><p><strong>username</strong> – The username for login.</p></li>
+<li><p><strong>password</strong> – The plain text password for login.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The authenticated AdminUser object if successful, otherwise None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.auth.adminauth.AdminAuth.logout">
+<span class="sig-name descname"><span class="pre">logout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.core.html#lback.core.types.Request" title="lback.core.types.Request"><span class="pre">Request</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/lback/auth/adminauth.html#AdminAuth.logout"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth.adminauth.AdminAuth.logout" title="Link to this definition"></a></dt>
+<dd><p>Logs out the current admin user by ending their session.
+Emits ‘admin_logout_attempt’ and ‘admin_logout_successful’ signals.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> – The incoming request object. Assumes request.session is a valid AppSession instance.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if logout process was attempted (session object provided), False otherwise.
+Note: The actual session deletion is handled by AppSession.delete().</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.auth.adminauth.AdminAuth.register">
+<span class="sig-name descname"><span class="pre">register</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db_session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Session</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/lback/auth/adminauth.html#AdminAuth.register"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth.adminauth.AdminAuth.register" title="Link to this definition"></a></dt>
+<dd><p>Registers a new admin user.
+Emits ‘admin_registration_attempt’, ‘admin_registration_successful’,
+or ‘admin_registration_failed’ signals.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>db_session</strong> – The database session.</p></li>
+<li><p><strong>username</strong> – The username for the new admin.</p></li>
+<li><p><strong>email</strong> – The email for the new admin.</p></li>
+<li><p><strong>password</strong> – The plain text password for the new admin.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if registration is successful, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lback.auth.jwt_auth">
+<span id="lback-auth-jwt-auth-module"></span><h2>lback.auth.jwt_auth module<a class="headerlink" href="#module-lback.auth.jwt_auth" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.auth.jwt_auth.JWTAuth">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.auth.jwt_auth.</span></span><span class="sig-name descname"><span class="pre">JWTAuth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">secret</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">algorithm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'HS256'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">access_exp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3600</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refresh_exp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">86400</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/auth/jwt_auth.html#JWTAuth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth.jwt_auth.JWTAuth" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Utility class for creating, decoding, and validating JSON Web Tokens (JWT).
+Supports both access and refresh tokens.
+Integrates SignalDispatcher to emit events related to token lifecycle and validation.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.auth.jwt_auth.JWTAuth.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">secret</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">algorithm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'HS256'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">access_exp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3600</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refresh_exp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">86400</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/auth/jwt_auth.html#JWTAuth.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth.jwt_auth.JWTAuth.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initializes the JWTAuth utility.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>secret</strong> – The secret key used for signing and verifying tokens.
+Keep this secret and secure.</p></li>
+<li><p><strong>algorithm</strong> – The signing algorithm to use (default is HS256).</p></li>
+<li><p><strong>access_exp</strong> – Expiration time for access tokens in seconds (default is 1 hour).</p></li>
+<li><p><strong>refresh_exp</strong> – Expiration time for refresh tokens in seconds (default is 24 hours).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.auth.jwt_auth.JWTAuth.create_access_token">
+<span class="sig-name descname"><span class="pre">create_access_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">payload</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/lback/auth/jwt_auth.html#JWTAuth.create_access_token"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth.jwt_auth.JWTAuth.create_access_token" title="Link to this definition"></a></dt>
+<dd><p>Creates a new access token.
+Emits ‘jwt_access_token_created’ signal on creation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>payload</strong> – A dictionary containing the data to encode in the token.
+Should NOT contain sensitive information like passwords.
+A ‘user_id’ or similar identifier is common.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A signed JWT access token string.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.auth.jwt_auth.JWTAuth.create_refresh_token">
+<span class="sig-name descname"><span class="pre">create_refresh_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">payload</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/lback/auth/jwt_auth.html#JWTAuth.create_refresh_token"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth.jwt_auth.JWTAuth.create_refresh_token" title="Link to this definition"></a></dt>
+<dd><p>Creates a new refresh token.
+Emits ‘jwt_refresh_token_created’ signal on creation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>payload</strong> – A dictionary containing the data to encode in the token.
+Should contain information needed to issue a new access token,
+like ‘user_id’.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A signed JWT refresh token string.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.auth.jwt_auth.JWTAuth.decode_token">
+<span class="sig-name descname"><span class="pre">decode_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/lback/auth/jwt_auth.html#JWTAuth.decode_token"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth.jwt_auth.JWTAuth.decode_token" title="Link to this definition"></a></dt>
+<dd><p>Decodes a JWT token and verifies its signature and expiration.
+Emits ‘jwt_token_decoded’ on success.
+Emits ‘jwt_decode_failed’ on failure with specific error type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>token</strong> – The JWT token string to decode.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the decoded payload if valid, otherwise None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.auth.jwt_auth.JWTAuth.get_payload">
+<span class="sig-name descname"><span class="pre">get_payload</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/lback/auth/jwt_auth.html#JWTAuth.get_payload"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth.jwt_auth.JWTAuth.get_payload" title="Link to this definition"></a></dt>
+<dd><p>Decodes a token and returns its payload if valid.
+Relies on decode_token for validation and signal emission.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>token</strong> – The JWT token string.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The decoded payload dictionary if the token is valid, otherwise None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.auth.jwt_auth.JWTAuth.get_user_id">
+<span class="sig-name descname"><span class="pre">get_user_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/lback/auth/jwt_auth.html#JWTAuth.get_user_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth.jwt_auth.JWTAuth.get_user_id" title="Link to this definition"></a></dt>
+<dd><p>Decodes a token and returns the ‘user_id’ claim if the token is valid and the claim exists.
+Relies on decode_token for validation and signal emission.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>token</strong> – The JWT token string.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The value of the ‘user_id’ claim if found in a valid token, otherwise None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.auth.jwt_auth.JWTAuth.is_token_valid">
+<span class="sig-name descname"><span class="pre">is_token_valid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/lback/auth/jwt_auth.html#JWTAuth.is_token_valid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth.jwt_auth.JWTAuth.is_token_valid" title="Link to this definition"></a></dt>
+<dd><p>Checks if a JWT token is valid (signature and expiry) and optionally matches a specific type.
+This method primarily relies on decode_token, which emits failure signals.
+It adds a check for token type mismatch.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>token</strong> – The JWT token string to validate.</p></li>
+<li><p><strong>token_type</strong> – Optional. The expected type of the token (‘access’ or ‘refresh’).
+If None, only checks signature and expiry.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the token is valid and matches the type (if specified), False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lback.auth.oauth">
+<span id="lback-auth-oauth-module"></span><h2>lback.auth.oauth module<a class="headerlink" href="#module-lback.auth.oauth" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.auth.oauth.OAuth2Auth">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.auth.oauth.</span></span><span class="sig-name descname"><span class="pre">OAuth2Auth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_secret</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">authorize_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redirect_uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scope</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/auth/oauth.html#OAuth2Auth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth.oauth.OAuth2Auth" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Utility class for interacting with an OAuth2 provider using the Authorization Code Grant flow.
+Provides methods for generating authorization URLs, fetching access tokens, and refreshing tokens.
+Integrates SignalDispatcher to emit events related to the OAuth2 flow.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.auth.oauth.OAuth2Auth.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_secret</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">authorize_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redirect_uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scope</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/auth/oauth.html#OAuth2Auth.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth.oauth.OAuth2Auth.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initializes the OAuth2Auth utility.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>client_id</strong> – The client ID obtained from the OAuth2 provider.</p></li>
+<li><p><strong>client_secret</strong> – The client secret obtained from the OAuth2 provider. Keep this secure.</p></li>
+<li><p><strong>authorize_url</strong> – The URL of the authorization endpoint of the OAuth2 provider.</p></li>
+<li><p><strong>token_url</strong> – The URL of the token endpoint of the OAuth2 provider.</p></li>
+<li><p><strong>redirect_uri</strong> – The redirect URI registered with the OAuth2 provider.</p></li>
+<li><p><strong>scope</strong> – The requested scope(s) (space-separated string). Defaults to “”.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.auth.oauth.OAuth2Auth.fetch_token">
+<span class="sig-name descname"><span class="pre">fetch_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/lback/auth/oauth.html#OAuth2Auth.fetch_token"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth.oauth.OAuth2Auth.fetch_token" title="Link to this definition"></a></dt>
+<dd><p>Exchanges an authorization code for an access token and optionally a refresh token.
+Emits ‘oauth2_token_fetched’ on success.
+Emits ‘oauth2_token_fetch_failed’ on failure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>code</strong> – The authorization code received from the OAuth2 provider.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the token response from the provider if successful,
+otherwise None. Expected keys often include ‘access_token’, ‘token_type’,
+‘expires_in’, and optionally ‘refresh_token’.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.auth.oauth.OAuth2Auth.get_authorize_url">
+<span class="sig-name descname"><span class="pre">get_authorize_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/lback/auth/oauth.html#OAuth2Auth.get_authorize_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth.oauth.OAuth2Auth.get_authorize_url" title="Link to this definition"></a></dt>
+<dd><p>Generates the authorization URL to redirect the user to the OAuth2 provider.
+Emits ‘oauth2_authorize_url_generated’ signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> – An optional state parameter to maintain state between the request
+and the callback. Recommended for CSRF protection.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The full authorization URL string.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.auth.oauth.OAuth2Auth.refresh_token">
+<span class="sig-name descname"><span class="pre">refresh_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">refresh_token</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/lback/auth/oauth.html#OAuth2Auth.refresh_token"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth.oauth.OAuth2Auth.refresh_token" title="Link to this definition"></a></dt>
+<dd><p>Exchanges a refresh token for a new access token and optionally a new refresh token.
+Emits ‘oauth2_token_refreshed’ on success.
+Emits ‘oauth2_token_refresh_failed’ on failure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>refresh_token</strong> – The refresh token obtained previously.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the new token response if successful, otherwise None.
+Expected keys often include ‘access_token’, ‘token_type’, ‘expires_in’,
+and optionally a new ‘refresh_token’.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lback.auth.password_hashing">
+<span id="lback-auth-password-hashing-module"></span><h2>lback.auth.password_hashing module<a class="headerlink" href="#module-lback.auth.password_hashing" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.auth.password_hashing.PasswordHasher">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.auth.password_hashing.</span></span><span class="sig-name descname"><span class="pre">PasswordHasher</span></span><a class="reference internal" href="../_modules/lback/auth/password_hashing.html#PasswordHasher"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth.password_hashing.PasswordHasher" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Utility class for securely hashing and verifying passwords using bcrypt.
+Bcrypt is a strong, adaptive hashing algorithm.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.auth.password_hashing.PasswordHasher.generate_random_token">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">generate_random_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">32</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/lback/auth/password_hashing.html#PasswordHasher.generate_random_token"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth.password_hashing.PasswordHasher.generate_random_token" title="Link to this definition"></a></dt>
+<dd><p>Generates a cryptographically strong, random string suitable for tokens (e.g., email verification).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>length</strong> – The desired length of the token string.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A random hexadecimal string of the specified length.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.auth.password_hashing.PasswordHasher.hash_password">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hash_password</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/lback/auth/password_hashing.html#PasswordHasher.hash_password"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth.password_hashing.PasswordHasher.hash_password" title="Link to this definition"></a></dt>
+<dd><p>Hashes a plain text password using bcrypt.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>password</strong> – The plain text password string.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A string containing the bcrypt hashed password.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – If hashing fails (e.g., due to encoding issues).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.auth.password_hashing.PasswordHasher.verify_password">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">verify_password</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hashed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/lback/auth/password_hashing.html#PasswordHasher.verify_password"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth.password_hashing.PasswordHasher.verify_password" title="Link to this definition"></a></dt>
+<dd><p>Verifies a plain text password against a bcrypt hashed password.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>password</strong> – The plain text password string to verify.</p></li>
+<li><p><strong>hashed</strong> – The bcrypt hashed password string retrieved from storage.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the password matches the hash, False otherwise.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – If verification fails (e.g., due to encoding issues or invalid hash format).</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lback.auth.permissions">
+<span id="lback-auth-permissions-module"></span><h2>lback.auth.permissions module<a class="headerlink" href="#module-lback.auth.permissions" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.auth.permissions.PermissionRequired">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.auth.permissions.</span></span><span class="sig-name descname"><span class="pre">PermissionRequired</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">required_permissions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="lback.core.html#lback.core.types.Request" title="lback.core.types.Request"><span class="pre">Request</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/auth/permissions.html#PermissionRequired"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth.permissions.PermissionRequired" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Decorates views to ensure the authenticated user has the necessary permissions.
+It checks for superuser status or individual permissions via the user’s has_permission method.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.auth.permissions.PermissionRequired.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span></span></span><a class="reference internal" href="../_modules/lback/auth/permissions.html#PermissionRequired.__call__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth.permissions.PermissionRequired.__call__" title="Link to this definition"></a></dt>
+<dd><p>The decorator logic. Wraps the view function to perform permission checks.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.auth.permissions.PermissionRequired.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">required_permissions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="lback.core.html#lback.core.types.Request" title="lback.core.types.Request"><span class="pre">Request</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/auth/permissions.html#PermissionRequired.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth.permissions.PermissionRequired.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initializes the decorator with the permission(s) needed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.auth.permissions.PermissionRequired.has_permission">
+<span class="sig-name descname"><span class="pre">has_permission</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">required_permissions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/lback/auth/permissions.html#PermissionRequired.has_permission"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth.permissions.PermissionRequired.has_permission" title="Link to this definition"></a></dt>
+<dd><p>Checks if the user possesses the required permissions.
+This method now directly uses the <cite>has_permission</cite> method from the user model.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lback.auth.session_auth">
+<span id="lback-auth-session-auth-module"></span><h2>lback.auth.session_auth module<a class="headerlink" href="#module-lback.auth.session_auth" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.auth.session_auth.SessionAuth">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.auth.session_auth.</span></span><span class="sig-name descname"><span class="pre">SessionAuth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session_manager</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.utils.html#lback.utils.session_manager.SessionManager" title="lback.utils.session_manager.SessionManager"><span class="pre">SessionManager</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/auth/session_auth.html#SessionAuth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth.session_auth.SessionAuth" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Utility class for handling session-based authentication.
+Manages setting and getting user IDs and user types in the session data.
+Requires a SessionManager instance to interact with session storage.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.auth.session_auth.SessionAuth.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session_manager</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.utils.html#lback.utils.session_manager.SessionManager" title="lback.utils.session_manager.SessionManager"><span class="pre">SessionManager</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/auth/session_auth.html#SessionAuth.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth.session_auth.SessionAuth.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize SessionAuth with a SessionManager instance.
+:param session_manager: The SessionManager instance.
+:type session_manager: SessionManager</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.auth.session_auth.SessionAuth.get_current_user_id">
+<span class="sig-name descname"><span class="pre">get_current_user_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.core.html#lback.core.types.Request" title="lback.core.types.Request"><span class="pre">Request</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">UUID</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/lback/auth/session_auth.html#SessionAuth.get_current_user_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth.session_auth.SessionAuth.get_current_user_id" title="Link to this definition"></a></dt>
+<dd><p>Retrieves the authenticated user’s ID from the session data, ONLY if the session is active.
+:param request: The Request object, expected to have a ‘session’ attribute (AppSession instance).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The user ID if authenticated and session is active, otherwise None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.auth.session_auth.SessionAuth.is_authenticated">
+<span class="sig-name descname"><span class="pre">is_authenticated</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.core.html#lback.core.types.Request" title="lback.core.types.Request"><span class="pre">Request</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/lback/auth/session_auth.html#SessionAuth.is_authenticated"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth.session_auth.SessionAuth.is_authenticated" title="Link to this definition"></a></dt>
+<dd><p>Checks if a user is authenticated based on session data.
+:param request: The Request object, expected to have a ‘session’ attribute (AppSession instance).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if a user ID is found in the session data AND the session is active, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.auth.session_auth.SessionAuth.login">
+<span class="sig-name descname"><span class="pre">login</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.core.html#lback.core.types.Request" title="lback.core.types.Request"><span class="pre">Request</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">UUID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'user'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/lback/auth/session_auth.html#SessionAuth.login"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth.session_auth.SessionAuth.login" title="Link to this definition"></a></dt>
+<dd><p>Logs a user in by setting their ID and type in the session data.
+Assumes SessionMiddleware has run and populated request.session.
+:param request: The Request object, expected to have a ‘session’ attribute (AppSession instance).
+:param user_id: The ID of the user to log in.
+:param user_type: The type of the user (‘user’ or ‘admin’).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the user ID was successfully set in an active session, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.auth.session_auth.SessionAuth.logout">
+<span class="sig-name descname"><span class="pre">logout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.core.html#lback.core.types.Request" title="lback.core.types.Request"><span class="pre">Request</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/lback/auth/session_auth.html#SessionAuth.logout"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth.session_auth.SessionAuth.logout" title="Link to this definition"></a></dt>
+<dd><p>Logs out the current user by deleting their session.
+:param request: The Request object, expected to have a ‘session’ attribute (AppSession instance).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if a session object was available to attempt deletion, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lback.auth">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-lback.auth" title="Link to this heading"></a></h2>
+<p>This file serves as the initialization point for the ‘lback_framework/lback/auth’ package.
+It is designed to expose the core components necessary for handling various authentication
+and authorization mechanisms within the Lback web framework. This package centralizes
+the definition and management of security-related functionalities, including different
+authentication schemes, password management, and permission enforcement.</p>
+<p>—</p>
+<p><strong>Key Components Exposed by this Package:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>SessionAuth (from .session_auth):</strong>
+Manages session-based authentication for users. This component is typically responsible
+for creating and managing user sessions, storing session data (e.g., user ID) on the server
+and providing a session ID to the client (often via cookies). It handles login, logout,
+and session validation to maintain user state across requests.</p></li>
+<li><p><strong>PermissionRequired (from .permissions):</strong>
+A decorator or utility class used to enforce permissions on views or specific actions.
+This component ensures that only users with the necessary permissions are allowed to
+access certain resources or perform specific operations. It integrates with the
+authentication system to check a user’s assigned roles or permissions.</p></li>
+<li><p><strong>PasswordHasher (from .password_hashing):</strong>
+Provides utilities for securely hashing and verifying user passwords. This component
+is critical for protecting sensitive user credentials by converting plain-text passwords
+into irreversible hash values before storage, and then securely comparing them during login
+attempts without exposing the original password. It typically supports various hashing algorithms.</p></li>
+<li><p><strong>OAuth2Auth (from .oauth):</strong>
+Implements support for the OAuth 2.0 authorization framework. This component enables
+Lback applications to integrate with external identity providers (e.g., Google, Facebook)
+for user authentication and authorization, allowing users to grant limited access to their
+data without sharing their credentials directly with the application.</p></li>
+<li><p><strong>JWTAuth (from .jwt_auth):</strong>
+Implements JSON Web Token (JWT) based authentication. This component handles the creation,
+signing, and validation of JWTs, which are commonly used for stateless authentication in APIs.
+It allows users to obtain a token upon successful login, which they then include in subsequent
+requests to prove their identity without needing to re-authenticate with each request.</p></li>
+<li><p><strong>AdminAuth (from .adminauth):</strong>
+Specifically handles authentication logic for the administrative interface. This component
+might extend or specialize the general authentication mechanisms to cater to the unique
+requirements of admin users, potentially including stricter security policies or different
+login flows for administrative access.</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="lback.api.html" class="btn btn-neutral float-left" title="lback.api package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="lback.auth_app.html" class="btn btn-neutral float-right" title="lback.auth_app package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ibrahem abo kila.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

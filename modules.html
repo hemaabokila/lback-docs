@@ -1,0 +1,412 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modules and Classes Reference &mdash; lback 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=95f010fd" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API Reference" href="API%20Reference.html" />
+    <link rel="prev" title="Signals from WSGI Application and Server" href="signals/wsgi-application.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            lback
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/Configuration%20System.html">Configuration System</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="features/routing_system.html">Routing System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/Views%20%26%20Responses.html">Views &amp; Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/Templating%20System.html">Templating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/Static%20Files.html">Static Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/Media%20Files.html">Media Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/file-uploads.html">File Uploads in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/Forms.html">Forms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="features/Models%20%26%20Database.html">Models &amp; Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/Database%20Migrations%20System.html">Database Migrations System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/Authorization.html">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/sessions.html">Sessions in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/Security%20Features.html">Security Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="features/Admin%20Panel.html">Built-in Admin Panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/API%20Tools.html">API Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/Signal%20System.html">Signal System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/Middleware%20System.html">Middleware System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/custom_middlewares.html">Custom Middlewares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/logging_config.html">Logging Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/email-sender.html">Email Sending in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/validation_utilities.html">Validation Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/error_handling.html">Error Handling and HTTP Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/Error%20Handling%20%26%20Reporting.html">Error Handling &amp; Reporting</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="features/Deployment.html">Deployment</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="signals/api-signals.html">Signals from BaseView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/api-signals.html#signals-from-apidocs">Signals from APIDocs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/api-signals.html#signals-from-basemodelserializer">Signals from BaseModelSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/admin-registry-signals.html">Signals from AdminRegistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/admin-user.html">Signals from AdminUser and Role Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/admin-user-manager.html">Signals from AdminUserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/admin-user-repository.html">Signals from AdminUserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/auth.html">Signals from AdminAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/auth.html#signals-from-jwtauth">Signals from JWTAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/auth.html#signals-from-oauth2auth">Signals from OAuth2Auth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/auth.html#signals-from-permissionrequired">Signals from PermissionRequired</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/auth.html#signals-from-sessionauth">Signals from SessionAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/error-handler.html">Signals from ErrorHandler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/middleware-manager.html">Signals from MiddlewareManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/migration_commands.html">Signals from MigrationCommands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/permission-repository.html">Signals from PermissionRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/role-repository.html">Signals from RoleRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/session-manager.html">Signals from SessionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/template-renderer.html">Signals from TemplateRenderer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/user-manager.html">Signals from UserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/user-model.html">Signals from User Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/user-repository.html">Signals from UserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/wsgi-application.html">Signals from WSGI Application and Server</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Modules and Classes Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#core-modules">Core Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#authentication-modules">Authentication Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api-layer">API Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#admin-interface">Admin Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#middleware">Middleware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#forms">Forms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#models">Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#repositories">Repositories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#security">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#utilities">Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="API%20Reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lback/lback.html">lback package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">lback</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Modules and Classes Reference</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/modules.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="modules-and-classes-reference">
+<h1>Modules and Classes Reference<a class="headerlink" href="#modules-and-classes-reference" title="Link to this heading"></a></h1>
+<p>The <strong>lback</strong> framework is a modular and comprehensive web framework designed for building scalable and maintainable web applications. This document provides a detailed reference to all its key modules and the classes they encapsulate, highlighting their functionalities and contributions to the framework’s overall architecture.</p>
+<p>—</p>
+<section id="core-modules">
+<h2>Core Modules<a class="headerlink" href="#core-modules" title="Link to this heading"></a></h2>
+<p>The core modules form the fundamental backbone of the lback framework, handling essential operations, configurations, and the overall lifecycle of the application.</p>
+<ul class="simple">
+<li><p><strong>lback.core</strong>: This module is the heart of the framework, providing core functionalities for application management.</p></li>
+<li><p><strong>AppController</strong>: Manages the application’s lifecycle and integrates various components.</p></li>
+<li><p><strong>BaseMiddleware</strong>: The base class for all middlewares, defining the interface for middleware components.</p></li>
+<li><p><strong>Cache</strong>: Provides caching mechanisms for performance optimization.</p></li>
+<li><p><strong>CacheItem</strong>: Represents an item stored within the cache.</p></li>
+<li><p><strong>Config</strong>: The central object for accessing application configurations and settings.</p></li>
+<li><p><strong>SettingsFileHandler</strong>: Manages reading and writing application settings from files.</p></li>
+<li><p><strong>load_config, load_settings_module, update_config, start_settings_watcher, sync_settings_to_config, get_project_root</strong>: Utility functions for managing application configuration.</p></li>
+<li><p><strong>dispatcher (from lback.core.dispatcher_instance)</strong>: The central signal dispatcher instance for inter-component communication.</p></li>
+<li><p><strong>ErrorHandler</strong>: Handles exceptions and generates appropriate error responses.</p></li>
+<li><p><strong>FrameworkException, Forbidden, HTTPException, BadRequest, NotFound, RouteNotFound, MethodNotAllowed, Unauthorized, ConfigurationError, ValidationError, ServerError</strong>: A hierarchy of custom exceptions for various error conditions.</p></li>
+<li><p><strong>setup_logging</strong>: Configures the logging system for the application.</p></li>
+<li><p><strong>load_middlewares_from_config, create_middleware, import_class</strong>: Functions for loading and managing middleware instances.</p></li>
+<li><p><strong>MiddlewareManager</strong>: Manages the execution flow of registered middlewares.</p></li>
+<li><p><strong>Middleware</strong>: Represents a single middleware instance.</p></li>
+<li><p><strong>RedirectResponse, Response, HTMLResponse, JSONResponse</strong>: Classes for constructing different types of HTTP responses.</p></li>
+<li><p><strong>Route</strong>: Represents a single defined route in the application’s routing table.</p></li>
+<li><p><strong>Router</strong>: Manages all defined routes and dispatches incoming requests to the correct handler.</p></li>
+<li><p><strong>Server</strong>: The main class responsible for starting and managing the web server.</p></li>
+<li><p><strong>initialize_core_components, wsgi_application</strong>: Functions for initialising framework components and the WSGI application entry point.</p></li>
+<li><p><strong>SignalDispatcher</strong>: Manages signals and slots for event-driven communication.</p></li>
+<li><p><strong>TemplateRenderer</strong>: Handles rendering of HTML templates.</p></li>
+<li><p><strong>default_global_context, custom_uppercase, custom_url_tag</strong>: Utilities for template rendering context and custom filters/tags.</p></li>
+<li><p><strong>Request</strong>: Represents an incoming HTTP request.</p></li>
+<li><p><strong>HTTPMethod</strong>: Enum for standard HTTP methods.</p></li>
+<li><p><strong>TypeConverter, UploadedFile, UUIDConverter, IntegerConverter</strong>: Utilities for type conversion and handling uploaded files in routes.</p></li>
+<li><p><strong>Include (from lback.core.urls_utils)</strong>: Utility for including URL patterns from other modules.</p></li>
+<li><p><strong>WebSocketServer</strong>: Provides functionality for WebSocket communication.</p></li>
+<li><p><strong>create_wsgi_app</strong>: Creates the WSGI application instance.</p></li>
+</ul>
+<p>—</p>
+</section>
+<section id="authentication-modules">
+<h2>Authentication Modules<a class="headerlink" href="#authentication-modules" title="Link to this heading"></a></h2>
+<p>These modules provide comprehensive tools for user authentication, authorization, and session management, covering various security protocols.</p>
+<ul class="simple">
+<li><p><strong>lback.auth</strong>: Manages different authentication backends and security features.</p></li>
+<li><p><strong>SessionAuth</strong>: Implements session-based user authentication.</p></li>
+<li><p><strong>PermissionRequired</strong>: A decorator or class for enforcing permission-based access control.</p></li>
+<li><p><strong>PasswordHasher</strong>: Handles secure hashing and verification of user passwords.</p></li>
+<li><p><strong>OAuth2Auth</strong>: Provides integration for OAuth 2.0 authentication flows.</p></li>
+<li><p><strong>JWTAuth</strong>: Implements JSON Web Token based authentication.</p></li>
+<li><p><strong>AdminAuth</strong>: Specific authentication mechanisms for the admin panel users.</p></li>
+<li><p><strong>lback.auth_app</strong>: Provides web-based views for user authentication and account management.</p></li>
+<li><p><strong>urlpatterns</strong>: URL patterns for the authentication web views.</p></li>
+<li><p><strong>show_login_page, show_register_page, show_reset_password_confirm_page, show_request_password_reset_page</strong>: Views for displaying authentication-related web pages.</p></li>
+<li><p><strong>handle_login_submit, handle_register_submit, handle_reset_password_confirm_submit, handle_request_password_reset_submit</strong>: Views for handling form submissions related to authentication.</p></li>
+<li><p><strong>verify_email_web_view</strong>: Web view for email verification.</p></li>
+<li><p><strong>logout_user_view</strong>: View for logging out a user.</p></li>
+<li><p><strong>register_user_view, login_user_view, request_password_reset_view, reset_password_view, verify_email_view</strong>: API-like views for authentication processes (could be used by web views or direct API calls).</p></li>
+</ul>
+<p>—</p>
+</section>
+<section id="api-layer">
+<h2>API Layer<a class="headerlink" href="#api-layer" title="Link to this heading"></a></h2>
+<p>The API layer offers robust tools for building RESTful APIs, including serialisation, generic views, and API documentation.</p>
+<ul class="simple">
+<li><p><strong>lback.api</strong>: Core components for building API endpoints.</p></li>
+<li><p><strong>APIDocs (from lback.api.docs)</strong>: Generates interactive API documentation.</p></li>
+<li><p><strong>GenericAPIView</strong>: A base class for API views with common functionalities.</p></li>
+<li><p><strong>ListAPIView</strong>: Generic view for listing multiple API resources.</p></li>
+<li><p><strong>CreateAPIView</strong>: Generic view for creating new API resources.</p></li>
+<li><p><strong>RetrieveAPIView</strong>: Generic view for retrieving a single API resource.</p></li>
+<li><p><strong>UpdateAPIView</strong>: Generic view for updating an existing API resource.</p></li>
+<li><p><strong>DestroyAPIView</strong>: Generic view for deleting an API resource.</p></li>
+<li><p><strong>ListCreateAPIView</strong>: Combines listing and creation functionalities.</p></li>
+<li><p><strong>RetrieveUpdateDestroyAPIView</strong>: Combines retrieve, update, and destroy functionalities.</p></li>
+<li><p><strong>ListModelMixin, CreateModelMixin, RetrieveModelMixin, UpdateModelMixin, DestroyModelMixin</strong>: Mixins providing common API functionalities to views.</p></li>
+<li><p><strong>Field, BooleanField, BaseModelSerializer, IntegerField, StringField, RelatedField, DateTimeField</strong>: Classes for defining and working with API serializers and their fields.</p></li>
+<li><p><strong>APIView</strong>: The base class for defining custom API views.</p></li>
+<li><p><strong>BaseView</strong>: A foundational base class for all views (API and web).</p></li>
+</ul>
+<p>—</p>
+</section>
+<section id="admin-interface">
+<h2>Admin Interface<a class="headerlink" href="#admin-interface" title="Link to this heading"></a></h2>
+<p>lback includes a powerful built-in admin panel for managing application data and users.</p>
+<ul class="simple">
+<li><p><strong>lback.admin</strong>: Provides the core functionality and views for the administrative interface.</p></li>
+<li><p><strong>admin</strong>: The central Admin instance for registering models and managing admin settings.</p></li>
+<li><p><strong>AdminRegistry</strong>: Manages the registration of models with the admin panel.</p></li>
+<li><p><strong>urlpatterns</strong>: URL patterns specific to the admin interface.</p></li>
+<li><p><strong>admin_user_add_view, admin_user_list_view</strong>: Views for managing admin users.</p></li>
+<li><p><strong>generic_add_view, generic_list_view, generic_delete_view, generic_change_view, generic_detail_view</strong>: Generic views for performing CRUD (Create, Read, Update, Delete) operations on registered models.</p></li>
+<li><p><strong>admin_login_page, admin_dashboard_page, admin_login_post, admin_logout_post</strong>: Views for admin authentication and dashboard.</p></li>
+</ul>
+<p>—</p>
+</section>
+<section id="middleware">
+<h2>Middleware<a class="headerlink" href="#middleware" title="Link to this heading"></a></h2>
+<p>The middleware system in lback allows for flexible and extensible request/response processing.</p>
+<ul class="simple">
+<li><p><strong>lback.middlewares</strong>: A collection of pre-built and pluggable middleware components.</p></li>
+<li><p><strong>AuthMiddleware</strong>: Handles authentication processing for requests.</p></li>
+<li><p><strong>BodyParsingMiddleware</strong>: Parses request bodies (e.g., JSON, form data).</p></li>
+<li><p><strong>CORSMiddleware</strong>: Manages Cross-Origin Resource Sharing headers.</p></li>
+<li><p><strong>CSRFMiddleware</strong>: Provides protection against Cross-Site Request Forgery attacks.</p></li>
+<li><p><strong>DebugMiddleware</strong>: Assists in debugging by providing insights into request processing.</p></li>
+<li><p><strong>LoggingMiddleware</strong>: Logs incoming requests and outgoing responses.</p></li>
+<li><p><strong>MediaFilesMiddleware</strong>: Serves media files (user-uploaded content).</p></li>
+<li><p><strong>SecurityHeadersConfigurator, SecurityHeadersMiddleware</strong>: Configures and applies security-related HTTP headers.</p></li>
+<li><p><strong>SQLInjectionDetectionMiddleware, SQLInjectionProtection</strong>: Detects and helps prevent SQL injection vulnerabilities.</p></li>
+<li><p><strong>SessionMiddleware</strong>: Manages user sessions.</p></li>
+<li><p><strong>SQLAlchemySessionMiddleware</strong>: Manages SQLAlchemy database sessions within requests.</p></li>
+<li><p><strong>StaticFilesMiddleware</strong>: Serves static files (CSS, JS, images).</p></li>
+<li><p><strong>TimerMiddleware</strong>: Measures and logs request processing times.</p></li>
+</ul>
+<p>—</p>
+</section>
+<section id="forms">
+<h2>Forms<a class="headerlink" href="#forms" title="Link to this heading"></a></h2>
+<p>lback provides a robust form system for handling user input, validation, and rendering.</p>
+<ul class="simple">
+<li><p><strong>lback.forms</strong>: Core module for form definition and processing.</p></li>
+<li><p><strong>Form</strong>: The base class for all forms.</p></li>
+<li><p><strong>FormMetaclass</strong>: Metaclass for form creation.</p></li>
+<li><p><strong>ModelForm</strong>: A special type of form automatically generated from a database model.</p></li>
+<li><p><strong>ValidationError (from lback.forms.validation)</strong>: Exception raised for form validation errors.</p></li>
+<li><p><strong>lback.forms.fields_datetime</strong>: Specific field types for date and time inputs.</p></li>
+<li><p><strong>DateTimeField</strong>: Form field for date and time.</p></li>
+<li><p><strong>TimeField</strong>: Form field for time.</p></li>
+<li><p><strong>DateField</strong>: Form field for date.</p></li>
+<li><p><strong>lback.forms.fields_file</strong>: Field type for file uploads.</p></li>
+<li><p><strong>FileField</strong>: Form field for handling file uploads.</p></li>
+<li><p><strong>lback.forms.fields</strong>: General purpose form field types.</p></li>
+<li><p><strong>BooleanField</strong>: Form field for boolean (checkbox) input.</p></li>
+<li><p><strong>CharField</strong>: Form field for text input.</p></li>
+<li><p><strong>ChoiceField</strong>: Form field for selection from predefined choices.</p></li>
+<li><p><strong>EmailField</strong>: Form field for email input with validation.</p></li>
+<li><p><strong>IntegerField</strong>: Form field for integer input.</p></li>
+<li><p><strong>lback.forms.widgets_datetime</strong>: Widgets for date and time input rendering.</p></li>
+<li><p><strong>DateInput</strong>: Widget for date input.</p></li>
+<li><p><strong>DateTimeInput</strong>: Widget for date and time input.</p></li>
+<li><p><strong>lback.forms.widgets</strong>: General purpose form widgets.</p></li>
+<li><p><strong>TextInput</strong>: Widget for single-line text input.</p></li>
+<li><p><strong>Textarea</strong>: Widget for multi-line text input.</p></li>
+<li><p><strong>PasswordInput</strong>: Widget for password input.</p></li>
+<li><p><strong>CheckboxInput</strong>: Widget for checkbox input.</p></li>
+<li><p><strong>Select</strong>: Widget for dropdown selection.</p></li>
+</ul>
+<p>—</p>
+</section>
+<section id="models">
+<h2>Models<a class="headerlink" href="#models" title="Link to this heading"></a></h2>
+<p>The models module provides the Object-Relational Mapping (ORM) layer, based on SQLAlchemy, for interacting with the database.</p>
+<ul class="simple">
+<li><p><strong>lback.models</strong>: Core module for database models.</p></li>
+<li><p><strong>AdminUser</strong>: Model representing an administrative user.</p></li>
+<li><p><strong>Role</strong>: Model for user roles.</p></li>
+<li><p><strong>Permission</strong>: Model for defining user permissions.</p></li>
+<li><p><strong>BaseModel</strong>: The base class for all application database models, providing common ORM functionalities.</p></li>
+<li><p><strong>DatabaseManager</strong>: Manages database connections and sessions.</p></li>
+<li><p><strong>Product</strong>: Example model for a product entity.</p></li>
+<li><p><strong>Session</strong>: Model for managing user sessions in the database.</p></li>
+<li><p><strong>User</strong>: Model representing a general application user.</p></li>
+<li><p><strong>Group</strong>: Model for user groups.</p></li>
+<li><p><strong>UserPermission</strong>: Model for managing individual user permissions.</p></li>
+</ul>
+<p>—</p>
+</section>
+<section id="repositories">
+<h2>Repositories<a class="headerlink" href="#repositories" title="Link to this heading"></a></h2>
+<p>The repository pattern abstracts data access logic, promoting cleaner code and testability.</p>
+<ul class="simple">
+<li><p><strong>lback.repositories</strong>: Contains repositories for specific models.</p></li>
+<li><p><strong>AdminUserRepository</strong>: Manages data access for AdminUser models.</p></li>
+<li><p><strong>PermissionRepository</strong>: Manages data access for Permission models.</p></li>
+<li><p><strong>RoleRepository</strong>: Manages data access for Role models.</p></li>
+<li><p><strong>UserRepository</strong>: Manages data access for User models.</p></li>
+</ul>
+<p>—</p>
+</section>
+<section id="security">
+<h2>Security<a class="headerlink" href="#security" title="Link to this heading"></a></h2>
+<p>This module focuses on enhancing the application’s security posture through various protection mechanisms.</p>
+<ul class="simple">
+<li><p><strong>lback.security</strong>: Provides advanced security features.</p></li>
+<li><p><strong>AdvancedFirewall</strong>: Implements a robust firewall for request filtering.</p></li>
+<li><p><strong>SecurityHeadersConfigurator</strong>: Configures various security-related HTTP headers.</p></li>
+<li><p><strong>RateLimiter</strong>: Limits the rate of requests to prevent abuse.</p></li>
+<li><p><strong>SQLInjectionProtection</strong>: Provides tools for preventing SQL injection attacks.</p></li>
+</ul>
+<p>—</p>
+</section>
+<section id="utilities">
+<h2>Utilities<a class="headerlink" href="#utilities" title="Link to this heading"></a></h2>
+<p>The utils module offers a collection of helper functions and reusable tools to streamline common tasks across the framework.</p>
+<ul class="simple">
+<li><p><strong>lback.utils</strong>: A diverse collection of utility functions.</p></li>
+<li><p><strong>AdminUserManager</strong>: Manages administrative user-related operations.</p></li>
+<li><p><strong>AppSession</strong>: Manages application-wide session functionalities.</p></li>
+<li><p><strong>EmailSender</strong>: Provides functionalities for sending emails.</p></li>
+<li><p><strong>validate_uploaded_file, save_uploaded_file, delete_saved_file</strong>: Helper functions for handling file uploads and storage.</p></li>
+<li><p><strong>file_extension_filter, split_filter, date_filter</strong>: Utility functions for data filtering (possibly for templates or general use).</p></li>
+<li><p><strong>json_response (from lback.utils.response_helpers)</strong>: Helper function for creating JSON responses.</p></li>
+<li><p><strong>SessionManager</strong>: Manages user sessions, likely at a lower level than AppSession.</p></li>
+<li><p><strong>render, redirect, return_403, return_404, return_500, _get_model_form_data, paginate_query, json_response</strong>: Shortcut functions for common view operations (rendering templates, redirects, error responses, etc.).</p></li>
+<li><p><strong>static, find_static_file (from lback.utils.static_files)</strong>: Utilities for managing and serving static files.</p></li>
+<li><p><strong>path (from lback.utils.urls)</strong>: Utility for defining URL paths.</p></li>
+<li><p><strong>UserManager</strong>: Manages general user-related operations.</p></li>
+<li><p><strong>ValidationError (from lback.utils.validation)</strong>: General validation exception.</p></li>
+<li><p><strong>PasswordValidator</strong>: Validates password strength and format.</p></li>
+<li><p><strong>validate_json</strong>: Validates JSON data against a schema or rules.</p></li>
+</ul>
+<p>—</p>
+</section>
+<section id="commands">
+<h2>Commands<a class="headerlink" href="#commands" title="Link to this heading"></a></h2>
+<p>The commands module provides a set of powerful command-line interface (CLI) tools to streamline various development and administrative tasks.</p>
+<ul class="simple">
+<li><p><strong>lback.commands</strong>: CLI tools for project management.</p></li>
+<li><p><strong>AdminCommands</strong>: CLI commands specific to admin functionalities.</p></li>
+<li><p><strong>AppCommands</strong>: CLI commands for managing application components (e.g., creating new apps).</p></li>
+<li><p><strong>setup_database_and_defaults (from lback.commands.db_seed)</strong>: CLI command or utility for seeding the database with initial data.</p></li>
+<li><p><strong>MigrationCommands</strong>: CLI commands for database schema migrations.</p></li>
+<li><p><strong>ProjectCommands</strong>: CLI commands for managing the overall project (e.g., creating new projects).</p></li>
+<li><p><strong>RunnerCommands</strong>: CLI commands related to running the application server or other processes.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="signals/wsgi-application.html" class="btn btn-neutral float-left" title="Signals from WSGI Application and Server" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="API%20Reference.html" class="btn btn-neutral float-right" title="API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ibrahem abo kila.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

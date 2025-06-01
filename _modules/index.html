@@ -1,0 +1,256 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Overview: module code &mdash; lback 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=95f010fd" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            lback
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Configuration%20System.html">Configuration System</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/routing_system.html">Routing System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Views%20%26%20Responses.html">Views &amp; Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Templating%20System.html">Templating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Static%20Files.html">Static Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Media%20Files.html">Media Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/file-uploads.html">File Uploads in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Forms.html">Forms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/Models%20%26%20Database.html">Models &amp; Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Database%20Migrations%20System.html">Database Migrations System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Authorization.html">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/sessions.html">Sessions in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Security%20Features.html">Security Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/Admin%20Panel.html">Built-in Admin Panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/API%20Tools.html">API Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Signal%20System.html">Signal System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Middleware%20System.html">Middleware System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/custom_middlewares.html">Custom Middlewares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/logging_config.html">Logging Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/email-sender.html">Email Sending in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/validation_utilities.html">Validation Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/error_handling.html">Error Handling and HTTP Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Error%20Handling%20%26%20Reporting.html">Error Handling &amp; Reporting</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/Deployment.html">Deployment</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html">Signals from BaseView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-apidocs">Signals from APIDocs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-basemodelserializer">Signals from BaseModelSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-registry-signals.html">Signals from AdminRegistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user.html">Signals from AdminUser and Role Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-manager.html">Signals from AdminUserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-repository.html">Signals from AdminUserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html">Signals from AdminAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-jwtauth">Signals from JWTAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-oauth2auth">Signals from OAuth2Auth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-permissionrequired">Signals from PermissionRequired</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-sessionauth">Signals from SessionAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/error-handler.html">Signals from ErrorHandler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/middleware-manager.html">Signals from MiddlewareManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/migration_commands.html">Signals from MigrationCommands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/permission-repository.html">Signals from PermissionRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/role-repository.html">Signals from RoleRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/session-manager.html">Signals from SessionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/template-renderer.html">Signals from TemplateRenderer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-manager.html">Signals from UserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-model.html">Signals from User Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-repository.html">Signals from UserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/wsgi-application.html">Signals from WSGI Application and Server</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Modules and Classes Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API%20Reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lback/lback.html">lback package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">lback</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Overview: module code</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>All modules for which code is available</h1>
+<ul><li><a href="lback/admin/auth_views.html">lback.admin.auth_views</a></li>
+<li><a href="lback/admin/generic.html">lback.admin.generic</a></li>
+<li><a href="lback/admin/registry.html">lback.admin.registry</a></li>
+<li><a href="lback/admin/views.html">lback.admin.views</a></li>
+<li><a href="lback/api/docs.html">lback.api.docs</a></li>
+<li><a href="lback/api/generics.html">lback.api.generics</a></li>
+<li><a href="lback/api/mixins.html">lback.api.mixins</a></li>
+<li><a href="lback/api/serializer.html">lback.api.serializer</a></li>
+<li><a href="lback/api/view.html">lback.api.view</a></li>
+<li><a href="lback/auth/adminauth.html">lback.auth.adminauth</a></li>
+<li><a href="lback/auth/jwt_auth.html">lback.auth.jwt_auth</a></li>
+<li><a href="lback/auth/oauth.html">lback.auth.oauth</a></li>
+<li><a href="lback/auth/password_hashing.html">lback.auth.password_hashing</a></li>
+<li><a href="lback/auth/permissions.html">lback.auth.permissions</a></li>
+<li><a href="lback/auth/session_auth.html">lback.auth.session_auth</a></li>
+<li><a href="lback/auth_app/auth_forms.html">lback.auth_app.auth_forms</a></li>
+<li><a href="lback/auth_app/auth_views.html">lback.auth_app.auth_views</a></li>
+<li><a href="lback/auth_app/web_auth_views.html">lback.auth_app.web_auth_views</a></li>
+<li><a href="lback/commands/admin.html">lback.commands.admin</a></li>
+<li><a href="lback/commands/app.html">lback.commands.app</a></li>
+<li><a href="lback/commands/db_seed.html">lback.commands.db_seed</a></li>
+<li><a href="lback/commands/migration.html">lback.commands.migration</a></li>
+<li><a href="lback/commands/project.html">lback.commands.project</a></li>
+<li><a href="lback/commands/runner.html">lback.commands.runner</a></li>
+<li><a href="lback/core/app_controller.html">lback.core.app_controller</a></li>
+<li><a href="lback/core/base_middleware.html">lback.core.base_middleware</a></li>
+<li><a href="lback/core/cache.html">lback.core.cache</a></li>
+<li><a href="lback/core/config.html">lback.core.config</a></li>
+<li><a href="lback/core/config_manager.html">lback.core.config_manager</a></li>
+<li><a href="lback/core/error_handler.html">lback.core.error_handler</a></li>
+<li><a href="lback/core/exceptions.html">lback.core.exceptions</a></li>
+<li><a href="lback/core/logging_setup.html">lback.core.logging_setup</a></li>
+<li><a href="lback/core/middleware_loader.html">lback.core.middleware_loader</a></li>
+<li><a href="lback/core/middleware_manager.html">lback.core.middleware_manager</a></li>
+<li><a href="lback/core/response.html">lback.core.response</a></li>
+<li><a href="lback/core/router.html">lback.core.router</a></li>
+<li><a href="lback/core/server.html">lback.core.server</a></li>
+<li><a href="lback/core/signals.html">lback.core.signals</a></li>
+<li><a href="lback/core/templates.html">lback.core.templates</a></li>
+<li><a href="lback/core/types.html">lback.core.types</a></li>
+<li><a href="lback/core/urls_utils.html">lback.core.urls_utils</a></li>
+<li><a href="lback/core/websocket.html">lback.core.websocket</a></li>
+<li><a href="lback/forms/fields.html">lback.forms.fields</a></li>
+<li><a href="lback/forms/fields_datetime.html">lback.forms.fields_datetime</a></li>
+<li><a href="lback/forms/forms.html">lback.forms.forms</a></li>
+<li><a href="lback/forms/models.html">lback.forms.models</a></li>
+<li><a href="lback/forms/validation.html">lback.forms.validation</a></li>
+<li><a href="lback/forms/widgets.html">lback.forms.widgets</a></li>
+<li><a href="lback/forms/widgets_datetime.html">lback.forms.widgets_datetime</a></li>
+<li><a href="lback/main.html">lback.main</a></li>
+<li><a href="lback/middlewares/auth_midlewares.html">lback.middlewares.auth_midlewares</a></li>
+<li><a href="lback/middlewares/body_parsing_middleware.html">lback.middlewares.body_parsing_middleware</a></li>
+<li><a href="lback/middlewares/cors.html">lback.middlewares.cors</a></li>
+<li><a href="lback/middlewares/csrf.html">lback.middlewares.csrf</a></li>
+<li><a href="lback/middlewares/debug.html">lback.middlewares.debug</a></li>
+<li><a href="lback/middlewares/firewall_middleware.html">lback.middlewares.firewall_middleware</a></li>
+<li><a href="lback/middlewares/logger.html">lback.middlewares.logger</a></li>
+<li><a href="lback/middlewares/media_files_middleware.html">lback.middlewares.media_files_middleware</a></li>
+<li><a href="lback/middlewares/rateLimiting_middleware.html">lback.middlewares.rateLimiting_middleware</a></li>
+<li><a href="lback/middlewares/security_headers_middleware.html">lback.middlewares.security_headers_middleware</a></li>
+<li><a href="lback/middlewares/session_middleware.html">lback.middlewares.session_middleware</a></li>
+<li><a href="lback/middlewares/sql_injection_detection_middleware.html">lback.middlewares.sql_injection_detection_middleware</a></li>
+<li><a href="lback/middlewares/sqlalchemy_middleware.html">lback.middlewares.sqlalchemy_middleware</a></li>
+<li><a href="lback/middlewares/static_files_middleware.html">lback.middlewares.static_files_middleware</a></li>
+<li><a href="lback/middlewares/timer.html">lback.middlewares.timer</a></li>
+<li><a href="lback/models/adminuser.html">lback.models.adminuser</a></li>
+<li><a href="lback/models/base.html">lback.models.base</a></li>
+<li><a href="lback/models/database.html">lback.models.database</a></li>
+<li><a href="lback/models/product.html">lback.models.product</a></li>
+<li><a href="lback/models/session.html">lback.models.session</a></li>
+<li><a href="lback/models/user.html">lback.models.user</a></li>
+<li><a href="lback/repositories/admin_user_repository.html">lback.repositories.admin_user_repository</a></li>
+<li><a href="lback/repositories/permission_repository.html">lback.repositories.permission_repository</a></li>
+<li><a href="lback/repositories/role_repository.html">lback.repositories.role_repository</a></li>
+<li><a href="lback/repositories/user_repository.html">lback.repositories.user_repository</a></li>
+<li><a href="lback/security/firewall.html">lback.security.firewall</a></li>
+<li><a href="lback/security/headers.html">lback.security.headers</a></li>
+<li><a href="lback/security/rate_limiter.html">lback.security.rate_limiter</a></li>
+<li><a href="lback/security/sql_injection.html">lback.security.sql_injection</a></li>
+<li><a href="lback/utils/admin_user_manager.html">lback.utils.admin_user_manager</a></li>
+<li><a href="lback/utils/app_session.html">lback.utils.app_session</a></li>
+<li><a href="lback/utils/email_sender.html">lback.utils.email_sender</a></li>
+<li><a href="lback/utils/file_handlers.html">lback.utils.file_handlers</a></li>
+<li><a href="lback/utils/filters.html">lback.utils.filters</a></li>
+<li><a href="lback/utils/response_helpers.html">lback.utils.response_helpers</a></li>
+<li><a href="lback/utils/session_manager.html">lback.utils.session_manager</a></li>
+<li><a href="lback/utils/shortcuts.html">lback.utils.shortcuts</a></li>
+<li><a href="lback/utils/static_files.html">lback.utils.static_files</a></li>
+<li><a href="lback/utils/urls.html">lback.utils.urls</a></li>
+<li><a href="lback/utils/user_manager.html">lback.utils.user_manager</a></li>
+<li><a href="lback/utils/validation.html">lback.utils.validation</a></li>
+</ul>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ibrahem abo kila.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

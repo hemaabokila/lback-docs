@@ -1,0 +1,403 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Custom Middlewares &mdash; lback 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=95f010fd" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Logging Configuration" href="logging_config.html" />
+    <link rel="prev" title="Middleware System" href="Middleware%20System.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            lback
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Configuration%20System.html">Configuration System</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="routing_system.html">Routing System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Views%20%26%20Responses.html">Views &amp; Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Templating%20System.html">Templating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Static%20Files.html">Static Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Media%20Files.html">Media Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file-uploads.html">File Uploads in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Forms.html">Forms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Models%20%26%20Database.html">Models &amp; Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Database%20Migrations%20System.html">Database Migrations System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Authorization.html">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sessions.html">Sessions in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Security%20Features.html">Security Features</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Admin%20Panel.html">Built-in Admin Panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API%20Tools.html">API Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Signal%20System.html">Signal System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Middleware%20System.html">Middleware System</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Custom Middlewares</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#understanding-middleware">1. Understanding Middleware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-middleware-protocol">2. The Middleware Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-a-custom-middleware">3. Creating a Custom Middleware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#registering-your-custom-middleware">4. Registering Your Custom Middleware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#best-practices-for-writing-middlewares">5. Best Practices for Writing Middlewares</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="logging_config.html">Logging Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="email-sender.html">Email Sending in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="validation_utilities.html">Validation Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="error_handling.html">Error Handling and HTTP Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Error%20Handling%20%26%20Reporting.html">Error Handling &amp; Reporting</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Deployment.html">Deployment</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html">Signals from BaseView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-apidocs">Signals from APIDocs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-basemodelserializer">Signals from BaseModelSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-registry-signals.html">Signals from AdminRegistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user.html">Signals from AdminUser and Role Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-manager.html">Signals from AdminUserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-repository.html">Signals from AdminUserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html">Signals from AdminAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-jwtauth">Signals from JWTAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-oauth2auth">Signals from OAuth2Auth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-permissionrequired">Signals from PermissionRequired</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-sessionauth">Signals from SessionAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/error-handler.html">Signals from ErrorHandler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/middleware-manager.html">Signals from MiddlewareManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/migration_commands.html">Signals from MigrationCommands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/permission-repository.html">Signals from PermissionRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/role-repository.html">Signals from RoleRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/session-manager.html">Signals from SessionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/template-renderer.html">Signals from TemplateRenderer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-manager.html">Signals from UserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-model.html">Signals from User Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-repository.html">Signals from UserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/wsgi-application.html">Signals from WSGI Application and Server</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Modules and Classes Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API%20Reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lback/lback.html">lback package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">lback</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Custom Middlewares</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/features/custom_middlewares.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="custom-middlewares">
+<h1>Custom Middlewares<a class="headerlink" href="#custom-middlewares" title="Link to this heading"></a></h1>
+<p>The Lback Framework’s <strong>Middleware System</strong> provides a powerful mechanism to hook into the request and response processing pipeline. Middlewares are reusable components that can perform actions before a request reaches your view, or after a response is generated by your view. This allows for cross-cutting concerns like authentication, logging, security, and session management to be handled cleanly and efficiently.</p>
+<p>—</p>
+<section id="understanding-middleware">
+<h2>1. Understanding Middleware<a class="headerlink" href="#understanding-middleware" title="Link to this heading"></a></h2>
+<p>A middleware is essentially a callable object (typically an instance of a class) that sits between the web server and your application’s views. It has the opportunity to:</p>
+<ul class="simple">
+<li><p><strong>Process Incoming Requests:</strong> Intercept a request before it’s routed to a view. It can modify the request, perform checks (e.g., authentication, rate limiting), or even return a response directly, short-circuiting the entire request-response cycle.</p></li>
+<li><p><strong>Process Outgoing Responses:</strong> Intercept a response after it’s generated by a view (or by an earlier middleware). It can modify the response (e.g., add headers, compress content), or perform post-processing tasks (e.g., logging response times).</p></li>
+</ul>
+<p>The framework processes middlewares in a specific order:</p>
+<ul class="simple">
+<li><p><strong>process_request</strong>: Methods are executed in the order they are listed in your <code class="docutils literal notranslate"><span class="pre">MIDDLEWARES</span></code> setting.</p></li>
+<li><p><strong>process_response</strong>: Methods are executed in the <em>reverse</em> order of their listing in your <code class="docutils literal notranslate"><span class="pre">MIDDLEWARES</span></code> setting.</p></li>
+</ul>
+<p>—</p>
+</section>
+<section id="the-middleware-protocol">
+<h2>2. The Middleware Protocol<a class="headerlink" href="#the-middleware-protocol" title="Link to this heading"></a></h2>
+<p>To create a custom middleware, your class must adhere to the <code class="docutils literal notranslate"><span class="pre">Middleware</span></code> Protocol, which defines two essential methods: <code class="docutils literal notranslate"><span class="pre">process_request</span></code> and <code class="docutils literal notranslate"><span class="pre">process_response</span></code>. While you can implement these methods directly, it’s recommended to inherit from <code class="docutils literal notranslate"><span class="pre">lback.core.base_middleware.BaseMiddleware</span></code> for consistency and to leverage any base functionality.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># lback/core/base_middleware.py (Simplified for illustration)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Protocol</span><span class="p">,</span> <span class="n">runtime_checkable</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.core.response</span><span class="w"> </span><span class="kn">import</span> <span class="n">Response</span>
+
+<span class="nd">@runtime_checkable</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Middleware</span><span class="p">(</span><span class="n">Protocol</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">process_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;Response&#39;</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Process an incoming request before the view is dispatched.</span>
+<span class="sd">        Can modify the request or return a Response to short-circuit the request processing chain.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">process_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">response</span><span class="p">:</span> <span class="s1">&#39;Response&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Response&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Process the outgoing response after the view has been executed.</span>
+<span class="sd">        Can modify the response. This method is called in reverse order of middleware addition.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">BaseMiddleware</span><span class="p">(</span><span class="n">Middleware</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Base class for all middlewares. Provides default implementations</span>
+<span class="sd">    of process_request and process_response that simply pass through.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># Base middlewares might accept common dependencies or parameters</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">process_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Response</span><span class="p">]:</span>
+        <span class="c1"># Default: Do nothing and pass the request along</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">process_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">response</span><span class="p">:</span> <span class="n">Response</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
+        <span class="c1"># Default: Do nothing and pass the response along</span>
+        <span class="k">return</span> <span class="n">response</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">process_request(self,</span> <span class="pre">request)</span></code></p>
+<ul class="simple">
+<li><p><strong>Purpose:</strong> Executed when a request first enters the middleware chain.</p></li>
+<li><dl class="simple">
+<dt><strong>Arguments:</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">request</span></code>: The incoming request object. You can modify this object (e.g., add attributes like <code class="docutils literal notranslate"><span class="pre">request.user</span></code>, <code class="docutils literal notranslate"><span class="pre">request.session</span></code>).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Return Value:</strong></dt><dd><ul>
+<li><p><strong>None</strong>: The most common return. Indicates that the middleware has processed the request and the request should continue to the next middleware in the chain, or finally to the view.</p></li>
+<li><p><strong>Response object</strong>: If the middleware decides to handle the request completely (e.g., redirect an unauthenticated user, block a malicious request), it can return a <code class="docutils literal notranslate"><span class="pre">Response</span></code> object. When a <code class="docutils literal notranslate"><span class="pre">Response</span></code> is returned, the request processing chain is <strong>short-circuited</strong>, and no further <code class="docutils literal notranslate"><span class="pre">process_request</span></code> methods or the view function will be called. Instead, the returned <code class="docutils literal notranslate"><span class="pre">Response</span></code> will immediately proceed to the <code class="docutils literal notranslate"><span class="pre">process_response</span></code> phase (starting from the <em>current</em> middleware backwards).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">process_response(self,</span> <span class="pre">request,</span> <span class="pre">response)</span></code></p>
+<ul class="simple">
+<li><p><strong>Purpose:</strong> Executed after a response has been generated by the view (or by a short-circuiting middleware).</p></li>
+<li><dl class="simple">
+<dt><strong>Arguments:</strong></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">request</span></code>: The original request object (potentially modified by earlier <code class="docutils literal notranslate"><span class="pre">process_request</span></code> methods).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">response</span></code>: The <code class="docutils literal notranslate"><span class="pre">Response</span></code> object generated by the view or a preceding middleware.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Return Value:</strong></dt><dd><ul>
+<li><p><strong>Must always return a ``Response`` object.</strong> You can modify the <cite>response</cite> object (e.g., add headers, change content) and then return it. This method is called in reverse order of middleware definition.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>—</p>
+</section>
+<section id="creating-a-custom-middleware">
+<h2>3. Creating a Custom Middleware<a class="headerlink" href="#creating-a-custom-middleware" title="Link to this heading"></a></h2>
+<p>To create your own middleware, define a class that inherits from <code class="docutils literal notranslate"><span class="pre">BaseMiddleware</span></code> (located at <code class="docutils literal notranslate"><span class="pre">lback.core.base_middleware.BaseMiddleware</span></code>) and implement the <code class="docutils literal notranslate"><span class="pre">process_request</span></code> and/or <code class="docutils literal notranslate"><span class="pre">process_response</span></code> methods.</p>
+<p><strong>Example: A Simple Timer Middleware</strong></p>
+<p>Let’s create a middleware that logs the time taken to process each request.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># myapp/middlewares.py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.core.response</span><span class="w"> </span><span class="kn">import</span> <span class="n">Response</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.core.base_middleware</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseMiddleware</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">RequestTimerMiddleware</span><span class="p">(</span><span class="n">BaseMiddleware</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Logs the time taken to process each request.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">process_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Response</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Records the start time of the request.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;RequestTimerMiddleware: Request started at </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">start_time</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span> <span class="c1"># Continue processing the request</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">process_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">response</span><span class="p">:</span> <span class="n">Response</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculates and logs the time taken for the request.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;start_time&#39;</span><span class="p">):</span>
+            <span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+            <span class="n">process_time</span> <span class="o">=</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">request</span><span class="o">.</span><span class="n">start_time</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Request: </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s2"> processed in </span><span class="si">{</span><span class="n">process_time</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> seconds.&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;RequestTimerMiddleware: start_time not found on request.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">response</span> <span class="c1"># Always return the response</span>
+</pre></div>
+</div>
+<p>Accessing Dependencies in Middleware</p>
+<p>Your framework’s middleware loader (<code class="docutils literal notranslate"><span class="pre">lback.core.middleware_loader.create_middleware</span></code>) automatically injects dependencies into your middleware’s <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method if they are available in the application’s context (e.g., <code class="docutils literal notranslate"><span class="pre">config</span></code>, <code class="docutils literal notranslate"><span class="pre">db_session</span></code>, <code class="docutils literal notranslate"><span class="pre">router</span></code>, <code class="docutils literal notranslate"><span class="pre">template_renderer</span></code>).</p>
+<p><strong>Example: Middleware Accessing</strong> <code class="docutils literal notranslate"><span class="pre">Config</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># myapp/middlewares.py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.core.response</span><span class="w"> </span><span class="kn">import</span> <span class="n">Response</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.core.base_middleware</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseMiddleware</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.core.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">Config</span> <span class="c1"># Import the Config type hint</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">CustomHeaderMiddleware</span><span class="p">(</span><span class="n">BaseMiddleware</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Adds a custom header to all responses, configurable via settings.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Config</span><span class="p">):</span> <span class="c1"># The &#39;config&#39; dependency is automatically injected</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">config</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">custom_header_value</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">,</span> <span class="s1">&#39;APP_CUSTOM_HEADER&#39;</span><span class="p">,</span> <span class="s1">&#39;DefaultAppValue&#39;</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;CustomHeaderMiddleware initialized with value: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">custom_header_value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">process_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">response</span><span class="p">:</span> <span class="n">Response</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
+        <span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s1">&#39;X-Framework-Custom-Header&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">custom_header_value</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Added custom header to response for </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">response</span>
+</pre></div>
+</div>
+<p>—</p>
+</section>
+<section id="registering-your-custom-middleware">
+<h2>4. Registering Your Custom Middleware<a class="headerlink" href="#registering-your-custom-middleware" title="Link to this heading"></a></h2>
+<p>After creating your middleware class, you need to register it in your application’s <code class="docutils literal notranslate"><span class="pre">MIDDLEWARES</span></code> setting, typically found in your <code class="docutils literal notranslate"><span class="pre">settings.py</span></code> (or <code class="docutils literal notranslate"><span class="pre">Config</span></code> class). The order in this list matters significantly for the execution flow.</p>
+<p>You can register middlewares as a string (the full import path to the class) or as a dictionary if you need to pass specific parameters to its constructor.</p>
+<p><strong>Example: Adding to</strong> <code class="docutils literal notranslate"><span class="pre">MIDDLEWARES</span></code> <strong>setting</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># settings.py (or your Config class)</span>
+
+<span class="n">MIDDLEWARES</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># Core middlewares (usually come first)</span>
+    <span class="s2">&quot;lback.middlewares.sqlalchemy_middleware.SQLAlchemySessionMiddleware&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;lback.middlewares.static_files_middleware.StaticFilesMiddleware&quot;</span><span class="p">,</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;lback.middlewares.session_middleware.SessionMiddleware&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">{}</span> <span class="c1"># Example: no specific params for this middleware</span>
+    <span class="p">},</span>
+    <span class="c1"># ... other built-in middlewares ...</span>
+
+    <span class="c1"># Your custom middlewares</span>
+    <span class="s2">&quot;myapp.middlewares.RequestTimerMiddleware&quot;</span><span class="p">,</span> <span class="c1"># Registered as a string</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;myapp.middlewares.CustomHeaderMiddleware&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="c1"># Parameters passed to CustomHeaderMiddleware&#39;s __init__</span>
+            <span class="c1"># Note: &#39;config&#39; is automatically injected, &#39;params&#39; are extra args</span>
+            <span class="c1"># &quot;some_extra_param&quot;: &quot;value_from_settings&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="c1"># ...</span>
+<span class="p">]</span>
+
+<span class="c1"># Example of a custom setting used by CustomHeaderMiddleware</span>
+<span class="n">APP_CUSTOM_HEADER</span> <span class="o">=</span> <span class="s2">&quot;MyAwesomeApp&quot;</span>
+</pre></div>
+</div>
+<p>—</p>
+</section>
+<section id="best-practices-for-writing-middlewares">
+<h2>5. Best Practices for Writing Middlewares<a class="headerlink" href="#best-practices-for-writing-middlewares" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Keep it Focused:</strong> Each middleware should ideally have a single, clear responsibility (e.g., authentication, logging, security header management).</p></li>
+<li><p><strong>Handle Exceptions:</strong> If your middleware performs operations that might raise exceptions (e.g., database queries, external API calls), wrap them in <code class="docutils literal notranslate"><span class="pre">try-except</span></code> blocks. Unhandled exceptions in middleware will result in a 500 Internal Server Error.</p></li>
+<li><dl class="simple">
+<dt><strong>Order Matters:</strong> The order of middlewares in your <code class="docutils literal notranslate"><span class="pre">MIDDLEWARES</span></code> list is crucial.</dt><dd><ul>
+<li><p>Middlewares that need to modify the request before others (e.g., <code class="docutils literal notranslate"><span class="pre">SessionMiddleware</span></code> before <code class="docutils literal notranslate"><span class="pre">AuthMiddleware</span></code>) should come earlier.</p></li>
+<li><p>Middlewares that need to process the final response (e.g., <code class="docutils literal notranslate"><span class="pre">SecurityHeadersMiddleware</span></code>, <code class="docutils literal notranslate"><span class="pre">TimerMiddleware</span></code>) might come later, as <code class="docutils literal notranslate"><span class="pre">process_response</span></code> runs in reverse order.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><strong>Avoid Heavy Operations in `process_request` if possible:</strong> If a middleware performs a very long-running operation in <code class="docutils literal notranslate"><span class="pre">process_request</span></code> and doesn’t short-circuit, it will delay every request. Consider if the operation can be deferred or moved to <code class="docutils literal notranslate"><span class="pre">process_response</span></code> or an asynchronous task if performance is critical.</p></li>
+<li><p><strong>Use Logging:</strong> Log important events, errors, and debugging information within your middleware to aid in troubleshooting.</p></li>
+<li><p><strong>Return Correct Types:</strong> Always ensure <code class="docutils literal notranslate"><span class="pre">process_request</span></code> returns either <code class="docutils literal notranslate"><span class="pre">None</span></code> or a <code class="docutils literal notranslate"><span class="pre">Response</span></code> object, and <code class="docutils literal notranslate"><span class="pre">process_response</span></code> always returns a <code class="docutils literal notranslate"><span class="pre">Response</span></code> object. Returning incorrect types can lead to unexpected behavior or errors.</p></li>
+<li><p><strong>Don’t Forget</strong> <code class="docutils literal notranslate"><span class="pre">super()</span></code> <strong>Calls (if overriding</strong> <code class="docutils literal notranslate"><span class="pre">BaseMiddleware</span></code> <strong>methods):</strong> If you override <code class="docutils literal notranslate"><span class="pre">__init__</span></code> in your middleware and inherit from <code class="docutils literal notranslate"><span class="pre">BaseMiddleware</span></code>, remember to call <code class="docutils literal notranslate"><span class="pre">super().__init__(**kwargs)</span></code> to ensure the base class is properly initialized.</p></li>
+</ul>
+<p>—</p>
+<p>By following these guidelines, you can effectively extend your Lback application’s functionality and manage its core behavior through custom middlewares.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Middleware%20System.html" class="btn btn-neutral float-left" title="Middleware System" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="logging_config.html" class="btn btn-neutral float-right" title="Logging Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ibrahem abo kila.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,388 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>lback.admin.views &mdash; lback 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=95f010fd" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            lback
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Configuration%20System.html">Configuration System</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/routing_system.html">Routing System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Views%20%26%20Responses.html">Views &amp; Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Templating%20System.html">Templating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Static%20Files.html">Static Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Media%20Files.html">Media Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/file-uploads.html">File Uploads in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Forms.html">Forms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Models%20%26%20Database.html">Models &amp; Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Database%20Migrations%20System.html">Database Migrations System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Authorization.html">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/sessions.html">Sessions in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Security%20Features.html">Security Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Admin%20Panel.html">Built-in Admin Panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/API%20Tools.html">API Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Signal%20System.html">Signal System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Middleware%20System.html">Middleware System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/custom_middlewares.html">Custom Middlewares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/logging_config.html">Logging Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/email-sender.html">Email Sending in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/validation_utilities.html">Validation Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/error_handling.html">Error Handling and HTTP Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Error%20Handling%20%26%20Reporting.html">Error Handling &amp; Reporting</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Deployment.html">Deployment</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/api-signals.html">Signals from BaseView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/api-signals.html#signals-from-apidocs">Signals from APIDocs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/api-signals.html#signals-from-basemodelserializer">Signals from BaseModelSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-registry-signals.html">Signals from AdminRegistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-user.html">Signals from AdminUser and Role Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-user-manager.html">Signals from AdminUserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-user-repository.html">Signals from AdminUserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html">Signals from AdminAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-jwtauth">Signals from JWTAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-oauth2auth">Signals from OAuth2Auth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-permissionrequired">Signals from PermissionRequired</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-sessionauth">Signals from SessionAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/error-handler.html">Signals from ErrorHandler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/middleware-manager.html">Signals from MiddlewareManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/migration_commands.html">Signals from MigrationCommands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/permission-repository.html">Signals from PermissionRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/role-repository.html">Signals from RoleRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/session-manager.html">Signals from SessionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/template-renderer.html">Signals from TemplateRenderer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/user-manager.html">Signals from UserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/user-model.html">Signals from User Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/user-repository.html">Signals from UserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/wsgi-application.html">Signals from WSGI Application and Server</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">Modules and Classes Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../API%20Reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../lback/lback.html">lback package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">lback</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">lback.admin.views</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for lback.admin.views</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">List</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">http</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTTPStatus</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy.orm</span><span class="w"> </span><span class="kn">import</span> <span class="n">Session</span> <span class="k">as</span> <span class="n">DBSession</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.core.response</span><span class="w"> </span><span class="kn">import</span> <span class="n">Response</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.core.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">Request</span><span class="p">,</span> <span class="n">HTTPMethod</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.utils.shortcuts</span><span class="w"> </span><span class="kn">import</span> <span class="n">render</span><span class="p">,</span> <span class="n">redirect</span><span class="p">,</span> <span class="n">return_500</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.auth.permissions</span><span class="w"> </span><span class="kn">import</span> <span class="n">PermissionRequired</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.auth.adminauth</span><span class="w"> </span><span class="kn">import</span> <span class="n">AdminAuth</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.models.adminuser</span><span class="w"> </span><span class="kn">import</span> <span class="n">AdminUser</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.utils.app_session</span><span class="w"> </span><span class="kn">import</span> <span class="n">AppSession</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.core.templates</span><span class="w"> </span><span class="kn">import</span> <span class="n">TemplateNotFound</span>
+
+
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<div class="viewcode-block" id="admin_login_page">
+<a class="viewcode-back" href="../../../lback/lback.admin.html#lback.admin.views.admin_login_page">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">admin_login_page</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Renders the admin login page.</span>
+<span class="sd">    Simplified using render helper and request properties.</span>
+<span class="sd">    Updated to use new error shortcuts.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Rendering admin login page.&quot;</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">,</span> <span class="n">AdminUser</span><span class="p">):</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Admin user already logged in. Redirecting to dashboard.&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">:</span>
+                <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="s2">&quot;You are already logged in.&quot;</span><span class="p">,</span> <span class="s2">&quot;info&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/admin/dashboard/&quot;</span><span class="p">)</span>
+
+        <span class="n">context</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">:</span>
+            <span class="n">context</span><span class="p">[</span><span class="s1">&#39;flash_messages&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get_flashed_messages</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">context</span><span class="p">[</span><span class="s1">&#39;flash_messages&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;request.session is missing in admin_login_page. Flash messages will not be displayed.&quot;</span><span class="p">)</span>
+
+
+        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;admin/login.html&quot;</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="n">TemplateNotFound</span><span class="p">:</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Admin login template &#39;admin/login.html&#39; not found.&quot;</span><span class="p">)</span>
+        <span class="k">raise</span>
+
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s2">&quot;Error rendering admin login page.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">:</span>
+             <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="s2">&quot;An internal error occurred.&quot;</span><span class="p">,</span> <span class="s2">&quot;danger&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">return_500</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">exception</span><span class="o">=</span><span class="n">e</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="admin_login_post">
+<a class="viewcode-back" href="../../../lback/lback.admin.html#lback.admin.views.admin_login_post">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">admin_login_post</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Handles the submission of the admin login form.</span>
+<span class="sd">    Authenticates the admin user and redirects to the dashboard on success.</span>
+<span class="sd">    Simplified using redirect helper and request properties.</span>
+<span class="sd">    Updated to use new error shortcuts and leverage request.POST/request.DATA.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Handling admin login POST submission for method: </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">admin_manager</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">admin_user_manager</span>
+    <span class="n">session_manager</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">session_manager</span>
+    <span class="n">db_session</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">DBSession</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">db_session</span>
+    <span class="n">user_session</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">AppSession</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">config</span>
+
+    <span class="k">if</span> <span class="n">admin_manager</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">session_manager</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">config</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+         <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;Missing core dependencies (admin_manager, session_manager, config) in admin_login_post.&quot;</span><span class="p">)</span>
+         <span class="k">return</span> <span class="n">return_500</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Internal Server Error: Core dependencies missing.&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">db_session</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Database session not found on request context in admin_login_post.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">return_500</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Internal Server Error: Database session not available.&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">user_session</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Session object not found on request context in admin_login_post.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">return_500</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Internal Server Error: Session not available.&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">!=</span> <span class="n">HTTPMethod</span><span class="o">.</span><span class="n">POST</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Received non-POST request for login submission: </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">error_handler</span><span class="p">:</span>
+             <span class="k">return</span> <span class="n">request</span><span class="o">.</span><span class="n">error_handler</span><span class="o">.</span><span class="n">handle_405</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">allowed_methods</span><span class="o">=</span><span class="p">[</span><span class="n">HTTPMethod</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">value</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+             <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">body</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;Method Not Allowed&quot;</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">METHOD_NOT_ALLOWED</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">,</span> <span class="s1">&#39;Allow&#39;</span><span class="p">:</span> <span class="n">HTTPMethod</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">value</span><span class="p">})</span>
+
+
+    <span class="n">form_data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">form_data</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+         <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;admin_login_post: request.POST did not return a dictionary. Type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">form_data</span><span class="p">)</span><span class="si">}</span><span class="s2">. Expected dict.&quot;</span><span class="p">)</span>
+         <span class="k">if</span> <span class="n">user_session</span><span class="p">:</span> <span class="n">user_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="s2">&quot;Invalid request data for login.&quot;</span><span class="p">,</span> <span class="s2">&quot;error&quot;</span><span class="p">)</span>
+         <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/admin/login/&quot;</span><span class="p">)</span>
+
+    <span class="n">username</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">form_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">)</span>
+    <span class="n">password</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">form_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">)</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;admin_login_post: Extracted data from request.POST: username=</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">, password present: </span><span class="si">{</span><span class="n">password</span><span class="w"> </span><span class="ow">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="kc">None</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">username</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">password</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;admin_login_post: Missing username or password after extracting from request.POST.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">user_session</span><span class="p">:</span> <span class="n">user_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="s2">&quot;Username and password are required.&quot;</span><span class="p">,</span> <span class="s2">&quot;warning&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/admin/login/&quot;</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">admin_auth_instance</span> <span class="o">=</span> <span class="n">AdminAuth</span><span class="p">(</span>
+            <span class="n">admin_user_manager</span><span class="o">=</span><span class="n">admin_manager</span><span class="p">,</span>
+            <span class="n">session_manager</span><span class="o">=</span><span class="n">session_manager</span>
+        <span class="p">)</span>
+
+        <span class="n">authenticated_admin_user</span> <span class="o">=</span> <span class="n">admin_auth_instance</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">db_session</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">authenticated_admin_user</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Admin login successful for user: </span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">. Redirecting to dashboard.&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">user_session</span><span class="p">:</span> <span class="n">user_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="s2">&quot;Login successful!&quot;</span><span class="p">,</span> <span class="s2">&quot;success&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/admin/dashboard/&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Admin login failed for user: </span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">. Invalid credentials.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/admin/login/&quot;</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error during admin login process for user </span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">user_session</span><span class="p">:</span> <span class="n">user_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;An error occurred during login.&quot;</span><span class="p">,</span> <span class="s2">&quot;danger&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">return_500</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">exception</span><span class="o">=</span><span class="n">e</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="admin_dashboard_page">
+<a class="viewcode-back" href="../../../lback/lback.admin.html#lback.admin.views.admin_dashboard_page">[docs]</a>
+<span class="nd">@PermissionRequired</span><span class="p">(</span><span class="s2">&quot;view_dashboard&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">admin_dashboard_page</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Displays the admin dashboard page.</span>
+<span class="sd">    Requires authentication and &#39;view_dashboard&#39; permission.</span>
+<span class="sd">    Simplified using render helper and request properties.</span>
+<span class="sd">    Updated to use new error shortcuts.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Rendering admin dashboard page for path: </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">admin_registry</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">admin_registry</span>
+
+    <span class="k">if</span> <span class="n">admin_registry</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;Missing AdminRegistry dependency in admin_dashboard_page.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">return_500</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Internal Server Error: Admin registry missing.&quot;</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">registered_models_names</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">admin_registry</span><span class="p">,</span> <span class="s1">&#39;get_registered_models&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">callable</span><span class="p">(</span><span class="n">admin_registry</span><span class="o">.</span><span class="n">get_registered_models</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                 <span class="n">registered_models_raw</span> <span class="o">=</span> <span class="n">admin_registry</span><span class="o">.</span><span class="n">get_registered_models</span><span class="p">()</span>
+                 <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">registered_models_raw</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+                     <span class="n">registered_models_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">registered_models_raw</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+                 <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">registered_models_raw</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                     <span class="n">registered_models_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">model</span><span class="o">.</span><span class="vm">__name__</span> <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">registered_models_raw</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s1">&#39;__name__&#39;</span><span class="p">)]</span>
+                 <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Successfully retrieved registered models from AdminRegistry. Count: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">registered_models_names</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">reg_e</span><span class="p">:</span>
+                 <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error accessing registered models from AdminRegistry: </span><span class="si">{</span><span class="n">reg_e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                 <span class="n">registered_models_names</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;AdminRegistry does not have a standard method like get_registered_models(). Cannot list models.&quot;</span><span class="p">)</span>
+
+        <span class="n">context</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+             <span class="s2">&quot;registered_models&quot;</span><span class="p">:</span> <span class="n">registered_models_names</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;admin/admin_dashboard.html&quot;</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="n">TemplateNotFound</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dashboard template &#39;admin/admin_dashboard.html&#39; not found.&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> 
+
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error rendering admin dashboard page.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">:</span>
+             <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="s2">&quot;An internal error occurred.&quot;</span><span class="p">,</span> <span class="s2">&quot;danger&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">return_500</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">exception</span><span class="o">=</span><span class="n">e</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="admin_logout_post">
+<a class="viewcode-back" href="../../../lback/lback.admin.html#lback.admin.views.admin_logout_post">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">admin_logout_post</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Handles admin logout.</span>
+<span class="sd">    Requires authentication.</span>
+<span class="sd">    Simplified using redirect helper and request properties.</span>
+<span class="sd">    Updated to use new error shortcuts.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Handling admin logout POST submission.&quot;</span><span class="p">)</span>
+
+    <span class="n">user_session</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span>
+
+    <span class="k">if</span> <span class="n">user_session</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;UserSession dependency is missing in admin_logout_post. Cannot perform logout.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/admin/login/&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">!=</span> <span class="n">HTTPMethod</span><span class="o">.</span><span class="n">POST</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Received non-POST request for logout submission: </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">error_handler</span><span class="p">:</span>
+             <span class="k">return</span> <span class="n">request</span><span class="o">.</span><span class="n">error_handler</span><span class="o">.</span><span class="n">handle_405</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">allowed_methods</span><span class="o">=</span><span class="p">[</span><span class="n">HTTPMethod</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">value</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+             <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">body</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;Method Not Allowed&quot;</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">METHOD_NOT_ALLOWED</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">,</span> <span class="s1">&#39;Allow&#39;</span><span class="p">:</span> <span class="n">HTTPMethod</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">value</span><span class="p">})</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">user_session</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Admin user logged out successfully.&quot;</span><span class="p">)</span>
+        <span class="n">user_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="s2">&quot;You have been logged out.&quot;</span><span class="p">,</span> <span class="s2">&quot;success&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/admin/login/&quot;</span><span class="p">)</span>
+    
+    
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s2">&quot;Error during admin logout process.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">user_session</span><span class="p">:</span> <span class="n">user_session</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;An error occurred during logout.&quot;</span><span class="p">,</span> <span class="s2">&quot;danger&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">return_500</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">exception</span><span class="o">=</span><span class="n">e</span><span class="p">)</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ibrahem abo kila.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

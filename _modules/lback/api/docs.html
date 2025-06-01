@@ -1,0 +1,638 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>lback.api.docs &mdash; lback 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=95f010fd" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            lback
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Configuration%20System.html">Configuration System</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/routing_system.html">Routing System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Views%20%26%20Responses.html">Views &amp; Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Templating%20System.html">Templating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Static%20Files.html">Static Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Media%20Files.html">Media Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/file-uploads.html">File Uploads in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Forms.html">Forms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Models%20%26%20Database.html">Models &amp; Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Database%20Migrations%20System.html">Database Migrations System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Authorization.html">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/sessions.html">Sessions in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Security%20Features.html">Security Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Admin%20Panel.html">Built-in Admin Panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/API%20Tools.html">API Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Signal%20System.html">Signal System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Middleware%20System.html">Middleware System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/custom_middlewares.html">Custom Middlewares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/logging_config.html">Logging Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/email-sender.html">Email Sending in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/validation_utilities.html">Validation Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/error_handling.html">Error Handling and HTTP Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Error%20Handling%20%26%20Reporting.html">Error Handling &amp; Reporting</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Deployment.html">Deployment</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/api-signals.html">Signals from BaseView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/api-signals.html#signals-from-apidocs">Signals from APIDocs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/api-signals.html#signals-from-basemodelserializer">Signals from BaseModelSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-registry-signals.html">Signals from AdminRegistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-user.html">Signals from AdminUser and Role Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-user-manager.html">Signals from AdminUserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-user-repository.html">Signals from AdminUserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html">Signals from AdminAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-jwtauth">Signals from JWTAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-oauth2auth">Signals from OAuth2Auth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-permissionrequired">Signals from PermissionRequired</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-sessionauth">Signals from SessionAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/error-handler.html">Signals from ErrorHandler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/middleware-manager.html">Signals from MiddlewareManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/migration_commands.html">Signals from MigrationCommands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/permission-repository.html">Signals from PermissionRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/role-repository.html">Signals from RoleRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/session-manager.html">Signals from SessionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/template-renderer.html">Signals from TemplateRenderer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/user-manager.html">Signals from UserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/user-model.html">Signals from User Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/user-repository.html">Signals from UserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/wsgi-application.html">Signals from WSGI Application and Server</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">Modules and Classes Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../API%20Reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../lback/lback.html">lback package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">lback</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">lback.api.docs</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for lback.api.docs</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">http</span><span class="w"> </span><span class="kn">import</span>  <span class="n">HTTPStatus</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Type</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy.orm</span><span class="w"> </span><span class="kn">import</span> <span class="n">RelationshipProperty</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.core.router</span><span class="w"> </span><span class="kn">import</span> <span class="n">Router</span><span class="p">,</span> <span class="n">Route</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.core.router</span><span class="w"> </span><span class="kn">import</span> <span class="n">Router</span><span class="p">,</span> <span class="n">Route</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.core.signals</span><span class="w"> </span><span class="kn">import</span> <span class="n">dispatcher</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.core.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">TypeConverter</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.serializer</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseModelSerializer</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="APIDocs">
+<a class="viewcode-back" href="../../../lback/lback.api.html#lback.api.docs.APIDocs">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">APIDocs</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generates OpenAPI (Swagger) documentation for the Lback API.</span>
+<span class="sd">    Aims to automatically collect documentation details from registered routes and views.</span>
+<span class="sd">    Integrates SignalDispatcher to emit events during the documentation generation process.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="APIDocs.__init__">
+<a class="viewcode-back" href="../../../lback/lback.api.html#lback.api.docs.APIDocs.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">router</span><span class="p">:</span> <span class="n">Router</span><span class="p">,</span> <span class="n">title</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Lback API&quot;</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span> <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;API Documentation&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Intializes the APIDocs generator.</span>
+<span class="sd">        Emits &#39;api_docs_initialized&#39; signal.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            router: The framework&#39;s central Router instance.</span>
+<span class="sd">            title: The title of the API documentation.</span>
+<span class="sd">            version: The version of the API.</span>
+<span class="sd">            description: A description of the API.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">router</span><span class="p">,</span> <span class="n">Router</span><span class="p">):</span>
+             <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;APIDocs initialized without a valid Router instance.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">router</span> <span class="o">=</span> <span class="n">router</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="n">title</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="n">version</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="n">description</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">paths</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">components</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;schemas&quot;</span><span class="p">:</span> <span class="p">{},</span>
+            <span class="s2">&quot;securitySchemes&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;bearerAuth&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;http&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;scheme&quot;</span><span class="p">:</span> <span class="s2">&quot;bearer&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;bearerFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;JWT&quot;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;APIDocs initialized.&quot;</span><span class="p">)</span>
+
+        <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;api_docs_initialized&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">title</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">version</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">description</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Signal &#39;api_docs_initialized&#39; sent.&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="APIDocs.collect_documentation">
+<a class="viewcode-back" href="../../../lback/lback.api.html#lback.api.docs.APIDocs.collect_documentation">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">collect_documentation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Collects documentation details from the registered routes and views.</span>
+<span class="sd">        This method orchestrates the automatic documentation generation.</span>
+<span class="sd">        Emits &#39;api_docs_collection_started&#39; and &#39;api_docs_collection_finished&#39; signals.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Collecting API documentation from routes and views.&quot;</span><span class="p">)</span>
+
+        <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;api_docs_collection_started&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Signal &#39;api_docs_collection_started&#39; sent.&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">paths</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">processed_routes_count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">skipped_routes_count</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">for</span> <span class="n">route</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">router</span><span class="o">.</span><span class="n">routes</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_document_route</span><span class="p">(</span><span class="n">route</span><span class="p">):</span>
+                <span class="n">processed_routes_count</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">skipped_routes_count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Documentation collection completed. Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">paths</span><span class="p">)</span><span class="si">}</span><span class="s2"> paths. Processed </span><span class="si">{</span><span class="n">processed_routes_count</span><span class="si">}</span><span class="s2"> routes, Skipped </span><span class="si">{</span><span class="n">skipped_routes_count</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+        <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;api_docs_collection_finished&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">paths_count</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">paths</span><span class="p">),</span> <span class="n">processed_routes</span><span class="o">=</span><span class="n">processed_routes_count</span><span class="p">,</span> <span class="n">skipped_routes</span><span class="o">=</span><span class="n">skipped_routes_count</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Signal &#39;api_docs_collection_finished&#39; sent.&quot;</span><span class="p">)</span></div>
+
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_document_route</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">route</span><span class="p">:</span> <span class="n">Route</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Documents a single route by inspecting its view and methods.</span>
+<span class="sd">        Emits &#39;api_docs_route_documented&#39; signal on success.</span>
+<span class="sd">        Emits &#39;api_docs_route_skipped&#39; signal if a route cannot be documented.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            route: The Route object to document.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            True if the route was successfully documented (at least one method), False otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">route</span><span class="o">.</span><span class="n">path</span>
+        <span class="n">view_class</span> <span class="o">=</span> <span class="n">route</span><span class="o">.</span><span class="n">view</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">view_class</span><span class="p">,</span> <span class="s1">&#39;methods&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">view_class</span><span class="o">.</span><span class="n">methods</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">view_class</span><span class="o">.</span><span class="n">methods</span><span class="p">:</span>
+             <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;View </span><span class="si">{</span><span class="nb">getattr</span><span class="p">(</span><span class="n">view_class</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;__name__&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;N/A&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2"> for path &#39;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&#39; has no defined or empty &#39;methods&#39; attribute. Skipping documentation.&quot;</span><span class="p">)</span>
+             <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;api_docs_route_skipped&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">route</span><span class="o">=</span><span class="n">route</span><span class="p">,</span> <span class="n">reason</span><span class="o">=</span><span class="s2">&quot;no_methods&quot;</span><span class="p">)</span>
+             <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Signal &#39;api_docs_route_skipped&#39; (no_methods) sent for path &#39;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">)</span>
+             <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="n">path</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">paths</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">paths</span><span class="p">[</span><span class="n">path</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="n">documented_methods_count</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">for</span> <span class="n">method</span> <span class="ow">in</span> <span class="n">view_class</span><span class="o">.</span><span class="n">methods</span><span class="p">:</span>
+            <span class="n">method_lower</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+            <span class="n">handler_method</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">view_class</span><span class="p">,</span> <span class="n">method_lower</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">handler_method</span> <span class="ow">and</span> <span class="nb">callable</span><span class="p">(</span><span class="n">handler_method</span><span class="p">):</span>
+                <span class="n">operation_spec</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+                <span class="n">docstring</span> <span class="o">=</span> <span class="n">handler_method</span><span class="o">.</span><span class="vm">__doc__</span>
+                <span class="k">if</span> <span class="n">docstring</span><span class="p">:</span>
+                    <span class="n">lines</span> <span class="o">=</span> <span class="n">docstring</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+                    <span class="n">operation_spec</span><span class="p">[</span><span class="s2">&quot;summary&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                         <span class="n">operation_spec</span><span class="p">[</span><span class="s2">&quot;description&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Extracted summary/description for </span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">route</span><span class="o">.</span><span class="n">_variable_names</span><span class="p">:</span>
+                    <span class="n">operation_spec</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+                    <span class="k">for</span> <span class="n">param_name</span><span class="p">,</span> <span class="n">param_type_converter</span> <span class="ow">in</span> <span class="n">route</span><span class="o">.</span><span class="n">_variable_names</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                        <span class="n">param_type</span> <span class="o">=</span> <span class="s2">&quot;string&quot;</span>
+                        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">param_type_converter</span><span class="p">,</span> <span class="s1">&#39;__name__&#39;</span><span class="p">):</span>
+                            <span class="n">converter_name</span> <span class="o">=</span> <span class="n">param_type_converter</span><span class="o">.</span><span class="vm">__name__</span>
+                            <span class="k">if</span> <span class="s1">&#39;int&#39;</span> <span class="ow">in</span> <span class="n">converter_name</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+                                <span class="n">param_type</span> <span class="o">=</span> <span class="s2">&quot;integer&quot;</span>
+                            <span class="k">elif</span> <span class="s1">&#39;float&#39;</span> <span class="ow">in</span> <span class="n">converter_name</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+                                <span class="n">param_type</span> <span class="o">=</span> <span class="s2">&quot;number&quot;</span>
+                            <span class="k">elif</span> <span class="s1">&#39;bool&#39;</span> <span class="ow">in</span> <span class="n">converter_name</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+                                <span class="n">param_type</span> <span class="o">=</span> <span class="s2">&quot;boolean&quot;</span>
+
+                        <span class="n">param_spec</span> <span class="o">=</span> <span class="p">{</span>
+                             <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">param_name</span><span class="p">,</span>
+                             <span class="s2">&quot;in&quot;</span><span class="p">:</span> <span class="s2">&quot;path&quot;</span><span class="p">,</span>
+                             <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                             <span class="s2">&quot;schema&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="n">param_type</span><span class="p">},</span>
+
+                         <span class="p">}</span>
+                        <span class="n">operation_spec</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">param_spec</span><span class="p">)</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Documented path parameters for </span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">operation_spec</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;parameters&quot;</span><span class="p">,</span> <span class="p">[])</span>
+
+                <span class="n">response_spec</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="nb">str</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">view_class</span><span class="p">,</span> <span class="s1">&#39;default_response_status&#39;</span><span class="p">,</span> <span class="mi">200</span><span class="p">)):</span> <span class="p">{</span>
+                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Successful Response&quot;</span>
+
+                    <span class="p">},</span>
+                <span class="p">}</span>
+                <span class="n">operation_spec</span><span class="p">[</span><span class="s2">&quot;responses&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">response_spec</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Documented responses for </span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">. (Basic)&quot;</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">route</span><span class="o">.</span><span class="n">requires_auth</span><span class="p">:</span>
+                     <span class="n">operation_spec</span><span class="p">[</span><span class="s2">&quot;security&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;bearerAuth&quot;</span><span class="p">:</span> <span class="p">[]}]</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">paths</span><span class="p">[</span><span class="n">path</span><span class="p">][</span><span class="n">method_lower</span><span class="p">]</span> <span class="o">=</span> <span class="n">operation_spec</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Documented </span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+                <span class="n">documented_methods_count</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                 <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;View </span><span class="si">{</span><span class="nb">getattr</span><span class="p">(</span><span class="n">view_class</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;__name__&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;N/A&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2"> for path &#39;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&#39; lists method &#39;</span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">&#39; but no callable handler method &#39;</span><span class="si">{</span><span class="n">method_lower</span><span class="si">}</span><span class="s2">&#39; is defined. Skipping documentation for this method.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">documented_methods_count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;api_docs_route_documented&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">route</span><span class="o">=</span><span class="n">route</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">documented_methods_count</span><span class="o">=</span><span class="n">documented_methods_count</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Signal &#39;api_docs_route_documented&#39; sent for path &#39;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&#39;. Documented methods: </span><span class="si">{</span><span class="n">documented_methods_count</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;api_docs_route_skipped&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">route</span><span class="o">=</span><span class="n">route</span><span class="p">,</span> <span class="n">reason</span><span class="o">=</span><span class="s2">&quot;no_callable_methods&quot;</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Signal &#39;api_docs_route_skipped&#39; (no_callable_methods) sent for path &#39;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+
+<div class="viewcode-block" id="APIDocs.generate_openapi">
+<a class="viewcode-back" href="../../../lback/lback.api.html#lback.api.docs.APIDocs.generate_openapi">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">generate_openapi</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generates the full OpenAPI specification dictionary.</span>
+<span class="sd">        Emits &#39;openapi_spec_generated&#39; signal.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">paths</span><span class="p">:</span>
+             <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;No paths collected. Running documentation collection.&quot;</span><span class="p">)</span>
+             <span class="bp">self</span><span class="o">.</span><span class="n">collect_documentation</span><span class="p">()</span>
+
+        <span class="n">openapi_spec</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;openapi&quot;</span><span class="p">:</span> <span class="s2">&quot;3.0.0&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;info&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">title</span><span class="p">,</span>
+                <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">version</span><span class="p">,</span>
+                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">description</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;paths&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">paths</span><span class="p">,</span>
+            <span class="s2">&quot;components&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">components</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;OpenAPI specification generated.&quot;</span><span class="p">)</span>
+        <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;openapi_spec_generated&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">spec</span><span class="o">=</span><span class="n">openapi_spec</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Signal &#39;openapi_spec_generated&#39; sent.&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">openapi_spec</span></div>
+
+
+<div class="viewcode-block" id="APIDocs.as_json">
+<a class="viewcode-back" href="../../../lback/lback.api.html#lback.api.docs.APIDocs.as_json">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">as_json</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the OpenAPI specification as a JSON string.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">generate_openapi</span><span class="p">(),</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span></div>
+
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">register_serializer_schema</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">serializer_class</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">BaseModelSerializer</span><span class="p">],</span> <span class="n">schema_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generates an OpenAPI schema from a Serializer and adds it to components.</span>
+<span class="sd">        Emits &#39;api_docs_serializer_schema_registered&#39; signal.</span>
+<span class="sd">        Note: This is a basic placeholder implementation. A real implementation would</span>
+<span class="sd">        inspect the serializer fields to build the schema.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Registering schema for serializer: </span><span class="si">{</span><span class="n">serializer_class</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> as </span><span class="si">{</span><span class="n">schema_name</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+        <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;api_docs_serializer_schema_registered&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">serializer_class</span><span class="o">=</span><span class="n">serializer_class</span><span class="p">,</span> <span class="n">schema_name</span><span class="o">=</span><span class="n">schema_name</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Signal &#39;api_docs_serializer_schema_registered&#39; sent for serializer &#39;</span><span class="si">{</span><span class="n">serializer_class</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">)</span>
+
+        <span class="n">schema</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="p">[]</span>
+        <span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">components</span><span class="p">[</span><span class="s2">&quot;schemas&quot;</span><span class="p">][</span><span class="n">schema_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">schema</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Schema &#39;</span><span class="si">{</span><span class="n">schema_name</span><span class="si">}</span><span class="s2">&#39; registered from serializer &#39;</span><span class="si">{</span><span class="n">serializer_class</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">)</span>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_document_route</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">route</span><span class="p">:</span> <span class="n">Route</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Documents a single route by inspecting its view and methods.</span>
+<span class="sd">        Emits &#39;api_docs_route_documented&#39; signal on success.</span>
+<span class="sd">        Emits &#39;api_docs_route_skipped&#39; signal if a route cannot be documented.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            route: The Route object to document.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            True if the route was successfully documented (at least one method), False otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">route</span><span class="o">.</span><span class="n">path</span>
+        <span class="n">view_class</span> <span class="o">=</span> <span class="n">route</span><span class="o">.</span><span class="n">view_class</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">view_class</span><span class="p">,</span> <span class="s1">&#39;methods&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">view_class</span><span class="o">.</span><span class="n">methods</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">view_class</span><span class="o">.</span><span class="n">methods</span><span class="p">:</span>
+             <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;View </span><span class="si">{</span><span class="nb">getattr</span><span class="p">(</span><span class="n">view_class</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;__name__&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;N/A&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2"> for path &#39;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&#39; has no defined or empty &#39;methods&#39; attribute. Skipping documentation.&quot;</span><span class="p">)</span>
+             <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;api_docs_route_skipped&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">route</span><span class="o">=</span><span class="n">route</span><span class="p">,</span> <span class="n">reason</span><span class="o">=</span><span class="s2">&quot;no_methods&quot;</span><span class="p">)</span>
+             <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Signal &#39;api_docs_route_skipped&#39; (no_methods) sent for path &#39;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">)</span>
+             <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="n">path</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">paths</span><span class="p">:</span>
+            <span class="n">openapi_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_convert_path_to_openapi</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">route</span><span class="o">.</span><span class="n">_variable_names</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">paths</span><span class="p">[</span><span class="n">openapi_path</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="n">documented_methods_count</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">for</span> <span class="n">method</span> <span class="ow">in</span> <span class="n">view_class</span><span class="o">.</span><span class="n">methods</span><span class="p">:</span>
+            <span class="n">method_lower</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+            <span class="n">handler_method</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">view_class</span><span class="p">,</span> <span class="n">method_lower</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">handler_method</span> <span class="ow">and</span> <span class="nb">callable</span><span class="p">(</span><span class="n">handler_method</span><span class="p">):</span>
+                <span class="n">operation_spec</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+                <span class="n">docstring</span> <span class="o">=</span> <span class="n">handler_method</span><span class="o">.</span><span class="vm">__doc__</span>
+                <span class="k">if</span> <span class="n">docstring</span><span class="p">:</span>
+                    <span class="n">lines</span> <span class="o">=</span> <span class="n">docstring</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+                    <span class="n">operation_spec</span><span class="p">[</span><span class="s2">&quot;summary&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                        <span class="n">operation_spec</span><span class="p">[</span><span class="s2">&quot;description&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Extracted summary/description for </span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">route</span><span class="o">.</span><span class="n">_variable_names</span><span class="p">:</span>
+                    <span class="n">operation_spec</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+                    <span class="k">for</span> <span class="n">param_name</span><span class="p">,</span> <span class="n">param_type_converter</span> <span class="ow">in</span> <span class="n">route</span><span class="o">.</span><span class="n">_variable_names</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                        <span class="n">param_type</span> <span class="o">=</span> <span class="s2">&quot;string&quot;</span>
+                        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">param_type_converter</span><span class="p">,</span> <span class="n">TypeConverter</span><span class="p">):</span>
+                            <span class="n">param_type</span> <span class="o">=</span> <span class="n">param_type_converter</span><span class="o">.</span><span class="n">openapi_type</span>
+                        <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">param_type_converter</span><span class="p">,</span> <span class="s1">&#39;__name__&#39;</span><span class="p">):</span>
+                            <span class="n">converter_name</span> <span class="o">=</span> <span class="n">param_type_converter</span><span class="o">.</span><span class="vm">__name__</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+                            <span class="k">if</span> <span class="s1">&#39;int&#39;</span> <span class="ow">in</span> <span class="n">converter_name</span><span class="p">:</span> <span class="n">param_type</span> <span class="o">=</span> <span class="s2">&quot;integer&quot;</span>
+                            <span class="k">elif</span> <span class="s1">&#39;float&#39;</span> <span class="ow">in</span> <span class="n">converter_name</span><span class="p">:</span> <span class="n">param_type</span> <span class="o">=</span> <span class="s2">&quot;number&quot;</span>
+                            <span class="k">elif</span> <span class="s1">&#39;bool&#39;</span> <span class="ow">in</span> <span class="n">converter_name</span><span class="p">:</span> <span class="n">param_type</span> <span class="o">=</span> <span class="s2">&quot;boolean&quot;</span>
+
+                        <span class="n">param_spec</span> <span class="o">=</span> <span class="p">{</span>
+                            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">param_name</span><span class="p">,</span>
+                            <span class="s2">&quot;in&quot;</span><span class="p">:</span> <span class="s2">&quot;path&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                            <span class="s2">&quot;schema&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="n">param_type</span><span class="p">},</span>
+                        <span class="p">}</span>
+                        <span class="n">operation_spec</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">param_spec</span><span class="p">)</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Documented path parameters for </span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">operation_spec</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;parameters&quot;</span><span class="p">,</span> <span class="p">[])</span>
+
+                <span class="k">if</span> <span class="n">method_lower</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;post&quot;</span><span class="p">,</span> <span class="s2">&quot;put&quot;</span><span class="p">,</span> <span class="s2">&quot;patch&quot;</span><span class="p">]:</span>
+                    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">view_class</span><span class="p">,</span> <span class="s1">&#39;serializer_class&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">view_class</span><span class="o">.</span><span class="n">serializer_class</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">schema_name</span> <span class="o">=</span> <span class="n">view_class</span><span class="o">.</span><span class="n">serializer_class</span><span class="o">.</span><span class="vm">__name__</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">register_serializer_schema</span><span class="p">(</span><span class="n">view_class</span><span class="o">.</span><span class="n">serializer_class</span><span class="p">,</span> <span class="n">schema_name</span><span class="p">)</span>
+                        <span class="n">operation_spec</span><span class="p">[</span><span class="s2">&quot;requestBody&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                            <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                            <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;application/json&quot;</span><span class="p">:</span> <span class="p">{</span>
+                                    <span class="s2">&quot;schema&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;$ref&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;#/components/schemas/</span><span class="si">{</span><span class="n">schema_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">}</span>
+                                <span class="p">}</span>
+                            <span class="p">}</span>
+                        <span class="p">}</span>
+                        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Documented request body for </span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2"> using </span><span class="si">{</span><span class="n">schema_name</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;View </span><span class="si">{</span><span class="nb">getattr</span><span class="p">(</span><span class="n">view_class</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;__name__&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;N/A&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2"> for path &#39;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&#39; method &#39;</span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">&#39; has no serializer_class for request body.&quot;</span><span class="p">)</span>
+                        <span class="n">operation_spec</span><span class="p">[</span><span class="s2">&quot;requestBody&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;application/json&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;schema&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">}}}}</span> 
+
+                <span class="n">response_spec</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="nb">str</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">view_class</span><span class="p">,</span> <span class="s1">&#39;default_response_status&#39;</span><span class="p">,</span> <span class="mi">200</span><span class="p">)):</span> <span class="p">{</span>
+                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Successful Response&quot;</span>
+                    <span class="p">},</span>
+                    <span class="nb">str</span><span class="p">(</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">BAD_REQUEST</span><span class="o">.</span><span class="n">value</span><span class="p">):</span> <span class="p">{</span>
+                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Bad Request / Validation Error&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;application/json&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;schema&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span> <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;detail&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">},</span> <span class="s2">&quot;errors&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">}}}}}</span>
+                    <span class="p">},</span>
+                    <span class="nb">str</span><span class="p">(</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">NOT_FOUND</span><span class="o">.</span><span class="n">value</span><span class="p">):</span> <span class="p">{</span>
+                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Not Found&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;application/json&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;schema&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span> <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;detail&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">}}}}}</span>
+                    <span class="p">},</span>
+                    <span class="nb">str</span><span class="p">(</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">UNAUTHORIZED</span><span class="o">.</span><span class="n">value</span><span class="p">):</span> <span class="p">{</span>
+                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Unauthorized&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;application/json&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;schema&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span> <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;detail&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">}}}}}</span>
+                    <span class="p">},</span>
+                    <span class="nb">str</span><span class="p">(</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">FORBIDDEN</span><span class="o">.</span><span class="n">value</span><span class="p">):</span> <span class="p">{</span>
+                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Forbidden&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;application/json&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;schema&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span> <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;detail&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">}}}}}</span>
+                    <span class="p">},</span>
+                    <span class="nb">str</span><span class="p">(</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">INTERNAL_SERVER_ERROR</span><span class="o">.</span><span class="n">value</span><span class="p">):</span> <span class="p">{</span>
+                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Internal Server Error&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;application/json&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;schema&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span> <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;detail&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">}}}}}</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+                
+                <span class="k">if</span> <span class="n">method_lower</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;get&quot;</span><span class="p">,</span> <span class="s2">&quot;post&quot;</span><span class="p">,</span> <span class="s2">&quot;put&quot;</span><span class="p">,</span> <span class="s2">&quot;patch&quot;</span><span class="p">]</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">view_class</span><span class="p">,</span> <span class="s1">&#39;serializer_class&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">view_class</span><span class="o">.</span><span class="n">serializer_class</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">response_schema_name</span> <span class="o">=</span> <span class="n">view_class</span><span class="o">.</span><span class="n">serializer_class</span><span class="o">.</span><span class="vm">__name__</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">register_serializer_schema</span><span class="p">(</span><span class="n">view_class</span><span class="o">.</span><span class="n">serializer_class</span><span class="p">,</span> <span class="n">response_schema_name</span><span class="p">)</span>
+                    <span class="n">response_spec</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">view_class</span><span class="p">,</span> <span class="s1">&#39;default_response_status&#39;</span><span class="p">,</span> <span class="mi">200</span><span class="p">))][</span><span class="s2">&quot;content&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                        <span class="s2">&quot;application/json&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="s2">&quot;schema&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;$ref&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;#/components/schemas/</span><span class="si">{</span><span class="n">response_schema_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">}</span>
+                        <span class="p">}</span>
+                    <span class="p">}</span>
+                
+                <span class="n">operation_spec</span><span class="p">[</span><span class="s2">&quot;responses&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">response_spec</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Documented responses for </span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">route</span><span class="o">.</span><span class="n">requires_auth</span><span class="p">:</span>
+                    <span class="n">operation_spec</span><span class="p">[</span><span class="s2">&quot;security&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;bearerAuth&quot;</span><span class="p">:</span> <span class="p">[]}]</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">paths</span><span class="p">[</span><span class="n">openapi_path</span><span class="p">][</span><span class="n">method_lower</span><span class="p">]</span> <span class="o">=</span> <span class="n">operation_spec</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Documented </span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+                <span class="n">documented_methods_count</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;View </span><span class="si">{</span><span class="nb">getattr</span><span class="p">(</span><span class="n">view_class</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;__name__&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;N/A&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2"> for path &#39;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&#39; lists method &#39;</span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">&#39; but no callable handler method &#39;</span><span class="si">{</span><span class="n">method_lower</span><span class="si">}</span><span class="s2">&#39; is defined. Skipping documentation for this method.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">documented_methods_count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;api_docs_route_documented&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">route</span><span class="o">=</span><span class="n">route</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">documented_methods_count</span><span class="o">=</span><span class="n">documented_methods_count</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Signal &#39;api_docs_route_documented&#39; sent for path &#39;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&#39;. Documented methods: </span><span class="si">{</span><span class="n">documented_methods_count</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;api_docs_route_skipped&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">route</span><span class="o">=</span><span class="n">route</span><span class="p">,</span> <span class="n">reason</span><span class="o">=</span><span class="s2">&quot;no_callable_methods&quot;</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Signal &#39;api_docs_route_skipped&#39; (no_callable_methods) sent for path &#39;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_convert_path_to_openapi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">variable_names</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Converts Lback path format to OpenAPI path format.&quot;&quot;&quot;</span>
+        <span class="n">openapi_path</span> <span class="o">=</span> <span class="n">path</span>
+        <span class="k">for</span> <span class="n">var_name</span> <span class="ow">in</span> <span class="n">variable_names</span><span class="p">:</span>
+            <span class="n">openapi_path</span> <span class="o">=</span> <span class="n">openapi_path</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">{{</span><span class="si">{</span><span class="n">var_name</span><span class="si">}</span><span class="s2">:int</span><span class="se">}}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="se">{{</span><span class="si">{</span><span class="n">var_name</span><span class="si">}</span><span class="se">}}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">openapi_path</span> <span class="o">=</span> <span class="n">openapi_path</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">{{</span><span class="si">{</span><span class="n">var_name</span><span class="si">}</span><span class="se">}}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="se">{{</span><span class="si">{</span><span class="n">var_name</span><span class="si">}</span><span class="se">}}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">openapi_path</span>
+
+<div class="viewcode-block" id="APIDocs.register_serializer_schema">
+<a class="viewcode-back" href="../../../lback/lback.api.html#lback.api.docs.APIDocs.register_serializer_schema">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">register_serializer_schema</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">serializer_class</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">BaseModelSerializer</span><span class="p">],</span> <span class="n">schema_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generates an OpenAPI schema from a BaseModelSerializer and adds it to components.</span>
+<span class="sd">        This implementation will inspect the serializer fields to build the schema.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">schema_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">components</span><span class="p">[</span><span class="s2">&quot;schemas&quot;</span><span class="p">]:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Schema &#39;</span><span class="si">{</span><span class="n">schema_name</span><span class="si">}</span><span class="s2">&#39; already registered. Skipping.&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Registering schema for serializer: </span><span class="si">{</span><span class="n">serializer_class</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> as </span><span class="si">{</span><span class="n">schema_name</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+        <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;api_docs_serializer_schema_registered&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">serializer_class</span><span class="o">=</span><span class="n">serializer_class</span><span class="p">,</span> <span class="n">schema_name</span><span class="o">=</span><span class="n">schema_name</span><span class="p">)</span>
+
+        <span class="n">schema</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{},</span>
+            <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="p">[]</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">serializer_class</span><span class="p">,</span> <span class="s1">&#39;Meta&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">serializer_class</span><span class="o">.</span><span class="n">Meta</span><span class="p">,</span> <span class="s1">&#39;model&#39;</span><span class="p">):</span>
+            <span class="n">model</span> <span class="o">=</span> <span class="n">serializer_class</span><span class="o">.</span><span class="n">Meta</span><span class="o">.</span><span class="n">model</span>
+            <span class="k">for</span> <span class="n">field_name</span><span class="p">,</span> <span class="n">field_type_info</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_serializer_fields_info</span><span class="p">(</span><span class="n">serializer_class</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="n">schema</span><span class="p">[</span><span class="s2">&quot;properties&quot;</span><span class="p">][</span><span class="n">field_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">field_type_info</span><span class="p">[</span><span class="s1">&#39;schema_type&#39;</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">field_type_info</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;required&#39;</span><span class="p">):</span>
+                    <span class="n">schema</span><span class="p">[</span><span class="s2">&quot;required&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">field_name</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">components</span><span class="p">[</span><span class="s2">&quot;schemas&quot;</span><span class="p">][</span><span class="n">schema_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">schema</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Schema &#39;</span><span class="si">{</span><span class="n">schema_name</span><span class="si">}</span><span class="s2">&#39; registered from serializer &#39;</span><span class="si">{</span><span class="n">serializer_class</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">)</span>
+        <span class="n">dispatcher</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;api_docs_serializer_schema_registered_finished&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">schema_name</span><span class="o">=</span><span class="n">schema_name</span><span class="p">)</span></div>
+
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_serializer_fields_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">serializer_class</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">BaseModelSerializer</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        [PLACEHOLDER]</span>
+<span class="sd">        This method needs to be implemented based on how your BaseModelSerializer</span>
+<span class="sd">        defines its fields and their types.</span>
+<span class="sd">        It should return a dictionary like:</span>
+<span class="sd">        {</span>
+<span class="sd">            &quot;field_name&quot;: {</span>
+<span class="sd">                &quot;schema_type&quot;: {&quot;type&quot;: &quot;string&quot;, &quot;format&quot;: &quot;date-time&quot;},</span>
+<span class="sd">                &quot;required&quot;: True</span>
+<span class="sd">            },</span>
+<span class="sd">            ...</span>
+<span class="sd">        }</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">fields_info</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">temp_serializer</span> <span class="o">=</span> <span class="n">serializer_class</span><span class="p">()</span> 
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">temp_serializer</span><span class="p">,</span> <span class="s1">&#39;_declared_fields&#39;</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">field_name</span><span class="p">,</span> <span class="n">field_instance</span> <span class="ow">in</span> <span class="n">temp_serializer</span><span class="o">.</span><span class="n">_declared_fields</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="n">schema_type</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">}</span> 
+                <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">field_instance</span><span class="p">,</span> <span class="s1">&#39;field_type_name&#39;</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">field_instance</span><span class="o">.</span><span class="n">field_type_name</span> <span class="o">==</span> <span class="s1">&#39;int&#39;</span><span class="p">:</span> <span class="n">schema_type</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">}</span>
+                    <span class="k">elif</span> <span class="n">field_instance</span><span class="o">.</span><span class="n">field_type_name</span> <span class="o">==</span> <span class="s1">&#39;bool&#39;</span><span class="p">:</span> <span class="n">schema_type</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;boolean&quot;</span><span class="p">}</span>
+
+                <span class="n">fields_info</span><span class="p">[</span><span class="n">field_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s2">&quot;schema_type&quot;</span><span class="p">:</span> <span class="n">schema_type</span><span class="p">,</span>
+                    <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">field_instance</span><span class="p">,</span> <span class="s1">&#39;required&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+                <span class="p">}</span>
+        
+        <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">serializer_class</span><span class="p">,</span> <span class="s1">&#39;Meta&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">serializer_class</span><span class="o">.</span><span class="n">Meta</span><span class="p">,</span> <span class="s1">&#39;model&#39;</span><span class="p">):</span>
+            <span class="n">model</span> <span class="o">=</span> <span class="n">serializer_class</span><span class="o">.</span><span class="n">Meta</span><span class="o">.</span><span class="n">model</span>
+            <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">__table__</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                <span class="n">schema_type</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">}</span> 
+                <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">column</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="s1">&#39;python_type&#39;</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">column</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">python_type</span> <span class="ow">is</span> <span class="nb">int</span><span class="p">:</span> <span class="n">schema_type</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">}</span>
+                    <span class="k">elif</span> <span class="n">column</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">python_type</span> <span class="ow">is</span> <span class="nb">str</span><span class="p">:</span> <span class="n">schema_type</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">}</span>
+                    <span class="k">elif</span> <span class="n">column</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">python_type</span> <span class="ow">is</span> <span class="nb">bool</span><span class="p">:</span> <span class="n">schema_type</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;boolean&quot;</span><span class="p">}</span>
+
+                <span class="n">fields_info</span><span class="p">[</span><span class="n">column</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s2">&quot;schema_type&quot;</span><span class="p">:</span> <span class="n">schema_type</span><span class="p">,</span>
+                    <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="ow">not</span> <span class="n">column</span><span class="o">.</span><span class="n">nullable</span>
+                <span class="p">}</span>
+
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s1">&#39;_sa_class_manager&#39;</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">prop_name</span><span class="p">,</span> <span class="n">prop_obj</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">_sa_class_manager</span><span class="o">.</span><span class="n">iter_properties</span><span class="p">():</span>
+                    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">prop_obj</span><span class="p">,</span> <span class="n">RelationshipProperty</span><span class="p">):</span>
+                        <span class="n">related_model</span> <span class="o">=</span> <span class="n">prop_obj</span><span class="o">.</span><span class="n">argument</span>
+                        <span class="n">related_serializer_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">related_model</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">Serializer&quot;</span> 
+                        <span class="n">fields_info</span><span class="p">[</span><span class="n">prop_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;schema_type&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;$ref&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;#/components/schemas/</span><span class="si">{</span><span class="n">related_serializer_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">}}</span>
+                        <span class="k">if</span> <span class="n">prop_obj</span><span class="o">.</span><span class="n">uselist</span><span class="p">:</span> 
+                            <span class="n">fields_info</span><span class="p">[</span><span class="n">prop_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;schema_type&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">,</span> <span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;$ref&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;#/components/schemas/</span><span class="si">{</span><span class="n">related_serializer_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">}}}</span>
+
+        <span class="k">return</span> <span class="n">fields_info</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ibrahem abo kila.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

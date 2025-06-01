@@ -1,0 +1,804 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>lback.repositories package &mdash; lback 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=95f010fd" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="lback.security package" href="lback.security.html" />
+    <link rel="prev" title="lback.models package" href="lback.models.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            lback
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Configuration%20System.html">Configuration System</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/routing_system.html">Routing System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Views%20%26%20Responses.html">Views &amp; Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Templating%20System.html">Templating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Static%20Files.html">Static Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Media%20Files.html">Media Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/file-uploads.html">File Uploads in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Forms.html">Forms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/Models%20%26%20Database.html">Models &amp; Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Database%20Migrations%20System.html">Database Migrations System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Authorization.html">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/sessions.html">Sessions in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Security%20Features.html">Security Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/Admin%20Panel.html">Built-in Admin Panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/API%20Tools.html">API Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Signal%20System.html">Signal System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Middleware%20System.html">Middleware System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/custom_middlewares.html">Custom Middlewares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/logging_config.html">Logging Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/email-sender.html">Email Sending in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/validation_utilities.html">Validation Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/error_handling.html">Error Handling and HTTP Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Error%20Handling%20%26%20Reporting.html">Error Handling &amp; Reporting</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/Deployment.html">Deployment</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html">Signals from BaseView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-apidocs">Signals from APIDocs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-basemodelserializer">Signals from BaseModelSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-registry-signals.html">Signals from AdminRegistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user.html">Signals from AdminUser and Role Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-manager.html">Signals from AdminUserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-repository.html">Signals from AdminUserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html">Signals from AdminAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-jwtauth">Signals from JWTAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-oauth2auth">Signals from OAuth2Auth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-permissionrequired">Signals from PermissionRequired</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-sessionauth">Signals from SessionAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/error-handler.html">Signals from ErrorHandler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/middleware-manager.html">Signals from MiddlewareManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/migration_commands.html">Signals from MigrationCommands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/permission-repository.html">Signals from PermissionRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/role-repository.html">Signals from RoleRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/session-manager.html">Signals from SessionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/template-renderer.html">Signals from TemplateRenderer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-manager.html">Signals from UserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-model.html">Signals from User Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-repository.html">Signals from UserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/wsgi-application.html">Signals from WSGI Application and Server</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Modules and Classes Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API%20Reference.html">API Reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="lback.html">lback package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="lback.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="lback.admin.html">lback.admin package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.api.html">lback.api package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.auth.html">lback.auth package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.auth_app.html">lback.auth_app package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.commands.html">lback.commands package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.core.html">lback.core package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.forms.html">lback.forms package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.middlewares.html">lback.middlewares package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.models.html">lback.models package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">lback.repositories package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-lback.repositories.admin_user_repository">lback.repositories.admin_user_repository module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-lback.repositories.permission_repository">lback.repositories.permission_repository module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-lback.repositories.role_repository">lback.repositories.role_repository module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-lback.repositories.user_repository">lback.repositories.user_repository module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-lback.repositories">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lback.security.html">lback.security package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.utils.html">lback.utils package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lback.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lback.html#module-lback.main">lback.main module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lback.html#module-lback">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">lback</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="lback.html">lback package</a></li>
+      <li class="breadcrumb-item active">lback.repositories package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/lback/lback.repositories.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="lback-repositories-package">
+<h1>lback.repositories package<a class="headerlink" href="#lback-repositories-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-lback.repositories.admin_user_repository">
+<span id="lback-repositories-admin-user-repository-module"></span><h2>lback.repositories.admin_user_repository module<a class="headerlink" href="#module-lback.repositories.admin_user_repository" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.repositories.admin_user_repository.AdminUserRepository">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.repositories.admin_user_repository.</span></span><span class="sig-name descname"><span class="pre">AdminUserRepository</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Session</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/repositories/admin_user_repository.html#AdminUserRepository"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.admin_user_repository.AdminUserRepository" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Repository for AdminUser model data access.
+Provides methods to interact with the database for AdminUser entities.
+Requires a SQLAlchemy Session to be provided upon initialization.
+Integrates SignalDispatcher to emit events related to repository operations.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.repositories.admin_user_repository.AdminUserRepository.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Session</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/repositories/admin_user_repository.html#AdminUserRepository.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.admin_user_repository.AdminUserRepository.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initializes the AdminUserRepository with a SQLAlchemy session.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>session</strong> – The SQLAlchemy Session object to use for database operations.
+This session should be managed externally (e.g., by a middleware).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.repositories.admin_user_repository.AdminUserRepository.create">
+<span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.models.html#lback.models.adminuser.AdminUser" title="lback.models.adminuser.AdminUser"><span class="pre">AdminUser</span></a></span></span><a class="reference internal" href="../_modules/lback/repositories/admin_user_repository.html#AdminUserRepository.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.admin_user_repository.AdminUserRepository.create" title="Link to this definition"></a></dt>
+<dd><p>Creates a new admin user instance and adds it to the session.
+Note: This method adds the object to the session but does NOT commit.
+The caller is responsible for committing the session.
+Emits ‘admin_user_pre_create’ and ‘admin_user_post_create’ signals.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>**data</strong> – Keyword arguments corresponding to AdminUser model attributes.
+Example: username=’admin’, <a class="reference external" href="mailto:email='a&#37;&#52;&#48;example&#46;com">email=’a<span>&#64;</span>example<span>&#46;</span>com</a>’, password=’hashed_password’.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The newly created AdminUser instance (staged in the session).</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – If an error occurs during instance creation or adding to session.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.repositories.admin_user_repository.AdminUserRepository.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">admin_user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.models.html#lback.models.adminuser.AdminUser" title="lback.models.adminuser.AdminUser"><span class="pre">AdminUser</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/repositories/admin_user_repository.html#AdminUserRepository.delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.admin_user_repository.AdminUserRepository.delete" title="Link to this definition"></a></dt>
+<dd><p>Deletes an admin user instance from the session.
+Note: This method marks the object for deletion but does NOT commit.
+The caller is responsible for committing the session.
+Emits ‘admin_user_pre_delete’ and ‘admin_user_post_delete’ signals.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>admin_user</strong> – The AdminUser instance to delete.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – If an error occurs during the deletion process.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.repositories.admin_user_repository.AdminUserRepository.get_admin_by_reset_token">
+<span class="sig-name descname"><span class="pre">get_admin_by_reset_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.models.html#lback.models.adminuser.AdminUser" title="lback.models.adminuser.AdminUser"><span class="pre">AdminUser</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/lback/repositories/admin_user_repository.html#AdminUserRepository.get_admin_by_reset_token"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.admin_user_repository.AdminUserRepository.get_admin_by_reset_token" title="Link to this definition"></a></dt>
+<dd><p>Gets an admin user by a password reset token.
+# Assuming this method exists and works. No signals added here,
+# as token validation/lookup signals might be handled elsewhere (e.g., UserManager).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.repositories.admin_user_repository.AdminUserRepository.get_by_email">
+<span class="sig-name descname"><span class="pre">get_by_email</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.models.html#lback.models.adminuser.AdminUser" title="lback.models.adminuser.AdminUser"><span class="pre">AdminUser</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/lback/repositories/admin_user_repository.html#AdminUserRepository.get_by_email"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.admin_user_repository.AdminUserRepository.get_by_email" title="Link to this definition"></a></dt>
+<dd><p>Gets an admin user by their email address.
+# No signals here, as this is a simple read operation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>email</strong> – The email address string of the admin user.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The AdminUser object if found, otherwise None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.repositories.admin_user_repository.AdminUserRepository.get_by_id">
+<span class="sig-name descname"><span class="pre">get_by_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">admin_user_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.models.html#lback.models.adminuser.AdminUser" title="lback.models.adminuser.AdminUser"><span class="pre">AdminUser</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/lback/repositories/admin_user_repository.html#AdminUserRepository.get_by_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.admin_user_repository.AdminUserRepository.get_by_id" title="Link to this definition"></a></dt>
+<dd><p>Gets an admin user by their primary key ID.
+# No signals here, as this is a simple read operation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>admin_user_id</strong> – The integer ID of the admin user.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The AdminUser object if found, otherwise None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.repositories.admin_user_repository.AdminUserRepository.get_by_username">
+<span class="sig-name descname"><span class="pre">get_by_username</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.models.html#lback.models.adminuser.AdminUser" title="lback.models.adminuser.AdminUser"><span class="pre">AdminUser</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/lback/repositories/admin_user_repository.html#AdminUserRepository.get_by_username"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.admin_user_repository.AdminUserRepository.get_by_username" title="Link to this definition"></a></dt>
+<dd><p>Gets an admin user by their username.
+# No signals here, as this is a simple read operation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>username</strong> – The username string of the admin user.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The AdminUser object if found, otherwise None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.repositories.admin_user_repository.AdminUserRepository.list_all">
+<span class="sig-name descname"><span class="pre">list_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="lback.models.html#lback.models.adminuser.AdminUser" title="lback.models.adminuser.AdminUser"><span class="pre">AdminUser</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/lback/repositories/admin_user_repository.html#AdminUserRepository.list_all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.admin_user_repository.AdminUserRepository.list_all" title="Link to this definition"></a></dt>
+<dd><p>Lists all admin users in the database.
+# No signals here, as this is a simple read operation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of all AdminUser objects.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.repositories.admin_user_repository.AdminUserRepository.search">
+<span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">criteria</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="lback.models.html#lback.models.adminuser.AdminUser" title="lback.models.adminuser.AdminUser"><span class="pre">AdminUser</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/lback/repositories/admin_user_repository.html#AdminUserRepository.search"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.admin_user_repository.AdminUserRepository.search" title="Link to this definition"></a></dt>
+<dd><p>Searches for admin users based on criteria.
+# No signals here, as this is a read operation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.repositories.admin_user_repository.AdminUserRepository.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">admin_user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.models.html#lback.models.adminuser.AdminUser" title="lback.models.adminuser.AdminUser"><span class="pre">AdminUser</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.models.html#lback.models.adminuser.AdminUser" title="lback.models.adminuser.AdminUser"><span class="pre">AdminUser</span></a></span></span><a class="reference internal" href="../_modules/lback/repositories/admin_user_repository.html#AdminUserRepository.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.admin_user_repository.AdminUserRepository.update" title="Link to this definition"></a></dt>
+<dd><p>Updates an existing admin user instance with new data.
+Note: This method modifies the object in the session but does NOT commit.
+The caller is responsible for committing the session.
+Emits ‘admin_user_pre_update’ and ‘admin_user_post_update’ signals.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>admin_user</strong> – The AdminUser instance to update.</p></li>
+<li><p><strong>**data</strong> – Keyword arguments for the attributes to update.
+Example: <a class="reference external" href="mailto:email='new_email&#37;&#52;&#48;example&#46;com">email=’new_email<span>&#64;</span>example<span>&#46;</span>com</a>’, is_active=False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The updated AdminUser instance (changes staged in the session).</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – If an error occurs during the update process.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lback.repositories.permission_repository">
+<span id="lback-repositories-permission-repository-module"></span><h2>lback.repositories.permission_repository module<a class="headerlink" href="#module-lback.repositories.permission_repository" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.repositories.permission_repository.PermissionRepository">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.repositories.permission_repository.</span></span><span class="sig-name descname"><span class="pre">PermissionRepository</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Session</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/repositories/permission_repository.html#PermissionRepository"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.permission_repository.PermissionRepository" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Repository for Permission model data access.
+Provides methods to interact with the database for Permission entities.
+Requires a SQLAlchemy Session to be provided upon initialization.
+Integrates SignalDispatcher to emit events related to repository operations.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.repositories.permission_repository.PermissionRepository.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Session</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/repositories/permission_repository.html#PermissionRepository.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.permission_repository.PermissionRepository.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initializes the PermissionRepository with a SQLAlchemy session.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>session</strong> – The SQLAlchemy Session object to use for database operations.
+This session should be managed externally (e.g., by a middleware).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.repositories.permission_repository.PermissionRepository.create">
+<span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.models.html#lback.models.adminuser.Permission" title="lback.models.adminuser.Permission"><span class="pre">Permission</span></a></span></span><a class="reference internal" href="../_modules/lback/repositories/permission_repository.html#PermissionRepository.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.permission_repository.PermissionRepository.create" title="Link to this definition"></a></dt>
+<dd><p>Creates a new permission instance and adds it to the session.
+Note: This method adds the object to the session but does NOT commit.
+The caller is responsible for committing the session.
+Emits ‘permission_pre_create’ and ‘permission_post_create’ signals.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>**data</strong> – Keyword arguments corresponding to Permission model attributes.
+Example: name=’add_product’, description=’Can add new products’.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The newly created Permission instance (staged in the session).</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – For errors during instance creation or adding to session.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.repositories.permission_repository.PermissionRepository.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">permission</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.models.html#lback.models.adminuser.Permission" title="lback.models.adminuser.Permission"><span class="pre">Permission</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/repositories/permission_repository.html#PermissionRepository.delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.permission_repository.PermissionRepository.delete" title="Link to this definition"></a></dt>
+<dd><p>Deletes a permission instance from the session.
+Note: This method marks the object for deletion but does NOT commit.
+The caller is responsible for committing the session.
+Emits ‘permission_pre_delete’ and ‘permission_post_delete’ signals.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>permission</strong> – The Permission instance to delete.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – For errors during marking for deletion.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.repositories.permission_repository.PermissionRepository.get_by_id">
+<span class="sig-name descname"><span class="pre">get_by_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">permission_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.models.html#lback.models.adminuser.Permission" title="lback.models.adminuser.Permission"><span class="pre">Permission</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/lback/repositories/permission_repository.html#PermissionRepository.get_by_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.permission_repository.PermissionRepository.get_by_id" title="Link to this definition"></a></dt>
+<dd><p>Gets a permission by its primary key ID.
+# No signals here, as this is a simple read operation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>permission_id</strong> – The integer ID of the permission.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The Permission object if found, otherwise None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.repositories.permission_repository.PermissionRepository.get_by_name">
+<span class="sig-name descname"><span class="pre">get_by_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.models.html#lback.models.adminuser.Permission" title="lback.models.adminuser.Permission"><span class="pre">Permission</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/lback/repositories/permission_repository.html#PermissionRepository.get_by_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.permission_repository.PermissionRepository.get_by_name" title="Link to this definition"></a></dt>
+<dd><p>Gets a permission by its name.
+# No signals here, as this is a simple read operation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> – The name string of the permission.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The Permission object if found, otherwise None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.repositories.permission_repository.PermissionRepository.list_all">
+<span class="sig-name descname"><span class="pre">list_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="lback.models.html#lback.models.adminuser.Permission" title="lback.models.adminuser.Permission"><span class="pre">Permission</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/lback/repositories/permission_repository.html#PermissionRepository.list_all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.permission_repository.PermissionRepository.list_all" title="Link to this definition"></a></dt>
+<dd><p>Lists all permissions in the database.
+# No signals here, as this is a simple read operation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of all Permission objects.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.repositories.permission_repository.PermissionRepository.search">
+<span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">criteria</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="lback.models.html#lback.models.adminuser.Permission" title="lback.models.adminuser.Permission"><span class="pre">Permission</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/lback/repositories/permission_repository.html#PermissionRepository.search"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.permission_repository.PermissionRepository.search" title="Link to this definition"></a></dt>
+<dd><p>Searches for permissions based on criteria.
+# No signals here, as this is a read operation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.repositories.permission_repository.PermissionRepository.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">permission</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.models.html#lback.models.adminuser.Permission" title="lback.models.adminuser.Permission"><span class="pre">Permission</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.models.html#lback.models.adminuser.Permission" title="lback.models.adminuser.Permission"><span class="pre">Permission</span></a></span></span><a class="reference internal" href="../_modules/lback/repositories/permission_repository.html#PermissionRepository.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.permission_repository.PermissionRepository.update" title="Link to this definition"></a></dt>
+<dd><p>Updates an existing permission instance with new data.
+Note: This method modifies the object in the session but does NOT commit.
+The caller is responsible for committing the session.
+Emits ‘permission_pre_update’ and ‘permission_post_update’ signals.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>permission</strong> – The Permission instance to update.</p></li>
+<li><p><strong>**data</strong> – Keyword arguments for the attributes to update.
+Example: description=’Updated description’.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The updated Permission instance (changes staged in the session).</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – For errors during attribute update.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lback.repositories.role_repository">
+<span id="lback-repositories-role-repository-module"></span><h2>lback.repositories.role_repository module<a class="headerlink" href="#module-lback.repositories.role_repository" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.repositories.role_repository.RoleRepository">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.repositories.role_repository.</span></span><span class="sig-name descname"><span class="pre">RoleRepository</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Session</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/repositories/role_repository.html#RoleRepository"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.role_repository.RoleRepository" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Repository for Role model data access.
+Provides methods to interact with the database for Role entities.
+Requires a SQLAlchemy Session to be provided upon initialization.
+Integrates SignalDispatcher to emit events related to repository operations.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.repositories.role_repository.RoleRepository.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Session</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/repositories/role_repository.html#RoleRepository.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.role_repository.RoleRepository.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initializes the RoleRepository with a SQLAlchemy session.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>session</strong> – The SQLAlchemy Session object to use for database operations.
+This session should be managed externally (e.g., by a middleware).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.repositories.role_repository.RoleRepository.create">
+<span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.models.html#lback.models.adminuser.Role" title="lback.models.adminuser.Role"><span class="pre">Role</span></a></span></span><a class="reference internal" href="../_modules/lback/repositories/role_repository.html#RoleRepository.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.role_repository.RoleRepository.create" title="Link to this definition"></a></dt>
+<dd><p>Creates a new role instance and adds it to the session.
+Note: This method adds the object to the session but does NOT commit.
+The caller is responsible for committing the session.
+Emits ‘role_pre_create’ and ‘role_post_create’ signals.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>**data</strong> – Keyword arguments corresponding to Role model attributes.
+Example: name=’editor’, description=’Can edit content’.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The newly created Role instance (staged in the session).</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – For errors during instance creation or adding to session.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.repositories.role_repository.RoleRepository.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">role</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.models.html#lback.models.adminuser.Role" title="lback.models.adminuser.Role"><span class="pre">Role</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/repositories/role_repository.html#RoleRepository.delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.role_repository.RoleRepository.delete" title="Link to this definition"></a></dt>
+<dd><p>Deletes a role instance from the session.
+Note: This method marks the object for deletion but does NOT commit.
+The caller is responsible for committing the session.
+Emits ‘role_pre_delete’ and ‘role_post_delete’ signals.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>role</strong> – The Role instance to delete.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – For errors during marking for deletion.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.repositories.role_repository.RoleRepository.get_by_id">
+<span class="sig-name descname"><span class="pre">get_by_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">role_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.models.html#lback.models.adminuser.Role" title="lback.models.adminuser.Role"><span class="pre">Role</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/lback/repositories/role_repository.html#RoleRepository.get_by_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.role_repository.RoleRepository.get_by_id" title="Link to this definition"></a></dt>
+<dd><p>Gets a role by its primary key ID.
+# No signals here, as this is a simple read operation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>role_id</strong> – The integer ID of the role.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The Role object if found, otherwise None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.repositories.role_repository.RoleRepository.get_by_name">
+<span class="sig-name descname"><span class="pre">get_by_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.models.html#lback.models.adminuser.Role" title="lback.models.adminuser.Role"><span class="pre">Role</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/lback/repositories/role_repository.html#RoleRepository.get_by_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.role_repository.RoleRepository.get_by_name" title="Link to this definition"></a></dt>
+<dd><p>Gets a role by its name.
+# No signals here, as this is a simple read operation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> – The name string of the role.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The Role object if found, otherwise None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.repositories.role_repository.RoleRepository.list_all">
+<span class="sig-name descname"><span class="pre">list_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="lback.models.html#lback.models.adminuser.Role" title="lback.models.adminuser.Role"><span class="pre">Role</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/lback/repositories/role_repository.html#RoleRepository.list_all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.role_repository.RoleRepository.list_all" title="Link to this definition"></a></dt>
+<dd><p>Lists all roles in the database.
+# No signals here, as this is a simple read operation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of all Role objects.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.repositories.role_repository.RoleRepository.search">
+<span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">criteria</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="lback.models.html#lback.models.adminuser.Role" title="lback.models.adminuser.Role"><span class="pre">Role</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/lback/repositories/role_repository.html#RoleRepository.search"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.role_repository.RoleRepository.search" title="Link to this definition"></a></dt>
+<dd><p>Searches for roles based on criteria.
+# No signals here, as this is a read operation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.repositories.role_repository.RoleRepository.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">role</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.models.html#lback.models.adminuser.Role" title="lback.models.adminuser.Role"><span class="pre">Role</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.models.html#lback.models.adminuser.Role" title="lback.models.adminuser.Role"><span class="pre">Role</span></a></span></span><a class="reference internal" href="../_modules/lback/repositories/role_repository.html#RoleRepository.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.role_repository.RoleRepository.update" title="Link to this definition"></a></dt>
+<dd><p>Updates an existing role instance with new data.
+Note: This method modifies the object in the session but does NOT commit.
+The caller is responsible for committing the session.
+Emits ‘role_pre_update’ and ‘role_post_update’ signals.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>role</strong> – The Role instance to update.</p></li>
+<li><p><strong>**data</strong> – Keyword arguments for the attributes to update.
+Example: description=’Updated description’.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The updated Role instance (changes staged in the session).</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – For errors during attribute update.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lback.repositories.user_repository">
+<span id="lback-repositories-user-repository-module"></span><h2>lback.repositories.user_repository module<a class="headerlink" href="#module-lback.repositories.user_repository" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.repositories.user_repository.UserRepository">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.repositories.user_repository.</span></span><span class="sig-name descname"><span class="pre">UserRepository</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Session</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/repositories/user_repository.html#UserRepository"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.user_repository.UserRepository" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Repository for User model data access.
+Provides methods to interact with the database for User entities.
+Requires a SQLAlchemy Session to be provided upon initialization.
+Integrates SignalDispatcher to emit events related to repository operations.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.repositories.user_repository.UserRepository.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Session</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/repositories/user_repository.html#UserRepository.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.user_repository.UserRepository.__init__" title="Link to this definition"></a></dt>
+<dd><p>Intializes the UserRepository with a SQLAlchemy session.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>session</strong> – The SQLAlchemy Session object to use for database operations.
+This session should be managed externally (e.g., by a middleware).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.repositories.user_repository.UserRepository.create">
+<span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.models.html#lback.models.user.User" title="lback.models.user.User"><span class="pre">User</span></a></span></span><a class="reference internal" href="../_modules/lback/repositories/user_repository.html#UserRepository.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.user_repository.UserRepository.create" title="Link to this definition"></a></dt>
+<dd><p>Creates a new user instance and adds it to the session.
+Note: This method adds the object to the session but does NOT commit.
+The caller is responsible for committing the session.
+Emits ‘user_pre_create’ and ‘user_post_create’ signals.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.repositories.user_repository.UserRepository.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.models.html#lback.models.user.User" title="lback.models.user.User"><span class="pre">User</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/repositories/user_repository.html#UserRepository.delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.user_repository.UserRepository.delete" title="Link to this definition"></a></dt>
+<dd><p>Deletes a user instance from the session.
+Note: This method marks the object for deletion but does NOT commit.
+The caller is responsible for committing the session.
+Emits ‘user_pre_delete’ and ‘user_post_delete’ signals.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.repositories.user_repository.UserRepository.get_by_email">
+<span class="sig-name descname"><span class="pre">get_by_email</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.models.html#lback.models.user.User" title="lback.models.user.User"><span class="pre">User</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/lback/repositories/user_repository.html#UserRepository.get_by_email"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.user_repository.UserRepository.get_by_email" title="Link to this definition"></a></dt>
+<dd><p>Gets a user by their email address.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.repositories.user_repository.UserRepository.get_by_email_verification_token">
+<span class="sig-name descname"><span class="pre">get_by_email_verification_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.models.html#lback.models.user.User" title="lback.models.user.User"><span class="pre">User</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/lback/repositories/user_repository.html#UserRepository.get_by_email_verification_token"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.user_repository.UserRepository.get_by_email_verification_token" title="Link to this definition"></a></dt>
+<dd><p>Gets a user by their email verification token.
+Note: The expiry check for email verification token is handled within the User model’s</p>
+<blockquote>
+<div><p>verify_email method to allow for more flexible expiry logic.
+This method only retrieves the user based on the token itself.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>token</strong> – The email verification token.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The User object if found, otherwise None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.repositories.user_repository.UserRepository.get_by_id">
+<span class="sig-name descname"><span class="pre">get_by_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.models.html#lback.models.user.User" title="lback.models.user.User"><span class="pre">User</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/lback/repositories/user_repository.html#UserRepository.get_by_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.user_repository.UserRepository.get_by_id" title="Link to this definition"></a></dt>
+<dd><p>Gets a user by their primary key ID.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.repositories.user_repository.UserRepository.get_by_username">
+<span class="sig-name descname"><span class="pre">get_by_username</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.models.html#lback.models.user.User" title="lback.models.user.User"><span class="pre">User</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/lback/repositories/user_repository.html#UserRepository.get_by_username"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.user_repository.UserRepository.get_by_username" title="Link to this definition"></a></dt>
+<dd><p>Gets a user by their username.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.repositories.user_repository.UserRepository.get_user_by_auth_token">
+<span class="sig-name descname"><span class="pre">get_user_by_auth_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.models.html#lback.models.user.User" title="lback.models.user.User"><span class="pre">User</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/lback/repositories/user_repository.html#UserRepository.get_user_by_auth_token"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.user_repository.UserRepository.get_user_by_auth_token" title="Link to this definition"></a></dt>
+<dd><p>Gets a user by an authentication token (e.g., API token).
+Note: This is different from the reset/verification token as it might not have an expiry.
+If your ‘auth_token’ is ONLY for password reset, use <cite>get_user_by_auth_token_and_expiry</cite>.
+If it’s for API tokens (persistent), then this method would be relevant.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.repositories.user_repository.UserRepository.get_user_by_auth_token_and_expiry">
+<span class="sig-name descname"><span class="pre">get_user_by_auth_token_and_expiry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.models.html#lback.models.user.User" title="lback.models.user.User"><span class="pre">User</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/lback/repositories/user_repository.html#UserRepository.get_user_by_auth_token_and_expiry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.user_repository.UserRepository.get_user_by_auth_token_and_expiry" title="Link to this definition"></a></dt>
+<dd><p>Gets a user by their authentication token (e.g., password reset token)
+and ensures the token has not expired.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>token</strong> – The authentication token.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The User object if found and token is valid/not expired, otherwise None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.repositories.user_repository.UserRepository.get_user_by_reset_token">
+<span class="sig-name descname"><span class="pre">get_user_by_reset_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.models.html#lback.models.user.User" title="lback.models.user.User"><span class="pre">User</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/lback/repositories/user_repository.html#UserRepository.get_user_by_reset_token"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.user_repository.UserRepository.get_user_by_reset_token" title="Link to this definition"></a></dt>
+<dd><p>Gets a user by a password reset token.
+This method is now a wrapper for get_user_by_auth_token_and_expiry.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.repositories.user_repository.UserRepository.list_all">
+<span class="sig-name descname"><span class="pre">list_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="lback.models.html#lback.models.user.User" title="lback.models.user.User"><span class="pre">User</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/lback/repositories/user_repository.html#UserRepository.list_all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.user_repository.UserRepository.list_all" title="Link to this definition"></a></dt>
+<dd><p>Lists all users in the database.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.repositories.user_repository.UserRepository.search">
+<span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">criteria</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="lback.models.html#lback.models.user.User" title="lback.models.user.User"><span class="pre">User</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/lback/repositories/user_repository.html#UserRepository.search"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.user_repository.UserRepository.search" title="Link to this definition"></a></dt>
+<dd><p>Searches for users based on criteria.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.repositories.user_repository.UserRepository.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.models.html#lback.models.user.User" title="lback.models.user.User"><span class="pre">User</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.models.html#lback.models.user.User" title="lback.models.user.User"><span class="pre">User</span></a></span></span><a class="reference internal" href="../_modules/lback/repositories/user_repository.html#UserRepository.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.repositories.user_repository.UserRepository.update" title="Link to this definition"></a></dt>
+<dd><p>Updates an existing user instance with new data.
+Note: This method modifies the object in the session but does NOT commit.
+The caller is responsible for committing the session.
+Emits ‘user_pre_update’ and ‘user_post_update’ signals.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lback.repositories">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-lback.repositories" title="Link to this heading"></a></h2>
+<p>This file serves as the initialization point for the ‘lback_framework/lback/repositories’ package.
+It is designed to expose the core components necessary for implementing the repository pattern
+within the Lback web framework. This package centralizes the definition and management of
+data access logic, providing an abstraction layer over the database for specific models.
+It encapsulates the mechanisms for retrieving, storing, and querying data, promoting a
+clean separation of concerns between the application’s business logic and data persistence.</p>
+<p>—</p>
+<p><strong>Key Components Exposed by this Package:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>AdminUserRepository (from .admin_user_repository):</strong>
+A repository class specifically designed for interacting with AdminUser data.
+This component provides methods for performing CRUD (Create, Read, Update, Delete)
+operations on administrative user records, abstracting away the direct database
+interactions for AdminUser models. It might include specialized queries
+relevant to admin user management.</p></li>
+<li><p><strong>PermissionRepository (from .permission_repository):</strong>
+A repository class dedicated to managing Permission data. This component offers
+methods for accessing, creating, updating, and deleting permission records. It
+ensures that permission-related database operations are handled consistently
+and efficiently, supporting the application’s authorization system.</p></li>
+<li><p><strong>RoleRepository (from .role_repository):</strong>
+A repository class focused on handling Role data. This component provides
+methods for performing CRUD operations on role records, which are used to
+group permissions and assign them to users. It centralizes the data access
+logic for roles, supporting the role-based access control (RBAC) system.</p></li>
+<li><p><strong>UserRepository (from .user_repository):</strong>
+A repository class specifically designed for interacting with standard User data.
+This component provides methods for performing CRUD operations on general user
+records, abstracting away the direct database interactions for User models.
+It might include specialized queries for user authentication, profile management,
+or other user-centric operations.</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="lback.models.html" class="btn btn-neutral float-left" title="lback.models package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="lback.security.html" class="btn btn-neutral float-right" title="lback.security package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ibrahem abo kila.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

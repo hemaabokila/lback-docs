@@ -1,0 +1,337 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sessions in Lback Framework &mdash; lback 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=95f010fd" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Security Features" href="Security%20Features.html" />
+    <link rel="prev" title="Authorization" href="Authorization.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            lback
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Configuration%20System.html">Configuration System</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="routing_system.html">Routing System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Views%20%26%20Responses.html">Views &amp; Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Templating%20System.html">Templating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Static%20Files.html">Static Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Media%20Files.html">Media Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file-uploads.html">File Uploads in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Forms.html">Forms</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Models%20%26%20Database.html">Models &amp; Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Database%20Migrations%20System.html">Database Migrations System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Authorization.html">Authorization</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Sessions in Lback Framework</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#session-structure-in-the-database">1. Session Structure in the Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-sessions-work-in-lback">2. How Sessions Work in Lback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#session-configuration-options-in-settings-py">3. Session Configuration Options in <code class="docutils literal notranslate"><span class="pre">settings.py</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#accessing-and-storing-session-data-in-views">4. Accessing and Storing Session Data in Views</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Security%20Features.html">Security Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Admin%20Panel.html">Built-in Admin Panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API%20Tools.html">API Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Signal%20System.html">Signal System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Middleware%20System.html">Middleware System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_middlewares.html">Custom Middlewares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logging_config.html">Logging Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="email-sender.html">Email Sending in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="validation_utilities.html">Validation Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="error_handling.html">Error Handling and HTTP Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Error%20Handling%20%26%20Reporting.html">Error Handling &amp; Reporting</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Deployment.html">Deployment</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html">Signals from BaseView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-apidocs">Signals from APIDocs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-basemodelserializer">Signals from BaseModelSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-registry-signals.html">Signals from AdminRegistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user.html">Signals from AdminUser and Role Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-manager.html">Signals from AdminUserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-repository.html">Signals from AdminUserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html">Signals from AdminAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-jwtauth">Signals from JWTAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-oauth2auth">Signals from OAuth2Auth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-permissionrequired">Signals from PermissionRequired</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-sessionauth">Signals from SessionAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/error-handler.html">Signals from ErrorHandler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/middleware-manager.html">Signals from MiddlewareManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/migration_commands.html">Signals from MigrationCommands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/permission-repository.html">Signals from PermissionRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/role-repository.html">Signals from RoleRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/session-manager.html">Signals from SessionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/template-renderer.html">Signals from TemplateRenderer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-manager.html">Signals from UserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-model.html">Signals from User Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-repository.html">Signals from UserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/wsgi-application.html">Signals from WSGI Application and Server</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Modules and Classes Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API%20Reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lback/lback.html">lback package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">lback</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Sessions in Lback Framework</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/features/sessions.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sessions-in-lback-framework">
+<h1>Sessions in Lback Framework<a class="headerlink" href="#sessions-in-lback-framework" title="Link to this heading"></a></h1>
+<p>Sessions provide a way to store user-specific data across multiple HTTP requests. In Lback, <strong>Database Sessions</strong> are used, meaning session data is persistently stored in your database, offering greater flexibility and stability.</p>
+<p>—</p>
+<section id="session-structure-in-the-database">
+<h2>1. Session Structure in the Database<a class="headerlink" href="#session-structure-in-the-database" title="Link to this heading"></a></h2>
+<p>Session data is stored in a <code class="docutils literal notranslate"><span class="pre">Session</span></code> table in your database (typically <code class="docutils literal notranslate"><span class="pre">db.sqlite</span></code> if you’re using SQLite). This table primarily consists of the following columns:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: A unique identifier for the session (usually a UUID). This is the <code class="docutils literal notranslate"><span class="pre">session_id</span></code> sent to the browser in the Cookie.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">user_id</span></code>: (Optional) The ID of the user associated with this session. This column is dedicated to directly linking a session to a specific user in your <code class="docutils literal notranslate"><span class="pre">users</span></code> table.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>: <strong>The most important column.</strong> This stores all the actual session data (e.g., shopping cart contents, login status, flash messages). This data is stored as a <strong>JSON</strong> string (a <cite>TEXT</cite> type in the database).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expires_at</span></code>: The date and time when the session expires. This date is automatically renewed with each request.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">created_at</span></code>: The date and time when the session was first created.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">updated_at</span></code>: The date and time of the last update to the session.</p></li>
+</ul>
+<p>—</p>
+</section>
+<section id="how-sessions-work-in-lback">
+<h2>2. How Sessions Work in Lback<a class="headerlink" href="#how-sessions-work-in-lback" title="Link to this heading"></a></h2>
+<p>Session management in Lback relies on two core components:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">SessionMiddleware</span></code>: This middleware (located in <code class="docutils literal notranslate"><span class="pre">lback/middlewares/session_middleware.py</span></code>) is responsible for:</dt><dd><ul>
+<li><p><strong>Reading the Session ID from a cookie</strong> at the beginning of each request.</p></li>
+<li><p><strong>Fetching session data from the database</strong> using the <code class="docutils literal notranslate"><span class="pre">SessionManager</span></code>.</p></li>
+<li><p><strong>Placing an ``AppSession`` object</strong> (the session wrapper) into the request context (<code class="docutils literal notranslate"><span class="pre">request.context['session']</span></code>) for easy access by your views.</p></li>
+<li><p><strong>Saving modified session data back to the database</strong> at the end of the request (if changes occurred).</p></li>
+<li><p><strong>Setting or deleting the session cookie</strong> in the browser’s response.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">SessionManager</span></code>: This class (located in <code class="docutils literal notranslate"><span class="pre">lback/utils/session_manager.py</span></code>) directly interacts with the database to:</dt><dd><ul>
+<li><p>Create new sessions.</p></li>
+<li><p>Retrieve existing session data.</p></li>
+<li><p>Update session data.</p></li>
+<li><p>Renew session expiration.</p></li>
+<li><p>Delete sessions.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>The Workflow:</strong></p>
+<ol class="arabic simple">
+<li><p>When an HTTP request arrives, <code class="docutils literal notranslate"><span class="pre">SQLAlchemyMiddleware</span></code> first sets up a database session (<code class="docutils literal notranslate"><span class="pre">db_session</span></code>).</p></li>
+<li><p>Next, <code class="docutils literal notranslate"><span class="pre">SessionMiddleware</span></code> inspects the request for a <code class="docutils literal notranslate"><span class="pre">session_id</span></code> cookie.</p></li>
+<li><p>If no <code class="docutils literal notranslate"><span class="pre">session_id</span></code> is found or it’s invalid/expired, it’s treated as a new session, and a new <code class="docutils literal notranslate"><span class="pre">session_id</span></code> is generated and stored in the database by <code class="docutils literal notranslate"><span class="pre">SessionManager</span></code>.</p></li>
+<li><p>If a valid <code class="docutils literal notranslate"><span class="pre">session_id</span></code> exists, <code class="docutils literal notranslate"><span class="pre">SessionMiddleware</span></code> retrieves the associated session data from the database.</p></li>
+<li><p>In either case, an <code class="docutils literal notranslate"><span class="pre">AppSession</span></code> object (which wraps the session data and associated logic) is initialized and made available via <code class="docutils literal notranslate"><span class="pre">request.context['session']</span></code>.</p></li>
+<li><p>Your views and controllers can now interact with <code class="docutils literal notranslate"><span class="pre">request.session</span></code>.</p></li>
+<li><p>After the request is processed by your view, and before the response is sent back to the browser, <code class="docutils literal notranslate"><span class="pre">SessionMiddleware</span></code> saves any changes made to <code class="docutils literal notranslate"><span class="pre">request.session</span></code> back to the database and updates the session cookie in the response.</p></li>
+</ol>
+<p>—</p>
+</section>
+<section id="session-configuration-options-in-settings-py">
+<h2>3. Session Configuration Options in <code class="docutils literal notranslate"><span class="pre">settings.py</span></code><a class="headerlink" href="#session-configuration-options-in-settings-py" title="Link to this heading"></a></h2>
+<p>You can customize session behavior by configuring the following settings in your project’s <code class="docutils literal notranslate"><span class="pre">settings.py</span></code> file:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">SESSION_TIMEOUT_MINUTES</span></code>: (Required) Specifies how long a session remains valid (in minutes) if there’s no activity. The session’s expiration is automatically renewed with each request made within this period.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">SESSION_TIMEOUT_MINUTES</span> <span class="pre">=</span> <span class="pre">30</span></code> (session expires after 30 minutes of inactivity).</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SESSION_COOKIE_NAME</span></code>: (Optional, default is <code class="docutils literal notranslate"><span class="pre">session_id</span></code>) The name of the cookie used to store the session ID in the user’s browser.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">SESSION_COOKIE_NAME</span> <span class="pre">=</span> <span class="pre">'my_app_session_id'</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>—</p>
+</section>
+<section id="accessing-and-storing-session-data-in-views">
+<h2>4. Accessing and Storing Session Data in Views<a class="headerlink" href="#accessing-and-storing-session-data-in-views" title="Link to this heading"></a></h2>
+<p>Once <code class="docutils literal notranslate"><span class="pre">SessionMiddleware</span></code> makes the <code class="docutils literal notranslate"><span class="pre">AppSession</span></code> object available in <code class="docutils literal notranslate"><span class="pre">request.context['session']</span></code>, developers can easily access and manipulate session data within their views (or controllers).</p>
+<p><code class="docutils literal notranslate"><span class="pre">request.session</span></code> behaves like a dictionary-like object, allowing for straightforward data storage and retrieval.</p>
+<p><strong>Examples:</strong></p>
+<ol class="arabic">
+<li><p><strong>Storing data in the Session:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># In your View or Controller</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">login_view</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">):</span>
+    <span class="c1"># ... (after successful login credential verification) ...</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">get_user_by_credentials</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">user</span><span class="p">:</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">username</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;is_authenticated&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;flash_messages&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="s1">&#39;Welcome back!&#39;</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="s1">&#39;success&#39;</span><span class="p">}]</span>
+        <span class="c1"># All this data will be automatically saved to the database at the end of the request</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+    <span class="c1"># ...</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Accessing data from the Session:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># In your View or Controller</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">profile_view</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">):</span>
+    <span class="n">user_id</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;user_id&#39;</span><span class="p">)</span>
+    <span class="n">username</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">user_id</span> <span class="ow">and</span> <span class="n">username</span><span class="p">:</span>
+        <span class="c1"># Load user data from the database using user_id</span>
+        <span class="c1"># ...</span>
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;profile.html&#39;</span><span class="p">,</span> <span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># User not logged in or data not in session</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;flash_messages&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="s1">&#39;Please log in to view your profile.&#39;</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="s1">&#39;warning&#39;</span><span class="p">}]</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">display_flash_messages</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">):</span>
+    <span class="c1"># Typically called in the base template</span>
+    <span class="n">messages</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;flash_messages&#39;</span><span class="p">,</span> <span class="p">[])</span>
+    <span class="c1"># After displaying messages, they should be cleared so they don&#39;t reappear</span>
+    <span class="k">if</span> <span class="n">messages</span><span class="p">:</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;flash_messages&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># Clear messages after reading them</span>
+    <span class="k">return</span> <span class="n">messages</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Checking if the Session is New:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">is_new</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is a new user session.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Checking if the Session has been Modified:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">modified</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Session data has been modified and will be saved to the database.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Deleting Specific Data from the Session:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># To delete a single item</span>
+<span class="k">if</span> <span class="s1">&#39;item_in_cart&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">:</span>
+    <span class="k">del</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;item_in_cart&#39;</span><span class="p">]</span>
+
+<span class="c1"># Or clear all current session data while keeping the session itself</span>
+<span class="c1"># (This does not delete the Session from the database, only its contents)</span>
+<span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Deleting the Entire Session (Logout):</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">logout_view</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">):</span>
+    <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span> <span class="c1"># Deletes the session from the database and removes the cookie</span>
+    <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;flash_messages&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="s1">&#39;You have been logged out.&#39;</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="s1">&#39;info&#39;</span><span class="p">}]</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>—</p>
+<p>By following these guidelines, you will be able to effectively manage sessions in your Lback-based applications.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Authorization.html" class="btn btn-neutral float-left" title="Authorization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Security%20Features.html" class="btn btn-neutral float-right" title="Security Features" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ibrahem abo kila.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

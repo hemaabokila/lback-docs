@@ -1,0 +1,231 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Error Handling &amp; Reporting &mdash; lback 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=95f010fd" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Deployment" href="Deployment.html" />
+    <link rel="prev" title="Error Handling and HTTP Exceptions" href="error_handling.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            lback
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Configuration%20System.html">Configuration System</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="routing_system.html">Routing System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Views%20%26%20Responses.html">Views &amp; Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Templating%20System.html">Templating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Static%20Files.html">Static Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Media%20Files.html">Media Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file-uploads.html">File Uploads in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Forms.html">Forms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Models%20%26%20Database.html">Models &amp; Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Database%20Migrations%20System.html">Database Migrations System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Authorization.html">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sessions.html">Sessions in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Security%20Features.html">Security Features</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Admin%20Panel.html">Built-in Admin Panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API%20Tools.html">API Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Signal%20System.html">Signal System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Middleware%20System.html">Middleware System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_middlewares.html">Custom Middlewares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logging_config.html">Logging Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="email-sender.html">Email Sending in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="validation_utilities.html">Validation Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="error_handling.html">Error Handling and HTTP Exceptions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Error Handling &amp; Reporting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-error-handling-works">How Error Handling Works</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#debugging-with-browser-error-reporting">Debugging with Browser Error Reporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#customizing-error-pages-with-templates">Customizing Error Pages with Templates</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Deployment.html">Deployment</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html">Signals from BaseView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-apidocs">Signals from APIDocs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-basemodelserializer">Signals from BaseModelSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-registry-signals.html">Signals from AdminRegistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user.html">Signals from AdminUser and Role Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-manager.html">Signals from AdminUserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-repository.html">Signals from AdminUserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html">Signals from AdminAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-jwtauth">Signals from JWTAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-oauth2auth">Signals from OAuth2Auth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-permissionrequired">Signals from PermissionRequired</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-sessionauth">Signals from SessionAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/error-handler.html">Signals from ErrorHandler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/middleware-manager.html">Signals from MiddlewareManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/migration_commands.html">Signals from MigrationCommands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/permission-repository.html">Signals from PermissionRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/role-repository.html">Signals from RoleRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/session-manager.html">Signals from SessionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/template-renderer.html">Signals from TemplateRenderer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-manager.html">Signals from UserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-model.html">Signals from User Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-repository.html">Signals from UserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/wsgi-application.html">Signals from WSGI Application and Server</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Modules and Classes Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API%20Reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lback/lback.html">lback package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">lback</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Error Handling &amp; Reporting</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/features/Error Handling &amp; Reporting.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="error-handling-reporting">
+<h1>Error Handling &amp; Reporting<a class="headerlink" href="#error-handling-reporting" title="Link to this heading"></a></h1>
+<p>The Lback framework provides a robust and flexible system for handling errors that occur during your application’s request processing. This ensures a graceful user experience even when unexpected issues arise, while offering powerful debugging tools for developers.</p>
+<p>—</p>
+<section id="how-error-handling-works">
+<h2>How Error Handling Works<a class="headerlink" href="#how-error-handling-works" title="Link to this heading"></a></h2>
+<p>The core of the error handling system is the <strong>ErrorHandler</strong> class. This class is responsible for catching exceptions and HTTP errors (like 404 Not Found or 500 Internal Server Error) and generating appropriate responses.</p>
+<p>Key aspects of its operation include:</p>
+<ul>
+<li><p><strong>Dedicated Handlers:</strong> The <code class="docutils literal notranslate"><span class="pre">ErrorHandler</span></code> has specific methods to deal with common HTTP errors:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>handle_404</strong>: For resources that are not found.</p></li>
+<li><p><strong>handle_403</strong>: For forbidden access attempts (e.g., permission denied).</p></li>
+<li><p><strong>handle_405</strong>: For HTTP methods not allowed on a given URL.</p></li>
+<li><p><strong>handle_500</strong>: For explicit internal server errors.</p></li>
+<li><p><strong>handle_exception</strong>: A comprehensive handler for any unhandled exceptions that occur during view execution or other parts of the request lifecycle.</p></li>
+<li><p><strong>handle_custom_error</strong>: For rendering errors with specific custom status codes and messages.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Integration with Shortcuts:</strong> For convenience, the framework provides shortcut functions like <code class="docutils literal notranslate"><span class="pre">return_404()</span></code>, <code class="docutils literal notranslate"><span class="pre">return_403()</span></code>, and <code class="docutils literal notranslate"><span class="pre">return_500()</span></code> which internally delegate to the <code class="docutils literal notranslate"><span class="pre">ErrorHandler</span></code>, ensuring consistent error response generation.</p></li>
+<li><p><strong>Signals Integration:</strong> The <code class="docutils literal notranslate"><span class="pre">ErrorHandler</span></code> dispatches signals (e.g., <code class="docutils literal notranslate"><span class="pre">error_response_generated</span></code>, <code class="docutils literal notranslate"><span class="pre">unhandled_exception_response_generated</span></code>) at various stages of error handling. This allows you to hook into the error flow for custom logging, monitoring, or notification purposes.</p></li>
+</ul>
+<p>—</p>
+</section>
+<section id="debugging-with-browser-error-reporting">
+<h2>Debugging with Browser Error Reporting<a class="headerlink" href="#debugging-with-browser-error-reporting" title="Link to this heading"></a></h2>
+<p>One of the most valuable features for developers is the framework’s <strong>browser error reporting system</strong>, which is active when your application is running in <strong>DEBUG mode</strong>.</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code> in your <code class="docutils literal notranslate"><span class="pre">Config</span></code> (or <code class="docutils literal notranslate"><span class="pre">settings.py</span></code>), and an error or exception occurs, the framework will render a detailed HTML page directly in the browser instead of a generic error message. This debug page includes:</p>
+<ul class="simple">
+<li><p><strong>Detailed Stack Trace:</strong> A full traceback of the error, pinpointing exactly where the exception occurred in your code.</p></li>
+<li><p><strong>Request Variables:</strong> Information about the incoming HTTP request, including method, path, headers, and body (if applicable).</p></li>
+<li><p><strong>Context Variables:</strong> For template rendering errors (like <code class="docutils literal notranslate"><span class="pre">TemplateNotFound</span></code>), the context variables that were available to the template are displayed.</p></li>
+<li><p><strong>Router Information:</strong> For 404 errors, a list of available routes might be displayed to help identify routing issues.</p></li>
+<li><p><strong>Sensitive Data Masking:</strong> (Implicitly, if implemented in <code class="docutils literal notranslate"><span class="pre">Config</span></code> or rendering) While in debug mode, be cautious about exposing sensitive data in error pages in a production-like environment.</p></li>
+</ul>
+<p>This detailed reporting significantly speeds up the debugging process by providing all necessary information directly in your browser.</p>
+<p>—</p>
+</section>
+<section id="customizing-error-pages-with-templates">
+<h2>Customizing Error Pages with Templates<a class="headerlink" href="#customizing-error-pages-with-templates" title="Link to this heading"></a></h2>
+<p>The framework allows you to customize the appearance and content of these error pages by creating your own HTML templates.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">ErrorHandler</span></code> attempts to render specific debug templates first if <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>. If those templates are not found or if <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>, it falls back to a generic HTML response.</p>
+<p>You can create these templates in your configured template directories:</p>
+<ul class="simple">
+<li><p><strong>debug_404.html</strong>: Custom template for 404 Not Found errors when <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+<li><p><strong>debug_403.html</strong>: Custom template for 403 Forbidden errors when <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+<li><p><strong>debug_405.html</strong>: Custom template for 405 Method Not Allowed errors when <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+<li><p><strong>debug_error.html</strong>: Custom template for unhandled exceptions (500 errors) when <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+</ul>
+<p>If these debug-specific templates are not provided, or if the framework is not in <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> mode, a simple, generic HTML response will be returned for these error codes. For <code class="docutils literal notranslate"><span class="pre">handle_500</span></code> (explicitly raised 500) and <code class="docutils literal notranslate"><span class="pre">handle_custom_error</span></code>, there’s no specific debug template; they default to their generic HTML output.</p>
+<p>By providing custom error templates, you can ensure that your application maintains a consistent look and feel even when errors occur, and you can provide more user-friendly messages for production environments.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="error_handling.html" class="btn btn-neutral float-left" title="Error Handling and HTTP Exceptions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Deployment.html" class="btn btn-neutral float-right" title="Deployment" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ibrahem abo kila.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

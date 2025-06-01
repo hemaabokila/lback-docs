@@ -1,0 +1,1095 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>lback.models package &mdash; lback 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=95f010fd" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="lback.repositories package" href="lback.repositories.html" />
+    <link rel="prev" title="lback.middlewares package" href="lback.middlewares.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            lback
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Configuration%20System.html">Configuration System</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/routing_system.html">Routing System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Views%20%26%20Responses.html">Views &amp; Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Templating%20System.html">Templating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Static%20Files.html">Static Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Media%20Files.html">Media Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/file-uploads.html">File Uploads in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Forms.html">Forms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/Models%20%26%20Database.html">Models &amp; Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Database%20Migrations%20System.html">Database Migrations System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Authorization.html">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/sessions.html">Sessions in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Security%20Features.html">Security Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/Admin%20Panel.html">Built-in Admin Panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/API%20Tools.html">API Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Signal%20System.html">Signal System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Middleware%20System.html">Middleware System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/custom_middlewares.html">Custom Middlewares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/logging_config.html">Logging Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/email-sender.html">Email Sending in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/validation_utilities.html">Validation Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/error_handling.html">Error Handling and HTTP Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Error%20Handling%20%26%20Reporting.html">Error Handling &amp; Reporting</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/Deployment.html">Deployment</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html">Signals from BaseView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-apidocs">Signals from APIDocs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-basemodelserializer">Signals from BaseModelSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-registry-signals.html">Signals from AdminRegistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user.html">Signals from AdminUser and Role Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-manager.html">Signals from AdminUserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-repository.html">Signals from AdminUserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html">Signals from AdminAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-jwtauth">Signals from JWTAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-oauth2auth">Signals from OAuth2Auth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-permissionrequired">Signals from PermissionRequired</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-sessionauth">Signals from SessionAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/error-handler.html">Signals from ErrorHandler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/middleware-manager.html">Signals from MiddlewareManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/migration_commands.html">Signals from MigrationCommands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/permission-repository.html">Signals from PermissionRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/role-repository.html">Signals from RoleRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/session-manager.html">Signals from SessionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/template-renderer.html">Signals from TemplateRenderer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-manager.html">Signals from UserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-model.html">Signals from User Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-repository.html">Signals from UserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/wsgi-application.html">Signals from WSGI Application and Server</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Modules and Classes Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API%20Reference.html">API Reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="lback.html">lback package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="lback.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="lback.admin.html">lback.admin package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.api.html">lback.api package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.auth.html">lback.auth package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.auth_app.html">lback.auth_app package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.commands.html">lback.commands package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.core.html">lback.core package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.forms.html">lback.forms package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.middlewares.html">lback.middlewares package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">lback.models package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-lback.models.adminuser">lback.models.adminuser module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-lback.models.base">lback.models.base module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-lback.models.database">lback.models.database module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-lback.models.product">lback.models.product module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-lback.models.session">lback.models.session module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-lback.models.user">lback.models.user module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-lback.models">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lback.repositories.html">lback.repositories package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.security.html">lback.security package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.utils.html">lback.utils package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lback.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lback.html#module-lback.main">lback.main module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lback.html#module-lback">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">lback</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="lback.html">lback package</a></li>
+      <li class="breadcrumb-item active">lback.models package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/lback/lback.models.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="lback-models-package">
+<h1>lback.models package<a class="headerlink" href="#lback-models-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-lback.models.adminuser">
+<span id="lback-models-adminuser-module"></span><h2>lback.models.adminuser module<a class="headerlink" href="#module-lback.models.adminuser" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.models.adminuser.AdminUser">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.models.adminuser.</span></span><span class="sig-name descname"><span class="pre">AdminUser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/models/adminuser.html#AdminUser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.adminuser.AdminUser" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lback.models.base.BaseModel" title="lback.models.base.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></a></p>
+<p>Represents an administrative user in the system.
+Admin users can have roles and permissions.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.models.adminuser.AdminUser.__repr__">
+<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/lback/models/adminuser.html#AdminUser.__repr__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.adminuser.AdminUser.__repr__" title="Link to this definition"></a></dt>
+<dd><p>Provides a developer-friendly string representation of the AdminUser.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.adminuser.AdminUser.created_at">
+<span class="sig-name descname"><span class="pre">created_at</span></span><a class="headerlink" href="#lback.models.adminuser.AdminUser.created_at" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.adminuser.AdminUser.email">
+<span class="sig-name descname"><span class="pre">email</span></span><a class="headerlink" href="#lback.models.adminuser.AdminUser.email" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.models.adminuser.AdminUser.has_permission">
+<span class="sig-name descname"><span class="pre">has_permission</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">permission_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/lback/models/adminuser.html#AdminUser.has_permission"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.adminuser.AdminUser.has_permission" title="Link to this definition"></a></dt>
+<dd><p>Checks if the admin user has a specific permission.
+Superusers have all permissions. Otherwise, checks the user’s role’s permissions.
+Emits ‘admin_user_permission_checked’ signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>permission_name</strong> – The name string of the permission to check.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the user has the permission, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.adminuser.AdminUser.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#lback.models.adminuser.AdminUser.id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.adminuser.AdminUser.is_superuser">
+<span class="sig-name descname"><span class="pre">is_superuser</span></span><a class="headerlink" href="#lback.models.adminuser.AdminUser.is_superuser" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.adminuser.AdminUser.password">
+<span class="sig-name descname"><span class="pre">password</span></span><a class="headerlink" href="#lback.models.adminuser.AdminUser.password" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="lback.models.adminuser.AdminUser.permissions">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">permissions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#lback.models.adminuser.AdminUser.permissions" title="Link to this definition"></a></dt>
+<dd><p>Returns a set of permission names associated with this user’s role.
+This property is used by the PermissionRequired decorator.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.adminuser.AdminUser.role">
+<span class="sig-name descname"><span class="pre">role</span></span><a class="headerlink" href="#lback.models.adminuser.AdminUser.role" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.adminuser.AdminUser.role_id">
+<span class="sig-name descname"><span class="pre">role_id</span></span><a class="headerlink" href="#lback.models.adminuser.AdminUser.role_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.adminuser.AdminUser.updated_at">
+<span class="sig-name descname"><span class="pre">updated_at</span></span><a class="headerlink" href="#lback.models.adminuser.AdminUser.updated_at" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.adminuser.AdminUser.username">
+<span class="sig-name descname"><span class="pre">username</span></span><a class="headerlink" href="#lback.models.adminuser.AdminUser.username" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.models.adminuser.Permission">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.models.adminuser.</span></span><span class="sig-name descname"><span class="pre">Permission</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/models/adminuser.html#Permission"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.adminuser.Permission" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lback.models.base.BaseModel" title="lback.models.base.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></a></p>
+<p>Represents a specific permission that can be assigned to roles.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.models.adminuser.Permission.__repr__">
+<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/lback/models/adminuser.html#Permission.__repr__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.adminuser.Permission.__repr__" title="Link to this definition"></a></dt>
+<dd><p>Provides a developer-friendly string representation of the Permission.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.adminuser.Permission.created_at">
+<span class="sig-name descname"><span class="pre">created_at</span></span><a class="headerlink" href="#lback.models.adminuser.Permission.created_at" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.adminuser.Permission.description">
+<span class="sig-name descname"><span class="pre">description</span></span><a class="headerlink" href="#lback.models.adminuser.Permission.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.adminuser.Permission.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#lback.models.adminuser.Permission.id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.adminuser.Permission.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#lback.models.adminuser.Permission.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.adminuser.Permission.roles">
+<span class="sig-name descname"><span class="pre">roles</span></span><a class="headerlink" href="#lback.models.adminuser.Permission.roles" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.adminuser.Permission.updated_at">
+<span class="sig-name descname"><span class="pre">updated_at</span></span><a class="headerlink" href="#lback.models.adminuser.Permission.updated_at" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.models.adminuser.Role">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.models.adminuser.</span></span><span class="sig-name descname"><span class="pre">Role</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/models/adminuser.html#Role"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.adminuser.Role" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lback.models.base.BaseModel" title="lback.models.base.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></a></p>
+<p>Represents a role that groups multiple permissions.
+Admin users can be assigned roles.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.models.adminuser.Role.__repr__">
+<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/lback/models/adminuser.html#Role.__repr__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.adminuser.Role.__repr__" title="Link to this definition"></a></dt>
+<dd><p>Provides a developer-friendly string representation of the Role.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.models.adminuser.Role.add_permission">
+<span class="sig-name descname"><span class="pre">add_permission</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">permission</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lback.models.adminuser.Permission" title="lback.models.adminuser.Permission"><span class="pre">Permission</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/models/adminuser.html#Role.add_permission"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.adminuser.Role.add_permission" title="Link to this definition"></a></dt>
+<dd><p>Adds a permission to this role.
+Emits ‘role_permission_added’ signal on success.
+Emits ‘role_permission_operation_failed’ signal on failure (invalid type, already exists).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>permission</strong> – The Permission object to add.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.adminuser.Role.admin_users">
+<span class="sig-name descname"><span class="pre">admin_users</span></span><a class="headerlink" href="#lback.models.adminuser.Role.admin_users" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.adminuser.Role.created_at">
+<span class="sig-name descname"><span class="pre">created_at</span></span><a class="headerlink" href="#lback.models.adminuser.Role.created_at" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.adminuser.Role.description">
+<span class="sig-name descname"><span class="pre">description</span></span><a class="headerlink" href="#lback.models.adminuser.Role.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.adminuser.Role.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#lback.models.adminuser.Role.id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.adminuser.Role.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#lback.models.adminuser.Role.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.adminuser.Role.permissions">
+<span class="sig-name descname"><span class="pre">permissions</span></span><a class="headerlink" href="#lback.models.adminuser.Role.permissions" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.models.adminuser.Role.remove_permission">
+<span class="sig-name descname"><span class="pre">remove_permission</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">permission</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lback.models.adminuser.Permission" title="lback.models.adminuser.Permission"><span class="pre">Permission</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/models/adminuser.html#Role.remove_permission"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.adminuser.Role.remove_permission" title="Link to this definition"></a></dt>
+<dd><p>Removes a permission from this role.
+Emits ‘role_permission_removed’ signal on success.
+Emits ‘role_permission_operation_failed’ signal on failure (invalid type, not found).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>permission</strong> – The Permission object to remove.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.adminuser.Role.updated_at">
+<span class="sig-name descname"><span class="pre">updated_at</span></span><a class="headerlink" href="#lback.models.adminuser.Role.updated_at" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lback.models.base">
+<span id="lback-models-base-module"></span><h2>lback.models.base module<a class="headerlink" href="#module-lback.models.base" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.models.base.BaseModel">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.models.base.</span></span><span class="sig-name descname"><span class="pre">BaseModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/models/base.html#BaseModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.base.BaseModel" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Base</span></code></p>
+<p>Abstract base class for all SQLAlchemy models in the application.
+Provides common fields like primary key ID, creation timestamp, and update timestamp.
+Integrates SignalDispatcher to emit events related to model lifecycle (specifically validation).</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.models.base.BaseModel.__repr__">
+<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/lback/models/base.html#BaseModel.__repr__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.base.BaseModel.__repr__" title="Link to this definition"></a></dt>
+<dd><p>Provides a developer-friendly string representation of the model instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.base.BaseModel.created_at">
+<span class="sig-name descname"><span class="pre">created_at</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Column(None,</span> <span class="pre">DateTime(),</span> <span class="pre">table=None,</span> <span class="pre">nullable=False,</span> <span class="pre">default=CallableColumnDefault(&lt;function</span> <span class="pre">datetime.utcnow&gt;))</span></em><a class="headerlink" href="#lback.models.base.BaseModel.created_at" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.base.BaseModel.id">
+<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Column(None,</span> <span class="pre">Integer(),</span> <span class="pre">table=None,</span> <span class="pre">primary_key=True,</span> <span class="pre">nullable=False)</span></em><a class="headerlink" href="#lback.models.base.BaseModel.id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.models.base.BaseModel.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/lback/models/base.html#BaseModel.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.base.BaseModel.to_dict" title="Link to this definition"></a></dt>
+<dd><p>Returns a dictionary representation of the model instance.
+Note: This is a basic implementation and might not handle relationships or complex types well.
+Consider using a dedicated serialization library for more complex scenarios.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.base.BaseModel.updated_at">
+<span class="sig-name descname"><span class="pre">updated_at</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Column(None,</span> <span class="pre">DateTime(),</span> <span class="pre">table=None,</span> <span class="pre">nullable=False,</span> <span class="pre">onupdate=CallableColumnDefault(&lt;function</span> <span class="pre">datetime.utcnow&gt;),</span> <span class="pre">default=CallableColumnDefault(&lt;function</span> <span class="pre">datetime.utcnow&gt;))</span></em><a class="headerlink" href="#lback.models.base.BaseModel.updated_at" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.models.base.BaseModel.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/lback/models/base.html#BaseModel.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.base.BaseModel.validate" title="Link to this definition"></a></dt>
+<dd><p>Placeholder method for model validation.
+Subclasses should override this method to implement specific validation logic
+before saving or updating an instance.
+Should raise a ValidationError or similar exception if validation fails.
+Emits ‘model_pre_validate’ signal before any validation logic runs.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lback.models.database">
+<span id="lback-models-database-module"></span><h2>lback.models.database module<a class="headerlink" href="#module-lback.models.database" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.models.database.DatabaseManager">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.models.database.</span></span><span class="sig-name descname"><span class="pre">DatabaseManager</span></span><a class="reference internal" href="../_modules/lback/models/database.html#DatabaseManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.database.DatabaseManager" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Manages the database connection and session factory as a singleton.
+Responsible for creating the SQLAlchemy engine and providing a scoped session factory
+for managing database sessions within the application context (e.g., per request).
+Emits signals for key database lifecycle events.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="lback.models.database.DatabaseManager.Session">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Session</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#lback.models.database.DatabaseManager.Session" title="Link to this definition"></a></dt>
+<dd><p>Returns the scoped session factory.
+Calling this property returns the factory function that provides the current session
+for the calling thread/context.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The scoped session factory, or None if initialization failed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.models.database.DatabaseManager.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/models/database.html#DatabaseManager.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.database.DatabaseManager.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initializes the DatabaseManager.
+This constructor should ideally only be called once via get_instance().
+It sets up the database engine and session factory based on Config settings.
+Emits ‘db_manager_initialized’ signal on success.
+Emits ‘db_operation_failed’ signal on initialization failure.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.models.database.DatabaseManager.__repr__">
+<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/lback/models/database.html#DatabaseManager.__repr__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.database.DatabaseManager.__repr__" title="Link to this definition"></a></dt>
+<dd><p>Provides a developer-friendly string representation of the DatabaseManager.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.models.database.DatabaseManager.create_all_tables">
+<span class="sig-name descname"><span class="pre">create_all_tables</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/models/database.html#DatabaseManager.create_all_tables"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.database.DatabaseManager.create_all_tables" title="Link to this definition"></a></dt>
+<dd><p>Creates all database tables defined by the models associated with Base.metadata.
+Requires the engine to be successfully initialized.
+Emits ‘db_tables_created’ signal on success.
+Emits ‘db_operation_failed’ signal on failure.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.models.database.DatabaseManager.create_session">
+<span class="sig-name descname"><span class="pre">create_session</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Session</span></span></span><a class="reference internal" href="../_modules/lback/models/database.html#DatabaseManager.create_session"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.database.DatabaseManager.create_session" title="Link to this definition"></a></dt>
+<dd><p>Creates and returns a new SQLAlchemy database session using the scoped session factory.
+This method is intended to be called once per request by the SQLAlchemySessionMiddleware.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.models.database.DatabaseManager.dispose_engine">
+<span class="sig-name descname"><span class="pre">dispose_engine</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/models/database.html#DatabaseManager.dispose_engine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.database.DatabaseManager.dispose_engine" title="Link to this definition"></a></dt>
+<dd><p>Disposes the database engine’s connection pool.
+This should be called on application shutdown to release database connections.
+Emits ‘db_engine_disposed’ signal on success.
+Emits ‘db_operation_failed’ signal on failure.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.models.database.DatabaseManager.drop_all_tables">
+<span class="sig-name descname"><span class="pre">drop_all_tables</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/models/database.html#DatabaseManager.drop_all_tables"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.database.DatabaseManager.drop_all_tables" title="Link to this definition"></a></dt>
+<dd><p>Drops all database tables defined by the models associated with Base.metadata.
+Use with caution, as this will delete all data.
+Requires the engine to be successfully initialized.
+Emits ‘db_tables_dropped’ signal on success.
+Emits ‘db_operation_failed’ signal on failure.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="lback.models.database.DatabaseManager.engine">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">engine</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#lback.models.database.DatabaseManager.engine" title="Link to this definition"></a></dt>
+<dd><p>Returns the SQLAlchemy engine instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The SQLAlchemy engine, or None if initialization failed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.models.database.DatabaseManager.get_instance">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_instance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lback.models.database.DatabaseManager" title="lback.models.database.DatabaseManager"><span class="pre">DatabaseManager</span></a></span></span><a class="reference internal" href="../_modules/lback/models/database.html#DatabaseManager.get_instance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.database.DatabaseManager.get_instance" title="Link to this definition"></a></dt>
+<dd><p>Gets the singleton instance of the DatabaseManager.
+Initializes the manager if it hasn’t been already.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The singleton DatabaseManager instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lback.models.product">
+<span id="lback-models-product-module"></span><h2>lback.models.product module<a class="headerlink" href="#module-lback.models.product" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.models.product.Product">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.models.product.</span></span><span class="sig-name descname"><span class="pre">Product</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/models/product.html#Product"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.product.Product" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lback.models.base.BaseModel" title="lback.models.base.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></a></p>
+<p>Represents a product in the inventory.
+Inherits common fields from BaseModel.
+Includes validation rules for product attributes using SQLAlchemy &#64;validates.
+Integrates SignalDispatcher to emit events related to product-specific actions.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.models.product.Product.__repr__">
+<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/lback/models/product.html#Product.__repr__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.product.Product.__repr__" title="Link to this definition"></a></dt>
+<dd><p>Provides a developer-friendly string representation of the Product instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.models.product.Product.apply_discount">
+<span class="sig-name descname"><span class="pre">apply_discount</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">discount_percentage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/models/product.html#Product.apply_discount"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.product.Product.apply_discount" title="Link to this definition"></a></dt>
+<dd><p>Applies a percentage discount to the product price.
+Raises ValueError if the discount percentage is invalid.
+Emits ‘product_discount_applied’ signal on success.
+Emits ‘product_discount_application_failed’ signal on failure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>discount_percentage</strong> – The discount percentage (0 to 100).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.product.Product.category">
+<span class="sig-name descname"><span class="pre">category</span></span><a class="headerlink" href="#lback.models.product.Product.category" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.product.Product.created_at">
+<span class="sig-name descname"><span class="pre">created_at</span></span><a class="headerlink" href="#lback.models.product.Product.created_at" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.product.Product.description">
+<span class="sig-name descname"><span class="pre">description</span></span><a class="headerlink" href="#lback.models.product.Product.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.models.product.Product.get_fields">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_fields</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/lback/models/product.html#Product.get_fields"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.product.Product.get_fields" title="Link to this definition"></a></dt>
+<dd><p>Returns a dictionary of column names and their SQLAlchemy types for this model.
+Useful for introspection, e.g., in generic admin views.
+# No signals here, as this is a static introspection method.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.product.Product.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#lback.models.product.Product.id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.product.Product.image_url">
+<span class="sig-name descname"><span class="pre">image_url</span></span><a class="headerlink" href="#lback.models.product.Product.image_url" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.product.Product.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#lback.models.product.Product.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.product.Product.price">
+<span class="sig-name descname"><span class="pre">price</span></span><a class="headerlink" href="#lback.models.product.Product.price" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.product.Product.quantity">
+<span class="sig-name descname"><span class="pre">quantity</span></span><a class="headerlink" href="#lback.models.product.Product.quantity" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.product.Product.sku">
+<span class="sig-name descname"><span class="pre">sku</span></span><a class="headerlink" href="#lback.models.product.Product.sku" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.models.product.Product.update_quantity">
+<span class="sig-name descname"><span class="pre">update_quantity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amount</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/models/product.html#Product.update_quantity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.product.Product.update_quantity" title="Link to this definition"></a></dt>
+<dd><p>Updates the product quantity by a specified amount.
+Raises ValueError if the resulting quantity would be negative.
+Emits ‘product_quantity_updated’ signal on success.
+Emits ‘product_quantity_update_failed’ signal on failure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>amount</strong> – The integer amount to add to the current quantity (can be positive or negative).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.product.Product.updated_at">
+<span class="sig-name descname"><span class="pre">updated_at</span></span><a class="headerlink" href="#lback.models.product.Product.updated_at" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.models.product.Product.validate_category">
+<span class="sig-name descname"><span class="pre">validate_category</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/models/product.html#Product.validate_category"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.product.Product.validate_category" title="Link to this definition"></a></dt>
+<dd><p>Placeholder for category validation.
+SQLAlchemy &#64;validates are called before session flush/commit.
+‘model_pre_validate’ signal is emitted by BaseModel.validate() before these run.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.models.product.Product.validate_image_url">
+<span class="sig-name descname"><span class="pre">validate_image_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/models/product.html#Product.validate_image_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.product.Product.validate_image_url" title="Link to this definition"></a></dt>
+<dd><p>Placeholder for image_url validation.
+SQLAlchemy &#64;validates are called before session flush/commit.
+‘model_pre_validate’ signal is emitted by BaseModel.validate() before these run.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.models.product.Product.validate_name">
+<span class="sig-name descname"><span class="pre">validate_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/lback/models/product.html#Product.validate_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.product.Product.validate_name" title="Link to this definition"></a></dt>
+<dd><p>Validate that the name is not empty.
+SQLAlchemy &#64;validates are called before session flush/commit.
+‘model_pre_validate’ signal is emitted by BaseModel.validate() before these run.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.models.product.Product.validate_price">
+<span class="sig-name descname"><span class="pre">validate_price</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="../_modules/lback/models/product.html#Product.validate_price"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.product.Product.validate_price" title="Link to this definition"></a></dt>
+<dd><p>Validate that the price is a non-negative float.
+SQLAlchemy &#64;validates are called before session flush/commit.
+‘model_pre_validate’ signal is emitted by BaseModel.validate() before these run.
+Specific validation failure signals could be added here if needed,
+but might be overly granular.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.models.product.Product.validate_quantity">
+<span class="sig-name descname"><span class="pre">validate_quantity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../_modules/lback/models/product.html#Product.validate_quantity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.product.Product.validate_quantity" title="Link to this definition"></a></dt>
+<dd><p>Validate that the quantity is a non-negative integer.
+SQLAlchemy &#64;validates are called before session flush/commit.
+‘model_pre_validate’ signal is emitted by BaseModel.validate() before these run.
+Specific validation failure signals could be added here if needed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.models.product.Product.validate_sku">
+<span class="sig-name descname"><span class="pre">validate_sku</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/lback/models/product.html#Product.validate_sku"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.product.Product.validate_sku" title="Link to this definition"></a></dt>
+<dd><p>Validate that the SKU is not empty.
+SQLAlchemy &#64;validates are called before session flush/commit.
+‘model_pre_validate’ signal is emitted by BaseModel.validate() before these run.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lback.models.session">
+<span id="lback-models-session-module"></span><h2>lback.models.session module<a class="headerlink" href="#module-lback.models.session" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.models.session.Session">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.models.session.</span></span><span class="sig-name descname"><span class="pre">Session</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/models/session.html#Session"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.session.Session" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lback.models.base.BaseModel" title="lback.models.base.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></a></p>
+<p>Represents a server-side session stored in the database.</p>
+<p>This model manages user session data, including session ID, associated user,
+creation and expiration timestamps, and a binary field for storing arbitrary session data.
+It provides convenient properties to serialize and deserialize the session data
+to and from a Python dictionary.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.models.session.Session.__repr__">
+<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/models/session.html#Session.__repr__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.session.Session.__repr__" title="Link to this definition"></a></dt>
+<dd><p>Provides a string representation of the Session object for debugging purposes.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.session.Session.created_at">
+<span class="sig-name descname"><span class="pre">created_at</span></span><a class="headerlink" href="#lback.models.session.Session.created_at" title="Link to this definition"></a></dt>
+<dd><p>The timestamp when the session was created.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.session.Session.data">
+<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#lback.models.session.Session.data" title="Link to this definition"></a></dt>
+<dd><p>A text field to store arbitrary session data as a JSON string.
+This field holds dynamic session-specific information (e.g., user login status, shopping cart contents, flash messages).
+Data is serialized to JSON string before storage and deserialized from JSON string upon retrieval.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="lback.models.session.Session.data_dict">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">data_dict</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#lback.models.session.Session.data_dict" title="Link to this definition"></a></dt>
+<dd><p>Deserializes the binary ‘data’ field into a Python dictionary.</p>
+<p>This property handles the conversion of the stored binary data back into
+a usable dictionary format, making it easy to access session variables.
+It uses <cite>pickle</cite> for deserialization.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The session data as a dictionary, or an empty dictionary if no data is stored.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict[str, Any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.session.Session.expires_at">
+<span class="sig-name descname"><span class="pre">expires_at</span></span><a class="headerlink" href="#lback.models.session.Session.expires_at" title="Link to this definition"></a></dt>
+<dd><p>The timestamp when the session is scheduled to expire.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.session.Session.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#lback.models.session.Session.id" title="Link to this definition"></a></dt>
+<dd><p>The unique identifier for the session, generated as a UUID.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.session.Session.updated_at">
+<span class="sig-name descname"><span class="pre">updated_at</span></span><a class="headerlink" href="#lback.models.session.Session.updated_at" title="Link to this definition"></a></dt>
+<dd><p>The timestamp of the last update to the session. Automatically updated on record modification.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.session.Session.user_id">
+<span class="sig-name descname"><span class="pre">user_id</span></span><a class="headerlink" href="#lback.models.session.Session.user_id" title="Link to this definition"></a></dt>
+<dd><p>The ID of the authenticated user associated with this session. Can be None for anonymous sessions.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lback.models.user">
+<span id="lback-models-user-module"></span><h2>lback.models.user module<a class="headerlink" href="#module-lback.models.user" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.models.user.Group">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.models.user.</span></span><span class="sig-name descname"><span class="pre">Group</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/models/user.html#Group"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.user.Group" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lback.models.base.BaseModel" title="lback.models.base.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></a></p>
+<p>Represents a group or role that users can belong to.
+A group has a name and can be associated with multiple permissions.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.user.Group.created_at">
+<span class="sig-name descname"><span class="pre">created_at</span></span><a class="headerlink" href="#lback.models.user.Group.created_at" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.user.Group.description">
+<span class="sig-name descname"><span class="pre">description</span></span><a class="headerlink" href="#lback.models.user.Group.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.user.Group.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#lback.models.user.Group.id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.user.Group.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#lback.models.user.Group.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.user.Group.permissions">
+<span class="sig-name descname"><span class="pre">permissions</span></span><a class="headerlink" href="#lback.models.user.Group.permissions" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.user.Group.updated_at">
+<span class="sig-name descname"><span class="pre">updated_at</span></span><a class="headerlink" href="#lback.models.user.Group.updated_at" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.models.user.User">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.models.user.</span></span><span class="sig-name descname"><span class="pre">User</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/models/user.html#User"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.user.User" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lback.models.base.BaseModel" title="lback.models.base.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></a></p>
+<p>Represents a regular application user.
+Extends BaseModel with user-specific fields and validation.
+Now supports Many-to-Many relationship with Groups for flexible role management.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.models.user.User.__repr__">
+<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/lback/models/user.html#User.__repr__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.user.User.__repr__" title="Link to this definition"></a></dt>
+<dd><p>Provides a developer-friendly string representation of the User instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.user.User.auth_token">
+<span class="sig-name descname"><span class="pre">auth_token</span></span><a class="headerlink" href="#lback.models.user.User.auth_token" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.models.user.User.check_password">
+<span class="sig-name descname"><span class="pre">check_password</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plain_password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/lback/models/user.html#User.check_password"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.user.User.check_password" title="Link to this definition"></a></dt>
+<dd><p>Checks the provided plain text password against the stored hashed password.
+Emits ‘user_password_checked’ signal after the check, ‘user_password_check_failed’ on error.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.user.User.created_at">
+<span class="sig-name descname"><span class="pre">created_at</span></span><a class="headerlink" href="#lback.models.user.User.created_at" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.user.User.email">
+<span class="sig-name descname"><span class="pre">email</span></span><a class="headerlink" href="#lback.models.user.User.email" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.user.User.email_verification_token">
+<span class="sig-name descname"><span class="pre">email_verification_token</span></span><a class="headerlink" href="#lback.models.user.User.email_verification_token" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.user.User.email_verification_token_expiry">
+<span class="sig-name descname"><span class="pre">email_verification_token_expiry</span></span><a class="headerlink" href="#lback.models.user.User.email_verification_token_expiry" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.models.user.User.generate_email_verification_token">
+<span class="sig-name descname"><span class="pre">generate_email_verification_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expiry_minutes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">60</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/models/user.html#User.generate_email_verification_token"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.user.User.generate_email_verification_token" title="Link to this definition"></a></dt>
+<dd><p>Generates a new email verification token and sets its expiry.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.models.user.User.get_fields">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_fields</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/lback/models/user.html#User.get_fields"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.user.User.get_fields" title="Link to this definition"></a></dt>
+<dd><p>Returns a dictionary of column names and their SQLAlchemy types for this model.
+Useful for introspection, e.g., in generic admin views.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.user.User.groups">
+<span class="sig-name descname"><span class="pre">groups</span></span><a class="headerlink" href="#lback.models.user.User.groups" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.models.user.User.has_permission">
+<span class="sig-name descname"><span class="pre">has_permission</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">permission_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/lback/models/user.html#User.has_permission"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.user.User.has_permission" title="Link to this definition"></a></dt>
+<dd><p>Checks if the user has a specific permission by checking their groups’ permissions.
+Uses a class-level cache to improve performance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.user.User.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#lback.models.user.User.id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.user.User.is_active">
+<span class="sig-name descname"><span class="pre">is_active</span></span><a class="headerlink" href="#lback.models.user.User.is_active" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="lback.models.user.User.is_admin">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_admin</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#lback.models.user.User.is_admin" title="Link to this definition"></a></dt>
+<dd><p>Determines if the user is an admin based on their group membership.
+Assumes there’s a group named ‘admin’.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.user.User.is_email_verified">
+<span class="sig-name descname"><span class="pre">is_email_verified</span></span><a class="headerlink" href="#lback.models.user.User.is_email_verified" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="lback.models.user.User.is_superuser">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_superuser</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#lback.models.user.User.is_superuser" title="Link to this definition"></a></dt>
+<dd><p>Determines if the user is a superuser.
+This can be based on a specific group or a dedicated flag in the User model.
+For simplicity, we’ll assume ‘admin’ group implies superuser for now.
+In a real app, you might have a separate <cite>is_superuser</cite> column.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.user.User.password">
+<span class="sig-name descname"><span class="pre">password</span></span><a class="headerlink" href="#lback.models.user.User.password" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.models.user.User.set_password">
+<span class="sig-name descname"><span class="pre">set_password</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plain_password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/models/user.html#User.set_password"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.user.User.set_password" title="Link to this definition"></a></dt>
+<dd><p>Hashes the plain text password and sets it on the model.
+Emits ‘user_password_set’ signal on success, ‘user_password_set_failed’ on failure.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.user.User.token_expiry">
+<span class="sig-name descname"><span class="pre">token_expiry</span></span><a class="headerlink" href="#lback.models.user.User.token_expiry" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.user.User.updated_at">
+<span class="sig-name descname"><span class="pre">updated_at</span></span><a class="headerlink" href="#lback.models.user.User.updated_at" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="lback.models.user.User.user_type">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">user_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#lback.models.user.User.user_type" title="Link to this definition"></a></dt>
+<dd><p>Returns the general type of the user (‘user’ or ‘admin’).
+The AuthMiddleware uses this general type to differentiate between
+regular users and admin users handled by separate managers.
+Specific roles (like ‘premium_user’, ‘editor’, ‘basic_user’) should
+be checked via <cite>has_permission</cite> or <cite>groups_names</cite> property.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.user.User.username">
+<span class="sig-name descname"><span class="pre">username</span></span><a class="headerlink" href="#lback.models.user.User.username" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.models.user.User.validate_email">
+<span class="sig-name descname"><span class="pre">validate_email</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/lback/models/user.html#User.validate_email"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.user.User.validate_email" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.models.user.User.validate_password">
+<span class="sig-name descname"><span class="pre">validate_password</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/lback/models/user.html#User.validate_password"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.user.User.validate_password" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.models.user.User.validate_username">
+<span class="sig-name descname"><span class="pre">validate_username</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/lback/models/user.html#User.validate_username"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.user.User.validate_username" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.models.user.User.verify_email">
+<span class="sig-name descname"><span class="pre">verify_email</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/lback/models/user.html#User.verify_email"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.user.User.verify_email" title="Link to this definition"></a></dt>
+<dd><p>Verifies the provided email verification token and marks email as verified if valid.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.models.user.UserPermission">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.models.user.</span></span><span class="sig-name descname"><span class="pre">UserPermission</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/models/user.html#UserPermission"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.models.user.UserPermission" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lback.models.base.BaseModel" title="lback.models.base.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></a></p>
+<p>Represents a specific permission that can be granted to groups.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.user.UserPermission.created_at">
+<span class="sig-name descname"><span class="pre">created_at</span></span><a class="headerlink" href="#lback.models.user.UserPermission.created_at" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.user.UserPermission.description">
+<span class="sig-name descname"><span class="pre">description</span></span><a class="headerlink" href="#lback.models.user.UserPermission.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.user.UserPermission.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#lback.models.user.UserPermission.id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.user.UserPermission.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#lback.models.user.UserPermission.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.models.user.UserPermission.updated_at">
+<span class="sig-name descname"><span class="pre">updated_at</span></span><a class="headerlink" href="#lback.models.user.UserPermission.updated_at" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lback.models">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-lback.models" title="Link to this heading"></a></h2>
+<p>This file serves as the initialization point for the ‘lback_framework/lback/models’ package.
+It is designed to expose the core components necessary for defining and managing the
+application’s data models within the Lback web framework. This package centralizes
+the definition of database schemas, relationships between entities, and provides
+utilities for interacting with the underlying database.</p>
+<p>—</p>
+<p><strong>Key Components Exposed by this Package:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>AdminUser, Role, Permission (from .adminuser):</strong>
+These classes define the data models related to the administrative users and their
+access control within the application.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>AdminUser:</strong> Represents an administrative user account, typically with elevated</dt><dd><p>privileges for managing the application’s backend.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Role:</strong> Defines a specific role that can be assigned to users (e.g., ‘admin’, ‘editor’).</dt><dd><p>Roles are used to group permissions and simplify access control management.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Permission:</strong> Represents a specific action or resource that a user can be</dt><dd><p>granted access to (e.g., ‘can_edit_products’, ‘can_view_reports’).</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p><strong>BaseModel (from .base):</strong>
+The foundational base class for all data models within the Lback framework.
+This class typically provides common functionalities and attributes that all
+models share, such as primary key definitions, timestamp fields (created_at, updated_at),
+and potentially methods for common database operations.</p></li>
+<li><p><strong>DatabaseManager (from .database):</strong>
+A component responsible for managing the database connection and session lifecycle.
+This class typically handles the initialization of the database engine, creation
+of database sessions, and other low-level database interactions, providing a
+centralized point for database access.</p></li>
+<li><p><strong>Product (from .product):</strong>
+A specific data model representing a product within the application. This class
+defines the schema for product-related data, such as name, description, price,
+and other relevant attributes. It’s an example of an application-specific model.</p></li>
+<li><p><strong>Session (from .session):</strong>
+A data model representing a user’s session. This class is used to store and
+manage session-specific data on the server side, enabling the application
+to maintain user state across multiple requests (e.g., login status, shopping cart).</p></li>
+<li><p><strong>User, Group, UserPermission (from .user):</strong>
+These classes define the data models related to standard application users and
+their access control.</p>
+<ul class="simple">
+<li><p><strong>User:</strong> Represents a general user account within the application.</p></li>
+<li><dl class="simple">
+<dt><strong>Group:</strong> Defines a group that users can belong to, often used to assign</dt><dd><p>permissions or roles to multiple users collectively.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>UserPermission:</strong> Represents a direct permission granted to a specific user,</dt><dd><p>allowing for fine-grained access control beyond roles or groups.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="lback.middlewares.html" class="btn btn-neutral float-left" title="lback.middlewares package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="lback.repositories.html" class="btn btn-neutral float-right" title="lback.repositories package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ibrahem abo kila.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

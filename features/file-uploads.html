@@ -1,0 +1,379 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>File Uploads in Lback Framework &mdash; lback 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=95f010fd" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Forms" href="Forms.html" />
+    <link rel="prev" title="Media Files" href="Media%20Files.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            lback
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Configuration%20System.html">Configuration System</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="routing_system.html">Routing System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Views%20%26%20Responses.html">Views &amp; Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Templating%20System.html">Templating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Static%20Files.html">Static Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Media%20Files.html">Media Files</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">File Uploads in Lback Framework</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-file-uploads-work-in-lback">1. How File Uploads Work in Lback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#file-upload-configuration-options-in-settings-py">2. File Upload Configuration Options in <code class="docutils literal notranslate"><span class="pre">settings.py</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-handle-uploaded-files-in-views">3. How to Handle Uploaded Files in Views</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Forms.html">Forms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Models%20%26%20Database.html">Models &amp; Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Database%20Migrations%20System.html">Database Migrations System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Authorization.html">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sessions.html">Sessions in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Security%20Features.html">Security Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Admin%20Panel.html">Built-in Admin Panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API%20Tools.html">API Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Signal%20System.html">Signal System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Middleware%20System.html">Middleware System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_middlewares.html">Custom Middlewares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logging_config.html">Logging Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="email-sender.html">Email Sending in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="validation_utilities.html">Validation Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="error_handling.html">Error Handling and HTTP Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Error%20Handling%20%26%20Reporting.html">Error Handling &amp; Reporting</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Deployment.html">Deployment</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html">Signals from BaseView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-apidocs">Signals from APIDocs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-basemodelserializer">Signals from BaseModelSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-registry-signals.html">Signals from AdminRegistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user.html">Signals from AdminUser and Role Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-manager.html">Signals from AdminUserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-repository.html">Signals from AdminUserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html">Signals from AdminAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-jwtauth">Signals from JWTAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-oauth2auth">Signals from OAuth2Auth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-permissionrequired">Signals from PermissionRequired</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-sessionauth">Signals from SessionAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/error-handler.html">Signals from ErrorHandler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/middleware-manager.html">Signals from MiddlewareManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/migration_commands.html">Signals from MigrationCommands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/permission-repository.html">Signals from PermissionRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/role-repository.html">Signals from RoleRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/session-manager.html">Signals from SessionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/template-renderer.html">Signals from TemplateRenderer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-manager.html">Signals from UserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-model.html">Signals from User Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-repository.html">Signals from UserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/wsgi-application.html">Signals from WSGI Application and Server</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Modules and Classes Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API%20Reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lback/lback.html">lback package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">lback</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">File Uploads in Lback Framework</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/features/file-uploads.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="file-uploads-in-lback-framework">
+<h1>File Uploads in Lback Framework<a class="headerlink" href="#file-uploads-in-lback-framework" title="Link to this heading"></a></h1>
+<p>Handling file uploads is a fundamental part of many web applications. Lback provides a robust and flexible way to manage file uploads, including validation and secure storage.</p>
+<p>—</p>
+<section id="how-file-uploads-work-in-lback">
+<h2>1. How File Uploads Work in Lback<a class="headerlink" href="#how-file-uploads-work-in-lback" title="Link to this heading"></a></h2>
+<p>The file upload process relies on several core components working seamlessly together:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">BodyParsingMiddleware</span></code>: (in <code class="docutils literal notranslate"><span class="pre">lback/middlewares/body_parsing_middleware.py</span></code>)</dt><dd><p>This middleware is responsible for parsing the request body when the <code class="docutils literal notranslate"><span class="pre">Content-Type</span></code> is <code class="docutils literal notranslate"><span class="pre">multipart/form-data</span></code>. It transforms uploaded files into <code class="docutils literal notranslate"><span class="pre">UploadedFile</span></code> objects and makes them accessible via <code class="docutils literal notranslate"><span class="pre">request.files</span></code>.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">UploadedFile</span></code> <strong>Class</strong>: (in <code class="docutils literal notranslate"><span class="pre">lback/core/types.py</span></code>)</dt><dd><p>This object represents an uploaded file. It holds useful properties such as <code class="docutils literal notranslate"><span class="pre">filename</span></code> (the original file name), <code class="docutils literal notranslate"><span class="pre">content_type</span></code> (MIME type), <code class="docutils literal notranslate"><span class="pre">size</span></code> (size in bytes), and <code class="docutils literal notranslate"><span class="pre">file</span></code> (a file-like object representing the file’s content).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">file_handlers.py</span></code> <strong>Utilities</strong>: (in <code class="docutils literal notranslate"><span class="pre">lback/utils/file_handlers.py</span></code>)</dt><dd><p>This file contains helper functions to streamline file processing:
+* <code class="docutils literal notranslate"><span class="pre">validate_uploaded_file()</span></code>: Checks the file’s type and size against specified rules.
+* <code class="docutils literal notranslate"><span class="pre">save_uploaded_file()</span></code>: Saves the uploaded file to a structured directory on the file system.
+* <code class="docutils literal notranslate"><span class="pre">delete_saved_file()</span></code>: Deletes a previously saved file.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Generic Admin Panel (and your custom controllers)</strong>:</dt><dd><p>These components (like the Generic Add View or Generic Edit View) leverage the <code class="docutils literal notranslate"><span class="pre">file_handlers</span></code> functions to automatically process files uploaded from HTML forms.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>The Workflow:</strong></p>
+<ol class="arabic simple">
+<li><p>When a user submits an HTML form containing an <code class="docutils literal notranslate"><span class="pre">&lt;input</span> <span class="pre">type=&quot;file&quot;&gt;</span></code> field, the request is sent as <code class="docutils literal notranslate"><span class="pre">multipart/form-data</span></code>.</p></li>
+<li><p>The <cite>BodyParsingMiddleware</cite> intercepts and parses this request, extracting the uploaded files.</p></li>
+<li><p>Each uploaded file is converted into an <code class="docutils literal notranslate"><span class="pre">UploadedFile</span></code> object and stored in <code class="docutils literal notranslate"><span class="pre">request.files</span></code> (which is a <code class="docutils literal notranslate"><span class="pre">MultiDict</span></code>, allowing for multiple files under the same field name).</p></li>
+<li><p>In your View or Controller (whether it’s a Generic Admin View or your custom view):
+* You can access uploaded files via <cite>request.files</cite>.
+* You can call <code class="docutils literal notranslate"><span class="pre">validate_uploaded_file()</span></code> to check the file’s integrity before saving.
+* You can call <code class="docutils literal notranslate"><span class="pre">save_uploaded_file()</span></code> to store the file in the correct location on the server.
+* The saved file paths (relative paths) are what you should store in your database.</p></li>
+</ol>
+<p>—</p>
+</section>
+<section id="file-upload-configuration-options-in-settings-py">
+<h2>2. File Upload Configuration Options in <code class="docutils literal notranslate"><span class="pre">settings.py</span></code><a class="headerlink" href="#file-upload-configuration-options-in-settings-py" title="Link to this heading"></a></h2>
+<p>You can customize file upload behavior by configuring the following settings in your project’s <code class="docutils literal notranslate"><span class="pre">settings.py</span></code> file:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>UPLOAD_FOLDER</strong>: (Optional, default is <code class="docutils literal notranslate"><span class="pre">uploads</span></code>) The name of the base directory within your project where all uploaded files will be stored.</dt><dd><ul>
+<li><p><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">UPLOAD_FOLDER</span> <span class="pre">=</span> <span class="pre">'static/uploads'</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>UPLOAD_ALLOWED_TYPES</strong>: (Optional, default is <code class="docutils literal notranslate"><span class="pre">None</span></code> which allows all types) A list of allowed MIME types for uploaded files.</dt><dd><ul>
+<li><p><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">UPLOAD_ALLOWED_TYPES</span> <span class="pre">=</span> <span class="pre">['image/jpeg',</span> <span class="pre">'image/png',</span> <span class="pre">'application/pdf']</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>UPLOAD_MAX_SIZE_MB</strong>: (Optional, default is <code class="docutils literal notranslate"><span class="pre">None</span></code> for no size limit) The maximum allowed size for uploaded files in megabytes.</dt><dd><ul>
+<li><p><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">UPLOAD_MAX_SIZE_MB</span> <span class="pre">=</span> <span class="pre">5</span></code> (maximum size of 5 MB)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>—</p>
+</section>
+<section id="how-to-handle-uploaded-files-in-views">
+<h2>3. How to Handle Uploaded Files in Views<a class="headerlink" href="#how-to-handle-uploaded-files-in-views" title="Link to this heading"></a></h2>
+<p>Once <code class="docutils literal notranslate"><span class="pre">BodyParsingMiddleware</span></code> parses the request, uploaded files will be available in <code class="docutils literal notranslate"><span class="pre">request.files</span></code> as <code class="docutils literal notranslate"><span class="pre">UploadedFile</span></code> objects.</p>
+<p>#### Examples:</p>
+<ol class="arabic">
+<li><p><strong>Accessing a Single Uploaded File:</strong>
+If you expect a single file for a specific field (e.g., <code class="docutils literal notranslate"><span class="pre">profile_picture</span></code>):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># In your View or Controller</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.core.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">Request</span><span class="p">,</span> <span class="n">UploadedFile</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.utils.file_handlers</span><span class="w"> </span><span class="kn">import</span> <span class="n">save_uploaded_file</span><span class="p">,</span> <span class="n">validate_uploaded_file</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.core.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">Config</span> <span class="c1"># Ensure Config or current_app.config is imported</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">upload_profile_picture</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">):</span>
+    <span class="c1"># Assume you have a Config object available here, perhaps from request.app.config</span>
+    <span class="n">config</span><span class="p">:</span> <span class="n">Config</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">config</span> <span class="c1"># Or the appropriate way to access app configuration</span>
+
+    <span class="c1"># Access the uploaded file</span>
+    <span class="n">profile_pic_file</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">UploadedFile</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">files</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;profile_picture&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">profile_pic_file</span><span class="p">:</span>
+        <span class="c1"># Pass the `model_name` under which you want to save the files (typically the model/entity name)</span>
+        <span class="c1"># and the validation settings defined in your config</span>
+        <span class="n">saved_path</span> <span class="o">=</span> <span class="n">save_uploaded_file</span><span class="p">(</span>
+            <span class="n">profile_pic_file</span><span class="p">,</span>
+            <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span>
+            <span class="n">model_name</span><span class="o">=</span><span class="s1">&#39;users&#39;</span><span class="p">,</span> <span class="c1"># E.g., &#39;users&#39; folder within UPLOAD_FOLDER</span>
+            <span class="n">allowed_types</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">UPLOAD_ALLOWED_TYPES</span><span class="p">,</span>
+            <span class="n">max_size_mb</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">UPLOAD_MAX_SIZE_MB</span>
+        <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">saved_path</span><span class="p">:</span>
+            <span class="c1"># File saved successfully!</span>
+            <span class="c1"># You can now store &#39;saved_path&#39; in your database (e.g., &#39;profile_picture_path&#39; column in the User table)</span>
+            <span class="c1"># user.profile_picture_path = saved_path</span>
+            <span class="c1"># db_session.add(user)</span>
+            <span class="c1"># db_session.commit()</span>
+            <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;flash_messages&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Profile picture uploaded successfully: </span><span class="si">{</span><span class="n">saved_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="s1">&#39;success&#39;</span><span class="p">})</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;/profile&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Save failed, check for validation errors</span>
+            <span class="n">error_message</span> <span class="o">=</span> <span class="n">validate_uploaded_file</span><span class="p">(</span><span class="n">profile_pic_file</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">UPLOAD_ALLOWED_TYPES</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">UPLOAD_MAX_SIZE_MB</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">error_message</span><span class="p">:</span> <span class="c1"># If no specific validation error, the error was during the save operation</span>
+                <span class="n">error_message</span> <span class="o">=</span> <span class="s2">&quot;Failed to save profile picture due to an unexpected error.&quot;</span>
+            <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;flash_messages&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="n">error_message</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="s1">&#39;error&#39;</span><span class="p">})</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;/upload-form&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;flash_messages&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="s1">&#39;No profile picture file was provided.&#39;</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="s1">&#39;warning&#39;</span><span class="p">})</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;/upload-form&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Handling Multiple Files for the Same Field (</strong> <code class="docutils literal notranslate"><span class="pre">multiple</span></code> <strong>attribute in HTML):</strong>
+If you have a multi-file input field (e.g., <code class="docutils literal notranslate"><span class="pre">gallery_images[]</span></code>):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># In your View or Controller</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
+<span class="c1"># ... (same previous imports) ...</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">upload_gallery_images</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">):</span>
+    <span class="n">config</span><span class="p">:</span> <span class="n">Config</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">config</span>
+
+    <span class="c1"># request.files.getlist() returns a list of objects for a given field name</span>
+    <span class="n">gallery_files</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">UploadedFile</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">files</span><span class="o">.</span><span class="n">getlist</span><span class="p">(</span><span class="s1">&#39;gallery_images&#39;</span><span class="p">)</span>
+
+    <span class="n">uploaded_paths</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">errors</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">if</span> <span class="n">gallery_files</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">file_obj</span> <span class="ow">in</span> <span class="n">gallery_files</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">file_obj</span><span class="p">,</span> <span class="n">UploadedFile</span><span class="p">):</span>
+                <span class="n">saved_path</span> <span class="o">=</span> <span class="n">save_uploaded_file</span><span class="p">(</span>
+                    <span class="n">file_obj</span><span class="p">,</span>
+                    <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span>
+                    <span class="n">model_name</span><span class="o">=</span><span class="s1">&#39;gallery&#39;</span><span class="p">,</span> <span class="c1"># &#39;gallery&#39; folder</span>
+                    <span class="n">allowed_types</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">UPLOAD_ALLOWED_TYPES</span><span class="p">,</span>
+                    <span class="n">max_size_mb</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">UPLOAD_MAX_SIZE_MB</span>
+                <span class="p">)</span>
+                <span class="k">if</span> <span class="n">saved_path</span><span class="p">:</span>
+                    <span class="n">uploaded_paths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">saved_path</span><span class="p">)</span>
+                    <span class="c1"># Now you can save &#39;saved_path&#39; to your database, perhaps in an Image table related to Gallery</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">error_message</span> <span class="o">=</span> <span class="n">validate_uploaded_file</span><span class="p">(</span><span class="n">file_obj</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">UPLOAD_ALLOWED_TYPES</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">UPLOAD_MAX_SIZE_MB</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="n">error_message</span><span class="p">:</span>
+                        <span class="n">error_message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Failed to save </span><span class="si">{</span><span class="n">file_obj</span><span class="o">.</span><span class="n">filename</span><span class="si">}</span><span class="s2"> due to an unexpected error.&quot;</span>
+                    <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error with </span><span class="si">{</span><span class="n">file_obj</span><span class="o">.</span><span class="n">filename</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">error_message</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unexpected file object type for </span><span class="si">{</span><span class="n">file_obj</span><span class="o">.</span><span class="n">filename</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;No gallery images were provided.&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">uploaded_paths</span><span class="p">:</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;flash_messages&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Successfully uploaded </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">uploaded_paths</span><span class="p">)</span><span class="si">}</span><span class="s2"> images.&quot;</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="s1">&#39;success&#39;</span><span class="p">})</span>
+    <span class="k">if</span> <span class="n">errors</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">err</span> <span class="ow">in</span> <span class="n">errors</span><span class="p">:</span>
+            <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;flash_messages&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="n">err</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="s1">&#39;error&#39;</span><span class="p">})</span>
+
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;/gallery&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Deleting a Saved File:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># In your View or Controller</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.utils.file_handlers</span><span class="w"> </span><span class="kn">import</span> <span class="n">delete_saved_file</span>
+<span class="c1"># ... (same previous imports) ...</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">delete_image</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">):</span>
+    <span class="n">image_relative_path</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;image_path&#39;</span><span class="p">)</span> <span class="c1"># Assume the path comes from the form</span>
+    <span class="n">config</span><span class="p">:</span> <span class="n">Config</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">config</span>
+
+    <span class="k">if</span> <span class="n">image_relative_path</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">delete_saved_file</span><span class="p">(</span><span class="n">image_relative_path</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">):</span>
+            <span class="c1"># File successfully deleted from the file system</span>
+            <span class="c1"># Now, delete the path from your database</span>
+            <span class="c1"># image_record = db_session.query(Image).filter_by(path=image_relative_path).first()</span>
+            <span class="c1"># if image_record:</span>
+            <span class="c1">#     db_session.delete(image_record)</span>
+            <span class="c1">#     db_session.commit()</span>
+            <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;flash_messages&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="s2">&quot;Image deleted successfully.&quot;</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="s1">&#39;success&#39;</span><span class="p">})</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;/admin/images&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;flash_messages&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="s2">&quot;Failed to delete image from server.&quot;</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="s1">&#39;error&#39;</span><span class="p">})</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;/admin/images&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;flash_messages&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="s2">&quot;No image path provided for deletion.&quot;</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="s1">&#39;warning&#39;</span><span class="p">})</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;/admin/images&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Media%20Files.html" class="btn btn-neutral float-left" title="Media Files" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Forms.html" class="btn btn-neutral float-right" title="Forms" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ibrahem abo kila.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

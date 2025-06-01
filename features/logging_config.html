@@ -1,0 +1,258 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logging Configuration &mdash; lback 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=95f010fd" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Email Sending in Lback Framework" href="email-sender.html" />
+    <link rel="prev" title="Custom Middlewares" href="custom_middlewares.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            lback
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Configuration%20System.html">Configuration System</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="routing_system.html">Routing System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Views%20%26%20Responses.html">Views &amp; Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Templating%20System.html">Templating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Static%20Files.html">Static Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Media%20Files.html">Media Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file-uploads.html">File Uploads in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Forms.html">Forms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Models%20%26%20Database.html">Models &amp; Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Database%20Migrations%20System.html">Database Migrations System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Authorization.html">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sessions.html">Sessions in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Security%20Features.html">Security Features</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Admin%20Panel.html">Built-in Admin Panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API%20Tools.html">API Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Signal%20System.html">Signal System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Middleware%20System.html">Middleware System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_middlewares.html">Custom Middlewares</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Logging Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#controlling-logging-level-with-debug-and-logging-level">Controlling Logging Level with <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> and <code class="docutils literal notranslate"><span class="pre">LOGGING_LEVEL</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#advanced-logging-with-logging-dictionary">Advanced Logging with <code class="docutils literal notranslate"><span class="pre">LOGGING</span></code> Dictionary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="email-sender.html">Email Sending in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="validation_utilities.html">Validation Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="error_handling.html">Error Handling and HTTP Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Error%20Handling%20%26%20Reporting.html">Error Handling &amp; Reporting</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Deployment.html">Deployment</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html">Signals from BaseView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-apidocs">Signals from APIDocs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-basemodelserializer">Signals from BaseModelSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-registry-signals.html">Signals from AdminRegistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user.html">Signals from AdminUser and Role Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-manager.html">Signals from AdminUserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-repository.html">Signals from AdminUserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html">Signals from AdminAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-jwtauth">Signals from JWTAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-oauth2auth">Signals from OAuth2Auth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-permissionrequired">Signals from PermissionRequired</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-sessionauth">Signals from SessionAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/error-handler.html">Signals from ErrorHandler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/middleware-manager.html">Signals from MiddlewareManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/migration_commands.html">Signals from MigrationCommands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/permission-repository.html">Signals from PermissionRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/role-repository.html">Signals from RoleRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/session-manager.html">Signals from SessionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/template-renderer.html">Signals from TemplateRenderer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-manager.html">Signals from UserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-model.html">Signals from User Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-repository.html">Signals from UserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/wsgi-application.html">Signals from WSGI Application and Server</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Modules and Classes Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API%20Reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lback/lback.html">lback package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">lback</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Logging Configuration</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/features/logging_config.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="logging-configuration">
+<h1>Logging Configuration<a class="headerlink" href="#logging-configuration" title="Link to this heading"></a></h1>
+<p>The Lback framework provides a flexible logging system that you can easily configure to suit your application’s needs, especially during development and production. You have direct control over the <strong>logging level</strong> and how logs are displayed based on your application’s <strong>debug mode</strong>.</p>
+<p>—</p>
+<section id="controlling-logging-level-with-debug-and-logging-level">
+<h2>Controlling Logging Level with <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> and <code class="docutils literal notranslate"><span class="pre">LOGGING_LEVEL</span></code><a class="headerlink" href="#controlling-logging-level-with-debug-and-logging-level" title="Link to this heading"></a></h2>
+<p>The logging behavior is primarily driven by two settings in your application’s <code class="docutils literal notranslate"><span class="pre">Config</span></code> (or <code class="docutils literal notranslate"><span class="pre">settings.py</span></code> file):</p>
+<ol class="arabic simple">
+<li><p><strong>DEBUG</strong>: This boolean setting is central to your application’s operational mode.</p>
+<ul class="simple">
+<li><p>When <code class="docutils literal notranslate"><span class="pre">DEBUG</span> <span class="pre">=</span> <span class="pre">True</span></code>: The logging system defaults to a more verbose output, typically <code class="docutils literal notranslate"><span class="pre">INFO</span></code> level, unless explicitly overridden. This is ideal for development, as it provides detailed insights into the application’s flow.</p></li>
+<li><p>When <code class="docutils literal notranslate"><span class="pre">DEBUG</span> <span class="pre">=</span> <span class="pre">False</span></code>: The logging system automatically raises its effective level to <code class="docutils literal notranslate"><span class="pre">WARNING</span></code> to minimize unnecessary log output in production environments. This helps keep log files manageable and focuses on significant issues.</p></li>
+</ul>
+</li>
+<li><p><strong>LOGGING_LEVEL</strong>: This string setting allows you to specify a global minimum logging level for your application. Common values include:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;DEBUG&quot;</span></code>: For highly granular debugging information.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;INFO&quot;</span></code>: For general informational messages, indicating the normal operation of the system.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;WARNING&quot;</span></code>: For indicating potential issues that don’t prevent the application from running but should be noted.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;ERROR&quot;</span></code>: For indicating errors that prevent some functionality from working correctly.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;CRITICAL&quot;</span></code>: For severe errors that indicate the application might be in a critical state.</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>How they interact:</strong></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">setup_logging</span></code> function in the framework intelligently combines these two settings:</p>
+<ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, the logging level will be <code class="docutils literal notranslate"><span class="pre">LOGGING_LEVEL</span></code> (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;INFO&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;DEBUG&quot;</span></code>). If <code class="docutils literal notranslate"><span class="pre">LOGGING_LEVEL</span></code> isn’t set, it defaults to <code class="docutils literal notranslate"><span class="pre">&quot;INFO&quot;</span></code>. This means you can get detailed logs when debugging.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>, the logging level will be <strong>forced to at least</strong> <code class="docutils literal notranslate"><span class="pre">&quot;WARNING&quot;</span></code>, regardless of what <code class="docutils literal notranslate"><span class="pre">LOGGING_LEVEL</span></code> is set to. This ensures that only important warnings and errors are logged in production, preventing log floods.</p></li>
+</ul>
+<p><strong>Example Configuration in</strong> <code class="docutils literal notranslate"><span class="pre">settings.py</span></code> <strong>(or</strong> <code class="docutils literal notranslate"><span class="pre">Config</span></code> <strong>):</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># settings.py (or your Config class)</span>
+
+<span class="n">DEBUG</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># Set to True for development/debugging</span>
+<span class="n">LOGGING_LEVEL</span> <span class="o">=</span> <span class="s2">&quot;DEBUG&quot;</span> <span class="c1"># You can set this to INFO, WARNING, ERROR, etc.</span>
+
+<span class="c1"># Optional: More advanced logging configuration (see below)</span>
+<span class="n">LOGGING</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s1">&#39;disable_existing_loggers&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="s1">&#39;formatters&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;standard&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> - </span><span class="si">%(name)s</span><span class="s1"> - </span><span class="si">%(levelname)s</span><span class="s1"> - </span><span class="si">%(message)s</span><span class="s1">&#39;</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;console&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;logging.StreamHandler&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;formatter&#39;</span><span class="p">:</span> <span class="s1">&#39;standard&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="s1">&#39;INFO&#39;</span><span class="p">,</span> <span class="c1"># This level will be overridden by setup_logging</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;root&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;console&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="s1">&#39;INFO&#39;</span><span class="p">,</span> <span class="c1"># This level will also be overridden by setup_logging</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;loggers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;lback&#39;</span><span class="p">:</span> <span class="p">{</span> <span class="c1"># Example for framework-specific logger</span>
+            <span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;console&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="s1">&#39;DEBUG&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;propagate&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="c1"># You can define loggers for your own apps here</span>
+        <span class="s1">&#39;myapp&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;console&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="s1">&#39;INFO&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;propagate&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In the example above, if <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">LOGGING_LEVEL</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;DEBUG&quot;</span></code>, the console handler and root logger would effectively log at <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> level. If <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> were <code class="docutils literal notranslate"><span class="pre">False</span></code>, they would be forced to <code class="docutils literal notranslate"><span class="pre">WARNING</span></code> level, regardless of <code class="docutils literal notranslate"><span class="pre">LOGGING_LEVEL</span></code>.</p>
+<p>—</p>
+</section>
+<section id="advanced-logging-with-logging-dictionary">
+<h2>Advanced Logging with <code class="docutils literal notranslate"><span class="pre">LOGGING</span></code> Dictionary<a class="headerlink" href="#advanced-logging-with-logging-dictionary" title="Link to this heading"></a></h2>
+<p>For more granular control over your logging setup (e.g., multiple handlers, different formats, file logging), you can define a <code class="docutils literal notranslate"><span class="pre">LOGGING</span></code> dictionary in your <code class="docutils literal notranslate"><span class="pre">Config</span></code>. The framework uses Python’s <code class="docutils literal notranslate"><span class="pre">logging.config.dictConfig</span></code> to apply this configuration.</p>
+<p>Even when using a <code class="docutils literal notranslate"><span class="pre">LOGGING</span></code> dictionary, the <code class="docutils literal notranslate"><span class="pre">setup_logging</span></code> function ensures that the <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> and <code class="docutils literal notranslate"><span class="pre">LOGGING_LEVEL</span></code> settings correctly influence the <strong>effective minimum level</strong> for your console handler and root logger. This means you can define elaborate logging configurations, but still rely on <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> to easily toggle between verbose development logging and concise production logging.</p>
+<p>If your <code class="docutils literal notranslate"><span class="pre">LOGGING</span></code> dictionary isn’t found or if there’s an error applying it, the framework gracefully falls back to a basic console logging configuration to ensure you still get some log output.</p>
+<p>By leveraging these settings, you maintain precise control over your application’s logging verbosity, crucial for both effective debugging and efficient production monitoring.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="custom_middlewares.html" class="btn btn-neutral float-left" title="Custom Middlewares" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="email-sender.html" class="btn btn-neutral float-right" title="Email Sending in Lback Framework" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ibrahem abo kila.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

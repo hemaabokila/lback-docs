@@ -1,0 +1,234 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signals from SessionManager &mdash; lback 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=95f010fd" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Signals from TemplateRenderer" href="template-renderer.html" />
+    <link rel="prev" title="Signals from RoleRepository" href="role-repository.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            lback
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Configuration%20System.html">Configuration System</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/routing_system.html">Routing System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Views%20%26%20Responses.html">Views &amp; Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Templating%20System.html">Templating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Static%20Files.html">Static Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Media%20Files.html">Media Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/file-uploads.html">File Uploads in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Forms.html">Forms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/Models%20%26%20Database.html">Models &amp; Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Database%20Migrations%20System.html">Database Migrations System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Authorization.html">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/sessions.html">Sessions in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Security%20Features.html">Security Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/Admin%20Panel.html">Built-in Admin Panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/API%20Tools.html">API Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Signal%20System.html">Signal System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Middleware%20System.html">Middleware System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/custom_middlewares.html">Custom Middlewares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/logging_config.html">Logging Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/email-sender.html">Email Sending in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/validation_utilities.html">Validation Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/error_handling.html">Error Handling and HTTP Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Error%20Handling%20%26%20Reporting.html">Error Handling &amp; Reporting</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/Deployment.html">Deployment</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="api-signals.html">Signals from BaseView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-signals.html#signals-from-apidocs">Signals from APIDocs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-signals.html#signals-from-basemodelserializer">Signals from BaseModelSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="admin-registry-signals.html">Signals from AdminRegistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="admin-user.html">Signals from AdminUser and Role Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="admin-user-manager.html">Signals from AdminUserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="admin-user-repository.html">Signals from AdminUserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auth.html">Signals from AdminAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auth.html#signals-from-jwtauth">Signals from JWTAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auth.html#signals-from-oauth2auth">Signals from OAuth2Auth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auth.html#signals-from-permissionrequired">Signals from PermissionRequired</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auth.html#signals-from-sessionauth">Signals from SessionAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="error-handler.html">Signals from ErrorHandler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="middleware-manager.html">Signals from MiddlewareManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration_commands.html">Signals from MigrationCommands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="permission-repository.html">Signals from PermissionRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="role-repository.html">Signals from RoleRepository</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Signals from SessionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="template-renderer.html">Signals from TemplateRenderer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user-manager.html">Signals from UserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user-model.html">Signals from User Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user-repository.html">Signals from UserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wsgi-application.html">Signals from WSGI Application and Server</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Modules and Classes Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API%20Reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lback/lback.html">lback package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">lback</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Signals from SessionManager</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/signals/session-manager.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="signals-from-sessionmanager">
+<span id="session-manager-signals"></span><h1>Signals from SessionManager<a class="headerlink" href="#signals-from-sessionmanager" title="Link to this heading"></a></h1>
+<p>The <a class="reference internal" href="../lback/lback.utils.html#lback.utils.session_manager.SessionManager" title="lback.utils.session_manager.SessionManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">lback.utils.session_manager.SessionManager</span></code></a> class, which handles server-side user sessions, emits signals at crucial points throughout the session lifecycle. These signals are incredibly useful for <strong>logging, auditing, and integrating custom logic</strong> related to how sessions are created, renewed, and deleted.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 50.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Signal Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Arguments (<cite>kwargs</cite>)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">session_manager_initialized</span></code></p></td>
+<td><p>Emitted right after the <code class="xref py py-class docutils literal notranslate"><span class="pre">SessionManager</span></code> instance has been set up and is ready for use.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<a class="reference internal" href="../lback/lback.utils.html#lback.utils.session_manager.SessionManager" title="lback.utils.session_manager.SessionManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">SessionManager</span></code></a>): The instance of the session manager.&lt;br&gt;``timeout`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">timedelta</span></code>): The configured duration for session expiration.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">session_created</span></code></p></td>
+<td><p>Emitted when a brand new session record is successfully added to the database.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<a class="reference internal" href="../lback/lback.utils.html#lback.utils.session_manager.SessionManager" title="lback.utils.session_manager.SessionManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">SessionManager</span></code></a>): The session manager instance.&lt;br&gt;``session_id`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The unique identifier of the newly created session.&lt;br&gt;``user_id`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">None</span></code>): The ID of the user linked to this session, if any.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">session_creation_failed</span></code></p></td>
+<td><p>Emitted if an error prevents the successful creation of a new session.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<a class="reference internal" href="../lback/lback.utils.html#lback.utils.session_manager.SessionManager" title="lback.utils.session_manager.SessionManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">SessionManager</span></code></a>): The session manager instance.&lt;br&gt;``user_id`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">None</span></code>): The user ID for whom the session creation was attempted.&lt;br&gt;``exception`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code>): The actual exception object that caused the failure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">session_renewed</span></code></p></td>
+<td><p>Emitted when an existing session’s expiration timestamp is successfully extended. This often happens automatically on active requests.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<a class="reference internal" href="../lback/lback.utils.html#lback.utils.session_manager.SessionManager" title="lback.utils.session_manager.SessionManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">SessionManager</span></code></a>): The session manager instance.&lt;br&gt;``session_id`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The ID of the session that was renewed.&lt;br&gt;``expires_at`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code>): The new expiration timestamp.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">session_renewal_failed</span></code></p></td>
+<td><p>Emitted when an attempt to renew a session fails (e.g., the session couldn’t be found in the database).</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<a class="reference internal" href="../lback/lback.utils.html#lback.utils.session_manager.SessionManager" title="lback.utils.session_manager.SessionManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">SessionManager</span></code></a>): The session manager instance.&lt;br&gt;``session_id`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The ID of the session that failed to renew.&lt;br&gt;``reason`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): A short string explaining the failure (e.g., “not_found”).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">session_deleted</span></code></p></td>
+<td><p>Emitted when a session record is successfully removed from the database.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<a class="reference internal" href="../lback/lback.utils.html#lback.utils.session_manager.SessionManager" title="lback.utils.session_manager.SessionManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">SessionManager</span></code></a>): The session manager instance.&lt;br&gt;``session_id`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The ID of the session that was removed.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">session_deletion_failed</span></code></p></td>
+<td><p>Emitted when an attempt to delete a session is unsuccessful (e.g., the session wasn’t found).</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<a class="reference internal" href="../lback/lback.utils.html#lback.utils.session_manager.SessionManager" title="lback.utils.session_manager.SessionManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">SessionManager</span></code></a>): The session manager instance.&lt;br&gt;``session_id`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The ID of the session that failed to delete.&lt;br&gt;``reason`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): A short string explaining the failure (e.g., “not_found”).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">session_data_retrieved</span></code></p></td>
+<td><p>Emitted when session-specific data is successfully fetched from the database.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<a class="reference internal" href="../lback/lback.utils.html#lback.utils.session_manager.SessionManager" title="lback.utils.session_manager.SessionManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">SessionManager</span></code></a>): The session manager instance.&lt;br&gt;``session_id`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The ID of the session whose data was retrieved.&lt;br&gt;``data_keys`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): A list of the top-level keys found within the retrieved session data dictionary.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">session_data_retrieval_failed</span></code></p></td>
+<td><p>Emitted when fetching session data fails (e.g., the session ID is invalid or expired).</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<a class="reference internal" href="../lback/lback.utils.html#lback.utils.session_manager.SessionManager" title="lback.utils.session_manager.SessionManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">SessionManager</span></code></a>): The session manager instance.&lt;br&gt;``session_id`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The ID of the session for which data retrieval failed.&lt;br&gt;``reason`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): A short string explaining the failure (e.g., “not_found_or_expired”).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">session_data_saved</span></code></p></td>
+<td><p>Emitted when the session’s data payload (the dictionary stored in the ‘data’ column) is successfully updated in the database.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<a class="reference internal" href="../lback/lback.utils.html#lback.utils.session_manager.SessionManager" title="lback.utils.session_manager.SessionManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">SessionManager</span></code></a>): The session manager instance.&lt;br&gt;``session_id`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The ID of the session whose data was saved.&lt;br&gt;``saved_keys`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): A list of the top-level keys in the dictionary that was saved.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">session_data_save_failed</span></code></p></td>
+<td><p>Emitted when an attempt to save session data encounters an error.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<a class="reference internal" href="../lback/lback.utils.html#lback.utils.session_manager.SessionManager" title="lback.utils.session_manager.SessionManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">SessionManager</span></code></a>): The session manager instance.&lt;br&gt;``session_id`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The ID of the session for which data saving failed.&lt;br&gt;``reason`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): A short string explaining the failure (e.g., “not_found”, “serialization_error_or_db_error”).&lt;br&gt;``exception`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code>, <em>optional</em>): The exception object if the failure was caused by an error.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="role-repository.html" class="btn btn-neutral float-left" title="Signals from RoleRepository" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="template-renderer.html" class="btn btn-neutral float-right" title="Signals from TemplateRenderer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ibrahem abo kila.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

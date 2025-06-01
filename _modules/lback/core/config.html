@@ -1,0 +1,525 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>lback.core.config &mdash; lback 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=95f010fd" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            lback
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Configuration%20System.html">Configuration System</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/routing_system.html">Routing System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Views%20%26%20Responses.html">Views &amp; Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Templating%20System.html">Templating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Static%20Files.html">Static Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Media%20Files.html">Media Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/file-uploads.html">File Uploads in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Forms.html">Forms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Models%20%26%20Database.html">Models &amp; Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Database%20Migrations%20System.html">Database Migrations System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Authorization.html">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/sessions.html">Sessions in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Security%20Features.html">Security Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Admin%20Panel.html">Built-in Admin Panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/API%20Tools.html">API Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Signal%20System.html">Signal System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Middleware%20System.html">Middleware System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/custom_middlewares.html">Custom Middlewares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/logging_config.html">Logging Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/email-sender.html">Email Sending in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/validation_utilities.html">Validation Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/error_handling.html">Error Handling and HTTP Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Error%20Handling%20%26%20Reporting.html">Error Handling &amp; Reporting</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Deployment.html">Deployment</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/api-signals.html">Signals from BaseView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/api-signals.html#signals-from-apidocs">Signals from APIDocs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/api-signals.html#signals-from-basemodelserializer">Signals from BaseModelSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-registry-signals.html">Signals from AdminRegistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-user.html">Signals from AdminUser and Role Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-user-manager.html">Signals from AdminUserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-user-repository.html">Signals from AdminUserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html">Signals from AdminAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-jwtauth">Signals from JWTAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-oauth2auth">Signals from OAuth2Auth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-permissionrequired">Signals from PermissionRequired</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-sessionauth">Signals from SessionAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/error-handler.html">Signals from ErrorHandler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/middleware-manager.html">Signals from MiddlewareManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/migration_commands.html">Signals from MigrationCommands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/permission-repository.html">Signals from PermissionRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/role-repository.html">Signals from RoleRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/session-manager.html">Signals from SessionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/template-renderer.html">Signals from TemplateRenderer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/user-manager.html">Signals from UserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/user-model.html">Signals from User Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/user-repository.html">Signals from UserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/wsgi-application.html">Signals from WSGI Application and Server</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">Modules and Classes Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../API%20Reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../lback/lback.html">lback package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">lback</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">lback.core.config</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for lback.core.config</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cryptography.fernet</span><span class="w"> </span><span class="kn">import</span> <span class="n">Fernet</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="n">CONFIG_FILE</span> <span class="o">=</span> <span class="s2">&quot;config.json&quot;</span>
+
+<span class="n">DEFAULTS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;SECRET_KEY&quot;</span><span class="p">:</span> <span class="n">Fernet</span><span class="o">.</span><span class="n">generate_key</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(),</span>
+    <span class="s2">&quot;ENCRYPTION_KEY&quot;</span><span class="p">:</span> <span class="n">Fernet</span><span class="o">.</span><span class="n">generate_key</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(),</span>
+    <span class="s2">&quot;DB_ENGINE&quot;</span><span class="p">:</span> <span class="s2">&quot;sqlite&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;DB_HOST&quot;</span><span class="p">:</span> <span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;DB_PORT&quot;</span><span class="p">:</span> <span class="s2">&quot;5432&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;DB_USER&quot;</span><span class="p">:</span> <span class="s2">&quot;admin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;DB_PASSWORD_ENCRYPTED&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;DB_NAME&quot;</span><span class="p">:</span> <span class="s2">&quot;db&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;DATABASE_ECHO&quot;</span><span class="p">:</span> <span class="s2">&quot;False&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;API_KEY_SERVICE_1_ENCRYPTED&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;API_KEY_SERVICE_2_ENCRYPTED&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;JWT_SECRET_KEY&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SMTP_SERVER&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SMTP_PORT&quot;</span><span class="p">:</span> <span class="s2">&quot;587&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;EMAIL_USERNAME&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;EMAIL_PASSWORD&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;DEBUG&quot;</span><span class="p">:</span> <span class="s2">&quot;True&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ALLOWED_HOSTS&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s2">&quot;API_VERSION&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;LOGGING_LEVEL&quot;</span><span class="p">:</span> <span class="s2">&quot;DEBUG&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;INSTALLED_APPS&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s2">&quot;MIDDLEWARES&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s2">&quot;ROOT_URLCONF&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="s2">&quot;USE_TLS&quot;</span><span class="p">:</span> <span class="s2">&quot;True&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SENDER_NAME&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SENDER_EMAIL&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;PROJECT_SETTINGS_MODULE&quot;</span><span class="p">:</span> <span class="s2">&quot;settings&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+
+
+<div class="viewcode-block" id="load_config">
+<a class="viewcode-back" href="../../../lback/lback.core.html#lback.core.config.load_config">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">load_config</span><span class="p">(</span><span class="n">config_file</span><span class="o">=</span><span class="n">CONFIG_FILE</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Load configuration from JSON or YAML file.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">config_file</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loading configuration from </span><span class="si">{</span><span class="n">config_file</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">config_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">config_file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.json&#39;</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">config_file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.yaml&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">config_file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.yml&#39;</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unsupported config file format for </span><span class="si">{</span><span class="n">config_file</span><span class="si">}</span><span class="s2">. Only .json, .yaml, .yml are supported.&quot;</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="p">{}</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error loading config file </span><span class="si">{</span><span class="n">config_file</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">return</span> <span class="p">{}</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No config file found at </span><span class="si">{</span><span class="n">config_file</span><span class="si">}</span><span class="s2">. Relying on environment variables and defaults.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{}</span></div>
+
+
+
+<div class="viewcode-block" id="Config">
+<a class="viewcode-back" href="../../../lback/lback.core.html#lback.core.config.Config">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Config</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Manages application configuration, loading with priority:</span>
+<span class="sd">    Environment Variables -&gt; Config File -&gt; Defaults.</span>
+<span class="sd">    Provides access to settings and generates derived values.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Config.__init__">
+<a class="viewcode-back" href="../../../lback/lback.core.html#lback.core.config.Config.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config_file</span><span class="o">=</span><span class="n">CONFIG_FILE</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Intializes a Config instance by loading configuration data</span>
+<span class="sd">        with priority Environment -&gt; ConfigFile -&gt; Defaults.</span>
+<span class="sd">        Assumes environment variables (e.g., from .env) are already loaded.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Config instance initialized. Attempting to load configuration from </span><span class="si">{</span><span class="n">config_file</span><span class="si">}</span><span class="s2">, environment, and defaults.&quot;</span><span class="p">)</span>
+
+        <span class="n">loaded_config_data</span> <span class="o">=</span> <span class="n">load_config</span><span class="p">(</span><span class="n">config_file</span><span class="p">)</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">_get_value</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">conversion_func</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;Helper to get a config value with priority: Env -&gt; ConfigFile -&gt; specified default -&gt; DEFAULTS default.&quot;&quot;&quot;</span>
+            <span class="n">env_value</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">env_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                 <span class="k">if</span> <span class="n">conversion_func</span><span class="p">:</span>
+                     <span class="k">try</span><span class="p">:</span>
+                         <span class="k">return</span> <span class="n">conversion_func</span><span class="p">(</span><span class="n">env_value</span><span class="p">)</span>
+                     <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                         <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to convert environment variable &#39;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&#39; value &#39;</span><span class="si">{</span><span class="n">env_value</span><span class="si">}</span><span class="s2">&#39; using </span><span class="si">{</span><span class="nb">getattr</span><span class="p">(</span><span class="n">conversion_func</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;__name__&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;conversion_func&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">. Falling back to config file or default.&quot;</span><span class="p">)</span>
+                         <span class="k">pass</span>
+                 <span class="k">else</span><span class="p">:</span>
+                     <span class="k">return</span> <span class="n">env_value</span>
+
+
+            <span class="n">config_value</span> <span class="o">=</span> <span class="n">loaded_config_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">config_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">conversion_func</span><span class="p">:</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="k">return</span> <span class="n">conversion_func</span><span class="p">(</span><span class="n">config_value</span><span class="p">)</span>
+                    <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                         <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to convert config file value for &#39;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&#39; value &#39;</span><span class="si">{</span><span class="n">config_value</span><span class="si">}</span><span class="s2">&#39; using </span><span class="si">{</span><span class="nb">getattr</span><span class="p">(</span><span class="n">conversion_func</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;__name__&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;conversion_func&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">. Falling back to default.&quot;</span><span class="p">)</span>
+                         <span class="k">pass</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">config_value</span>
+
+
+            <span class="k">if</span> <span class="n">default</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                 <span class="k">if</span> <span class="n">conversion_func</span><span class="p">:</span>
+                      <span class="k">try</span><span class="p">:</span>
+                          <span class="k">return</span> <span class="n">conversion_func</span><span class="p">(</span><span class="n">default</span><span class="p">)</span>
+                      <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                           <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to convert explicit default value for &#39;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&#39; value &#39;</span><span class="si">{</span><span class="n">default</span><span class="si">}</span><span class="s2">&#39; using </span><span class="si">{</span><span class="nb">getattr</span><span class="p">(</span><span class="n">conversion_func</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;__name__&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;conversion_func&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">. Using raw explicit default.&quot;</span><span class="p">)</span>
+                           <span class="k">return</span> <span class="n">default</span>
+                 <span class="k">else</span><span class="p">:</span>
+                      <span class="k">return</span> <span class="n">default</span>
+
+            <span class="n">default_value_from_defaults</span> <span class="o">=</span> <span class="n">DEFAULTS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">default_value_from_defaults</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">conversion_func</span><span class="p">:</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="k">return</span> <span class="n">conversion_func</span><span class="p">(</span><span class="n">default_value_from_defaults</span><span class="p">)</span>
+                    <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                         <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to convert DEFAULTS value for &#39;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&#39; value &#39;</span><span class="si">{</span><span class="n">default_value_from_defaults</span><span class="si">}</span><span class="s2">&#39; using </span><span class="si">{</span><span class="nb">getattr</span><span class="p">(</span><span class="n">conversion_func</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;__name__&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;conversion_func&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">. Using raw DEFAULTS value.&quot;</span><span class="p">)</span>
+                         <span class="k">return</span> <span class="n">default_value_from_defaults</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">default_value_from_defaults</span>
+
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">_str_to_bool</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+             <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="k">return</span> <span class="kc">None</span>
+             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span> <span class="k">return</span> <span class="n">value</span>
+             <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;true&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;t&quot;</span><span class="p">)</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">_to_int</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+             <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="k">return</span> <span class="kc">None</span>
+             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span> <span class="k">return</span> <span class="n">value</span>
+             <span class="k">try</span><span class="p">:</span>
+                 <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+             <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">):</span>
+                 <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Could not convert value &#39;</span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&#39; to integer.&quot;</span><span class="p">)</span>
+                 <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">_to_list</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="k">return</span> <span class="kc">None</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span> <span class="k">return</span> <span class="n">value</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="k">return</span> <span class="p">[</span><span class="n">item</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">value</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">strip</span><span class="p">()]</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Could not convert value &#39;</span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&#39; to list.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+
+        <span class="n">encryption_key_str</span> <span class="o">=</span> <span class="n">_get_value</span><span class="p">(</span><span class="s2">&quot;ENCRYPTION_KEY&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">DEFAULTS</span><span class="p">[</span><span class="s2">&quot;ENCRYPTION_KEY&quot;</span><span class="p">])</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">fernet</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">encryption_key_str</span><span class="p">:</span>
+             <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;ENCRYPTION_KEY not found in environment, config file, or defaults. Cannot initialize Fernet cipher.&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">key_bytes</span> <span class="o">=</span> <span class="n">encryption_key_str</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">key_bytes</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">44</span><span class="p">:</span>
+                     <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Invalid ENCRYPTION_KEY format (incorrect length). Must be 32 url-safe base64 bytes (44 characters).&quot;</span><span class="p">)</span>
+                     <span class="bp">self</span><span class="o">.</span><span class="n">fernet</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">fernet</span> <span class="o">=</span> <span class="n">Fernet</span><span class="p">(</span><span class="n">key_bytes</span><span class="p">)</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Fernet cipher initialized.&quot;</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                 <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error initializing Fernet cipher with ENCRYPTION_KEY: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">decrypt_instance</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<span class="w">             </span><span class="sd">&quot;&quot;&quot;Decrypts data using the instance&#39;s Fernet cipher.&quot;&quot;&quot;</span>
+             <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">data</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+                 <span class="k">return</span> <span class="kc">None</span>
+             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                  <span class="n">data_bytes</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+             <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">):</span>
+                  <span class="n">data_bytes</span> <span class="o">=</span> <span class="n">data</span>
+             <span class="k">else</span><span class="p">:</span>
+                  <span class="k">return</span> <span class="kc">None</span>
+
+             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fernet</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                 <span class="k">return</span> <span class="kc">None</span>
+
+             <span class="k">try</span><span class="p">:</span>
+                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fernet</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">data_bytes</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+             <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                 <span class="k">return</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">decrypt</span> <span class="o">=</span> <span class="n">decrypt_instance</span>
+
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">SECRET_KEY</span> <span class="o">=</span> <span class="n">_get_value</span><span class="p">(</span><span class="s2">&quot;SECRET_KEY&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">DEFAULTS</span><span class="p">[</span><span class="s2">&quot;SECRET_KEY&quot;</span><span class="p">])</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">DEBUG</span> <span class="o">=</span> <span class="n">_get_value</span><span class="p">(</span><span class="s2">&quot;DEBUG&quot;</span><span class="p">,</span> <span class="n">conversion_func</span><span class="o">=</span><span class="n">_str_to_bool</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">DEFAULTS</span><span class="p">[</span><span class="s2">&quot;DEBUG&quot;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">DEBUG</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">DEBUG</span> <span class="o">=</span> <span class="n">_str_to_bool</span><span class="p">(</span><span class="n">DEFAULTS</span><span class="p">[</span><span class="s2">&quot;DEBUG&quot;</span><span class="p">])</span> <span class="k">if</span> <span class="s2">&quot;DEBUG&quot;</span> <span class="ow">in</span> <span class="n">DEFAULTS</span> <span class="k">else</span> <span class="kc">False</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">API_VERSION</span> <span class="o">=</span> <span class="n">_get_value</span><span class="p">(</span><span class="s2">&quot;API_VERSION&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">DEFAULTS</span><span class="p">[</span><span class="s2">&quot;API_VERSION&quot;</span><span class="p">])</span>
+
+        <span class="n">logging_level_val</span> <span class="o">=</span> <span class="n">_get_value</span><span class="p">(</span><span class="s2">&quot;LOGGING_LEVEL&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">DEFAULTS</span><span class="p">[</span><span class="s2">&quot;LOGGING_LEVEL&quot;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">LOGGING_LEVEL</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">logging_level_val</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">if</span> <span class="n">logging_level_val</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">DEFAULTS</span><span class="p">[</span><span class="s2">&quot;LOGGING_LEVEL&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+        <span class="n">db_engine_val</span> <span class="o">=</span> <span class="n">_get_value</span><span class="p">(</span><span class="s2">&quot;DB_ENGINE&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">DEFAULTS</span><span class="p">[</span><span class="s2">&quot;DB_ENGINE&quot;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">DB_ENGINE</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">db_engine_val</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">if</span> <span class="n">db_engine_val</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">DEFAULTS</span><span class="p">[</span><span class="s2">&quot;DB_ENGINE&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">ENVIRONMENT</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;ENVIRONMENT&quot;</span><span class="p">,</span> <span class="s2">&quot;development&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="n">_get_value</span><span class="p">(</span><span class="s2">&quot;INSTALLED_APPS&quot;</span><span class="p">,</span> <span class="n">conversion_func</span><span class="o">=</span><span class="n">_to_list</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">DEFAULTS</span><span class="p">[</span><span class="s2">&quot;INSTALLED_APPS&quot;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">INSTALLED_APPS</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span> <span class="bp">self</span><span class="o">.</span><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">DATABASE_ECHO</span> <span class="o">=</span> <span class="n">_get_value</span><span class="p">(</span><span class="s2">&quot;DATABASE_ECHO&quot;</span><span class="p">,</span> <span class="n">conversion_func</span><span class="o">=</span><span class="n">_str_to_bool</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">DEFAULTS</span><span class="p">[</span><span class="s2">&quot;DATABASE_ECHO&quot;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">DATABASE_ECHO</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">DATABASE_ECHO</span> <span class="o">=</span> <span class="n">_str_to_bool</span><span class="p">(</span><span class="n">DEFAULTS</span><span class="p">[</span><span class="s2">&quot;DATABASE_ECHO&quot;</span><span class="p">])</span> <span class="k">if</span> <span class="s2">&quot;DATABASE_ECHO&quot;</span> <span class="ow">in</span> <span class="n">DEFAULTS</span> <span class="k">else</span> <span class="kc">False</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">MIDDLEWARES</span> <span class="o">=</span> <span class="n">_get_value</span><span class="p">(</span><span class="s2">&quot;MIDDLEWARES&quot;</span><span class="p">,</span> <span class="n">conversion_func</span><span class="o">=</span><span class="n">_to_list</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">DEFAULTS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;MIDDLEWARES&quot;</span><span class="p">,</span> <span class="p">[]))</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">MIDDLEWARES</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span> <span class="bp">self</span><span class="o">.</span><span class="n">MIDDLEWARES</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">ALLOWED_HOSTS</span> <span class="o">=</span> <span class="n">_get_value</span><span class="p">(</span><span class="s2">&quot;ALLOWED_HOSTS&quot;</span><span class="p">,</span> <span class="n">conversion_func</span><span class="o">=</span><span class="n">_to_list</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">DEFAULTS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ALLOWED_HOSTS&quot;</span><span class="p">,</span> <span class="p">[]))</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ALLOWED_HOSTS</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span> <span class="bp">self</span><span class="o">.</span><span class="n">ALLOWED_HOSTS</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+
+        <span class="n">db_host</span> <span class="o">=</span> <span class="n">_get_value</span><span class="p">(</span><span class="s2">&quot;DB_HOST&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">DEFAULTS</span><span class="p">[</span><span class="s2">&quot;DB_HOST&quot;</span><span class="p">])</span>
+        <span class="n">db_port</span> <span class="o">=</span> <span class="n">_get_value</span><span class="p">(</span><span class="s2">&quot;DB_PORT&quot;</span><span class="p">,</span> <span class="n">conversion_func</span><span class="o">=</span><span class="n">_to_int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">DEFAULTS</span><span class="p">[</span><span class="s2">&quot;DB_PORT&quot;</span><span class="p">])</span>
+        <span class="n">db_user</span> <span class="o">=</span> <span class="n">_get_value</span><span class="p">(</span><span class="s2">&quot;DB_USER&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">DEFAULTS</span><span class="p">[</span><span class="s2">&quot;DB_USER&quot;</span><span class="p">])</span>
+        <span class="n">db_password_encrypted_raw</span> <span class="o">=</span> <span class="n">_get_value</span><span class="p">(</span><span class="s2">&quot;DB_PASSWORD_ENCRYPTED&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">DEFAULTS</span><span class="p">[</span><span class="s2">&quot;DB_PASSWORD_ENCRYPTED&quot;</span><span class="p">])</span> 
+        <span class="n">db_name</span> <span class="o">=</span> <span class="n">_get_value</span><span class="p">(</span><span class="s2">&quot;DB_NAME&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">DEFAULTS</span><span class="p">[</span><span class="s2">&quot;DB_NAME&quot;</span><span class="p">])</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">DATABASE_URL</span> <span class="o">=</span> <span class="n">_get_value</span><span class="p">(</span><span class="s2">&quot;DATABASE_URL&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> 
+
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">DATABASE_CONFIG</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;engine&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">DB_ENGINE</span><span class="p">,</span>
+            <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="n">db_host</span><span class="p">,</span>
+            <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="n">db_port</span><span class="p">,</span>
+            <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="n">db_user</span><span class="p">,</span>
+            <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">db_password_encrypted_raw</span><span class="p">),</span>
+            <span class="s2">&quot;database&quot;</span><span class="p">:</span> <span class="n">db_name</span>
+        <span class="p">}</span>
+
+        <span class="n">api_key_1_encrypted_raw</span> <span class="o">=</span> <span class="n">_get_value</span><span class="p">(</span><span class="s2">&quot;API_KEY_SERVICE_1_ENCRYPTED&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">DEFAULTS</span><span class="p">[</span><span class="s2">&quot;API_KEY_SERVICE_1_ENCRYPTED&quot;</span><span class="p">])</span>
+        <span class="n">api_key_2_encrypted_raw</span> <span class="o">=</span> <span class="n">_get_value</span><span class="p">(</span><span class="s2">&quot;API_KEY_SERVICE_2_ENCRYPTED&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">DEFAULTS</span><span class="p">[</span><span class="s2">&quot;API_KEY_SERVICE_2_ENCRYPTED&quot;</span><span class="p">])</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">API_KEYS</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;service_1&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">api_key_1_encrypted_raw</span><span class="p">),</span> 
+            <span class="s2">&quot;service_2&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">api_key_2_encrypted_raw</span><span class="p">),</span>
+        <span class="p">}</span>
+
+        <span class="n">smtp_server</span> <span class="o">=</span> <span class="n">_get_value</span><span class="p">(</span><span class="s2">&quot;SMTP_SERVER&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">DEFAULTS</span><span class="p">[</span><span class="s2">&quot;SMTP_SERVER&quot;</span><span class="p">])</span>
+        <span class="n">smtp_port</span> <span class="o">=</span> <span class="n">_get_value</span><span class="p">(</span><span class="s2">&quot;SMTP_PORT&quot;</span><span class="p">,</span> <span class="n">conversion_func</span><span class="o">=</span><span class="n">_to_int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">DEFAULTS</span><span class="p">[</span><span class="s2">&quot;SMTP_PORT&quot;</span><span class="p">])</span>
+        <span class="n">email_username</span> <span class="o">=</span> <span class="n">_get_value</span><span class="p">(</span><span class="s2">&quot;EMAIL_USERNAME&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">DEFAULTS</span><span class="p">[</span><span class="s2">&quot;EMAIL_USERNAME&quot;</span><span class="p">])</span>
+        <span class="n">email_password</span> <span class="o">=</span> <span class="n">_get_value</span><span class="p">(</span><span class="s2">&quot;EMAIL_PASSWORD&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">DEFAULTS</span><span class="p">[</span><span class="s2">&quot;EMAIL_PASSWORD&quot;</span><span class="p">])</span>
+        <span class="n">use_tls</span> <span class="o">=</span> <span class="n">_get_value</span><span class="p">(</span><span class="s2">&quot;USE_TLS&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">DEFAULTS</span><span class="p">[</span><span class="s2">&quot;USE_TLS&quot;</span><span class="p">])</span>
+        <span class="n">sender_name</span> <span class="o">=</span> <span class="n">_get_value</span><span class="p">(</span><span class="s2">&quot;SENDER_NAME&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">DEFAULTS</span><span class="p">[</span><span class="s2">&quot;SENDER_NAME&quot;</span><span class="p">])</span>
+        <span class="n">sender_email</span> <span class="o">=</span> <span class="n">_get_value</span><span class="p">(</span><span class="s2">&quot;SENDER_EMAIL&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">DEFAULTS</span><span class="p">[</span><span class="s2">&quot;SENDER_EMAIL&quot;</span><span class="p">])</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">EMAIL_CONFIG</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;smtp_server&quot;</span><span class="p">:</span> <span class="n">smtp_server</span><span class="p">,</span>
+            <span class="s2">&quot;smtp_port&quot;</span><span class="p">:</span> <span class="n">smtp_port</span><span class="p">,</span>
+            <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="n">email_username</span><span class="p">,</span>
+            <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="n">email_password</span><span class="p">,</span>
+            <span class="s2">&quot;use_tls&quot;</span><span class="p">:</span> <span class="n">use_tls</span><span class="p">,</span>
+            <span class="s2">&quot;sender_name&quot;</span><span class="p">:</span> <span class="n">sender_name</span><span class="p">,</span>
+            <span class="s2">&quot;sender_email&quot;</span><span class="p">:</span> <span class="n">sender_email</span>
+        <span class="p">}</span>
+
+        <span class="n">jwt_secret_key</span> <span class="o">=</span> <span class="n">_get_value</span><span class="p">(</span><span class="s2">&quot;JWT_SECRET_KEY&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">DEFAULTS</span><span class="p">[</span><span class="s2">&quot;JWT_SECRET_KEY&quot;</span><span class="p">])</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">JWT_SECRET</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;secret_key&quot;</span><span class="p">:</span> <span class="n">jwt_secret_key</span><span class="p">,</span>
+        <span class="p">}</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Config instance attributes loaded.&quot;</span><span class="p">)</span></div>
+
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">DATABASE_URI</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generates the database connection URI based on configured engine and credentials.&quot;&quot;&quot;</span>
+        <span class="n">engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">DB_ENGINE</span>
+        <span class="n">host</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">DATABASE_CONFIG</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;host&quot;</span><span class="p">)</span>
+        <span class="n">port</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">DATABASE_CONFIG</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;port&quot;</span><span class="p">)</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">DATABASE_CONFIG</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;user&quot;</span><span class="p">)</span>
+        <span class="n">password</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">DATABASE_CONFIG</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;password&quot;</span><span class="p">)</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">DATABASE_CONFIG</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;database&quot;</span><span class="p">)</span>
+        <span class="n">sqlite_url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">DATABASE_URL</span>
+
+        <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;postgresql&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">([</span><span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">name</span><span class="p">]):</span>
+                 <span class="n">missing</span> <span class="o">=</span> <span class="p">[]</span>
+                 <span class="k">if</span> <span class="n">user</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">missing</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;DB_USER&quot;</span><span class="p">)</span>
+                 <span class="k">if</span> <span class="n">password</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">missing</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;DB_PASSWORD_ENCRYPTED (decrypted password is None)&quot;</span><span class="p">)</span>
+                 <span class="k">if</span> <span class="n">host</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">missing</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;DB_HOST&quot;</span><span class="p">)</span>
+                 <span class="k">if</span> <span class="n">port</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">missing</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;DB_PORT&quot;</span><span class="p">)</span>
+                 <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">missing</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;DB_NAME&quot;</span><span class="p">)</span>
+                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Missing database credentials for PostgreSQL: </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">missing</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;postgresql://</span><span class="si">{</span><span class="n">user</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">password</span><span class="si">}</span><span class="s2">@</span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">elif</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;mysql&quot;</span><span class="p">:</span>
+             <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">([</span><span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">name</span><span class="p">]):</span>
+                 <span class="n">missing</span> <span class="o">=</span> <span class="p">[]</span>
+                 <span class="k">if</span> <span class="n">user</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">missing</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;DB_USER&quot;</span><span class="p">)</span>
+                 <span class="k">if</span> <span class="n">password</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">missing</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;DB_PASSWORD_ENCRYPTED (decrypted password is None)&quot;</span><span class="p">)</span>
+                 <span class="k">if</span> <span class="n">host</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">missing</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;DB_HOST&quot;</span><span class="p">)</span>
+                 <span class="k">if</span> <span class="n">port</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">missing</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;DB_PORT&quot;</span><span class="p">)</span>
+                 <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">missing</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;DB_NAME&quot;</span><span class="p">)</span>
+                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Missing database credentials for MySQL: </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">missing</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+             <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;mysql://</span><span class="si">{</span><span class="n">user</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">password</span><span class="si">}</span><span class="s2">@</span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">elif</span> <span class="n">engine</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;sqlite&quot;</span><span class="p">,</span> <span class="s2">&quot;sqlite3&quot;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">sqlite_url</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">sqlite_url</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+                     <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;DATABASE_URL and DB_NAME not set for SQLite. Using default filename &#39;db.db&#39;.&quot;</span><span class="p">)</span>
+                     <span class="n">db_file</span> <span class="o">=</span> <span class="s2">&quot;db.db&quot;</span>
+                <span class="k">else</span><span class="p">:</span>
+                     <span class="n">db_file</span> <span class="o">=</span> <span class="n">name</span>
+                <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;sqlite:///</span><span class="si">{</span><span class="n">db_file</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unsupported database engine: </span><span class="si">{</span><span class="n">engine</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="Config.validate">
+<a class="viewcode-back" href="../../../lback/lback.core.html#lback.core.config.Config.validate">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span><span class="n">config_instance</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validates critical configuration settings of a Config instance.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">config_instance</span><span class="o">.</span><span class="n">SECRET_KEY</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;SECRET_KEY is required.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">config_instance</span><span class="o">.</span><span class="n">DB_ENGINE</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;postgresql&quot;</span><span class="p">,</span> <span class="s2">&quot;mysql&quot;</span><span class="p">,</span> <span class="s2">&quot;sqlite&quot;</span><span class="p">,</span> <span class="s2">&quot;sqlite3&quot;</span><span class="p">):</span>
+             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid DB_ENGINE &#39;</span><span class="si">{</span><span class="n">config_instance</span><span class="o">.</span><span class="n">DB_ENGINE</span><span class="si">}</span><span class="s2">&#39;. Supported values are &#39;postgresql&#39;, &#39;mysql&#39;, &#39;sqlite&#39;, and &#39;sqlite3&#39;.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">config_instance</span><span class="o">.</span><span class="n">DB_ENGINE</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;postgresql&quot;</span><span class="p">,</span> <span class="s2">&quot;mysql&quot;</span><span class="p">):</span>
+             <span class="n">required_keys_in_dict</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;host&quot;</span><span class="p">,</span> <span class="s2">&quot;port&quot;</span><span class="p">,</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;password&quot;</span><span class="p">,</span> <span class="s2">&quot;database&quot;</span><span class="p">]</span>
+             <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">config_instance</span><span class="o">.</span><span class="n">DATABASE_CONFIG</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">required_keys_in_dict</span><span class="p">):</span>
+                  <span class="n">missing</span> <span class="o">=</span> <span class="p">[</span><span class="n">key</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">required_keys_in_dict</span> <span class="k">if</span> <span class="n">config_instance</span><span class="o">.</span><span class="n">DATABASE_CONFIG</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">]</span>
+                  <span class="k">if</span> <span class="s2">&quot;password&quot;</span> <span class="ow">in</span> <span class="n">missing</span> <span class="ow">and</span> <span class="n">config_instance</span><span class="o">.</span><span class="n">DATABASE_CONFIG</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;password&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                       <span class="n">missing</span><span class="p">[</span><span class="n">missing</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;password&quot;</span><span class="p">)]</span> <span class="o">=</span> <span class="s2">&quot;DB_PASSWORD_ENCRYPTED (decrypted password is None)&quot;</span>
+
+                  <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;For </span><span class="si">{</span><span class="n">config_instance</span><span class="o">.</span><span class="n">DB_ENGINE</span><span class="si">}</span><span class="s2">, missing required database credentials: </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">missing</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">config_instance</span><span class="o">.</span><span class="n">DB_ENGINE</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;sqlite&quot;</span><span class="p">,</span> <span class="s2">&quot;sqlite3&quot;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">config_instance</span><span class="o">.</span><span class="n">DATABASE_URL</span> <span class="ow">or</span> <span class="n">config_instance</span><span class="o">.</span><span class="n">DATABASE_CONFIG</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;database&quot;</span><span class="p">)):</span>
+                 <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;DATABASE_URL or DB_NAME not set for SQLite. Using default filename &#39;db.db&#39;.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">config_instance</span><span class="o">.</span><span class="n">LOGGING_LEVEL</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;DEBUG&quot;</span><span class="p">,</span> <span class="s2">&quot;INFO&quot;</span><span class="p">,</span> <span class="s2">&quot;WARNING&quot;</span><span class="p">,</span> <span class="s2">&quot;ERROR&quot;</span><span class="p">,</span> <span class="s2">&quot;CRITICAL&quot;</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid LOGGING_LEVEL &#39;</span><span class="si">{</span><span class="n">config_instance</span><span class="o">.</span><span class="n">LOGGING_LEVEL</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">)</span>
+
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">config_instance</span><span class="o">.</span><span class="n">EMAIL_CONFIG</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;smtp_server&quot;</span><span class="p">):</span>
+             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;SMTP_SERVER is required for email configuration.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">config_instance</span><span class="o">.</span><span class="n">EMAIL_CONFIG</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;username&quot;</span><span class="p">):</span>
+             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;EMAIL_USERNAME is required for email configuration.&quot;</span><span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ibrahem abo kila.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,999 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>lback.api package &mdash; lback 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=95f010fd" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="lback.auth package" href="lback.auth.html" />
+    <link rel="prev" title="lback.admin package" href="lback.admin.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            lback
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Configuration%20System.html">Configuration System</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/routing_system.html">Routing System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Views%20%26%20Responses.html">Views &amp; Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Templating%20System.html">Templating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Static%20Files.html">Static Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Media%20Files.html">Media Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/file-uploads.html">File Uploads in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Forms.html">Forms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/Models%20%26%20Database.html">Models &amp; Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Database%20Migrations%20System.html">Database Migrations System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Authorization.html">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/sessions.html">Sessions in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Security%20Features.html">Security Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/Admin%20Panel.html">Built-in Admin Panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/API%20Tools.html">API Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Signal%20System.html">Signal System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Middleware%20System.html">Middleware System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/custom_middlewares.html">Custom Middlewares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/logging_config.html">Logging Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/email-sender.html">Email Sending in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/validation_utilities.html">Validation Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/error_handling.html">Error Handling and HTTP Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Error%20Handling%20%26%20Reporting.html">Error Handling &amp; Reporting</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/Deployment.html">Deployment</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html">Signals from BaseView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-apidocs">Signals from APIDocs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-basemodelserializer">Signals from BaseModelSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-registry-signals.html">Signals from AdminRegistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user.html">Signals from AdminUser and Role Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-manager.html">Signals from AdminUserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-repository.html">Signals from AdminUserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html">Signals from AdminAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-jwtauth">Signals from JWTAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-oauth2auth">Signals from OAuth2Auth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-permissionrequired">Signals from PermissionRequired</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-sessionauth">Signals from SessionAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/error-handler.html">Signals from ErrorHandler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/middleware-manager.html">Signals from MiddlewareManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/migration_commands.html">Signals from MigrationCommands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/permission-repository.html">Signals from PermissionRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/role-repository.html">Signals from RoleRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/session-manager.html">Signals from SessionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/template-renderer.html">Signals from TemplateRenderer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-manager.html">Signals from UserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-model.html">Signals from User Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-repository.html">Signals from UserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/wsgi-application.html">Signals from WSGI Application and Server</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Modules and Classes Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API%20Reference.html">API Reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="lback.html">lback package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="lback.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="lback.admin.html">lback.admin package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">lback.api package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-lback.api.docs">lback.api.docs module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-lback.api.generics">lback.api.generics module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-lback.api.mixins">lback.api.mixins module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-lback.api.serializer">lback.api.serializer module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-lback.api.view">lback.api.view module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-lback.api">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lback.auth.html">lback.auth package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.auth_app.html">lback.auth_app package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.commands.html">lback.commands package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.core.html">lback.core package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.forms.html">lback.forms package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.middlewares.html">lback.middlewares package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.models.html">lback.models package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.repositories.html">lback.repositories package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.security.html">lback.security package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.utils.html">lback.utils package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lback.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lback.html#module-lback.main">lback.main module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lback.html#module-lback">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">lback</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="lback.html">lback package</a></li>
+      <li class="breadcrumb-item active">lback.api package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/lback/lback.api.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="lback-api-package">
+<h1>lback.api package<a class="headerlink" href="#lback-api-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-lback.api.docs">
+<span id="lback-api-docs-module"></span><h2>lback.api.docs module<a class="headerlink" href="#module-lback.api.docs" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.api.docs.APIDocs">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.api.docs.</span></span><span class="sig-name descname"><span class="pre">APIDocs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">router</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.core.html#lback.core.router.Router" title="lback.core.router.Router"><span class="pre">Router</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Lback</span> <span class="pre">API'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'1.0.0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'API</span> <span class="pre">Documentation'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/api/docs.html#APIDocs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.docs.APIDocs" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Generates OpenAPI (Swagger) documentation for the Lback API.
+Aims to automatically collect documentation details from registered routes and views.
+Integrates SignalDispatcher to emit events during the documentation generation process.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.docs.APIDocs.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">router</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.core.html#lback.core.router.Router" title="lback.core.router.Router"><span class="pre">Router</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Lback</span> <span class="pre">API'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'1.0.0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'API</span> <span class="pre">Documentation'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/api/docs.html#APIDocs.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.docs.APIDocs.__init__" title="Link to this definition"></a></dt>
+<dd><p>Intializes the APIDocs generator.
+Emits ‘api_docs_initialized’ signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>router</strong> – The framework’s central Router instance.</p></li>
+<li><p><strong>title</strong> – The title of the API documentation.</p></li>
+<li><p><strong>version</strong> – The version of the API.</p></li>
+<li><p><strong>description</strong> – A description of the API.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.docs.APIDocs.as_json">
+<span class="sig-name descname"><span class="pre">as_json</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/lback/api/docs.html#APIDocs.as_json"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.docs.APIDocs.as_json" title="Link to this definition"></a></dt>
+<dd><p>Returns the OpenAPI specification as a JSON string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.docs.APIDocs.collect_documentation">
+<span class="sig-name descname"><span class="pre">collect_documentation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/api/docs.html#APIDocs.collect_documentation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.docs.APIDocs.collect_documentation" title="Link to this definition"></a></dt>
+<dd><p>Collects documentation details from the registered routes and views.
+This method orchestrates the automatic documentation generation.
+Emits ‘api_docs_collection_started’ and ‘api_docs_collection_finished’ signals.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.docs.APIDocs.generate_openapi">
+<span class="sig-name descname"><span class="pre">generate_openapi</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/lback/api/docs.html#APIDocs.generate_openapi"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.docs.APIDocs.generate_openapi" title="Link to this definition"></a></dt>
+<dd><p>Generates the full OpenAPI specification dictionary.
+Emits ‘openapi_spec_generated’ signal.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.docs.APIDocs.register_serializer_schema">
+<span class="sig-name descname"><span class="pre">register_serializer_schema</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">serializer_class</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#lback.api.serializer.BaseModelSerializer" title="lback.api.serializer.BaseModelSerializer"><span class="pre">BaseModelSerializer</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schema_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/api/docs.html#APIDocs.register_serializer_schema"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.docs.APIDocs.register_serializer_schema" title="Link to this definition"></a></dt>
+<dd><p>Generates an OpenAPI schema from a BaseModelSerializer and adds it to components.
+This implementation will inspect the serializer fields to build the schema.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lback.api.generics">
+<span id="lback-api-generics-module"></span><h2>lback.api.generics module<a class="headerlink" href="#module-lback.api.generics" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.api.generics.CreateAPIView">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.api.generics.</span></span><span class="sig-name descname"><span class="pre">CreateAPIView</span></span><a class="reference internal" href="../_modules/lback/api/generics.html#CreateAPIView"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.generics.CreateAPIView" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lback.api.mixins.CreateModelMixin" title="lback.api.mixins.CreateModelMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">CreateModelMixin</span></code></a>, <a class="reference internal" href="#lback.api.generics.GenericAPIView" title="lback.api.generics.GenericAPIView"><code class="xref py py-class docutils literal notranslate"><span class="pre">GenericAPIView</span></code></a></p>
+<p>View for creating a model instance.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.generics.CreateAPIView.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="../_modules/lback/api/generics.html#CreateAPIView.post"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.generics.CreateAPIView.post" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.api.generics.DestroyAPIView">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.api.generics.</span></span><span class="sig-name descname"><span class="pre">DestroyAPIView</span></span><a class="reference internal" href="../_modules/lback/api/generics.html#DestroyAPIView"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.generics.DestroyAPIView" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lback.api.mixins.DestroyModelMixin" title="lback.api.mixins.DestroyModelMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">DestroyModelMixin</span></code></a>, <a class="reference internal" href="#lback.api.generics.GenericAPIView" title="lback.api.generics.GenericAPIView"><code class="xref py py-class docutils literal notranslate"><span class="pre">GenericAPIView</span></code></a></p>
+<p>View for deleting a model instance.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.generics.DestroyAPIView.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.core.html#lback.core.response.Response" title="lback.core.response.Response"><span class="pre">Response</span></a></span></span><a class="reference internal" href="../_modules/lback/api/generics.html#DestroyAPIView.delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.generics.DestroyAPIView.delete" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.api.generics.GenericAPIView">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.api.generics.</span></span><span class="sig-name descname"><span class="pre">GenericAPIView</span></span><a class="reference internal" href="../_modules/lback/api/generics.html#GenericAPIView"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.generics.GenericAPIView" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lback.api.view.APIView" title="lback.api.view.APIView"><code class="xref py py-class docutils literal notranslate"><span class="pre">APIView</span></code></a></p>
+<p>Base class for all generic views.
+Provides context for various generic behaviors.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.api.generics.ListAPIView">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.api.generics.</span></span><span class="sig-name descname"><span class="pre">ListAPIView</span></span><a class="reference internal" href="../_modules/lback/api/generics.html#ListAPIView"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.generics.ListAPIView" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lback.api.mixins.ListModelMixin" title="lback.api.mixins.ListModelMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">ListModelMixin</span></code></a>, <a class="reference internal" href="#lback.api.generics.GenericAPIView" title="lback.api.generics.GenericAPIView"><code class="xref py py-class docutils literal notranslate"><span class="pre">GenericAPIView</span></code></a></p>
+<p>View for listing a queryset.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.generics.ListAPIView.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/lback/api/generics.html#ListAPIView.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.generics.ListAPIView.get" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.api.generics.ListCreateAPIView">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.api.generics.</span></span><span class="sig-name descname"><span class="pre">ListCreateAPIView</span></span><a class="reference internal" href="../_modules/lback/api/generics.html#ListCreateAPIView"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.generics.ListCreateAPIView" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lback.api.mixins.ListModelMixin" title="lback.api.mixins.ListModelMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">ListModelMixin</span></code></a>, <a class="reference internal" href="#lback.api.mixins.CreateModelMixin" title="lback.api.mixins.CreateModelMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">CreateModelMixin</span></code></a>, <a class="reference internal" href="#lback.api.generics.GenericAPIView" title="lback.api.generics.GenericAPIView"><code class="xref py py-class docutils literal notranslate"><span class="pre">GenericAPIView</span></code></a></p>
+<p>View for listing and creating model instances.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.generics.ListCreateAPIView.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/lback/api/generics.html#ListCreateAPIView.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.generics.ListCreateAPIView.get" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.generics.ListCreateAPIView.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="../_modules/lback/api/generics.html#ListCreateAPIView.post"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.generics.ListCreateAPIView.post" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.api.generics.RetrieveAPIView">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.api.generics.</span></span><span class="sig-name descname"><span class="pre">RetrieveAPIView</span></span><a class="reference internal" href="../_modules/lback/api/generics.html#RetrieveAPIView"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.generics.RetrieveAPIView" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lback.api.mixins.RetrieveModelMixin" title="lback.api.mixins.RetrieveModelMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">RetrieveModelMixin</span></code></a>, <a class="reference internal" href="#lback.api.generics.GenericAPIView" title="lback.api.generics.GenericAPIView"><code class="xref py py-class docutils literal notranslate"><span class="pre">GenericAPIView</span></code></a></p>
+<p>View for retrieving a model instance.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.generics.RetrieveAPIView.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="../_modules/lback/api/generics.html#RetrieveAPIView.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.generics.RetrieveAPIView.get" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.api.generics.RetrieveUpdateDestroyAPIView">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.api.generics.</span></span><span class="sig-name descname"><span class="pre">RetrieveUpdateDestroyAPIView</span></span><a class="reference internal" href="../_modules/lback/api/generics.html#RetrieveUpdateDestroyAPIView"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.generics.RetrieveUpdateDestroyAPIView" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lback.api.mixins.RetrieveModelMixin" title="lback.api.mixins.RetrieveModelMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">RetrieveModelMixin</span></code></a>, <a class="reference internal" href="#lback.api.mixins.UpdateModelMixin" title="lback.api.mixins.UpdateModelMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">UpdateModelMixin</span></code></a>, <a class="reference internal" href="#lback.api.mixins.DestroyModelMixin" title="lback.api.mixins.DestroyModelMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">DestroyModelMixin</span></code></a>, <a class="reference internal" href="#lback.api.generics.GenericAPIView" title="lback.api.generics.GenericAPIView"><code class="xref py py-class docutils literal notranslate"><span class="pre">GenericAPIView</span></code></a></p>
+<p>View for retrieving, updating, and deleting a model instance.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.generics.RetrieveUpdateDestroyAPIView.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.core.html#lback.core.response.Response" title="lback.core.response.Response"><span class="pre">Response</span></a></span></span><a class="reference internal" href="../_modules/lback/api/generics.html#RetrieveUpdateDestroyAPIView.delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.generics.RetrieveUpdateDestroyAPIView.delete" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.generics.RetrieveUpdateDestroyAPIView.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="../_modules/lback/api/generics.html#RetrieveUpdateDestroyAPIView.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.generics.RetrieveUpdateDestroyAPIView.get" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.generics.RetrieveUpdateDestroyAPIView.patch">
+<span class="sig-name descname"><span class="pre">patch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="../_modules/lback/api/generics.html#RetrieveUpdateDestroyAPIView.patch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.generics.RetrieveUpdateDestroyAPIView.patch" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.generics.RetrieveUpdateDestroyAPIView.put">
+<span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="../_modules/lback/api/generics.html#RetrieveUpdateDestroyAPIView.put"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.generics.RetrieveUpdateDestroyAPIView.put" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.api.generics.UpdateAPIView">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.api.generics.</span></span><span class="sig-name descname"><span class="pre">UpdateAPIView</span></span><a class="reference internal" href="../_modules/lback/api/generics.html#UpdateAPIView"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.generics.UpdateAPIView" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lback.api.mixins.UpdateModelMixin" title="lback.api.mixins.UpdateModelMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">UpdateModelMixin</span></code></a>, <a class="reference internal" href="#lback.api.generics.GenericAPIView" title="lback.api.generics.GenericAPIView"><code class="xref py py-class docutils literal notranslate"><span class="pre">GenericAPIView</span></code></a></p>
+<p>View for updating a model instance.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.generics.UpdateAPIView.patch">
+<span class="sig-name descname"><span class="pre">patch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="../_modules/lback/api/generics.html#UpdateAPIView.patch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.generics.UpdateAPIView.patch" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.generics.UpdateAPIView.put">
+<span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="../_modules/lback/api/generics.html#UpdateAPIView.put"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.generics.UpdateAPIView.put" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lback.api.mixins">
+<span id="lback-api-mixins-module"></span><h2>lback.api.mixins module<a class="headerlink" href="#module-lback.api.mixins" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.api.mixins.CreateModelMixin">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.api.mixins.</span></span><span class="sig-name descname"><span class="pre">CreateModelMixin</span></span><a class="reference internal" href="../_modules/lback/api/mixins.html#CreateModelMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.mixins.CreateModelMixin" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Mixins لـ Create API: Handles creating a new object.
+Requires the view to have <cite>model</cite> and <cite>serializer_class</cite> defined.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.mixins.CreateModelMixin.create">
+<span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="../_modules/lback/api/mixins.html#CreateModelMixin.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.mixins.CreateModelMixin.create" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.api.mixins.DestroyModelMixin">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.api.mixins.</span></span><span class="sig-name descname"><span class="pre">DestroyModelMixin</span></span><a class="reference internal" href="../_modules/lback/api/mixins.html#DestroyModelMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.mixins.DestroyModelMixin" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Mixins لـ Destroy API: Handles deleting an existing object.
+Requires the view to have <cite>model</cite> defined.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.mixins.DestroyModelMixin.destroy">
+<span class="sig-name descname"><span class="pre">destroy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.core.html#lback.core.response.Response" title="lback.core.response.Response"><span class="pre">Response</span></a></span></span><a class="reference internal" href="../_modules/lback/api/mixins.html#DestroyModelMixin.destroy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.mixins.DestroyModelMixin.destroy" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.api.mixins.ListModelMixin">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.api.mixins.</span></span><span class="sig-name descname"><span class="pre">ListModelMixin</span></span><a class="reference internal" href="../_modules/lback/api/mixins.html#ListModelMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.mixins.ListModelMixin" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Mixins لـ List API: Handles listing a queryset of objects.
+Requires the view to have <cite>model</cite> and <cite>serializer_class</cite> defined.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.mixins.ListModelMixin.list">
+<span class="sig-name descname"><span class="pre">list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/lback/api/mixins.html#ListModelMixin.list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.mixins.ListModelMixin.list" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.api.mixins.RetrieveModelMixin">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.api.mixins.</span></span><span class="sig-name descname"><span class="pre">RetrieveModelMixin</span></span><a class="reference internal" href="../_modules/lback/api/mixins.html#RetrieveModelMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.mixins.RetrieveModelMixin" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Mixins لـ Retrieve API: Handles retrieving a single object by its primary key.
+Requires the view to have <cite>model</cite> and <cite>serializer_class</cite> defined.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.mixins.RetrieveModelMixin.retrieve">
+<span class="sig-name descname"><span class="pre">retrieve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="../_modules/lback/api/mixins.html#RetrieveModelMixin.retrieve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.mixins.RetrieveModelMixin.retrieve" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.api.mixins.UpdateModelMixin">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.api.mixins.</span></span><span class="sig-name descname"><span class="pre">UpdateModelMixin</span></span><a class="reference internal" href="../_modules/lback/api/mixins.html#UpdateModelMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.mixins.UpdateModelMixin" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Mixins لـ Update API: Handles updating an existing object (both PUT and PATCH).
+Requires the view to have <cite>model</cite> and <cite>serializer_class</cite> defined.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.mixins.UpdateModelMixin.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="../_modules/lback/api/mixins.html#UpdateModelMixin.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.mixins.UpdateModelMixin.update" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lback.api.serializer">
+<span id="lback-api-serializer-module"></span><h2>lback.api.serializer module<a class="headerlink" href="#module-lback.api.serializer" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.api.serializer.BaseModelSerializer">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.api.serializer.</span></span><span class="sig-name descname"><span class="pre">BaseModelSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">many</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">partial</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/api/serializer.html#BaseModelSerializer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.serializer.BaseModelSerializer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base serializer class for converting model instances to dictionaries
+and validating/converting dictionaries to model instances.
+Integrates SignalDispatcher to emit events during serialization, validation, and saving.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.api.serializer.BaseModelSerializer.Meta">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="../_modules/lback/api/serializer.html#BaseModelSerializer.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.serializer.BaseModelSerializer.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Inner class for serializer options.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.api.serializer.BaseModelSerializer.Meta.exclude">
+<span class="sig-name descname"><span class="pre">exclude</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#lback.api.serializer.BaseModelSerializer.Meta.exclude" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.api.serializer.BaseModelSerializer.Meta.extra_kwargs">
+<span class="sig-name descname"><span class="pre">extra_kwargs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#lback.api.serializer.BaseModelSerializer.Meta.extra_kwargs" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.api.serializer.BaseModelSerializer.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'__all__'</span></em><a class="headerlink" href="#lback.api.serializer.BaseModelSerializer.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.api.serializer.BaseModelSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="lback.models.html#lback.models.base.BaseModel" title="lback.models.base.BaseModel"><span class="pre">BaseModel</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#lback.api.serializer.BaseModelSerializer.Meta.model" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.api.serializer.BaseModelSerializer.Meta.read_only_fields">
+<span class="sig-name descname"><span class="pre">read_only_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#lback.api.serializer.BaseModelSerializer.Meta.read_only_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="lback.api.serializer.BaseModelSerializer.data">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#lback.api.serializer.BaseModelSerializer.data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="lback.api.serializer.BaseModelSerializer.errors">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">errors</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#lback.api.serializer.BaseModelSerializer.errors" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="lback.api.serializer.BaseModelSerializer.is_valid">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_valid</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#lback.api.serializer.BaseModelSerializer.is_valid" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.serializer.BaseModelSerializer.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="../_modules/lback/api/serializer.html#BaseModelSerializer.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.serializer.BaseModelSerializer.save" title="Link to this definition"></a></dt>
+<dd><p>Creates or updates a model instance using validated data.
+Requires a database session.
+Emits ‘serializer_pre_save’ and ‘serializer_post_save’ signals.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>session</strong> – The database session to use for saving.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The created or updated model instance.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="lback.core.html#lback.core.exceptions.ValidationError" title="lback.core.exceptions.ValidationError"><strong>ValidationError</strong></a> – If the data is not valid.</p></li>
+<li><p><strong>RuntimeError</strong> – If validated data is missing unexpectedly.</p></li>
+<li><p><strong>NotImplementedError</strong> – If the serializer has no associated model_class.</p></li>
+<li><p><strong>Exception</strong> – For other unexpected errors during the save process.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="lback.api.serializer.BaseModelSerializer.validated_data">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">validated_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#lback.api.serializer.BaseModelSerializer.validated_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.api.serializer.BooleanField">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.api.serializer.</span></span><span class="sig-name descname"><span class="pre">BooleanField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">required</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_null</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">help_text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">read_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/api/serializer.html#BooleanField"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.serializer.BooleanField" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lback.api.serializer.Field" title="lback.api.serializer.Field"><code class="xref py py-class docutils literal notranslate"><span class="pre">Field</span></code></a></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="lback.api.serializer.BooleanField.openapi_type">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">openapi_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#lback.api.serializer.BooleanField.openapi_type" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.serializer.BooleanField.to_internal_value">
+<span class="sig-name descname"><span class="pre">to_internal_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="../_modules/lback/api/serializer.html#BooleanField.to_internal_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.serializer.BooleanField.to_internal_value" title="Link to this definition"></a></dt>
+<dd><p>Converts input data to its internal value for validation/saving.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.serializer.BooleanField.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/api/serializer.html#BooleanField.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.serializer.BooleanField.validate" title="Link to this definition"></a></dt>
+<dd><p>Performs field-level validation.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.api.serializer.DateTimeField">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.api.serializer.</span></span><span class="sig-name descname"><span class="pre">DateTimeField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/api/serializer.html#DateTimeField"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.serializer.DateTimeField" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lback.api.serializer.Field" title="lback.api.serializer.Field"><code class="xref py py-class docutils literal notranslate"><span class="pre">Field</span></code></a></p>
+<p>A field for handling datetime objects, converting them to/from ISO 8601 strings.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="lback.api.serializer.DateTimeField.openapi_type">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">openapi_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#lback.api.serializer.DateTimeField.openapi_type" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.serializer.DateTimeField.to_internal_value">
+<span class="sig-name descname"><span class="pre">to_internal_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">datetime</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/lback/api/serializer.html#DateTimeField.to_internal_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.serializer.DateTimeField.to_internal_value" title="Link to this definition"></a></dt>
+<dd><p>Converts input data to its internal value for validation/saving.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.serializer.DateTimeField.to_representation">
+<span class="sig-name descname"><span class="pre">to_representation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/lback/api/serializer.html#DateTimeField.to_representation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.serializer.DateTimeField.to_representation" title="Link to this definition"></a></dt>
+<dd><p>Converts a model field value to its representation for output.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.serializer.DateTimeField.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/api/serializer.html#DateTimeField.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.serializer.DateTimeField.validate" title="Link to this definition"></a></dt>
+<dd><p>Performs field-level validation.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.api.serializer.Field">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.api.serializer.</span></span><span class="sig-name descname"><span class="pre">Field</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">required</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_null</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">help_text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">read_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/api/serializer.html#Field"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.serializer.Field" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base class for serializer fields.
+Provides methods for data representation, internal value conversion, and validation.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.serializer.Field.__set_name__">
+<span class="sig-name descname"><span class="pre">__set_name__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">owner</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/api/serializer.html#Field.__set_name__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.serializer.Field.__set_name__" title="Link to this definition"></a></dt>
+<dd><p>Called automatically by Python when the field is defined on a class.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.serializer.Field.to_internal_value">
+<span class="sig-name descname"><span class="pre">to_internal_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="../_modules/lback/api/serializer.html#Field.to_internal_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.serializer.Field.to_internal_value" title="Link to this definition"></a></dt>
+<dd><p>Converts input data to its internal value for validation/saving.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.serializer.Field.to_representation">
+<span class="sig-name descname"><span class="pre">to_representation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="../_modules/lback/api/serializer.html#Field.to_representation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.serializer.Field.to_representation" title="Link to this definition"></a></dt>
+<dd><p>Converts a model field value to its representation for output.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.serializer.Field.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/api/serializer.html#Field.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.serializer.Field.validate" title="Link to this definition"></a></dt>
+<dd><p>Performs field-level validation.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.api.serializer.IntegerField">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.api.serializer.</span></span><span class="sig-name descname"><span class="pre">IntegerField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/api/serializer.html#IntegerField"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.serializer.IntegerField" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lback.api.serializer.Field" title="lback.api.serializer.Field"><code class="xref py py-class docutils literal notranslate"><span class="pre">Field</span></code></a></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="lback.api.serializer.IntegerField.openapi_type">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">openapi_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#lback.api.serializer.IntegerField.openapi_type" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.serializer.IntegerField.to_internal_value">
+<span class="sig-name descname"><span class="pre">to_internal_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="../_modules/lback/api/serializer.html#IntegerField.to_internal_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.serializer.IntegerField.to_internal_value" title="Link to this definition"></a></dt>
+<dd><p>Converts input data to its internal value for validation/saving.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.serializer.IntegerField.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/api/serializer.html#IntegerField.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.serializer.IntegerField.validate" title="Link to this definition"></a></dt>
+<dd><p>Performs field-level validation.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.api.serializer.RelatedField">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.api.serializer.</span></span><span class="sig-name descname"><span class="pre">RelatedField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">serializer_class</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#lback.api.serializer.BaseModelSerializer" title="lback.api.serializer.BaseModelSerializer"><span class="pre">BaseModelSerializer</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">many</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/api/serializer.html#RelatedField"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.serializer.RelatedField" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lback.api.serializer.Field" title="lback.api.serializer.Field"><code class="xref py py-class docutils literal notranslate"><span class="pre">Field</span></code></a></p>
+<p>A field for handling relationships to other models.
+Can represent as primary key or nested serializer.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="lback.api.serializer.RelatedField.openapi_type">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">openapi_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#lback.api.serializer.RelatedField.openapi_type" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.serializer.RelatedField.to_internal_value">
+<span class="sig-name descname"><span class="pre">to_internal_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="../_modules/lback/api/serializer.html#RelatedField.to_internal_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.serializer.RelatedField.to_internal_value" title="Link to this definition"></a></dt>
+<dd><p>Converts input data to its internal value for validation/saving.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.serializer.RelatedField.to_representation">
+<span class="sig-name descname"><span class="pre">to_representation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="../_modules/lback/api/serializer.html#RelatedField.to_representation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.serializer.RelatedField.to_representation" title="Link to this definition"></a></dt>
+<dd><p>Converts a model field value to its representation for output.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.api.serializer.StringField">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.api.serializer.</span></span><span class="sig-name descname"><span class="pre">StringField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/api/serializer.html#StringField"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.serializer.StringField" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lback.api.serializer.Field" title="lback.api.serializer.Field"><code class="xref py py-class docutils literal notranslate"><span class="pre">Field</span></code></a></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="lback.api.serializer.StringField.openapi_type">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">openapi_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#lback.api.serializer.StringField.openapi_type" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.serializer.StringField.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/api/serializer.html#StringField.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.serializer.StringField.validate" title="Link to this definition"></a></dt>
+<dd><p>Performs field-level validation.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lback.api.view">
+<span id="lback-api-view-module"></span><h2>lback.api.view module<a class="headerlink" href="#module-lback.api.view" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.api.view.APIView">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.api.view.</span></span><span class="sig-name descname"><span class="pre">APIView</span></span><a class="reference internal" href="../_modules/lback/api/view.html#APIView"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.view.APIView" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lback.api.view.BaseView" title="lback.api.view.BaseView"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseView</span></code></a></p>
+<p>Base class for API views, providing common functionalities like:
+- Default allowed HTTP methods.
+- Automatic request body parsing (JSON).
+- Automatic response serialization to JSON.
+- Basic object/queryset retrieval logic (requires <cite>model</cite> and <cite>serializer_class</cite>).
+- Standardized error responses.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.view.APIView.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="../_modules/lback/api/view.html#APIView.delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.view.APIView.delete" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.view.APIView.dispatch">
+<span class="sig-name descname"><span class="pre">dispatch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.core.html#lback.core.response.Response" title="lback.core.response.Response"><span class="pre">Response</span></a></span></span><a class="reference internal" href="../_modules/lback/api/view.html#APIView.dispatch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.view.APIView.dispatch" title="Link to this definition"></a></dt>
+<dd><p>Dispatches the incoming request to the appropriate HTTP method handler.
+Emits ‘view_dispatch_started’, ‘view_dispatch_succeeded’, ‘view_method_not_allowed’,
+or ‘view_handler_not_implemented’ signals.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> – The incoming request object (already processed by middleware).</p></li>
+<li><p><strong>*args</strong> – Positional arguments extracted from the URL path.</p></li>
+<li><p><strong>**kwargs</strong> – Keyword arguments extracted from the URL path.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The result of calling the specific method handler (e.g., self.get, self.post).
+This result is typically a Response object or data to be converted to a Response.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="lback.core.html#lback.core.exceptions.MethodNotAllowed" title="lback.core.exceptions.MethodNotAllowed"><strong>MethodNotAllowed</strong></a> – If the request method is not in self.methods.
+    (Although the Router should ideally catch this first).</p></li>
+<li><p><strong>NotImplementedError</strong> – If a method is allowed but no handler method is defined.</p></li>
+<li><p><strong>Any exception raised by the specific method handler.</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.view.APIView.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="../_modules/lback/api/view.html#APIView.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.view.APIView.get" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.view.APIView.get_object">
+<span class="sig-name descname"><span class="pre">get_object</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/api/view.html#APIView.get_object"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.view.APIView.get_object" title="Link to this definition"></a></dt>
+<dd><p>Retrieves a single object based on the ID provided in the URL kwargs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The model instance corresponding to the provided primary key.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Any</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="lback.core.html#lback.core.exceptions.NotFound" title="lback.core.exceptions.NotFound"><strong>NotFound</strong></a> – If the primary key is not found in the URL or the object does not exist.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.view.APIView.get_queryset">
+<span class="sig-name descname"><span class="pre">get_queryset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/api/view.html#APIView.get_queryset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.view.APIView.get_queryset" title="Link to this definition"></a></dt>
+<dd><p>Returns the base QuerySet for the specified model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The QuerySet for the model.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>QuerySet</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>NotImplementedError</strong> – If model is not defined.</p></li>
+<li><p><strong>Exception</strong> – If the database session is not available.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.view.APIView.get_serializer">
+<span class="sig-name descname"><span class="pre">get_serializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lback.api.serializer.BaseModelSerializer" title="lback.api.serializer.BaseModelSerializer"><span class="pre">BaseModelSerializer</span></a></span></span><a class="reference internal" href="../_modules/lback/api/view.html#APIView.get_serializer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.view.APIView.get_serializer" title="Link to this definition"></a></dt>
+<dd><p>Returns an instance of the serializer specified for this view.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>instance</strong> (<em>Any</em><em>, </em><em>optional</em>) – The model instance to serialize.</p></li>
+<li><p><strong>data</strong> (<em>dict</em><em>, </em><em>optional</em>) – Data to be deserialized and validated.</p></li>
+<li><p><strong>**kwargs</strong> – Additional keyword arguments for the serializer.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An instance of the serializer class.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#lback.api.serializer.BaseModelSerializer" title="lback.api.serializer.BaseModelSerializer">BaseModelSerializer</a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>NotImplementedError</strong> – If serializer_class is not defined.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.view.APIView.head">
+<span class="sig-name descname"><span class="pre">head</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="../_modules/lback/api/view.html#APIView.head"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.view.APIView.head" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.api.view.APIView.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['GET',</span> <span class="pre">'POST',</span> <span class="pre">'PUT',</span> <span class="pre">'PATCH',</span> <span class="pre">'DELETE',</span> <span class="pre">'OPTIONS',</span> <span class="pre">'HEAD']</span></em><a class="headerlink" href="#lback.api.view.APIView.methods" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.api.view.APIView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="lback.models.html#lback.models.base.BaseModel" title="lback.models.base.BaseModel"><span class="pre">BaseModel</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#lback.api.view.APIView.model" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.view.APIView.options">
+<span class="sig-name descname"><span class="pre">options</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="../_modules/lback/api/view.html#APIView.options"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.view.APIView.options" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.view.APIView.patch">
+<span class="sig-name descname"><span class="pre">patch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="../_modules/lback/api/view.html#APIView.patch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.view.APIView.patch" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.view.APIView.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="../_modules/lback/api/view.html#APIView.post"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.view.APIView.post" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.view.APIView.put">
+<span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="../_modules/lback/api/view.html#APIView.put"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.view.APIView.put" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.api.view.APIView.serializer_class">
+<span class="sig-name descname"><span class="pre">serializer_class</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#lback.api.serializer.BaseModelSerializer" title="lback.api.serializer.BaseModelSerializer"><span class="pre">BaseModelSerializer</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#lback.api.view.APIView.serializer_class" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.api.view.BaseView">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.api.view.</span></span><span class="sig-name descname"><span class="pre">BaseView</span></span><a class="reference internal" href="../_modules/lback/api/view.html#BaseView"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.view.BaseView" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base class for all view handlers in the framework.
+Provides basic dispatching logic.
+Integrates SignalDispatcher to emit events during request dispatching.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.api.view.BaseView.dispatch">
+<span class="sig-name descname"><span class="pre">dispatch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="../_modules/lback/api/view.html#BaseView.dispatch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.api.view.BaseView.dispatch" title="Link to this definition"></a></dt>
+<dd><p>Dispatches the incoming request to the appropriate HTTP method handler.
+Emits ‘view_dispatch_started’, ‘view_dispatch_succeeded’, ‘view_method_not_allowed’,
+or ‘view_handler_not_implemented’ signals.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> – The incoming request object (already processed by middleware).</p></li>
+<li><p><strong>*args</strong> – Positional arguments extracted from the URL path.</p></li>
+<li><p><strong>**kwargs</strong> – Keyword arguments extracted from the URL path.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The result of calling the specific method handler (e.g., self.get, self.post).
+This result is typically a Response object or data to be converted to a Response.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="lback.core.html#lback.core.exceptions.MethodNotAllowed" title="lback.core.exceptions.MethodNotAllowed"><strong>MethodNotAllowed</strong></a> – If the request method is not in self.methods.
+    (Although the Router should ideally catch this first).</p></li>
+<li><p><strong>NotImplementedError</strong> – If a method is allowed but no handler method is defined.</p></li>
+<li><p><strong>Any exception raised by the specific method handler.</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.api.view.BaseView.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#lback.api.view.BaseView.methods" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lback.api">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-lback.api" title="Link to this heading"></a></h2>
+<p>This file serves as the initialization point for the ‘lback_framework/lback/api’ package.
+It is designed to expose the core components necessary for building robust RESTful APIs
+within the Lback web framework. This package centralizes the definition and management
+of API functionalities, including views, serializers, mixins, and documentation tools.</p>
+<p>—</p>
+<p><strong>Key Components Exposed by this Package:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>APIDocs:</strong>
+Manages and generates comprehensive API documentation for the Lback framework. This component
+is crucial for creating structured and interactive documentation (e.g., OpenAPI/Swagger specifications)
+that details all available API endpoints, their expected request formats, and their response structures.
+It aids developers in understanding and integrating with Lback-powered APIs by providing metadata
+like API title, version, and description, and can register endpoints for automatic documentation generation.</p></li>
+<li><p><strong>Generic API Views (from .generics):</strong>
+A suite of pre-built, reusable classes designed to handle common RESTful operations (CRUD - Create, Read, Update, Delete)
+with minimal boilerplate code. These views abstract away repetitive logic, allowing for rapid API development.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>GenericAPIView:</strong> The foundational class for all generic API views, providing core mechanisms for</dt><dd><p>handling HTTP requests, interacting with serializers, and managing querysets.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>ListAPIView:</strong> Designed for retrieving collections of resources, handling HTTP GET requests</dt><dd><p>for listing multiple instances of a model, often with pagination and filtering support.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>CreateAPIView:</strong> Handles HTTP POST requests for creating new resources, deserializing incoming data,</dt><dd><p>validating it, and saving new model instances.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>RetrieveAPIView:</strong> Processes HTTP GET requests for fetching a single resource instance,</dt><dd><p>typically identified by a primary key or unique identifier.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>UpdateAPIView:</strong> Supports HTTP PUT (full update) and PATCH (partial update) requests for</dt><dd><p>modifying existing resources.</p>
+</dd>
+</dl>
+</li>
+<li><p><strong>DestroyAPIView:</strong> Handles HTTP DELETE requests for removing existing resource instances.</p></li>
+<li><dl class="simple">
+<dt><strong>ListCreateAPIView:</strong> A composite view combining listing (GET) and creation (POST) functionalities</dt><dd><p>on the same endpoint.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>RetrieveUpdateDestroyAPIView:</strong> A comprehensive view for single-resource management,</dt><dd><p>combining retrieval (GET), updating (PUT/PATCH), and deletion (DELETE).</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p><strong>Mixins (from .mixins):</strong>
+Reusable classes that provide specific behaviors to generic views, allowing for flexible composition
+of API functionalities. These mixins encapsulate common logic for model operations.</p>
+<ul class="simple">
+<li><p><strong>ListModelMixin:</strong> Provides logic for listing a queryset of model instances.</p></li>
+<li><p><strong>CreateModelMixin:</strong> Provides logic for creating a new model instance.</p></li>
+<li><p><strong>RetrieveModelMixin:</strong> Provides logic for retrieving a single model instance.</p></li>
+<li><p><strong>UpdateModelMixin:</strong> Provides logic for updating an existing model instance.</p></li>
+<li><p><strong>DestroyModelMixin:</strong> Provides logic for deleting a model instance.</p></li>
+</ul>
+</li>
+<li><p><strong>Serializers (from .serializer):</strong>
+Essential components for data serialization and deserialization. They are crucial for converting
+complex data types (like model instances) into formats suitable for API responses (e.g., JSON)
+and converting incoming data back into model instances for processing.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Field:</strong> The base class for all serializer fields, defining common behavior for data representation,</dt><dd><p>validation, and conversion.</p>
+</dd>
+</dl>
+</li>
+<li><p><strong>BooleanField:</strong> A serializer field for handling boolean values.</p></li>
+<li><dl class="simple">
+<dt><strong>BaseModelSerializer:</strong> The base serializer class designed for integration with Lback’s models,</dt><dd><p>simplifying conversion between model instances and serializable data structures.</p>
+</dd>
+</dl>
+</li>
+<li><p><strong>IntegerField:</strong> A serializer field for handling integer numbers.</p></li>
+<li><p><strong>StringField:</strong> A serializer field for handling text-based data (strings).</p></li>
+<li><p><strong>RelatedField:</strong> A serializer field for representing relationships between different models.</p></li>
+<li><dl class="simple">
+<dt><strong>DateTimeField:</strong> A serializer field for handling date and time values, managing conversion</dt><dd><p>to and from various string formats.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p><strong>View Classes (from .view):</strong>
+Fundamental view classes that serve as the entry points for handling web requests within the Lback framework.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>APIView:</strong> The primary base class for defining API views, providing a robust foundation for handling</dt><dd><p>different HTTP methods and orchestrating the request-response cycle for API endpoints.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>BaseView:</strong> A more general-purpose base view class that might serve as a fundamental building block</dt><dd><p>for views not strictly adhering to REST principles, or for traditional web page rendering.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="lback.admin.html" class="btn btn-neutral float-left" title="lback.admin package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="lback.auth.html" class="btn btn-neutral float-right" title="lback.auth package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ibrahem abo kila.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

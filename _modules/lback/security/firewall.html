@@ -1,0 +1,411 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>lback.security.firewall &mdash; lback 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=95f010fd" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            lback
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Configuration%20System.html">Configuration System</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/routing_system.html">Routing System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Views%20%26%20Responses.html">Views &amp; Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Templating%20System.html">Templating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Static%20Files.html">Static Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Media%20Files.html">Media Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/file-uploads.html">File Uploads in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Forms.html">Forms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Models%20%26%20Database.html">Models &amp; Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Database%20Migrations%20System.html">Database Migrations System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Authorization.html">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/sessions.html">Sessions in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Security%20Features.html">Security Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Admin%20Panel.html">Built-in Admin Panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/API%20Tools.html">API Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Signal%20System.html">Signal System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Middleware%20System.html">Middleware System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/custom_middlewares.html">Custom Middlewares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/logging_config.html">Logging Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/email-sender.html">Email Sending in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/validation_utilities.html">Validation Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/error_handling.html">Error Handling and HTTP Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Error%20Handling%20%26%20Reporting.html">Error Handling &amp; Reporting</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Deployment.html">Deployment</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/api-signals.html">Signals from BaseView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/api-signals.html#signals-from-apidocs">Signals from APIDocs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/api-signals.html#signals-from-basemodelserializer">Signals from BaseModelSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-registry-signals.html">Signals from AdminRegistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-user.html">Signals from AdminUser and Role Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-user-manager.html">Signals from AdminUserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-user-repository.html">Signals from AdminUserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html">Signals from AdminAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-jwtauth">Signals from JWTAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-oauth2auth">Signals from OAuth2Auth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-permissionrequired">Signals from PermissionRequired</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-sessionauth">Signals from SessionAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/error-handler.html">Signals from ErrorHandler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/middleware-manager.html">Signals from MiddlewareManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/migration_commands.html">Signals from MigrationCommands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/permission-repository.html">Signals from PermissionRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/role-repository.html">Signals from RoleRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/session-manager.html">Signals from SessionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/template-renderer.html">Signals from TemplateRenderer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/user-manager.html">Signals from UserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/user-model.html">Signals from User Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/user-repository.html">Signals from UserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/wsgi-application.html">Signals from WSGI Application and Server</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">Modules and Classes Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../API%20Reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../lback/lback.html">lback package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">lback</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">lback.security.firewall</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for lback.security.firewall</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">ipaddress</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<div class="viewcode-block" id="AdvancedFirewall">
+<a class="viewcode-back" href="../../../lback/lback.security.html#lback.security.firewall.AdvancedFirewall">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">AdvancedFirewall</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A robust and customizable firewall system for filtering incoming requests</span>
+<span class="sd">    based on IP addresses, networks, user agents, URL patterns, and basic DDoS detection.</span>
+
+<span class="sd">    This class helps protect your application from malicious traffic by providing</span>
+<span class="sd">    various blocking mechanisms and a rate-limiting system to mitigate distributed</span>
+<span class="sd">    denial-of-service (DDoS) attacks.</span>
+
+<span class="sd">    It is designed to be integrated into the request/response cycle of a web framework,</span>
+<span class="sd">    typically as a middleware or a pre-processing step.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="AdvancedFirewall.__init__">
+<a class="viewcode-back" href="../../../lback/lback.security.html#lback.security.firewall.AdvancedFirewall.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">allowed_ips</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">blocked_ips</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">blocked_networks</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">blocked_user_agents</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">blocked_url_patterns</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">ddos_max_requests</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+        <span class="n">ddos_window_seconds</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="n">temp_block_seconds</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">300</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes the AdvancedFirewall with specified rules and DDoS detection parameters.</span>
+
+<span class="sd">        :param allowed_ips: A list of IP addresses explicitly allowed to access the application.</span>
+<span class="sd">                            If provided, only IPs in this list are allowed.</span>
+<span class="sd">        :type allowed_ips: Optional[List[str]]</span>
+<span class="sd">        :param blocked_ips: A list of specific IP addresses to block.</span>
+<span class="sd">        :type blocked_ips: Optional[List[str]]</span>
+<span class="sd">        :param blocked_networks: A list of IP network strings (e.g., &quot;192.168.1.0/24&quot;) to block.</span>
+<span class="sd">        :type blocked_networks: Optional[List[str]]</span>
+<span class="sd">        :param blocked_user_agents: A list of User-Agent strings to block.</span>
+<span class="sd">        :type blocked_user_agents: Optional[List[str]]</span>
+<span class="sd">        :param blocked_url_patterns: A list of regular expression strings for URLs to block.</span>
+<span class="sd">                                     Case-insensitive matching is applied.</span>
+<span class="sd">        :type blocked_url_patterns: Optional[List[str]]</span>
+<span class="sd">        :param ddos_max_requests: The maximum number of requests allowed from a single IP</span>
+<span class="sd">                                  within the `ddos_window_seconds` before temporary blocking.</span>
+<span class="sd">        :type ddos_max_requests: int</span>
+<span class="sd">        :param ddos_window_seconds: The time window (in seconds) for DDoS detection.</span>
+<span class="sd">        :type ddos_window_seconds: int</span>
+<span class="sd">        :param temp_block_seconds: The duration (in seconds) for which an IP is</span>
+<span class="sd">                                   temporarily blocked due to suspected DDoS activity.</span>
+<span class="sd">        :type temp_block_seconds: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">allowed_ips</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">allowed_ips</span><span class="p">)</span> <span class="k">if</span> <span class="n">allowed_ips</span> <span class="k">else</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">blocked_ips</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">blocked_ips</span><span class="p">)</span> <span class="k">if</span> <span class="n">blocked_ips</span> <span class="k">else</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">blocked_networks</span> <span class="o">=</span> <span class="p">[</span><span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_network</span><span class="p">(</span><span class="n">net</span><span class="p">)</span> <span class="k">for</span> <span class="n">net</span> <span class="ow">in</span> <span class="p">(</span><span class="n">blocked_networks</span> <span class="ow">or</span> <span class="p">[])]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">blocked_user_agents</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">blocked_user_agents</span><span class="p">)</span> <span class="k">if</span> <span class="n">blocked_user_agents</span> <span class="k">else</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">blocked_url_patterns</span> <span class="o">=</span> <span class="p">[</span><span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">pat</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span> <span class="k">for</span> <span class="n">pat</span> <span class="ow">in</span> <span class="p">(</span><span class="n">blocked_url_patterns</span> <span class="ow">or</span> <span class="p">[])]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ddos_max_requests</span> <span class="o">=</span> <span class="n">ddos_max_requests</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ddos_window_seconds</span> <span class="o">=</span> <span class="n">ddos_window_seconds</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">temp_block_seconds</span> <span class="o">=</span> <span class="n">temp_block_seconds</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_request_log</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_temp_blocked</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_lock</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_is_temp_blocked</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ip</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Checks if an IP address is currently under a temporary block.</span>
+<span class="sd">        Removes expired temporary blocks.</span>
+
+<span class="sd">        :param ip: The IP address to check.</span>
+<span class="sd">        :type ip: str</span>
+<span class="sd">        :returns: True if the IP is currently temporarily blocked, False otherwise.</span>
+<span class="sd">        :rtype: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lock</span><span class="p">:</span>
+            <span class="n">unblock_time</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_temp_blocked</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">unblock_time</span> <span class="ow">and</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">unblock_time</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">elif</span> <span class="n">unblock_time</span><span class="p">:</span>
+                <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_temp_blocked</span><span class="p">[</span><span class="n">ip</span><span class="p">]</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_log_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ip</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Logs a request from a given IP and checks for DDoS activity.</span>
+<span class="sd">        If the request rate exceeds `ddos_max_requests` within `ddos_window_seconds`,</span>
+<span class="sd">        the IP is temporarily blocked.</span>
+
+<span class="sd">        :param ip: The IP address of the incoming request.</span>
+<span class="sd">        :type ip: str</span>
+<span class="sd">        :returns: True if the request is within the allowed rate limit, False if it leads to a temporary block.</span>
+<span class="sd">        :rtype: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lock</span><span class="p">:</span>
+            <span class="n">reqs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request_log</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">ip</span><span class="p">,</span> <span class="p">[])</span>
+            <span class="n">reqs</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">reqs</span> <span class="k">if</span> <span class="n">t</span> <span class="o">&gt;</span> <span class="n">now</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">ddos_window_seconds</span><span class="p">]</span>
+            <span class="n">reqs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">now</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_request_log</span><span class="p">[</span><span class="n">ip</span><span class="p">]</span> <span class="o">=</span> <span class="n">reqs</span>
+            
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">reqs</span><span class="p">)</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">ddos_max_requests</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_temp_blocked</span><span class="p">[</span><span class="n">ip</span><span class="p">]</span> <span class="o">=</span> <span class="n">now</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">temp_block_seconds</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;IP </span><span class="si">{</span><span class="n">ip</span><span class="si">}</span><span class="s2"> temporarily blocked due to suspected DDoS.&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+<div class="viewcode-block" id="AdvancedFirewall.is_allowed">
+<a class="viewcode-back" href="../../../lback/lback.security.html#lback.security.firewall.AdvancedFirewall.is_allowed">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_allowed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ip</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">user_agent</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Determines if an incoming request is allowed based on configured firewall rules</span>
+<span class="sd">        (IPs, networks, user agents, URL patterns) and DDoS detection.</span>
+
+<span class="sd">        The checks are performed in a specific order:</span>
+<span class="sd">        1. Temporary blocks (DDoS mitigation).</span>
+<span class="sd">        2. Explicitly blocked IPs.</span>
+<span class="sd">        3. IPs within blocked networks.</span>
+<span class="sd">        4. Explicitly allowed IPs (if `allowed_ips` list is not empty).</span>
+<span class="sd">        5. Blocked User-Agents.</span>
+<span class="sd">        6. Blocked URL patterns.</span>
+<span class="sd">        7. DDoS rate limiting check.</span>
+
+<span class="sd">        :param ip: The IP address of the request origin.</span>
+<span class="sd">        :type ip: str</span>
+<span class="sd">        :param user_agent: The User-Agent string from the request header. Defaults to empty string.</span>
+<span class="sd">        :type user_agent: str</span>
+<span class="sd">        :param url: The full URL of the request. Defaults to empty string.</span>
+<span class="sd">        :type url: str</span>
+<span class="sd">        :returns: True if the request is allowed, False otherwise.</span>
+<span class="sd">        :rtype: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">ip_obj</span> <span class="o">=</span> <span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_address</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid IP address format received: </span><span class="si">{</span><span class="n">ip</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_temp_blocked</span><span class="p">(</span><span class="n">ip</span><span class="p">):</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Access denied: IP </span><span class="si">{</span><span class="n">ip</span><span class="si">}</span><span class="s2"> is temporarily blocked.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="n">ip</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">blocked_ips</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Access denied: Explicitly blocked IP </span><span class="si">{</span><span class="n">ip</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">for</span> <span class="n">net</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">blocked_networks</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">ip_obj</span> <span class="ow">in</span> <span class="n">net</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Access denied: IP </span><span class="si">{</span><span class="n">ip</span><span class="si">}</span><span class="s2"> is within blocked network </span><span class="si">{</span><span class="n">net</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">allowed_ips</span> <span class="ow">and</span> <span class="n">ip</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">allowed_ips</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Access denied: IP </span><span class="si">{</span><span class="n">ip</span><span class="si">}</span><span class="s2"> not in allowed list.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="n">user_agent</span> <span class="ow">and</span> <span class="n">user_agent</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">blocked_user_agents</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Access denied: Blocked User-Agent &#39;</span><span class="si">{</span><span class="n">user_agent</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">for</span> <span class="n">pattern</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">blocked_url_patterns</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">pattern</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Access denied: URL &#39;</span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">&#39; matched blocked pattern &#39;</span><span class="si">{</span><span class="n">pattern</span><span class="o">.</span><span class="n">pattern</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_log_request</span><span class="p">(</span><span class="n">ip</span><span class="p">):</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Access denied: IP </span><span class="si">{</span><span class="n">ip</span><span class="si">}</span><span class="s2"> triggered DDoS rate limit.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">return</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="AdvancedFirewall.block_ip">
+<a class="viewcode-back" href="../../../lback/lback.security.html#lback.security.firewall.AdvancedFirewall.block_ip">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">block_ip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ip</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">temp</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adds an IP address to the blocked list.</span>
+
+<span class="sd">        :param ip: The IP address to block.</span>
+<span class="sd">        :type ip: str</span>
+<span class="sd">        :param temp: If True, the IP is temporarily blocked for `temp_block_seconds`.</span>
+<span class="sd">                     Otherwise, it&#39;s added to the permanent blocked IPs list.</span>
+<span class="sd">        :type temp: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">temp</span><span class="p">:</span>
+            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lock</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_temp_blocked</span><span class="p">[</span><span class="n">ip</span><span class="p">]</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">temp_block_seconds</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;IP </span><span class="si">{</span><span class="n">ip</span><span class="si">}</span><span class="s2"> temporarily blocked for </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">temp_block_seconds</span><span class="si">}</span><span class="s2"> seconds via manual call.&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">blocked_ips</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;IP </span><span class="si">{</span><span class="n">ip</span><span class="si">}</span><span class="s2"> added to permanent blocked list.&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="AdvancedFirewall.unblock_ip">
+<a class="viewcode-back" href="../../../lback/lback.security.html#lback.security.firewall.AdvancedFirewall.unblock_ip">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">unblock_ip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ip</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Removes an IP address from both the permanent and temporary blocked lists.</span>
+
+<span class="sd">        :param ip: The IP address to unblock.</span>
+<span class="sd">        :type ip: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">ip</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">blocked_ips</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">blocked_ips</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;IP </span><span class="si">{</span><span class="n">ip</span><span class="si">}</span><span class="s2"> removed from permanent blocked list.&quot;</span><span class="p">)</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lock</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">ip</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_temp_blocked</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_temp_blocked</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">ip</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;IP </span><span class="si">{</span><span class="n">ip</span><span class="si">}</span><span class="s2"> removed from temporary blocked list.&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="AdvancedFirewall.add_blocked_user_agent">
+<a class="viewcode-back" href="../../../lback/lback.security.html#lback.security.firewall.AdvancedFirewall.add_blocked_user_agent">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_blocked_user_agent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_agent</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adds a User-Agent string to the list of blocked user agents.</span>
+
+<span class="sd">        :param user_agent: The User-Agent string to block.</span>
+<span class="sd">        :type user_agent: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">blocked_user_agents</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">user_agent</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;User-Agent &#39;</span><span class="si">{</span><span class="n">user_agent</span><span class="si">}</span><span class="s2">&#39; added to blocked list.&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="AdvancedFirewall.add_blocked_url_pattern">
+<a class="viewcode-back" href="../../../lback/lback.security.html#lback.security.firewall.AdvancedFirewall.add_blocked_url_pattern">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_blocked_url_pattern</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adds a URL regex pattern to the list of blocked URL patterns.</span>
+
+<span class="sd">        :param pattern: The regular expression string for URLs to block.</span>
+<span class="sd">        :type pattern: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">blocked_url_patterns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">))</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;URL pattern &#39;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">&#39; added to blocked list.&quot;</span><span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ibrahem abo kila.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

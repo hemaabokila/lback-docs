@@ -1,0 +1,1178 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Reference &mdash; lback 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=95f010fd" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="lback package" href="lback/lback.html" />
+    <link rel="prev" title="Modules and Classes Reference" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            lback
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/Configuration%20System.html">Configuration System</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="features/routing_system.html">Routing System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/Views%20%26%20Responses.html">Views &amp; Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/Templating%20System.html">Templating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/Static%20Files.html">Static Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/Media%20Files.html">Media Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/file-uploads.html">File Uploads in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/Forms.html">Forms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="features/Models%20%26%20Database.html">Models &amp; Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/Database%20Migrations%20System.html">Database Migrations System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/Authorization.html">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/sessions.html">Sessions in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/Security%20Features.html">Security Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="features/Admin%20Panel.html">Built-in Admin Panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/API%20Tools.html">API Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/Signal%20System.html">Signal System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/Middleware%20System.html">Middleware System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/custom_middlewares.html">Custom Middlewares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/logging_config.html">Logging Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/email-sender.html">Email Sending in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/validation_utilities.html">Validation Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/error_handling.html">Error Handling and HTTP Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/Error%20Handling%20%26%20Reporting.html">Error Handling &amp; Reporting</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="features/Deployment.html">Deployment</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="signals/api-signals.html">Signals from BaseView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/api-signals.html#signals-from-apidocs">Signals from APIDocs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/api-signals.html#signals-from-basemodelserializer">Signals from BaseModelSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/admin-registry-signals.html">Signals from AdminRegistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/admin-user.html">Signals from AdminUser and Role Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/admin-user-manager.html">Signals from AdminUserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/admin-user-repository.html">Signals from AdminUserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/auth.html">Signals from AdminAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/auth.html#signals-from-jwtauth">Signals from JWTAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/auth.html#signals-from-oauth2auth">Signals from OAuth2Auth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/auth.html#signals-from-permissionrequired">Signals from PermissionRequired</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/auth.html#signals-from-sessionauth">Signals from SessionAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/error-handler.html">Signals from ErrorHandler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/middleware-manager.html">Signals from MiddlewareManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/migration_commands.html">Signals from MigrationCommands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/permission-repository.html">Signals from PermissionRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/role-repository.html">Signals from RoleRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/session-manager.html">Signals from SessionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/template-renderer.html">Signals from TemplateRenderer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/user-manager.html">Signals from UserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/user-model.html">Signals from User Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/user-repository.html">Signals from UserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals/wsgi-application.html">Signals from WSGI Application and Server</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Modules and Classes Reference</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-lback.core">Core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-lback.auth_app">Auth App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#admin-app">Admin App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-lback.middlewares">Middleware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-lback.auth">Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-lback.forms">Forms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-lback.models">Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-lback.api">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-lback.utils">Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-lback.commands">Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-lback.repositories">Repositories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-lback.security">Security</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="lback/lback.html">lback package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">lback</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">API Reference</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/API Reference.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading"></a></h1>
+<p>This section provides a comprehensive overview of the public classes, functions, and modules available in the <strong>lback</strong> framework.</p>
+<section id="module-lback.core">
+<span id="core"></span><h2>Core<a class="headerlink" href="#module-lback.core" title="Link to this heading"></a></h2>
+<p>This file serves as the initialization point for the ‘lback_framework/lback/core’ package.
+It is designed to expose the fundamental building blocks and core functionalities
+of the Lback web framework. This package centralizes the definition and management
+of the framework’s internal mechanisms, including application control, request/response
+handling, configuration, error management, routing, and server operations.</p>
+<p>—</p>
+<p><strong>Key Components Exposed by this Package:</strong></p>
+<ol class="arabic">
+<li><p><strong>AppController (from .app_controller):</strong>
+The central orchestrator of the Lback application. This class is responsible for
+managing the application lifecycle, dispatching requests to the appropriate handlers,
+and coordinating various framework components like middleware, routing, and response generation.
+It acts as the main entry point for processing incoming HTTP requests.</p></li>
+<li><p><strong>BaseMiddleware (from .base_middleware):</strong>
+The foundational class for all middleware components within Lback. Middleware are
+components that process requests and responses before or after they reach the main
+application logic. This base class defines the interface and common behavior for
+custom middleware implementations.</p></li>
+<li><p><strong>Cache, CacheItem (from .cache):</strong>
+Components for managing application-level caching.
+* <strong>Cache:</strong> Provides an interface for storing and retrieving data in a temporary,</p>
+<blockquote>
+<div><p>fast-access storage. It’s used to reduce redundant computations or database queries.</p>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>CacheItem:</strong> Represents a single item stored within the cache, potentially including</dt><dd><p>metadata like expiration times.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p><strong>Configuration Management (from .config_manager and .config):</strong>
+A set of utilities and classes for handling application configuration and settings.
+* <strong>SettingsFileHandler:</strong> Manages reading and writing application settings from configuration files.
+* <strong>load_config:</strong> A function to load the application’s configuration from various sources.
+* <strong>load_settings_module:</strong> A function to load settings from a Python module.
+* <strong>update_config:</strong> A function to dynamically update configuration settings.
+* <strong>start_settings_watcher:</strong> Initiates a process to monitor configuration files for changes.
+* <strong>sync_settings_to_config:</strong> Synchronizes settings from a source to the active configuration.
+* <strong>get_project_root:</strong> A utility function to determine the root directory of the Lback project.
+* <strong>Config:</strong> The main class representing the application’s configuration, holding all settings.</p></li>
+<li><p><strong>dispatcher (from .dispatcher_instance):</strong>
+Likely a pre-initialized instance of a signal dispatcher or event manager. This component
+allows different parts of the framework (and application) to communicate with each other
+by sending and receiving signals or events, promoting a loosely coupled architecture.</p></li>
+<li><p><strong>ErrorHandler (from .error_handler):</strong>
+Manages the handling and rendering of application errors and exceptions. This component
+intercepts unhandled exceptions, logs them, and generates appropriate error responses
+(e.g., custom error pages or JSON error messages) to the client.</p></li>
+<li><p><strong>Exceptions (from .exceptions):</strong>
+A collection of custom exception classes specific to the Lback framework. These exceptions
+provide more granular control over error handling and allow for specific error responses
+based on the type of issue encountered.
+* <strong>FrameworkException:</strong> Base exception for all Lback framework-specific errors.
+* <strong>Forbidden:</strong> Raised when a user attempts to access a resource they are not authorized for (HTTP 403).
+* <strong>HTTPException:</strong> Base exception for all HTTP-related errors.
+* <strong>BadRequest:</strong> Raised for invalid client requests (HTTP 400).
+* <strong>NotFound:</strong> Raised when a requested resource or URL is not found (HTTP 404).
+* <strong>RouteNotFound:</strong> Specifically raised when no matching route is found for a URL.
+* <strong>MethodNotAllowed:</strong> Raised when an unsupported HTTP method is used for a route (HTTP 405).
+* <strong>Unauthorized:</strong> Raised when authentication is required but has failed or not been provided (HTTP 401).
+* <strong>ConfigurationError:</strong> Raised for issues related to application configuration.
+* <strong>ValidationError:</strong> Raised when data validation fails.
+* <strong>ServerError:</strong> Raised for internal server errors (HTTP 500).</p></li>
+<li><p><strong>setup_logging (from .logging_setup):</strong>
+A function responsible for configuring the application’s logging system. It sets up loggers,
+handlers, and formatters to ensure that application events, errors, and debugging information
+are captured and stored appropriately.</p></li>
+<li><p><strong>Middleware Management (from .middleware_loader and .middleware_manager):</strong>
+Components for loading, creating, and managing middleware within the framework.
+* <strong>load_middlewares_from_config:</strong> Loads middleware definitions from the application configuration.
+* <strong>create_middleware:</strong> Instantiates a middleware class.
+* <strong>import_class:</strong> A utility function to dynamically import a Python class by its string path.
+* <strong>MiddlewareManager:</strong> Manages the execution order and application of multiple middleware components</p>
+<blockquote>
+<div><p>to incoming requests and outgoing responses.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>Middleware:</strong> A class or interface representing a single middleware component.</p></li>
+</ul>
+</li>
+<li><p><strong>Response Handling (from .response):</strong>
+Classes for constructing various types of HTTP responses.
+* <strong>RedirectResponse:</strong> Creates an HTTP redirect response.
+* <strong>Response:</strong> The base class for all HTTP responses.
+* <strong>HTMLResponse:</strong> Creates an HTTP response with HTML content.
+* <strong>JSONResponse:</strong> Creates an HTTP response with JSON content.</p></li>
+<li><p><strong>Routing (from .router):</strong>
+Components for defining and managing URL routing within the application.
+* <strong>Route:</strong> Represents a single route definition, mapping a URL pattern to a view handler.
+* <strong>Router:</strong> The central component responsible for matching incoming request URLs to the</p>
+<blockquote>
+<div><p>appropriate route and dispatching them to the corresponding view.</p>
+</div></blockquote>
+</li>
+<li><p><strong>Server (from .server):</strong>
+Components related to running the Lback web server.
+* <strong>Server:</strong> The main class for the HTTP server, responsible for listening for incoming</p>
+<blockquote>
+<div><p>requests and handing them off to the application.</p>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>initialize_core_components:</strong> A function to initialize essential framework components</dt><dd><p>before the server starts.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>wsgi_application:</strong> The WSGI (Web Server Gateway Interface) application callable,</dt><dd><p>which is the entry point for WSGI-compatible web servers.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p><strong>SignalDispatcher (from .signals):</strong>
+A system for implementing signals (or events) within the framework. This allows
+different parts of the application to send notifications and react to them,
+promoting a decoupled architecture.</p></li>
+<li><p><strong>Templates (from .templates):</strong>
+Components for rendering HTML templates.
+* <strong>TemplateRenderer:</strong> The main class for rendering templates, often integrating with</p>
+<blockquote>
+<div><p>a templating engine (e.g., Jinja2).</p>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>default_global_context:</strong> Provides default variables or functions available</dt><dd><p>to all templates.</p>
+</dd>
+</dl>
+</li>
+<li><p><strong>custom_uppercase:</strong> A custom filter or function for template rendering.</p></li>
+<li><p><strong>custom_url_tag:</strong> A custom tag for generating URLs within templates.</p></li>
+</ul>
+</li>
+<li><p><strong>Type Definitions (from .types):</strong>
+Custom type hints or definitions used throughout the framework for clarity and type checking.
+* <strong>Request:</strong> A type hint for the HTTP request object.
+* <strong>HTTPMethod:</strong> An enumeration or type hint for HTTP methods (GET, POST, etc.).
+* <strong>TypeConverter:</strong> A base class or type for URL path converters.
+* <strong>UploadedFile:</strong> A type hint for objects representing uploaded files.
+* <strong>UUIDConverter:</strong> A URL path converter specifically for UUIDs.
+* <strong>IntegerConverter:</strong> A URL path converter specifically for integers.</p></li>
+<li><p><strong>URL Utilities (from .urls_utils):</strong>
+Utilities for managing URL patterns.
+* <strong>Include:</strong> A function or class to include URL patterns from other modules,</p>
+<blockquote>
+<div><p>allowing for modular URL configuration.</p>
+</div></blockquote>
+</li>
+<li><p><strong>WebSocketServer (from .websocket):</strong>
+A component for handling WebSocket communication, enabling real-time,
+bidirectional communication between the server and clients.</p></li>
+<li><p><strong>WSGI Entry Point (from .wsgi_entry):</strong>
+Utilities related to the WSGI application setup.
+* <strong>create_wsgi_app:</strong> A function to create the WSGI application instance.
+* <strong>setup_logging:</strong> A function to configure logging specifically for the WSGI environment.</p></li>
+</ol>
+</section>
+<section id="module-lback.auth_app">
+<span id="auth-app"></span><h2>Auth App<a class="headerlink" href="#module-lback.auth_app" title="Link to this heading"></a></h2>
+<p>This file serves as the initialization point for the ‘lback_framework/lback/auth_app’ package.
+It is designed to expose the core components necessary for handling user authentication
+and authorization processes specifically for web-based applications within the Lback framework.
+This package centralizes the definition and management of user-facing authentication flows,
+including rendering login/registration pages and processing form submissions.</p>
+<p>—</p>
+<p><strong>Key Components Exposed by this Package:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Web Authentication Views (from .web_auth_views):</strong>
+A collection of views specifically designed to render HTML pages and handle form submissions
+for user authentication processes in a web application context. These views manage the
+user interface aspects of authentication.</p>
+<ul class="simple">
+<li><p><strong>show_login_page:</strong> Renders the HTML page containing the user login form.</p></li>
+<li><p><strong>show_register_page:</strong> Renders the HTML page containing the user registration form.</p></li>
+<li><dl class="simple">
+<dt><strong>show_reset_password_confirm_page:</strong> Renders the HTML page for users to confirm and set</dt><dd><p>a new password after a reset request.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>show_request_password_reset_page:</strong> Renders the HTML page where users can request a</dt><dd><p>password reset link (e.g., by entering their email).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>handle_login_submit:</strong> Processes the form submission from the login page, authenticates</dt><dd><p>the user, and manages session creation.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>handle_register_submit:</strong> Processes the form submission from the registration page,</dt><dd><p>validates user data, and creates a new user account.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>handle_reset_password_confirm_submit:</strong> Processes the form submission for setting a new</dt><dd><p>password after a reset request, validating the token and new password.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>handle_request_password_reset_submit:</strong> Processes the form submission for requesting a</dt><dd><p>password reset, typically sending an email with a reset link.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>verify_email_web_view:</strong> A web view to handle email verification links, confirming a user’s</dt><dd><p>email address.</p>
+</dd>
+</dl>
+</li>
+<li><p><strong>logout_user_view:</strong> Handles user logout requests, terminating the user’s session.</p></li>
+</ul>
+</li>
+<li><p><strong>urlpatterns (from .urls):</strong>
+A list or collection of URL patterns specifically for the authentication application. These patterns
+map incoming HTTP requests to the appropriate web authentication views, defining the routing
+for all user-facing authentication functionalities (e.g., /login/, /register/, /password-reset/).</p></li>
+<li><p><strong>API Authentication Views (from .auth_views):</strong>
+A set of views that likely provide API endpoints for authentication functionalities,
+which might be consumed by client-side applications (e.g., single-page applications)
+or mobile apps, rather than rendering full HTML pages.</p>
+<ul class="simple">
+<li><p><strong>register_user_view:</strong> An API endpoint for user registration.</p></li>
+<li><p><strong>login_user_view:</strong> An API endpoint for user login.</p></li>
+<li><p><strong>request_password_reset_view:</strong> An API endpoint for initiating a password reset process.</p></li>
+<li><p><strong>reset_password_view:</strong> An API endpoint for completing the password reset process.</p></li>
+<li><p><strong>verify_email_view:</strong> An API endpoint for email verification.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="admin-app">
+<h2>Admin App<a class="headerlink" href="#admin-app" title="Link to this heading"></a></h2>
+<p id="module-lback.admin">This file serves as the initialization point for the ‘lback_framework/lback/admin’ package.
+It is designed to expose the core components necessary for building and managing the
+administrative interface within the Lback web framework. This package centralizes the
+definition and management of administrative functionalities, including views for
+data management, an admin registry, and URL patterns for the admin site.</p>
+<p>—</p>
+<p><strong>Key Components Exposed by this Package:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>admin (from .admin):</strong>
+This likely refers to the main Admin class or instance that orchestrates the
+entire administrative site. It’s responsible for managing registered models,
+dispatching requests to appropriate admin views, and potentially handling
+global admin configurations. It acts as the central hub for the administrative interface.</p></li>
+<li><p><strong>Admin Views (from .auth_views and .generic):</strong>
+A collection of pre-built views designed to handle common administrative operations
+on data models. These views abstract away boilerplate logic for managing users,
+and performing CRUD operations on generic models within the admin interface.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>admin_user_add_view:</strong> A specific view for adding new administrative users.</dt><dd><p>This view typically handles the form submission, validation, and creation
+of new admin user accounts.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>admin_user_list_view:</strong> A specific view for listing existing administrative users.</dt><dd><p>It displays a table or list of admin users, often with options for searching,
+filtering, and pagination.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>generic_add_view:</strong> A generic view for adding new instances of any registered model.</dt><dd><p>This view provides a standardized interface for creating new records dynamically.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>generic_list_view:</strong> A generic view for listing instances of any registered model.</dt><dd><p>It displays a table or list of records for a given model, offering general
+management capabilities.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>generic_delete_view:</strong> A generic view for deleting instances of any registered model.</dt><dd><p>It handles the logic for removing records from the database.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>generic_change_view:</strong> A generic view for updating existing instances of any registered model.</dt><dd><p>This view provides an interface for modifying existing records.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>generic_detail_view:</strong> A generic view for displaying the detailed information of a single</dt><dd><p>instance of any registered model.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p><strong>AdminRegistry (from .registry):</strong>
+A central registry where application models are registered to be managed by the
+administrative interface. This class keeps track of which models have an admin
+interface defined for them, and how they should be displayed and interacted with.
+It’s crucial for dynamically generating admin forms and lists.</p></li>
+<li><p><strong>urlpatterns (from .urls):</strong>
+A list or collection of URL patterns specifically for the admin site. These patterns
+map incoming HTTP requests to the appropriate admin views, defining the routing
+for all administrative functionalities (e.g., /admin/users/, /admin/products/add/).</p></li>
+<li><p><strong>Admin Page Views (from .views):</strong>
+Specific views related to the core administrative user experience, such as login,
+dashboard, and logout functionalities.</p>
+<ul class="simple">
+<li><p><strong>admin_login_page:</strong> The view responsible for rendering the administrative login form.</p></li>
+<li><dl class="simple">
+<dt><strong>admin_dashboard_page:</strong> The main dashboard view displayed after a successful</dt><dd><p>administrative login, providing an overview of the system.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>admin_login_post:</strong> The view that handles the submission of the administrative</dt><dd><p>login form, processing credentials and authenticating the user.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>admin_logout_post:</strong> The view that handles administrative logout requests,</dt><dd><p>terminating the user’s admin session.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="module-lback.middlewares">
+<span id="middleware"></span><h2>Middleware<a class="headerlink" href="#module-lback.middlewares" title="Link to this heading"></a></h2>
+<p>This file serves as the initialization point for the ‘lback_framework/lback/middlewares’ package.
+It is designed to expose the core components necessary for implementing various middleware
+functionalities within the Lback web framework. This package centralizes the definition
+and management of middleware that process requests and responses globally or for specific
+routes, enhancing application behavior for concerns like authentication, security, logging,
+and session management.</p>
+<p>—</p>
+<p><strong>Key Components Exposed by this Package:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>AuthMiddleware (from .auth_midlewares):</strong>
+A middleware component responsible for handling authentication processes. This middleware
+intercepts incoming requests to verify user credentials or session tokens, ensuring that
+only authenticated users can access protected resources. It integrates with the framework’s
+authentication system.</p></li>
+<li><p><strong>BodyParsingMiddleware (from .body_parsing_middleware):</strong>
+A middleware component designed to parse the body of incoming HTTP requests. This is crucial
+for handling different content types (e.g., JSON, form data, multipart/form-data for file uploads)
+and making the parsed data easily accessible to view functions.</p></li>
+<li><p><strong>CORSMiddleware (from .cors):</strong>
+A middleware component that implements Cross-Origin Resource Sharing (CORS) policies.
+This middleware adds appropriate HTTP headers to responses, allowing web browsers to
+permit cross-origin requests to the Lback application, which is essential for
+single-page applications (SPAs) or APIs consumed from different domains.</p></li>
+<li><p><strong>CSRFMiddleware (from .csrf):</strong>
+A middleware component that provides Cross-Site Request Forgery (CSRF) protection.
+This middleware helps prevent malicious attacks where unauthorized commands are
+transmitted from a user that the web application trusts. It typically involves
+generating and validating CSRF tokens.</p></li>
+<li><p><strong>DebugMiddleware (from .debug):</strong>
+A middleware component that provides debugging functionalities, typically active
+only in development environments. This might include displaying detailed error
+messages, logging request/response information, or providing tools for inspecting
+application state during development.</p></li>
+<li><p><strong>LoggingMiddleware (from .logger):</strong>
+A middleware component responsible for logging incoming requests and outgoing responses.
+This middleware captures information such as request method, URL, status code, and
+response time, providing valuable data for monitoring and debugging the application.</p></li>
+<li><p><strong>MediaFilesMiddleware (from .media_files_middleware):</strong>
+A middleware component for serving user-uploaded media files. This middleware handles
+requests for files stored outside the static files directory, typically in a designated
+media folder, ensuring they are served correctly by the application.</p></li>
+<li><p><strong>Security Middlewares (from .security_middleware):</strong>
+A collection of middleware components focused on enhancing the application’s security posture.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>SecurityHeadersConfigurator:</strong> A utility or class for configuring various security-related</dt><dd><p>HTTP headers (e.g., X-Content-Type-Options, X-Frame-Options, Content-Security-Policy).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>SecurityHeadersMiddleware:</strong> Applies the configured security headers to all outgoing responses,</dt><dd><p>mitigating common web vulnerabilities.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>SQLInjectionDetectionMiddleware:</strong> A middleware specifically designed to detect and potentially</dt><dd><p>prevent SQL injection attempts by analyzing incoming request data for malicious patterns.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>SQLInjectionProtection:</strong> A utility or class that provides the core logic for SQL injection</dt><dd><p>protection, often used by the detection middleware.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p><strong>SessionMiddleware (from .session_middleware):</strong>
+A middleware component that enables session management for the application. This middleware
+establishes and maintains user sessions across multiple requests, allowing the application
+to store and retrieve user-specific data (e.g., login status, shopping cart contents)
+between interactions.</p></li>
+<li><p><strong>SQLAlchemySessionMiddleware (from .sqlalchemy_middleware):</strong>
+A middleware component specifically for integrating SQLAlchemy sessions with the request lifecycle.
+This middleware typically manages the creation, usage, and closing of database sessions
+for each incoming request, ensuring proper database connection management.</p></li>
+<li><p><strong>StaticFilesMiddleware (from .static_files_middleware):</strong>
+A middleware component for serving static assets (e.g., CSS, JavaScript, images) directly
+from the application. This middleware intercepts requests for static files and serves them
+efficiently, typically in development environments, before a production web server takes over.</p></li>
+<li><p><strong>TimerMiddleware (from .timer):</strong>
+A middleware component designed to measure and log the time taken to process each request.
+This middleware can be useful for performance monitoring and identifying bottlenecks
+in the application’s request-response cycle.</p></li>
+</ol>
+</section>
+<section id="module-lback.auth">
+<span id="authentication"></span><h2>Authentication<a class="headerlink" href="#module-lback.auth" title="Link to this heading"></a></h2>
+<p>This file serves as the initialization point for the ‘lback_framework/lback/auth’ package.
+It is designed to expose the core components necessary for handling various authentication
+and authorization mechanisms within the Lback web framework. This package centralizes
+the definition and management of security-related functionalities, including different
+authentication schemes, password management, and permission enforcement.</p>
+<p>—</p>
+<p><strong>Key Components Exposed by this Package:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>SessionAuth (from .session_auth):</strong>
+Manages session-based authentication for users. This component is typically responsible
+for creating and managing user sessions, storing session data (e.g., user ID) on the server
+and providing a session ID to the client (often via cookies). It handles login, logout,
+and session validation to maintain user state across requests.</p></li>
+<li><p><strong>PermissionRequired (from .permissions):</strong>
+A decorator or utility class used to enforce permissions on views or specific actions.
+This component ensures that only users with the necessary permissions are allowed to
+access certain resources or perform specific operations. It integrates with the
+authentication system to check a user’s assigned roles or permissions.</p></li>
+<li><p><strong>PasswordHasher (from .password_hashing):</strong>
+Provides utilities for securely hashing and verifying user passwords. This component
+is critical for protecting sensitive user credentials by converting plain-text passwords
+into irreversible hash values before storage, and then securely comparing them during login
+attempts without exposing the original password. It typically supports various hashing algorithms.</p></li>
+<li><p><strong>OAuth2Auth (from .oauth):</strong>
+Implements support for the OAuth 2.0 authorization framework. This component enables
+Lback applications to integrate with external identity providers (e.g., Google, Facebook)
+for user authentication and authorization, allowing users to grant limited access to their
+data without sharing their credentials directly with the application.</p></li>
+<li><p><strong>JWTAuth (from .jwt_auth):</strong>
+Implements JSON Web Token (JWT) based authentication. This component handles the creation,
+signing, and validation of JWTs, which are commonly used for stateless authentication in APIs.
+It allows users to obtain a token upon successful login, which they then include in subsequent
+requests to prove their identity without needing to re-authenticate with each request.</p></li>
+<li><p><strong>AdminAuth (from .adminauth):</strong>
+Specifically handles authentication logic for the administrative interface. This component
+might extend or specialize the general authentication mechanisms to cater to the unique
+requirements of admin users, potentially including stricter security policies or different
+login flows for administrative access.</p></li>
+</ol>
+</section>
+<section id="module-lback.forms">
+<span id="forms"></span><h2>Forms<a class="headerlink" href="#module-lback.forms" title="Link to this heading"></a></h2>
+<p>This file serves as the initialization point for the ‘lback_framework/lback/forms’ package.
+It is designed to expose the core components necessary for building, validating, and rendering
+web forms within the Lback web framework. This package centralizes the definition and management
+of form fields, form classes, validation mechanisms, and various input widgets, providing a
+comprehensive system for handling user input.</p>
+<p>—</p>
+<p><strong>Key Components Exposed by this Package:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Date and Time Fields (from .fields_datetime):</strong>
+A collection of specialized form fields designed to handle date and time input.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>DateTimeField:</strong> A form field for capturing both date and time values. It handles</dt><dd><p>parsing and formatting of datetime strings.</p>
+</dd>
+</dl>
+</li>
+<li><p><strong>TimeField:</strong> A form field specifically for capturing time values.</p></li>
+<li><p><strong>DateField:</strong> A form field specifically for capturing date values.</p></li>
+</ul>
+</li>
+<li><p><strong>File Fields (from .fields_file):</strong>
+A form field dedicated to handling file uploads.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>FileField:</strong> A form field for allowing users to upload files. It manages file</dt><dd><p>data and provides mechanisms for validation and storage.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p><strong>Basic Form Fields (from .fields):</strong>
+A set of fundamental form fields for common data types.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>BooleanField:</strong> A form field for capturing boolean (True/False) input, typically</dt><dd><p>rendered as a checkbox.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>CharField:</strong> A form field for capturing single-line text input, suitable for</dt><dd><p>names, titles, or short descriptions.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>ChoiceField:</strong> A form field that allows users to select one option from a predefined</dt><dd><p>set of choices, often rendered as a dropdown (&lt;select&gt;) or radio buttons.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>EmailField:</strong> A specialized form field for capturing email addresses, typically</dt><dd><p>including built-in validation for email format.</p>
+</dd>
+</dl>
+</li>
+<li><p><strong>IntegerField:</strong> A form field for capturing integer (whole number) input.</p></li>
+</ul>
+</li>
+<li><p><strong>Form Classes (from .forms):</strong>
+The core classes for defining and managing forms.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Form:</strong> The base class for creating web forms. It orchestrates the collection of</dt><dd><p>fields, handles data binding, and manages the overall validation process for user input.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>FormMetaclass:</strong> The metaclass used by the Form class, responsible for processing</dt><dd><p>field definitions when a form class is created.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p><strong>ModelForm (from .models):</strong>
+A specialized form class designed to work directly with Lback’s database models.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>ModelForm:</strong> A form class that automatically generates form fields based on a</dt><dd><p>given database model’s fields. It simplifies the process of creating forms for
+creating or updating model instances, often handling validation and saving to the database.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p><strong>Validation (from .validation):</strong>
+Components for handling form and field validation errors.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>ValidationError:</strong> A custom exception or class used to signal that form or field</dt><dd><p>validation has failed. It typically carries messages detailing the specific validation issues.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p><strong>Date and Time Widgets (from .widgets_datetime):</strong>
+HTML input widgets specifically designed for date and time fields.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>DateInput:</strong> A widget for rendering a date input field in HTML, often using</dt><dd><p>type=”date” for native browser date pickers.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>DateTimeInput:</strong> A widget for rendering a datetime input field in HTML, often</dt><dd><p>using type=”datetime-local” or similar.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>TextInput:</strong> A generic text input widget, which might be used as a fallback</dt><dd><p>or for custom date/time string input.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p><strong>File Widgets (from .widgets_file):</strong>
+An HTML input widget for file uploads.</p>
+<ul class="simple">
+<li><p><strong>FileInput:</strong> A widget for rendering a file upload input field in HTML (&lt;input type=”file”&gt;).</p></li>
+</ul>
+</li>
+<li><p><strong>Basic Widgets (from .widgets):</strong>
+Common HTML input widgets for various form fields.</p>
+<ul class="simple">
+<li><p><strong>TextInput:</strong> A widget for rendering a standard single-line text input field (&lt;input type=”text”&gt;).</p></li>
+<li><p><strong>Textarea:</strong> A widget for rendering a multi-line text input area (&lt;textarea&gt;).</p></li>
+<li><dl class="simple">
+<dt><strong>PasswordInput:</strong> A widget for rendering a password input field (&lt;input type=”password”&gt;),</dt><dd><p>masking the input for security.</p>
+</dd>
+</dl>
+</li>
+<li><p><strong>CheckboxInput:</strong> A widget for rendering a checkbox input field (&lt;input type=”checkbox”&gt;).</p></li>
+<li><p><strong>Select:</strong> A widget for rendering a dropdown list (&lt;select&gt;) for choice fields.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="module-lback.models">
+<span id="models"></span><h2>Models<a class="headerlink" href="#module-lback.models" title="Link to this heading"></a></h2>
+<p>This file serves as the initialization point for the ‘lback_framework/lback/models’ package.
+It is designed to expose the core components necessary for defining and managing the
+application’s data models within the Lback web framework. This package centralizes
+the definition of database schemas, relationships between entities, and provides
+utilities for interacting with the underlying database.</p>
+<p>—</p>
+<p><strong>Key Components Exposed by this Package:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>AdminUser, Role, Permission (from .adminuser):</strong>
+These classes define the data models related to the administrative users and their
+access control within the application.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>AdminUser:</strong> Represents an administrative user account, typically with elevated</dt><dd><p>privileges for managing the application’s backend.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Role:</strong> Defines a specific role that can be assigned to users (e.g., ‘admin’, ‘editor’).</dt><dd><p>Roles are used to group permissions and simplify access control management.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Permission:</strong> Represents a specific action or resource that a user can be</dt><dd><p>granted access to (e.g., ‘can_edit_products’, ‘can_view_reports’).</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p><strong>BaseModel (from .base):</strong>
+The foundational base class for all data models within the Lback framework.
+This class typically provides common functionalities and attributes that all
+models share, such as primary key definitions, timestamp fields (created_at, updated_at),
+and potentially methods for common database operations.</p></li>
+<li><p><strong>DatabaseManager (from .database):</strong>
+A component responsible for managing the database connection and session lifecycle.
+This class typically handles the initialization of the database engine, creation
+of database sessions, and other low-level database interactions, providing a
+centralized point for database access.</p></li>
+<li><p><strong>Product (from .product):</strong>
+A specific data model representing a product within the application. This class
+defines the schema for product-related data, such as name, description, price,
+and other relevant attributes. It’s an example of an application-specific model.</p></li>
+<li><p><strong>Session (from .session):</strong>
+A data model representing a user’s session. This class is used to store and
+manage session-specific data on the server side, enabling the application
+to maintain user state across multiple requests (e.g., login status, shopping cart).</p></li>
+<li><p><strong>User, Group, UserPermission (from .user):</strong>
+These classes define the data models related to standard application users and
+their access control.</p>
+<ul class="simple">
+<li><p><strong>User:</strong> Represents a general user account within the application.</p></li>
+<li><dl class="simple">
+<dt><strong>Group:</strong> Defines a group that users can belong to, often used to assign</dt><dd><p>permissions or roles to multiple users collectively.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>UserPermission:</strong> Represents a direct permission granted to a specific user,</dt><dd><p>allowing for fine-grained access control beyond roles or groups.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="module-lback.api">
+<span id="api"></span><h2>API<a class="headerlink" href="#module-lback.api" title="Link to this heading"></a></h2>
+<p>This file serves as the initialization point for the ‘lback_framework/lback/api’ package.
+It is designed to expose the core components necessary for building robust RESTful APIs
+within the Lback web framework. This package centralizes the definition and management
+of API functionalities, including views, serializers, mixins, and documentation tools.</p>
+<p>—</p>
+<p><strong>Key Components Exposed by this Package:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>APIDocs:</strong>
+Manages and generates comprehensive API documentation for the Lback framework. This component
+is crucial for creating structured and interactive documentation (e.g., OpenAPI/Swagger specifications)
+that details all available API endpoints, their expected request formats, and their response structures.
+It aids developers in understanding and integrating with Lback-powered APIs by providing metadata
+like API title, version, and description, and can register endpoints for automatic documentation generation.</p></li>
+<li><p><strong>Generic API Views (from .generics):</strong>
+A suite of pre-built, reusable classes designed to handle common RESTful operations (CRUD - Create, Read, Update, Delete)
+with minimal boilerplate code. These views abstract away repetitive logic, allowing for rapid API development.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>GenericAPIView:</strong> The foundational class for all generic API views, providing core mechanisms for</dt><dd><p>handling HTTP requests, interacting with serializers, and managing querysets.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>ListAPIView:</strong> Designed for retrieving collections of resources, handling HTTP GET requests</dt><dd><p>for listing multiple instances of a model, often with pagination and filtering support.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>CreateAPIView:</strong> Handles HTTP POST requests for creating new resources, deserializing incoming data,</dt><dd><p>validating it, and saving new model instances.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>RetrieveAPIView:</strong> Processes HTTP GET requests for fetching a single resource instance,</dt><dd><p>typically identified by a primary key or unique identifier.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>UpdateAPIView:</strong> Supports HTTP PUT (full update) and PATCH (partial update) requests for</dt><dd><p>modifying existing resources.</p>
+</dd>
+</dl>
+</li>
+<li><p><strong>DestroyAPIView:</strong> Handles HTTP DELETE requests for removing existing resource instances.</p></li>
+<li><dl class="simple">
+<dt><strong>ListCreateAPIView:</strong> A composite view combining listing (GET) and creation (POST) functionalities</dt><dd><p>on the same endpoint.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>RetrieveUpdateDestroyAPIView:</strong> A comprehensive view for single-resource management,</dt><dd><p>combining retrieval (GET), updating (PUT/PATCH), and deletion (DELETE).</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p><strong>Mixins (from .mixins):</strong>
+Reusable classes that provide specific behaviors to generic views, allowing for flexible composition
+of API functionalities. These mixins encapsulate common logic for model operations.</p>
+<ul class="simple">
+<li><p><strong>ListModelMixin:</strong> Provides logic for listing a queryset of model instances.</p></li>
+<li><p><strong>CreateModelMixin:</strong> Provides logic for creating a new model instance.</p></li>
+<li><p><strong>RetrieveModelMixin:</strong> Provides logic for retrieving a single model instance.</p></li>
+<li><p><strong>UpdateModelMixin:</strong> Provides logic for updating an existing model instance.</p></li>
+<li><p><strong>DestroyModelMixin:</strong> Provides logic for deleting a model instance.</p></li>
+</ul>
+</li>
+<li><p><strong>Serializers (from .serializer):</strong>
+Essential components for data serialization and deserialization. They are crucial for converting
+complex data types (like model instances) into formats suitable for API responses (e.g., JSON)
+and converting incoming data back into model instances for processing.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Field:</strong> The base class for all serializer fields, defining common behavior for data representation,</dt><dd><p>validation, and conversion.</p>
+</dd>
+</dl>
+</li>
+<li><p><strong>BooleanField:</strong> A serializer field for handling boolean values.</p></li>
+<li><dl class="simple">
+<dt><strong>BaseModelSerializer:</strong> The base serializer class designed for integration with Lback’s models,</dt><dd><p>simplifying conversion between model instances and serializable data structures.</p>
+</dd>
+</dl>
+</li>
+<li><p><strong>IntegerField:</strong> A serializer field for handling integer numbers.</p></li>
+<li><p><strong>StringField:</strong> A serializer field for handling text-based data (strings).</p></li>
+<li><p><strong>RelatedField:</strong> A serializer field for representing relationships between different models.</p></li>
+<li><dl class="simple">
+<dt><strong>DateTimeField:</strong> A serializer field for handling date and time values, managing conversion</dt><dd><p>to and from various string formats.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p><strong>View Classes (from .view):</strong>
+Fundamental view classes that serve as the entry points for handling web requests within the Lback framework.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>APIView:</strong> The primary base class for defining API views, providing a robust foundation for handling</dt><dd><p>different HTTP methods and orchestrating the request-response cycle for API endpoints.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>BaseView:</strong> A more general-purpose base view class that might serve as a fundamental building block</dt><dd><p>for views not strictly adhering to REST principles, or for traditional web page rendering.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="module-lback.utils">
+<span id="utilities"></span><h2>Utilities<a class="headerlink" href="#module-lback.utils" title="Link to this heading"></a></h2>
+<p>This file serves as the initialization point for the ‘lback_framework/lback/utils’ package.
+It is designed to expose a collection of various utility functions and helper classes
+that are commonly used across different parts of the Lback web framework. This package
+centralizes general-purpose functionalities that do not fit neatly into other specific
+framework components, enhancing code reusability and simplifying common development tasks.</p>
+<p>—</p>
+<p><strong>Key Components Exposed by this Package:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>AdminUserManager (from .admin_user_manager):</strong>
+A utility class specifically designed for managing administrative user accounts.
+This component provides helper methods for common operations related to admin users,
+such as creating, retrieving, updating, or deleting admin user records,
+potentially integrating with the AdminUserRepository.</p></li>
+<li><p><strong>AppSession (from .app_session):</strong>
+A utility or class for managing application-specific session data. This might be
+a higher-level abstraction over the core session management, providing convenient
+methods for storing and retrieving data relevant to the current user’s application session.</p></li>
+<li><p><strong>EmailSender (from .email_sender):</strong>
+A utility class or function for sending emails from the application. This component
+abstracts away the complexities of configuring and interacting with email servers,
+providing a simple interface for sending various types of emails (e.g., password resets,
+notifications).</p></li>
+<li><p><strong>File Handlers (from .file_handlers):</strong>
+A set of utility functions for handling file operations, particularly related to uploaded files.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>validate_uploaded_file:</strong> A function to validate properties of an uploaded file,</dt><dd><p>such as its size, type, or allowed extensions, before saving.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>save_uploaded_file:</strong> A function to securely save an uploaded file to a specified</dt><dd><p>location on the server’s file system.</p>
+</dd>
+</dl>
+</li>
+<li><p><strong>delete_saved_file:</strong> A function to remove a previously saved file from the server.</p></li>
+</ul>
+</li>
+<li><p><strong>Filters (from .filters):</strong>
+A collection of utility functions that can be used for filtering or transforming data.</p>
+<ul class="simple">
+<li><p><strong>file_extension_filter:</strong> A filter to process or validate file extensions.</p></li>
+<li><p><strong>split_filter:</strong> A filter to split strings based on a delimiter.</p></li>
+<li><p><strong>date_filter:</strong> A filter to format or parse date values.</p></li>
+</ul>
+</li>
+<li><p><strong>Response Helpers (from .response_helpers):</strong>
+Utility functions that simplify the creation of common HTTP responses.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>json_response:</strong> A helper function to quickly create and return an HTTP response</dt><dd><p>with JSON content, setting appropriate headers.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p><strong>SessionManager (from .session_manager):</strong>
+A utility class for lower-level management of user sessions. This component might
+handle the creation, retrieval, updating, and deletion of session data, interacting
+directly with the session storage mechanism.</p></li>
+<li><p><strong>Shortcuts (from .shortcuts):</strong>
+A collection of convenience functions designed to simplify common tasks in views
+or other parts of the application, reducing boilerplate code.</p>
+<ul class="simple">
+<li><p><strong>render:</strong> A shortcut function to render an HTML template and return an HTMLResponse.</p></li>
+<li><p><strong>redirect:</strong> A shortcut function to create an HTTP redirect response.</p></li>
+<li><p><strong>return_403:</strong> A shortcut to return an HTTP 403 Forbidden response.</p></li>
+<li><p><strong>return_404:</strong> A shortcut to return an HTTP 404 Not Found response.</p></li>
+<li><p><strong>return_500:</strong> A shortcut to return an HTTP 500 Internal Server Error response.</p></li>
+<li><p><strong>_get_model_form_data:</strong> A private or internal helper to extract form data related to a model.</p></li>
+<li><p><strong>paginate_query:</strong> A helper to paginate a database query result.</p></li>
+<li><p><strong>json_response:</strong> (Duplicated, likely for direct import convenience) A shortcut to return a JSON response.</p></li>
+</ul>
+</li>
+<li><p><strong>Static Files (from .static_files):</strong>
+Utilities for managing and serving static assets.</p>
+<ul class="simple">
+<li><p><strong>static:</strong> A function to generate URLs for static files.</p></li>
+<li><p><strong>find_static_file:</strong> A function to locate a static file within the project’s static directories.</p></li>
+</ul>
+</li>
+<li><p><strong>URL Utilities (from .urls):</strong>
+Utilities related to URL pattern definition.</p>
+<ul class="simple">
+<li><p><strong>path:</strong> A function for defining individual URL routes, mapping a URL pattern to a view.</p></li>
+</ul>
+</li>
+<li><p><strong>UserManager (from .user_manager):</strong>
+A utility class specifically designed for managing standard user accounts.
+This component provides helper methods for common operations related to users,
+such as creating, retrieving, updating, or deleting user records,
+potentially integrating with the UserRepository.</p></li>
+<li><p><strong>Validation (from .validation):</strong>
+Components for general data validation beyond form-specific validation.</p>
+<ul class="simple">
+<li><p><strong>ValidationError:</strong> A custom exception or class used to signal that validation has failed.</p></li>
+<li><p><strong>PasswordValidator:</strong> A utility class or function for validating password strength and complexity.</p></li>
+<li><p><strong>validate_json:</strong> A function to validate if a given string is valid JSON or conforms to a schema.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="module-lback.commands">
+<span id="commands"></span><h2>Commands<a class="headerlink" href="#module-lback.commands" title="Link to this heading"></a></h2>
+<p>This file serves as the initialization point for the ‘lback_framework/lback/commands’ package.
+It is designed to expose the core components necessary for executing various command-line
+utilities and management tasks within the Lback web framework. This package centralizes
+the definition and management of administrative and development-related commands,
+allowing developers to interact with the framework from the terminal.</p>
+<p>—</p>
+<p><strong>Key Components Exposed by this Package:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>AdminCommands (from .admin):</strong>
+A collection of command-line utilities specifically designed for administrative tasks.
+These commands typically facilitate the management of the Lback admin interface,
+such as creating superusers, managing admin configurations, or performing other
+admin-specific operations from the terminal.</p></li>
+<li><p><strong>AppCommands (from .app):</strong>
+A set of command-line utilities related to managing individual applications or modules
+within the Lback project. These commands might include functionalities for creating
+new app templates, managing app-specific configurations, or performing operations
+relevant to the lifecycle of an application.</p></li>
+<li><p><strong>setup_database_and_defaults (from .db_seed):</strong>
+A function or utility responsible for seeding the database with initial data or
+default configurations. This command is crucial for setting up a fresh development
+environment or for populating a database with essential data required for the
+application to function correctly (e.g., default user roles, initial settings).</p></li>
+<li><p><strong>MigrationCommands (from .migration):</strong>
+A collection of command-line utilities for managing database schema migrations.
+These commands typically integrate with a migration tool (like Alembic) to
+create new migration scripts, apply pending migrations to the database,
+or revert previous migrations, ensuring database schema changes are managed
+in a version-controlled manner.</p></li>
+<li><p><strong>ProjectCommands (from .project):</strong>
+A set of command-line utilities related to managing the overall Lback project.
+These commands might include functionalities for initializing a new Lback project,
+setting up project-wide configurations, or performing operations relevant to the
+entire project’s structure and environment.</p></li>
+<li><p><strong>RunnerCommands (from .runner):</strong>
+A collection of command-line utilities for running the Lback application or
+specific development servers. This typically includes commands to start the
+development server, run tests, or execute other processes necessary for
+developing and deploying the Lback application.</p></li>
+</ol>
+</section>
+<section id="module-lback.repositories">
+<span id="repositories"></span><h2>Repositories<a class="headerlink" href="#module-lback.repositories" title="Link to this heading"></a></h2>
+<p>This file serves as the initialization point for the ‘lback_framework/lback/repositories’ package.
+It is designed to expose the core components necessary for implementing the repository pattern
+within the Lback web framework. This package centralizes the definition and management of
+data access logic, providing an abstraction layer over the database for specific models.
+It encapsulates the mechanisms for retrieving, storing, and querying data, promoting a
+clean separation of concerns between the application’s business logic and data persistence.</p>
+<p>—</p>
+<p><strong>Key Components Exposed by this Package:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>AdminUserRepository (from .admin_user_repository):</strong>
+A repository class specifically designed for interacting with AdminUser data.
+This component provides methods for performing CRUD (Create, Read, Update, Delete)
+operations on administrative user records, abstracting away the direct database
+interactions for AdminUser models. It might include specialized queries
+relevant to admin user management.</p></li>
+<li><p><strong>PermissionRepository (from .permission_repository):</strong>
+A repository class dedicated to managing Permission data. This component offers
+methods for accessing, creating, updating, and deleting permission records. It
+ensures that permission-related database operations are handled consistently
+and efficiently, supporting the application’s authorization system.</p></li>
+<li><p><strong>RoleRepository (from .role_repository):</strong>
+A repository class focused on handling Role data. This component provides
+methods for performing CRUD operations on role records, which are used to
+group permissions and assign them to users. It centralizes the data access
+logic for roles, supporting the role-based access control (RBAC) system.</p></li>
+<li><p><strong>UserRepository (from .user_repository):</strong>
+A repository class specifically designed for interacting with standard User data.
+This component provides methods for performing CRUD operations on general user
+records, abstracting away the direct database interactions for User models.
+It might include specialized queries for user authentication, profile management,
+or other user-centric operations.</p></li>
+</ol>
+</section>
+<section id="module-lback.security">
+<span id="security"></span><h2>Security<a class="headerlink" href="#module-lback.security" title="Link to this heading"></a></h2>
+<p>This file serves as the initialization point for the ‘lback_framework/lback/security’ package.
+It is designed to expose the core components necessary for implementing various security
+measures and protections within the Lback web framework. This package centralizes the
+definition and management of security-related functionalities, including firewall rules,
+HTTP security headers, rate limiting, and protection against SQL injection, ensuring
+the application’s robustness against common web vulnerabilities.</p>
+<p>—</p>
+<p><strong>Key Components Exposed by this Package:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>AdvancedFirewall (from .firewall):</strong>
+A component that provides advanced firewall capabilities for the Lback application.
+This class is responsible for defining and enforcing security rules at the network
+or application level, controlling access to resources based on various criteria
+such as IP addresses, request patterns, or user roles. It helps in preventing
+unauthorized access and mitigating denial-of-service (DoS) attacks.</p></li>
+<li><p><strong>SecurityHeadersConfigurator (from .headers):</strong>
+A utility or class for configuring and applying various HTTP security headers to
+outgoing responses. This component helps to protect the application against a range
+of client-side attacks (e.g., XSS, clickjacking) by instructing browsers on how
+to behave when interacting with the application’s content. Examples of headers
+include Content-Security-Policy (CSP), X-Frame-Options, and X-Content-Type-Options.</p></li>
+<li><p><strong>RateLimiter (from .rate_limiter):</strong>
+A component that implements rate limiting functionality. This class is used to
+control the number of requests a client can make to the server within a given
+timeframe. It helps in preventing abuse, brute-force attacks, and resource
+exhaustion by limiting the frequency of requests from a single source.</p></li>
+<li><p><strong>SQLInjectionProtection (from .sql_injection):</strong>
+A component dedicated to providing protection against SQL injection vulnerabilities.
+This class implements mechanisms (e.g., input sanitization, parameterized queries,
+or pattern detection) to prevent malicious SQL code from being injected into
+database queries through user input, thereby safeguarding the integrity and
+confidentiality of the application’s data.</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="Modules and Classes Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="lback/lback.html" class="btn btn-neutral float-right" title="lback package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ibrahem abo kila.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

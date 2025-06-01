@@ -1,0 +1,431 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>lback.auth_app package &mdash; lback 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=95f010fd" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="lback.commands package" href="lback.commands.html" />
+    <link rel="prev" title="lback.auth package" href="lback.auth.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            lback
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Configuration%20System.html">Configuration System</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/routing_system.html">Routing System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Views%20%26%20Responses.html">Views &amp; Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Templating%20System.html">Templating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Static%20Files.html">Static Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Media%20Files.html">Media Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/file-uploads.html">File Uploads in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Forms.html">Forms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/Models%20%26%20Database.html">Models &amp; Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Database%20Migrations%20System.html">Database Migrations System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Authorization.html">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/sessions.html">Sessions in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Security%20Features.html">Security Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/Admin%20Panel.html">Built-in Admin Panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/API%20Tools.html">API Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Signal%20System.html">Signal System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Middleware%20System.html">Middleware System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/custom_middlewares.html">Custom Middlewares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/logging_config.html">Logging Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/email-sender.html">Email Sending in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/validation_utilities.html">Validation Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/error_handling.html">Error Handling and HTTP Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Error%20Handling%20%26%20Reporting.html">Error Handling &amp; Reporting</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/Deployment.html">Deployment</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html">Signals from BaseView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-apidocs">Signals from APIDocs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-basemodelserializer">Signals from BaseModelSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-registry-signals.html">Signals from AdminRegistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user.html">Signals from AdminUser and Role Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-manager.html">Signals from AdminUserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-repository.html">Signals from AdminUserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html">Signals from AdminAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-jwtauth">Signals from JWTAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-oauth2auth">Signals from OAuth2Auth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-permissionrequired">Signals from PermissionRequired</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-sessionauth">Signals from SessionAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/error-handler.html">Signals from ErrorHandler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/middleware-manager.html">Signals from MiddlewareManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/migration_commands.html">Signals from MigrationCommands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/permission-repository.html">Signals from PermissionRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/role-repository.html">Signals from RoleRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/session-manager.html">Signals from SessionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/template-renderer.html">Signals from TemplateRenderer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-manager.html">Signals from UserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-model.html">Signals from User Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-repository.html">Signals from UserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/wsgi-application.html">Signals from WSGI Application and Server</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Modules and Classes Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API%20Reference.html">API Reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="lback.html">lback package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="lback.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="lback.admin.html">lback.admin package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.api.html">lback.api package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.auth.html">lback.auth package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">lback.auth_app package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-lback.auth_app.auth_forms">lback.auth_app.auth_forms module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-lback.auth_app.auth_views">lback.auth_app.auth_views module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-lback.auth_app.urls">lback.auth_app.urls module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-lback.auth_app.web_auth_views">lback.auth_app.web_auth_views module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-lback.auth_app">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lback.commands.html">lback.commands package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.core.html">lback.core package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.forms.html">lback.forms package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.middlewares.html">lback.middlewares package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.models.html">lback.models package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.repositories.html">lback.repositories package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.security.html">lback.security package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lback.utils.html">lback.utils package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lback.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lback.html#module-lback.main">lback.main module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lback.html#module-lback">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">lback</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="lback.html">lback package</a></li>
+      <li class="breadcrumb-item active">lback.auth_app package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/lback/lback.auth_app.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="lback-auth-app-package">
+<h1>lback.auth_app package<a class="headerlink" href="#lback-auth-app-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-lback.auth_app.auth_forms">
+<span id="lback-auth-app-auth-forms-module"></span><h2>lback.auth_app.auth_forms module<a class="headerlink" href="#module-lback.auth_app.auth_forms" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.auth_app.auth_forms.LoginForm">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.auth_app.auth_forms.</span></span><span class="sig-name descname"><span class="pre">LoginForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/auth_app/auth_forms.html#LoginForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth_app.auth_forms.LoginForm" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="lback.forms.html#lback.forms.forms.Form" title="lback.forms.forms.Form"><code class="xref py py-class docutils literal notranslate"><span class="pre">Form</span></code></a></p>
+<p>Form for user login.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.auth_app.auth_forms.RegisterForm">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.auth_app.auth_forms.</span></span><span class="sig-name descname"><span class="pre">RegisterForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/auth_app/auth_forms.html#RegisterForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth_app.auth_forms.RegisterForm" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="lback.forms.html#lback.forms.forms.Form" title="lback.forms.forms.Form"><code class="xref py py-class docutils literal notranslate"><span class="pre">Form</span></code></a></p>
+<p>Form for user registration.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.auth_app.auth_forms.RegisterForm.clean">
+<span class="sig-name descname"><span class="pre">clean</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/auth_app/auth_forms.html#RegisterForm.clean"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth_app.auth_forms.RegisterForm.clean" title="Link to this definition"></a></dt>
+<dd><p>Custom validation for password confirmation.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.auth_app.auth_forms.RequestPasswordResetForm">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.auth_app.auth_forms.</span></span><span class="sig-name descname"><span class="pre">RequestPasswordResetForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/auth_app/auth_forms.html#RequestPasswordResetForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth_app.auth_forms.RequestPasswordResetForm" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="lback.forms.html#lback.forms.forms.Form" title="lback.forms.forms.Form"><code class="xref py py-class docutils literal notranslate"><span class="pre">Form</span></code></a></p>
+<p>Form for requesting a password reset email.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.auth_app.auth_forms.SetNewPasswordForm">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.auth_app.auth_forms.</span></span><span class="sig-name descname"><span class="pre">SetNewPasswordForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/auth_app/auth_forms.html#SetNewPasswordForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth_app.auth_forms.SetNewPasswordForm" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="lback.forms.html#lback.forms.forms.Form" title="lback.forms.forms.Form"><code class="xref py py-class docutils literal notranslate"><span class="pre">Form</span></code></a></p>
+<p>Form for setting a new password after a reset request.
+Requires a ‘token’ field, usually hidden or pre-filled.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.auth_app.auth_forms.SetNewPasswordForm.clean">
+<span class="sig-name descname"><span class="pre">clean</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/auth_app/auth_forms.html#SetNewPasswordForm.clean"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth_app.auth_forms.SetNewPasswordForm.clean" title="Link to this definition"></a></dt>
+<dd><p>Performs form-level validation that depends on multiple fields.
+Should raise ValidationError for non-field errors.
+Can also modify self.cleaned_data.
+Subclasses should override this method if form-level validation is needed.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lback.auth_app.auth_views">
+<span id="lback-auth-app-auth-views-module"></span><h2>lback.auth_app.auth_views module<a class="headerlink" href="#module-lback.auth_app.auth_views" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="lback.auth_app.auth_views.login_user_view">
+<span class="sig-prename descclassname"><span class="pre">lback.auth_app.auth_views.</span></span><span class="sig-name descname"><span class="pre">login_user_view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.core.html#lback.core.types.Request" title="lback.core.types.Request"><span class="pre">Request</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_manager</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.utils.html#lback.utils.user_manager.UserManager" title="lback.utils.user_manager.UserManager"><span class="pre">UserManager</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">jwt_auth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.auth.html#lback.auth.jwt_auth.JWTAuth" title="lback.auth.jwt_auth.JWTAuth"><span class="pre">JWTAuth</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">db_session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Session</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.utils.html#lback.utils.app_session.AppSession" title="lback.utils.app_session.AppSession"><span class="pre">AppSession</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.core.html#lback.core.response.Response" title="lback.core.response.Response"><span class="pre">Response</span></a></span></span><a class="reference internal" href="../_modules/lback/auth_app/auth_views.html#login_user_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth_app.auth_views.login_user_view" title="Link to this definition"></a></dt>
+<dd><p>Handles user login requests.
+Expects JSON body with ‘identifier’ (username or email) and ‘password’.
+Issues a JWT token upon successful login and sets session data.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="lback.auth_app.auth_views.register_user_view">
+<span class="sig-prename descclassname"><span class="pre">lback.auth_app.auth_views.</span></span><span class="sig-name descname"><span class="pre">register_user_view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.core.html#lback.core.types.Request" title="lback.core.types.Request"><span class="pre">Request</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_manager</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.utils.html#lback.utils.user_manager.UserManager" title="lback.utils.user_manager.UserManager"><span class="pre">UserManager</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">db_session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Session</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.utils.html#lback.utils.app_session.AppSession" title="lback.utils.app_session.AppSession"><span class="pre">AppSession</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.core.html#lback.core.response.Response" title="lback.core.response.Response"><span class="pre">Response</span></a></span></span><a class="reference internal" href="../_modules/lback/auth_app/auth_views.html#register_user_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth_app.auth_views.register_user_view" title="Link to this definition"></a></dt>
+<dd><p>Handles user registration requests.
+Expects JSON body with ‘username’, ‘email’, ‘password’.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="lback.auth_app.auth_views.request_password_reset_view">
+<span class="sig-prename descclassname"><span class="pre">lback.auth_app.auth_views.</span></span><span class="sig-name descname"><span class="pre">request_password_reset_view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.core.html#lback.core.types.Request" title="lback.core.types.Request"><span class="pre">Request</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_manager</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.utils.html#lback.utils.user_manager.UserManager" title="lback.utils.user_manager.UserManager"><span class="pre">UserManager</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">db_session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Session</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.utils.html#lback.utils.app_session.AppSession" title="lback.utils.app_session.AppSession"><span class="pre">AppSession</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.core.html#lback.core.response.Response" title="lback.core.response.Response"><span class="pre">Response</span></a></span></span><a class="reference internal" href="../_modules/lback/auth_app/auth_views.html#request_password_reset_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth_app.auth_views.request_password_reset_view" title="Link to this definition"></a></dt>
+<dd><p>Handles requests to initiate password reset.
+Expects JSON body with ‘email’.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="lback.auth_app.auth_views.reset_password_view">
+<span class="sig-prename descclassname"><span class="pre">lback.auth_app.auth_views.</span></span><span class="sig-name descname"><span class="pre">reset_password_view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.core.html#lback.core.types.Request" title="lback.core.types.Request"><span class="pre">Request</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_manager</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.utils.html#lback.utils.user_manager.UserManager" title="lback.utils.user_manager.UserManager"><span class="pre">UserManager</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">db_session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Session</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.utils.html#lback.utils.app_session.AppSession" title="lback.utils.app_session.AppSession"><span class="pre">AppSession</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.core.html#lback.core.response.Response" title="lback.core.response.Response"><span class="pre">Response</span></a></span></span><a class="reference internal" href="../_modules/lback/auth_app/auth_views.html#reset_password_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth_app.auth_views.reset_password_view" title="Link to this definition"></a></dt>
+<dd><p>Handles the actual password reset.
+Expects JSON body with ‘token’, ‘new_password’.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="lback.auth_app.auth_views.verify_email_view">
+<span class="sig-prename descclassname"><span class="pre">lback.auth_app.auth_views.</span></span><span class="sig-name descname"><span class="pre">verify_email_view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.core.html#lback.core.types.Request" title="lback.core.types.Request"><span class="pre">Request</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_manager</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.utils.html#lback.utils.user_manager.UserManager" title="lback.utils.user_manager.UserManager"><span class="pre">UserManager</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">db_session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Session</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.utils.html#lback.utils.app_session.AppSession" title="lback.utils.app_session.AppSession"><span class="pre">AppSession</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.core.html#lback.core.response.Response" title="lback.core.response.Response"><span class="pre">Response</span></a></span></span><a class="reference internal" href="../_modules/lback/auth_app/auth_views.html#verify_email_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth_app.auth_views.verify_email_view" title="Link to this definition"></a></dt>
+<dd><p>Handles email verification requests via a token in the URL query parameters.
+Expected URL: /auth/verify-email?token=&lt;verification_token&gt;</p>
+</dd></dl>
+
+</section>
+<section id="module-lback.auth_app.urls">
+<span id="lback-auth-app-urls-module"></span><h2>lback.auth_app.urls module<a class="headerlink" href="#module-lback.auth_app.urls" title="Link to this heading"></a></h2>
+</section>
+<section id="module-lback.auth_app.web_auth_views">
+<span id="lback-auth-app-web-auth-views-module"></span><h2>lback.auth_app.web_auth_views module<a class="headerlink" href="#module-lback.auth_app.web_auth_views" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="lback.auth_app.web_auth_views.handle_login_submit">
+<span class="sig-prename descclassname"><span class="pre">lback.auth_app.web_auth_views.</span></span><span class="sig-name descname"><span class="pre">handle_login_submit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.core.html#lback.core.types.Request" title="lback.core.types.Request"><span class="pre">Request</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.core.html#lback.core.response.Response" title="lback.core.response.Response"><span class="pre">Response</span></a></span></span><a class="reference internal" href="../_modules/lback/auth_app/web_auth_views.html#handle_login_submit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth_app.web_auth_views.handle_login_submit" title="Link to this definition"></a></dt>
+<dd><p>Handles the submission of the user login form (POST request).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="lback.auth_app.web_auth_views.handle_register_submit">
+<span class="sig-prename descclassname"><span class="pre">lback.auth_app.web_auth_views.</span></span><span class="sig-name descname"><span class="pre">handle_register_submit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.core.html#lback.core.types.Request" title="lback.core.types.Request"><span class="pre">Request</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.core.html#lback.core.response.Response" title="lback.core.response.Response"><span class="pre">Response</span></a></span></span><a class="reference internal" href="../_modules/lback/auth_app/web_auth_views.html#handle_register_submit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth_app.web_auth_views.handle_register_submit" title="Link to this definition"></a></dt>
+<dd><p>Handles the submission of the new user registration form (POST request).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="lback.auth_app.web_auth_views.handle_request_password_reset_submit">
+<span class="sig-prename descclassname"><span class="pre">lback.auth_app.web_auth_views.</span></span><span class="sig-name descname"><span class="pre">handle_request_password_reset_submit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.core.html#lback.core.types.Request" title="lback.core.types.Request"><span class="pre">Request</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.core.html#lback.core.response.Response" title="lback.core.response.Response"><span class="pre">Response</span></a></span></span><a class="reference internal" href="../_modules/lback/auth_app/web_auth_views.html#handle_request_password_reset_submit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth_app.web_auth_views.handle_request_password_reset_submit" title="Link to this definition"></a></dt>
+<dd><p>Handles the submission of the password reset request form (POST request).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="lback.auth_app.web_auth_views.handle_reset_password_confirm_submit">
+<span class="sig-prename descclassname"><span class="pre">lback.auth_app.web_auth_views.</span></span><span class="sig-name descname"><span class="pre">handle_reset_password_confirm_submit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.core.html#lback.core.types.Request" title="lback.core.types.Request"><span class="pre">Request</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.core.html#lback.core.response.Response" title="lback.core.response.Response"><span class="pre">Response</span></a></span></span><a class="reference internal" href="../_modules/lback/auth_app/web_auth_views.html#handle_reset_password_confirm_submit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth_app.web_auth_views.handle_reset_password_confirm_submit" title="Link to this definition"></a></dt>
+<dd><p>Handles the submission of the password reset confirmation form (POST request).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="lback.auth_app.web_auth_views.logout_user_view">
+<span class="sig-prename descclassname"><span class="pre">lback.auth_app.web_auth_views.</span></span><span class="sig-name descname"><span class="pre">logout_user_view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.core.html#lback.core.types.Request" title="lback.core.types.Request"><span class="pre">Request</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.core.html#lback.core.response.Response" title="lback.core.response.Response"><span class="pre">Response</span></a></span></span><a class="reference internal" href="../_modules/lback/auth_app/web_auth_views.html#logout_user_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth_app.web_auth_views.logout_user_view" title="Link to this definition"></a></dt>
+<dd><p>Logs out the current user by clearing their session data.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="lback.auth_app.web_auth_views.show_login_page">
+<span class="sig-prename descclassname"><span class="pre">lback.auth_app.web_auth_views.</span></span><span class="sig-name descname"><span class="pre">show_login_page</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.core.html#lback.core.types.Request" title="lback.core.types.Request"><span class="pre">Request</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.core.html#lback.core.response.Response" title="lback.core.response.Response"><span class="pre">Response</span></a></span></span><a class="reference internal" href="../_modules/lback/auth_app/web_auth_views.html#show_login_page"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth_app.web_auth_views.show_login_page" title="Link to this definition"></a></dt>
+<dd><p>Renders the user login form page.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="lback.auth_app.web_auth_views.show_register_page">
+<span class="sig-prename descclassname"><span class="pre">lback.auth_app.web_auth_views.</span></span><span class="sig-name descname"><span class="pre">show_register_page</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.core.html#lback.core.types.Request" title="lback.core.types.Request"><span class="pre">Request</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.core.html#lback.core.response.Response" title="lback.core.response.Response"><span class="pre">Response</span></a></span></span><a class="reference internal" href="../_modules/lback/auth_app/web_auth_views.html#show_register_page"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth_app.web_auth_views.show_register_page" title="Link to this definition"></a></dt>
+<dd><p>Renders the user registration form page.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="lback.auth_app.web_auth_views.show_request_password_reset_page">
+<span class="sig-prename descclassname"><span class="pre">lback.auth_app.web_auth_views.</span></span><span class="sig-name descname"><span class="pre">show_request_password_reset_page</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.core.html#lback.core.types.Request" title="lback.core.types.Request"><span class="pre">Request</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.core.html#lback.core.response.Response" title="lback.core.response.Response"><span class="pre">Response</span></a></span></span><a class="reference internal" href="../_modules/lback/auth_app/web_auth_views.html#show_request_password_reset_page"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth_app.web_auth_views.show_request_password_reset_page" title="Link to this definition"></a></dt>
+<dd><p>Renders the page for requesting a password reset email.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="lback.auth_app.web_auth_views.show_reset_password_confirm_page">
+<span class="sig-prename descclassname"><span class="pre">lback.auth_app.web_auth_views.</span></span><span class="sig-name descname"><span class="pre">show_reset_password_confirm_page</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.core.html#lback.core.types.Request" title="lback.core.types.Request"><span class="pre">Request</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.core.html#lback.core.response.Response" title="lback.core.response.Response"><span class="pre">Response</span></a></span></span><a class="reference internal" href="../_modules/lback/auth_app/web_auth_views.html#show_reset_password_confirm_page"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth_app.web_auth_views.show_reset_password_confirm_page" title="Link to this definition"></a></dt>
+<dd><p>Renders the page for confirming a password reset.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="lback.auth_app.web_auth_views.verify_email_web_view">
+<span class="sig-prename descclassname"><span class="pre">lback.auth_app.web_auth_views.</span></span><span class="sig-name descname"><span class="pre">verify_email_web_view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.core.html#lback.core.types.Request" title="lback.core.types.Request"><span class="pre">Request</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lback.core.html#lback.core.response.Response" title="lback.core.response.Response"><span class="pre">Response</span></a></span></span><a class="reference internal" href="../_modules/lback/auth_app/web_auth_views.html#verify_email_web_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.auth_app.web_auth_views.verify_email_web_view" title="Link to this definition"></a></dt>
+<dd><p>Handles email verification via a web link (GET request).</p>
+</dd></dl>
+
+</section>
+<section id="module-lback.auth_app">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-lback.auth_app" title="Link to this heading"></a></h2>
+<p>This file serves as the initialization point for the ‘lback_framework/lback/auth_app’ package.
+It is designed to expose the core components necessary for handling user authentication
+and authorization processes specifically for web-based applications within the Lback framework.
+This package centralizes the definition and management of user-facing authentication flows,
+including rendering login/registration pages and processing form submissions.</p>
+<p>—</p>
+<p><strong>Key Components Exposed by this Package:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Web Authentication Views (from .web_auth_views):</strong>
+A collection of views specifically designed to render HTML pages and handle form submissions
+for user authentication processes in a web application context. These views manage the
+user interface aspects of authentication.</p>
+<ul class="simple">
+<li><p><strong>show_login_page:</strong> Renders the HTML page containing the user login form.</p></li>
+<li><p><strong>show_register_page:</strong> Renders the HTML page containing the user registration form.</p></li>
+<li><dl class="simple">
+<dt><strong>show_reset_password_confirm_page:</strong> Renders the HTML page for users to confirm and set</dt><dd><p>a new password after a reset request.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>show_request_password_reset_page:</strong> Renders the HTML page where users can request a</dt><dd><p>password reset link (e.g., by entering their email).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>handle_login_submit:</strong> Processes the form submission from the login page, authenticates</dt><dd><p>the user, and manages session creation.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>handle_register_submit:</strong> Processes the form submission from the registration page,</dt><dd><p>validates user data, and creates a new user account.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>handle_reset_password_confirm_submit:</strong> Processes the form submission for setting a new</dt><dd><p>password after a reset request, validating the token and new password.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>handle_request_password_reset_submit:</strong> Processes the form submission for requesting a</dt><dd><p>password reset, typically sending an email with a reset link.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>verify_email_web_view:</strong> A web view to handle email verification links, confirming a user’s</dt><dd><p>email address.</p>
+</dd>
+</dl>
+</li>
+<li><p><strong>logout_user_view:</strong> Handles user logout requests, terminating the user’s session.</p></li>
+</ul>
+</li>
+<li><p><strong>urlpatterns (from .urls):</strong>
+A list or collection of URL patterns specifically for the authentication application. These patterns
+map incoming HTTP requests to the appropriate web authentication views, defining the routing
+for all user-facing authentication functionalities (e.g., /login/, /register/, /password-reset/).</p></li>
+<li><p><strong>API Authentication Views (from .auth_views):</strong>
+A set of views that likely provide API endpoints for authentication functionalities,
+which might be consumed by client-side applications (e.g., single-page applications)
+or mobile apps, rather than rendering full HTML pages.</p>
+<ul class="simple">
+<li><p><strong>register_user_view:</strong> An API endpoint for user registration.</p></li>
+<li><p><strong>login_user_view:</strong> An API endpoint for user login.</p></li>
+<li><p><strong>request_password_reset_view:</strong> An API endpoint for initiating a password reset process.</p></li>
+<li><p><strong>reset_password_view:</strong> An API endpoint for completing the password reset process.</p></li>
+<li><p><strong>verify_email_view:</strong> An API endpoint for email verification.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="lback.auth.html" class="btn btn-neutral float-left" title="lback.auth package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="lback.commands.html" class="btn btn-neutral float-right" title="lback.commands package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ibrahem abo kila.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

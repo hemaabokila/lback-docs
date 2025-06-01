@@ -1,0 +1,370 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signals from AdminAuth &mdash; lback 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=95f010fd" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Signals from ErrorHandler" href="error-handler.html" />
+    <link rel="prev" title="Signals from AdminUserRepository" href="admin-user-repository.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            lback
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Configuration%20System.html">Configuration System</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/routing_system.html">Routing System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Views%20%26%20Responses.html">Views &amp; Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Templating%20System.html">Templating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Static%20Files.html">Static Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Media%20Files.html">Media Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/file-uploads.html">File Uploads in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Forms.html">Forms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/Models%20%26%20Database.html">Models &amp; Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Database%20Migrations%20System.html">Database Migrations System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Authorization.html">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/sessions.html">Sessions in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Security%20Features.html">Security Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/Admin%20Panel.html">Built-in Admin Panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/API%20Tools.html">API Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Signal%20System.html">Signal System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Middleware%20System.html">Middleware System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/custom_middlewares.html">Custom Middlewares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/logging_config.html">Logging Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/email-sender.html">Email Sending in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/validation_utilities.html">Validation Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/error_handling.html">Error Handling and HTTP Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Error%20Handling%20%26%20Reporting.html">Error Handling &amp; Reporting</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/Deployment.html">Deployment</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="api-signals.html">Signals from BaseView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-signals.html#signals-from-apidocs">Signals from APIDocs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-signals.html#signals-from-basemodelserializer">Signals from BaseModelSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="admin-registry-signals.html">Signals from AdminRegistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="admin-user.html">Signals from AdminUser and Role Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="admin-user-manager.html">Signals from AdminUserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="admin-user-repository.html">Signals from AdminUserRepository</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Signals from AdminAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#signals-from-jwtauth">Signals from JWTAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#signals-from-oauth2auth">Signals from OAuth2Auth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#signals-from-permissionrequired">Signals from PermissionRequired</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#signals-from-sessionauth">Signals from SessionAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="error-handler.html">Signals from ErrorHandler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="middleware-manager.html">Signals from MiddlewareManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration_commands.html">Signals from MigrationCommands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="permission-repository.html">Signals from PermissionRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="role-repository.html">Signals from RoleRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session-manager.html">Signals from SessionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="template-renderer.html">Signals from TemplateRenderer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user-manager.html">Signals from UserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user-model.html">Signals from User Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user-repository.html">Signals from UserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wsgi-application.html">Signals from WSGI Application and Server</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Modules and Classes Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API%20Reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lback/lback.html">lback package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">lback</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Signals from AdminAuth</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/signals/auth.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="signals-from-adminauth">
+<span id="admin-auth-signals"></span><h1>Signals from AdminAuth<a class="headerlink" href="#signals-from-adminauth" title="Link to this heading"></a></h1>
+<p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">lback.auth.admin_auth.AdminAuth</span></code> class, which specifically handles authentication and authorization for admin users, emits signals at various critical points throughout its operations. These signals are incredibly useful for <strong>auditing admin actions, integrating with logging or monitoring systems, or implementing custom security logic</strong> related to admin user management.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 50.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Signal Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Arguments (<cite>kwargs</cite>)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">admin_auth_initialized</span></code></p></td>
+<td><p>Emitted immediately after the <code class="xref py py-class docutils literal notranslate"><span class="pre">AdminAuth</span></code> instance has been successfully initialized with its required managers.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<code class="xref py py-class docutils literal notranslate"><span class="pre">AdminAuth</span></code>): The specific instance of the AdminAuth handler.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">admin_registration_attempt</span></code></p></td>
+<td><p>Emitted just before an attempt is made to register a new admin user.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<code class="xref py py-class docutils literal notranslate"><span class="pre">AdminAuth</span></code>): The AdminAuth instance.&lt;br&gt;``username`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The username provided for the registration attempt.&lt;br&gt;``email`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The email provided for the registration attempt.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">admin_registration_successful</span></code></p></td>
+<td><p>Emitted when a new admin user has been successfully registered (i.e., added to the database).</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<code class="xref py py-class docutils literal notranslate"><span class="pre">AdminAuth</span></code>): The AdminAuth instance.&lt;br&gt;``admin_user`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">Any</span></code>): The newly created admin user object.&lt;br&gt;``username`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The username of the registered admin.&lt;br&gt;``email`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The email of the registered admin.&lt;br&gt;``db_session`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">Session</span></code>): The SQLAlchemy database session used for the operation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">admin_registration_failed</span></code></p></td>
+<td><p>Emitted when an attempt to register an admin user fails.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<code class="xref py py-class docutils literal notranslate"><span class="pre">AdminAuth</span></code>): The AdminAuth instance.&lt;br&gt;``username`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The username for the failed registration attempt.&lt;br&gt;``email`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The email for the failed registration attempt.&lt;br&gt;``error_type`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): A string indicating the type of failure (e.g., “manager_returned_none”).&lt;br&gt;``exception`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code>, <em>optional</em>): The exception object if the failure was due to an unexpected error.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">admin_login_attempt</span></code></p></td>
+<td><p>Emitted just before an attempt is made to log in an admin user.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<code class="xref py py-class docutils literal notranslate"><span class="pre">AdminAuth</span></code>): The AdminAuth instance.&lt;br&gt;``username`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The username provided for the login attempt.&lt;br&gt;``request`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">Request</span></code>): The incoming request object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">admin_login_successful</span></code></p></td>
+<td><p>Emitted when an admin user has successfully authenticated and their session has been initiated.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<code class="xref py py-class docutils literal notranslate"><span class="pre">AdminAuth</span></code>): The AdminAuth instance.&lt;br&gt;``admin_user`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">Any</span></code>): The authenticated admin user object.&lt;br&gt;``username`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The username of the logged-in admin.&lt;br&gt;``request`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">Request</span></code>): The incoming request object.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">admin_login_failed</span></code></p></td>
+<td><p>Emitted when an attempt to log in an admin user fails (e.g., due to invalid credentials or an internal error).</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<code class="xref py py-class docutils literal notranslate"><span class="pre">AdminAuth</span></code>): The AdminAuth instance.&lt;br&gt;``username`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The username for the failed login attempt.&lt;br&gt;``request`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">Request</span></code>): The incoming request object.&lt;br&gt;``reason`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): A string describing the reason for the failure (e.g., “authentication_failed”, “exception”).&lt;br&gt;``exception`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code>, <em>optional</em>): The exception object if the failure was due to an unexpected error.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">admin_logout_attempt</span></code></p></td>
+<td><p>Emitted just before an admin user’s session is terminated as part of a logout process.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<code class="xref py py-class docutils literal notranslate"><span class="pre">AdminAuth</span></code>): The AdminAuth instance.&lt;br&gt;``user_session`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">AppSession</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">None</span></code>): The session object associated with the user, if available.&lt;br&gt;``session_id`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The ID of the session being logged out (or ‘N/A’ if not found).&lt;br&gt;``user_id`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">None</span></code>): The ID of the user associated with the session, if found.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">admin_logout_successful</span></code></p></td>
+<td><p>Emitted when an admin user’s session has been successfully ended (deleted).</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<code class="xref py py-class docutils literal notranslate"><span class="pre">AdminAuth</span></code>): The AdminAuth instance.&lt;br&gt;``session_id`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The ID of the session that was successfully logged out.&lt;br&gt;``user_id`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">None</span></code>): The ID of the user whose session was logged out.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">admin_authentication_check</span></code></p></td>
+<td><p>Emitted after an attempt to verify if an admin user is currently logged in via their session.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<code class="xref py py-class docutils literal notranslate"><span class="pre">AdminAuth</span></code>): The AdminAuth instance.&lt;br&gt;``request`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">Request</span></code>): The incoming request object.&lt;br&gt;``is_admin`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>): <code class="docutils literal notranslate"><span class="pre">True</span></code> if an admin user is currently logged in, <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.&lt;br&gt;``reason`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): A string explaining the outcome of the check (e.g., “authenticated_session_is_admin”, “session_authentication_failed”).</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="signals-from-jwtauth">
+<span id="jwt-auth-signals"></span><h1>Signals from JWTAuth<a class="headerlink" href="#signals-from-jwtauth" title="Link to this heading"></a></h1>
+<p>The <a class="reference internal" href="../lback/lback.auth.html#lback.auth.jwt_auth.JWTAuth" title="lback.auth.jwt_auth.JWTAuth"><code class="xref py py-class docutils literal notranslate"><span class="pre">lback.auth.jwt_auth.JWTAuth</span></code></a> class, which provides utilities for creating, decoding, and validating JSON Web Tokens (JWTs), emits signals at various stages of token lifecycle and validation. These signals are highly valuable for <strong>auditing token issuance, monitoring authentication attempts, and integrating with security logging systems.</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 50.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Signal Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Arguments (<cite>kwargs</cite>)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">jwt_access_token_created</span></code></p></td>
+<td><p>Emitted when a new access token has been successfully created.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<a class="reference internal" href="../lback/lback.auth.html#lback.auth.jwt_auth.JWTAuth" title="lback.auth.jwt_auth.JWTAuth"><code class="xref py py-class docutils literal notranslate"><span class="pre">JWTAuth</span></code></a>): The JWTAuth instance.&lt;br&gt;``payload`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>): The payload dictionary encoded into the token.&lt;br&gt;``token`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The full encoded JWT access token string.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">jwt_refresh_token_created</span></code></p></td>
+<td><p>Emitted when a new refresh token has been successfully created.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<a class="reference internal" href="../lback/lback.auth.html#lback.auth.jwt_auth.JWTAuth" title="lback.auth.jwt_auth.JWTAuth"><code class="xref py py-class docutils literal notranslate"><span class="pre">JWTAuth</span></code></a>): The JWTAuth instance.&lt;br&gt;``payload`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>): The payload dictionary encoded into the token.&lt;br&gt;``token`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The full encoded JWT refresh token string.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">jwt_token_decoded</span></code></p></td>
+<td><p>Emitted when a JWT token has been successfully decoded and its signature and expiration verified.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<a class="reference internal" href="../lback/lback.auth.html#lback.auth.jwt_auth.JWTAuth" title="lback.auth.jwt_auth.JWTAuth"><code class="xref py py-class docutils literal notranslate"><span class="pre">JWTAuth</span></code></a>): The JWTAuth instance.&lt;br&gt;``token`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The original JWT token string.&lt;br&gt;``payload`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>): The decoded payload dictionary of the token.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">jwt_decode_failed</span></code></p></td>
+<td><p>Emitted when a JWT token fails to decode or validate due to various reasons (e.g., expired, invalid signature, malformed).</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<a class="reference internal" href="../lback/lback.auth.html#lback.auth.jwt_auth.JWTAuth" title="lback.auth.jwt_auth.JWTAuth"><code class="xref py py-class docutils literal notranslate"><span class="pre">JWTAuth</span></code></a>): The JWTAuth instance.&lt;br&gt;``token`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The JWT token string that failed to decode/validate.&lt;br&gt;``error_type`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): A string indicating the specific reason for failure (e.g., “empty_token”, “expired”, “invalid_signature”, “invalid_audience”, “invalid_issuer”, “invalid_issued_at”, “decode_error”, “unexpected_exception”, “type_mismatch”).&lt;br&gt;``exception`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code>, <em>optional</em>): The exception object if the failure was due to an unexpected error.&lt;br&gt;``expected_type`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <em>optional</em>): The expected token type, if a type mismatch occurred.&lt;br&gt;``actual_type`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <em>optional</em>): The actual token type found in the payload, if a type mismatch occurred.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="signals-from-oauth2auth">
+<span id="oauth2-auth-signals"></span><h1>Signals from OAuth2Auth<a class="headerlink" href="#signals-from-oauth2auth" title="Link to this heading"></a></h1>
+<p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">lback.auth.oauth2_auth.OAuth2Auth</span></code> class is a crucial utility for handling interactions with an OAuth2 provider, specifically implementing the Authorization Code Grant flow. This class emits signals at key stages of the OAuth2 process, providing <strong>invaluable insights for monitoring authentication flows, debugging integrations, and auditing user consent and token management.</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 50.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Signal Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Arguments (<cite>kwargs</cite>)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">oauth2_authorize_url_generated</span></code></p></td>
+<td><p>Emitted right after the full authorization URL has been constructed and is ready to be used for redirecting the user to the OAuth2 provider.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<code class="xref py py-class docutils literal notranslate"><span class="pre">OAuth2Auth</span></code>): The OAuth2Auth instance.&lt;br&gt;``authorize_url`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The complete URL generated for authorization.&lt;br&gt;``state`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">None</span></code>): The <cite>state</cite> parameter included in the URL, if provided.&lt;br&gt;``scope`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The requested <cite>scope</cite> for the authorization.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">oauth2_token_fetched</span></code></p></td>
+<td><p>Emitted when an authorization code has been successfully exchanged for an access token (and potentially a refresh token) from the OAuth2 provider.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<code class="xref py py-class docutils literal notranslate"><span class="pre">OAuth2Auth</span></code>): The OAuth2Auth instance.&lt;br&gt;``code`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The authorization code that was exchanged.&lt;br&gt;``token_data`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>): The dictionary response from the OAuth2 provider’s token endpoint (e.g., containing <cite>access_token</cite>, <cite>token_type</cite>, <cite>expires_in</cite>, <cite>refresh_token</cite>).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">oauth2_token_fetch_failed</span></code></p></td>
+<td><p>Emitted when the attempt to exchange an authorization code for a token fails due to network issues, invalid code, or provider errors.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<code class="xref py py-class docutils literal notranslate"><span class="pre">OAuth2Auth</span></code>): The OAuth2Auth instance.&lt;br&gt;``code`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The authorization code that was used in the failed attempt.&lt;br&gt;``error`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): A descriptive string indicating the reason for the failure (e.g., “timeout”, “http_error_400”, “request_error”, “unexpected_exception”).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">oauth2_token_refreshed</span></code></p></td>
+<td><p>Emitted when a refresh token has been successfully used to obtain a new access token (and optionally a new refresh token).</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<code class="xref py py-class docutils literal notranslate"><span class="pre">OAuth2Auth</span></code>): The OAuth2Auth instance.&lt;br&gt;``old_refresh_token`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The refresh token that was used for the refresh operation.&lt;br&gt;``new_token_data`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>): The dictionary response from the OAuth2 provider’s token endpoint, containing the newly issued tokens.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">oauth2_token_refresh_failed</span></code></p></td>
+<td><p>Emitted when the attempt to refresh a token fails, possibly due to an expired or invalid refresh token, or provider errors.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<code class="xref py py-class docutils literal notranslate"><span class="pre">OAuth2Auth</span></code>): The OAuth2Auth instance.&lt;br&gt;``old_refresh_token`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The refresh token that was used in the failed attempt.&lt;br&gt;``error`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): A descriptive string indicating the reason for the failure (e.g., “timeout”, “http_error_400”, “request_error”, “unexpected_exception”).</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="signals-from-permissionrequired">
+<span id="permission-required-signals"></span><h1>Signals from PermissionRequired<a class="headerlink" href="#signals-from-permissionrequired" title="Link to this heading"></a></h1>
+<p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">lback.auth.decorators.PermissionRequired</span></code> decorator plays a crucial role in securing views by enforcing granular permission checks. This class emits signals at key stages of the permission evaluation process, offering <strong>valuable hooks for auditing access attempts, integrating with security logging systems, or implementing custom response logic based on access outcomes.</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 50.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Signal Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Arguments (<cite>kwargs</cite>)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">permission_check_started</span></code></p></td>
+<td><p>Emitted at the very beginning of the permission check process for a decorated view.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<code class="xref py py-class docutils literal notranslate"><span class="pre">PermissionRequired</span></code>): The decorator instance.&lt;br&gt;``request`` (<a class="reference internal" href="../lback/lback.core.html#lback.core.types.Request" title="lback.core.types.Request"><code class="xref py py-class docutils literal notranslate"><span class="pre">Request</span></code></a>): The incoming request object.&lt;br&gt;``required_permissions`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The set of permissions being checked.&lt;br&gt;``user`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">Any</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">None</span></code>): The user object associated with the request (can be <cite>None</cite> if not authenticated).&lt;br&gt;``view_func_name`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The name of the view function being accessed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">permission_check_succeeded</span></code></p></td>
+<td><p>Emitted when the authenticated user successfully passes all required permission checks for a view.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<code class="xref py py-class docutils literal notranslate"><span class="pre">PermissionRequired</span></code>): The decorator instance.&lt;br&gt;``request`` (<a class="reference internal" href="../lback/lback.core.html#lback.core.types.Request" title="lback.core.types.Request"><code class="xref py py-class docutils literal notranslate"><span class="pre">Request</span></code></a>): The incoming request object.&lt;br&gt;``required_permissions`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The set of permissions that were successfully met.&lt;br&gt;``user`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">Any</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">None</span></code>): The user object that passed the check.&lt;br&gt;``view_func_name`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The name of the view function accessed.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">permission_check_failed</span></code></p></td>
+<td><p>Emitted when the authenticated user (or lack thereof) fails to meet the required permissions for a view.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<code class="xref py py-class docutils literal notranslate"><span class="pre">PermissionRequired</span></code>): The decorator instance.&lt;br&gt;``request`` (<a class="reference internal" href="../lback/lback.core.html#lback.core.types.Request" title="lback.core.types.Request"><code class="xref py py-class docutils literal notranslate"><span class="pre">Request</span></code></a>): The incoming request object.&lt;br&gt;``required_permissions`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The set of permissions that were required.&lt;br&gt;``user`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">Any</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">None</span></code>): The user object that failed the check (can be <cite>None</cite>).&lt;br&gt;``view_func_name`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The name of the view function for which permission was denied.&lt;br&gt;``reason`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): A string indicating the specific reason for the failure (e.g., “user_not_authenticated”, “user_model_missing_has_permission_method”, or specific missing permission).</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="signals-from-sessionauth">
+<span id="session-auth-signals"></span><h1>Signals from SessionAuth<a class="headerlink" href="#signals-from-sessionauth" title="Link to this heading"></a></h1>
+<p>The <a class="reference internal" href="../lback/lback.auth.html#lback.auth.session_auth.SessionAuth" title="lback.auth.session_auth.SessionAuth"><code class="xref py py-class docutils literal notranslate"><span class="pre">lback.auth.session_auth.SessionAuth</span></code></a> utility is central to managing user authentication via sessions. It provides a robust way to track user login states and session lifecycle. This class emits signals at critical points during user login, logout, and session status checks, enabling <strong>detailed auditing, real-time monitoring of user activity, and integration with other security or logging mechanisms.</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 50.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Signal Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Arguments (<cite>kwargs</cite>)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">user_logged_in</span></code></p></td>
+<td><p>Emitted when a user is successfully logged in and their <cite>user_id</cite> and <cite>user_type</cite> have been set in an active session.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<a class="reference internal" href="../lback/lback.auth.html#lback.auth.session_auth.SessionAuth" title="lback.auth.session_auth.SessionAuth"><code class="xref py py-class docutils literal notranslate"><span class="pre">SessionAuth</span></code></a>): The SessionAuth instance.&lt;br&gt;``request`` (<a class="reference internal" href="../lback/lback.core.html#lback.core.types.Request" title="lback.core.types.Request"><code class="xref py py-class docutils literal notranslate"><span class="pre">Request</span></code></a>): The incoming request object.&lt;br&gt;``user_id`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">Union`[:py:class:`int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">UUID</span></code>]): The ID of the user who logged in.&lt;br&gt;``user_type`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The type of the user (e.g., “user”, “admin”).&lt;br&gt;``session`` (<a class="reference internal" href="../lback/lback.utils.html#lback.utils.app_session.AppSession" title="lback.utils.app_session.AppSession"><code class="xref py py-class docutils literal notranslate"><span class="pre">AppSession</span></code></a>): The active <cite>AppSession</cite> instance used for login.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">session_login_failed</span></code></p></td>
+<td><p>Emitted when an attempt to log a user in via session fails (e.g., due to an unavailable or invalid session object on the request).</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<a class="reference internal" href="../lback/lback.auth.html#lback.auth.session_auth.SessionAuth" title="lback.auth.session_auth.SessionAuth"><code class="xref py py-class docutils literal notranslate"><span class="pre">SessionAuth</span></code></a>): The SessionAuth instance.&lt;br&gt;``request`` (<a class="reference internal" href="../lback/lback.core.html#lback.core.types.Request" title="lback.core.types.Request"><code class="xref py py-class docutils literal notranslate"><span class="pre">Request</span></code></a>): The incoming request object.&lt;br&gt;``user_id`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">Union`[:py:class:`int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">UUID</span></code>]): The ID of the user for whom login was attempted.&lt;br&gt;``user_type`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The type of the user for whom login was attempted.&lt;br&gt;``reason`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): A string describing the reason for the failure (e.g., “session_unavailable”, “invalid_session_object”, “session_inactive”, “session_expiry_missing”).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">session_authentication_check</span></code></p></td>
+<td><p>Emitted after checking the authentication status of a user based on their session data.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<a class="reference internal" href="../lback/lback.auth.html#lback.auth.session_auth.SessionAuth" title="lback.auth.session_auth.SessionAuth"><code class="xref py py-class docutils literal notranslate"><span class="pre">SessionAuth</span></code></a>): The SessionAuth instance.&lt;br&gt;``request`` (<a class="reference internal" href="../lback/lback.core.html#lback.core.types.Request" title="lback.core.types.Request"><code class="xref py py-class docutils literal notranslate"><span class="pre">Request</span></code></a>): The incoming request object.&lt;br&gt;``user_id`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">Union`[:py:class:`int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">UUID</span></code>] or <code class="xref py py-class docutils literal notranslate"><span class="pre">None</span></code>): The ID of the user if found in the session, otherwise <cite>None</cite>.&lt;br&gt;``is_authenticated`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>): <code class="docutils literal notranslate"><span class="pre">True</span></code> if the user is considered authenticated via session, <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.&lt;br&gt;``reason`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): A string explaining the outcome of the check (e.g., “authenticated_and_active”, “active_but_no_user_id”, “session_inactive”, “session_expiry_missing”, “session_unavailable”).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">user_logged_out</span></code></p></td>
+<td><p>Emitted when a user’s session is successfully deleted as part of the logout process.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> (<a class="reference internal" href="../lback/lback.auth.html#lback.auth.session_auth.SessionAuth" title="lback.auth.session_auth.SessionAuth"><code class="xref py py-class docutils literal notranslate"><span class="pre">SessionAuth</span></code></a>): The SessionAuth instance.&lt;br&gt;``request`` (<a class="reference internal" href="../lback/lback.core.html#lback.core.types.Request" title="lback.core.types.Request"><code class="xref py py-class docutils literal notranslate"><span class="pre">Request</span></code></a>): The incoming request object.&lt;br&gt;``session_id`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>): The ID of the session that was deleted.&lt;br&gt;``user_id`` (<code class="xref py py-class docutils literal notranslate"><span class="pre">Union`[:py:class:`int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">UUID</span></code>] or <code class="xref py py-class docutils literal notranslate"><span class="pre">None</span></code>): The ID of the user who was logged out, if available from the session before deletion.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="admin-user-repository.html" class="btn btn-neutral float-left" title="Signals from AdminUserRepository" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="error-handler.html" class="btn btn-neutral float-right" title="Signals from ErrorHandler" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ibrahem abo kila.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

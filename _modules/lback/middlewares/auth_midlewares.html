@@ -1,0 +1,369 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>lback.middlewares.auth_midlewares &mdash; lback 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=95f010fd" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            lback
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Configuration%20System.html">Configuration System</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/routing_system.html">Routing System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Views%20%26%20Responses.html">Views &amp; Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Templating%20System.html">Templating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Static%20Files.html">Static Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Media%20Files.html">Media Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/file-uploads.html">File Uploads in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Forms.html">Forms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Models%20%26%20Database.html">Models &amp; Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Database%20Migrations%20System.html">Database Migrations System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Authorization.html">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/sessions.html">Sessions in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Security%20Features.html">Security Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Admin%20Panel.html">Built-in Admin Panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/API%20Tools.html">API Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Signal%20System.html">Signal System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Middleware%20System.html">Middleware System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/custom_middlewares.html">Custom Middlewares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/logging_config.html">Logging Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/email-sender.html">Email Sending in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/validation_utilities.html">Validation Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/error_handling.html">Error Handling and HTTP Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Error%20Handling%20%26%20Reporting.html">Error Handling &amp; Reporting</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features/Deployment.html">Deployment</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/api-signals.html">Signals from BaseView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/api-signals.html#signals-from-apidocs">Signals from APIDocs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/api-signals.html#signals-from-basemodelserializer">Signals from BaseModelSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-registry-signals.html">Signals from AdminRegistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-user.html">Signals from AdminUser and Role Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-user-manager.html">Signals from AdminUserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/admin-user-repository.html">Signals from AdminUserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html">Signals from AdminAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-jwtauth">Signals from JWTAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-oauth2auth">Signals from OAuth2Auth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-permissionrequired">Signals from PermissionRequired</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/auth.html#signals-from-sessionauth">Signals from SessionAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/error-handler.html">Signals from ErrorHandler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/middleware-manager.html">Signals from MiddlewareManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/migration_commands.html">Signals from MigrationCommands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/permission-repository.html">Signals from PermissionRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/role-repository.html">Signals from RoleRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/session-manager.html">Signals from SessionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/template-renderer.html">Signals from TemplateRenderer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/user-manager.html">Signals from UserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/user-model.html">Signals from User Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/user-repository.html">Signals from UserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals/wsgi-application.html">Signals from WSGI Application and Server</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">Modules and Classes Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../API%20Reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../lback/lback.html">lback package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">lback</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">lback.middlewares.auth_midlewares</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for lback.middlewares.auth_midlewares</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">http</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTTPStatus</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Any</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy.orm</span><span class="w"> </span><span class="kn">import</span> <span class="n">Session</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.core.base_middleware</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseMiddleware</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.core.response</span><span class="w"> </span><span class="kn">import</span> <span class="n">Response</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.utils.app_session</span><span class="w"> </span><span class="kn">import</span> <span class="n">AppSession</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.utils.admin_user_manager</span><span class="w"> </span><span class="kn">import</span> <span class="n">AdminUserManager</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.utils.user_manager</span><span class="w"> </span><span class="kn">import</span> <span class="n">UserManager</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.auth.jwt_auth</span><span class="w"> </span><span class="kn">import</span> <span class="n">JWTAuth</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.core.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">Request</span>
+
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<div class="viewcode-block" id="AuthMiddleware">
+<a class="viewcode-back" href="../../../lback/lback.middlewares.html#lback.middlewares.auth_midlewares.AuthMiddleware">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">AuthMiddleware</span><span class="p">(</span><span class="n">BaseMiddleware</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Middleware to handle user authentication based on either session data or Authorization header (Bearer token).</span>
+<span class="sd">    It attempts session authentication first (by checking data in request.session). If not found/valid, it attempts token authentication.</span>
+<span class="sd">    Attaches the authenticated user (User or AdminUser) to request.user.</span>
+<span class="sd">    Relies on SessionMiddleware to attach the session object to request.session for ALL requests.</span>
+<span class="sd">    Requires SQLAlchemyMiddleware to run before it to provide the DB session.</span>
+<span class="sd">    Requires the router/handler to set request.route_requires_auth for protected routes.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="AuthMiddleware.__init__">
+<a class="viewcode-back" href="../../../lback/lback.middlewares.html#lback.middlewares.auth_midlewares.AuthMiddleware.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">admin_user_manager</span><span class="p">:</span> <span class="n">AdminUserManager</span><span class="p">,</span> <span class="n">user_manager</span><span class="p">:</span> <span class="n">UserManager</span><span class="p">,</span> <span class="n">jwt_auth</span><span class="p">:</span> <span class="n">JWTAuth</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes AuthMiddleware with necessary managers and auth utilities.</span>
+<span class="sd">        These dependencies should be initialized once globally (e.g., in core/server.py).</span>
+<span class="sd">        Args:</span>
+<span class="sd">            admin_user_manager: The AdminUserManager instance.</span>
+<span class="sd">            user_manager: The UserManager instance for regular users.</span>
+<span class="sd">            jwt_auth_utility: The JWTAuth instance from auth.jwt_auth.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">admin_user_manager</span><span class="p">,</span> <span class="n">AdminUserManager</span><span class="p">):</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;AuthMiddleware initialized without a valid AdminUserManager instance.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">user_manager</span><span class="p">,</span> <span class="n">UserManager</span><span class="p">):</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;AuthMiddleware initialized without a valid UserManager instance.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">jwt_auth</span><span class="p">,</span> <span class="n">JWTAuth</span><span class="p">):</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;AuthMiddleware initialized without a valid JWTAuth instance.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">admin_user_manager</span> <span class="o">=</span> <span class="n">admin_user_manager</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user_manager</span> <span class="o">=</span> <span class="n">user_manager</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">jwt_auth_utility</span> <span class="o">=</span> <span class="n">jwt_auth</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;AuthMiddleware initialized for Session and Token authentication.&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="AuthMiddleware.process_request">
+<a class="viewcode-back" href="../../../lback/lback.middlewares.html#lback.middlewares.auth_midlewares.AuthMiddleware.process_request">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">process_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Processes the incoming request to authenticate the user via session data or token.</span>
+<span class="sd">        Relies on request.session being populated by SessionMiddleware.</span>
+<span class="sd">        Attaches request.user (User or AdminUser) if authenticated.</span>
+<span class="sd">        Returns a Response if authentication/authorization fails AND the route requires auth, otherwise returns None.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">db_session</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Session</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get_context</span><span class="p">(</span><span class="s1">&#39;db_session&#39;</span><span class="p">)</span>
+        <span class="n">request_session_wrapper</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">AppSession</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get_context</span><span class="p">(</span><span class="s1">&#39;session&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">db_session</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;AuthMiddleware: Database session not found on request context. Ensure SQLAlchemyMiddleware runs before AuthMiddleware.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">body</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;Internal Server Error: Database session not available for authentication.&quot;</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">INTERNAL_SERVER_ERROR</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">})</span>
+        <span class="k">if</span> <span class="n">request_session_wrapper</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;AuthMiddleware: Session object not found on request context. Ensure SessionMiddleware runs before AuthMiddleware.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">body</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;Internal Server Error: Session not available.&quot;</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">INTERNAL_SERVER_ERROR</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">})</span>
+        
+        <span class="n">authenticated_user</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="n">user_id_from_session</span> <span class="o">=</span> <span class="n">request_session_wrapper</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;user_id&#39;</span><span class="p">)</span>
+        <span class="n">user_type_from_session</span> <span class="o">=</span> <span class="n">request_session_wrapper</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;user_type&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">user_id_from_session</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">user_type_from_session</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">user_type_from_session</span> <span class="o">==</span> <span class="s1">&#39;admin&#39;</span><span class="p">:</span>
+                    <span class="n">authenticated_user</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">admin_user_manager</span><span class="o">.</span><span class="n">get_admin_by_id</span><span class="p">(</span><span class="n">db_session</span><span class="p">,</span> <span class="n">user_id_from_session</span><span class="p">)</span>
+ 
+                <span class="k">elif</span> <span class="n">user_type_from_session</span> <span class="o">==</span> <span class="s1">&#39;user&#39;</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;user_manager&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_manager</span><span class="p">:</span>
+                        <span class="n">authenticated_user</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_manager</span><span class="o">.</span><span class="n">get_user_by_id</span><span class="p">(</span><span class="n">db_session</span><span class="p">,</span> <span class="n">user_id_from_session</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="n">authenticated_user</span><span class="p">:</span>
+                            <span class="n">user_groups</span> <span class="o">=</span> <span class="p">[</span><span class="n">group</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">authenticated_user</span><span class="o">.</span><span class="n">groups</span><span class="p">]</span>
+                            <span class="n">request_session_wrapper</span><span class="p">[</span><span class="s1">&#39;user_groups&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">user_groups</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;AuthMiddleware: UserManager not initialized but user_type is &#39;user&#39; in session.&quot;</span><span class="p">)</span>
+                        <span class="n">authenticated_user</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;AuthMiddleware: Unknown user_type &#39;</span><span class="si">{</span><span class="n">user_type_from_session</span><span class="si">}</span><span class="s2">&#39; in session data for user ID </span><span class="si">{</span><span class="n">user_id_from_session</span><span class="si">}</span><span class="s2">. Invalid user data in session.&quot;</span><span class="p">)</span>
+                    <span class="n">authenticated_user</span> <span class="o">=</span> <span class="kc">None</span>
+
+                <span class="k">if</span> <span class="n">authenticated_user</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;AuthMiddleware: User with ID </span><span class="si">{</span><span class="n">user_id_from_session</span><span class="si">}</span><span class="s2"> (type: </span><span class="si">{</span><span class="n">user_type_from_session</span><span class="si">}</span><span class="s2">) from session data not found or invalid in DB. User is not authenticated via session. Clearing session data.&quot;</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="s1">&#39;user_id&#39;</span> <span class="ow">in</span> <span class="n">request_session_wrapper</span><span class="p">:</span>
+                        <span class="k">del</span> <span class="n">request_session_wrapper</span><span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">]</span>
+                    <span class="k">if</span> <span class="s1">&#39;user_type&#39;</span> <span class="ow">in</span> <span class="n">request_session_wrapper</span><span class="p">:</span>
+                        <span class="k">del</span> <span class="n">request_session_wrapper</span><span class="p">[</span><span class="s1">&#39;user_type&#39;</span><span class="p">]</span>
+                    <span class="k">if</span> <span class="s1">&#39;user_groups&#39;</span> <span class="ow">in</span> <span class="n">request_session_wrapper</span><span class="p">:</span>
+                        <span class="k">del</span> <span class="n">request_session_wrapper</span><span class="p">[</span><span class="s1">&#39;user_groups&#39;</span><span class="p">]</span>
+  
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;AuthMiddleware: Error loading user </span><span class="si">{</span><span class="n">user_id_from_session</span><span class="si">}</span><span class="s2"> (type: </span><span class="si">{</span><span class="n">user_type_from_session</span><span class="si">}</span><span class="s2">) from session data: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">authenticated_user</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+
+            <span class="k">if</span> <span class="s1">&#39;user_id&#39;</span> <span class="ow">in</span> <span class="n">request_session_wrapper</span><span class="p">:</span>
+                <span class="k">del</span> <span class="n">request_session_wrapper</span><span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="s1">&#39;user_type&#39;</span> <span class="ow">in</span> <span class="n">request_session_wrapper</span><span class="p">:</span>
+                <span class="k">del</span> <span class="n">request_session_wrapper</span><span class="p">[</span><span class="s1">&#39;user_type&#39;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="s1">&#39;user_groups&#39;</span> <span class="ow">in</span> <span class="n">request_session_wrapper</span><span class="p">:</span>
+                <span class="k">del</span> <span class="n">request_session_wrapper</span><span class="p">[</span><span class="s1">&#39;user_groups&#39;</span><span class="p">]</span>
+
+
+        <span class="k">if</span> <span class="n">authenticated_user</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+
+            <span class="n">auth_header</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Authorization&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">auth_header</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">jwt_auth_utility</span><span class="p">:</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="n">token_parts</span> <span class="o">=</span> <span class="n">auth_header</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">token_parts</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">token_parts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;bearer&#39;</span><span class="p">:</span>
+                            <span class="n">token</span> <span class="o">=</span> <span class="n">token_parts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+                            <span class="n">decoded_payload</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">jwt_auth_utility</span><span class="o">.</span><span class="n">decode_token</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+                            
+                            <span class="k">if</span> <span class="n">decoded_payload</span><span class="p">:</span>
+                                <span class="n">user_id</span> <span class="o">=</span> <span class="n">decoded_payload</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;user_id&quot;</span><span class="p">)</span>
+                                <span class="n">user_type_from_token</span> <span class="o">=</span> <span class="n">decoded_payload</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;user_type&quot;</span><span class="p">)</span>
+                                
+                                <span class="k">if</span> <span class="n">user_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">user_type_from_token</span><span class="p">:</span>
+                                    <span class="k">try</span><span class="p">:</span>
+                                        <span class="n">authenticated_user_from_token</span> <span class="o">=</span> <span class="kc">None</span>
+                                        <span class="k">if</span> <span class="n">user_type_from_token</span> <span class="o">==</span> <span class="s1">&#39;admin&#39;</span><span class="p">:</span>
+                                            <span class="n">authenticated_user_from_token</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">admin_user_manager</span><span class="o">.</span><span class="n">get_admin_by_id</span><span class="p">(</span><span class="n">db_session</span><span class="p">,</span> <span class="n">user_id</span><span class="p">)</span>
+                                            <span class="k">if</span> <span class="n">authenticated_user_from_token</span><span class="p">:</span>
+                                                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;AuthMiddleware: Token authentication successful for AdminUser &#39;</span><span class="si">{</span><span class="nb">getattr</span><span class="p">(</span><span class="n">authenticated_user_from_token</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;username&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;N/A&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&#39; (</span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s2">).&quot;</span><span class="p">)</span>
+                                        <span class="k">elif</span> <span class="n">user_type_from_token</span> <span class="o">==</span> <span class="s1">&#39;user&#39;</span><span class="p">:</span>
+                                            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;user_manager&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_manager</span><span class="p">:</span>
+                                                <span class="n">authenticated_user_from_token</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_manager</span><span class="o">.</span><span class="n">get_user_by_id</span><span class="p">(</span><span class="n">db_session</span><span class="p">,</span> <span class="n">user_id</span><span class="p">)</span>
+                                                <span class="k">if</span> <span class="n">authenticated_user_from_token</span><span class="p">:</span>
+                                                    <span class="n">user_groups</span> <span class="o">=</span> <span class="p">[</span><span class="n">group</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">authenticated_user_from_token</span><span class="o">.</span><span class="n">groups</span><span class="p">]</span>
+                                                    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;AuthMiddleware: Token authentication successful for Regular User &#39;</span><span class="si">{</span><span class="nb">getattr</span><span class="p">(</span><span class="n">authenticated_user_from_token</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;username&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;N/A&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&#39; (Groups: </span><span class="si">{</span><span class="n">user_groups</span><span class="si">}</span><span class="s2">).&quot;</span><span class="p">)</span>
+                                            <span class="k">else</span><span class="p">:</span>
+                                                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;AuthMiddleware: UserManager not initialized but user_type is &#39;user&#39; in token.&quot;</span><span class="p">)</span>
+                                                <span class="n">authenticated_user_from_token</span> <span class="o">=</span> <span class="kc">None</span>
+                                        <span class="k">else</span><span class="p">:</span>
+                                            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;AuthMiddleware: Unknown user_type &#39;</span><span class="si">{</span><span class="n">user_type_from_token</span><span class="si">}</span><span class="s2">&#39; in token payload for user ID </span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+                                            <span class="n">authenticated_user_from_token</span> <span class="o">=</span> <span class="kc">None</span>
+
+                                        <span class="k">if</span> <span class="n">authenticated_user_from_token</span><span class="p">:</span>
+                                            <span class="n">authenticated_user</span> <span class="o">=</span> <span class="n">authenticated_user_from_token</span>
+                                        <span class="k">else</span><span class="p">:</span>
+                                            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;AuthMiddleware: User with ID </span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s2"> (type: </span><span class="si">{</span><span class="n">user_type_from_token</span><span class="si">}</span><span class="s2">) from token not found in DB.&quot;</span><span class="p">)</span>
+                                            <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">body</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;Unauthorized: User from token not found or invalid type.&quot;</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">UNAUTHORIZED</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">})</span>
+                                    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                                        <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;AuthMiddleware: Error loading user </span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s2"> (type: </span><span class="si">{</span><span class="n">user_type_from_token</span><span class="si">}</span><span class="s2">) from token: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                                        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">body</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;Internal Server Error during token user loading.&quot;</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">INTERNAL_SERVER_ERROR</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">})</span>
+                                <span class="k">else</span><span class="p">:</span>
+                                    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;AuthMiddleware: JWT token payload missing user_id or user_type.&quot;</span><span class="p">)</span>
+                                    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">body</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;Unauthorized: Invalid token payload.&quot;</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">UNAUTHORIZED</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">})</span>
+                            <span class="k">else</span><span class="p">:</span>
+                                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;AuthMiddleware: JWT token validation failed (decode_token returned None).&quot;</span><span class="p">)</span>
+                                <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">body</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;Unauthorized: Invalid or expired token.&quot;</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">UNAUTHORIZED</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">})</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;AuthMiddleware: Malformed Authorization header format for </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s2">. Expected &#39;Bearer &lt;token&gt;&#39;.&quot;</span><span class="p">)</span>
+                            <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">body</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;Unauthorized: Malformed Authorization header format.&quot;</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">UNAUTHORIZED</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">})</span>
+                    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                        <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;AuthMiddleware: Unexpected error during token authentication for </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">body</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;Internal Server Error during authentication.&quot;</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">INTERNAL_SERVER_ERROR</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">})</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;AuthMiddleware: JWT_AUTH_UTILITY not configured but Authorization header found.&quot;</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">body</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;Internal Server Error: JWT Authentication not configured.&quot;</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">INTERNAL_SERVER_ERROR</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">})</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;AuthMiddleware: No Authorization header found. Token authentication skipped.&quot;</span><span class="p">)</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;AuthMiddleware: Setting request.user to: </span><span class="si">{</span><span class="n">authenticated_user</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">authenticated_user</span>
+        
+        <span class="n">route_requires_auth</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;route_requires_auth&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">route_requires_auth</span> <span class="ow">and</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Authentication required but failed for protected route: </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s2">. User is None.&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">request_session_wrapper</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">request_session_wrapper</span><span class="p">,</span> <span class="s1">&#39;set_flash&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">callable</span><span class="p">(</span><span class="n">request_session_wrapper</span><span class="o">.</span><span class="n">set_flash</span><span class="p">):</span>
+                <span class="n">request_session_wrapper</span><span class="o">.</span><span class="n">set_flash</span><span class="p">(</span><span class="s2">&quot;Authentication is required to access this resource.&quot;</span><span class="p">,</span> <span class="s2">&quot;warning&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;AuthMiddleware: request.session or its set_flash method not available to set flash message.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">body</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;Unauthorized: Authentication is required to access this resource.&quot;</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">UNAUTHORIZED</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">})</span>
+        
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="AuthMiddleware.process_response">
+<a class="viewcode-back" href="../../../lback/lback.middlewares.html#lback.middlewares.auth_midlewares.AuthMiddleware.process_response">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">process_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span> <span class="n">response</span><span class="p">:</span> <span class="n">Response</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Processes the outgoing response.</span>
+<span class="sd">        Does NOT handle session cookie writing - this is the responsibility of SessionMiddleware.</span>
+<span class="sd">        This method just passes the response along.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;AuthMiddleware processing response for </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s2">. Passing response.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">response</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ibrahem abo kila.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,300 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Built-in Admin Panel &mdash; lback 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=95f010fd" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="API Tools" href="API%20Tools.html" />
+    <link rel="prev" title="Security Features" href="Security%20Features.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            lback
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Configuration%20System.html">Configuration System</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="routing_system.html">Routing System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Views%20%26%20Responses.html">Views &amp; Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Templating%20System.html">Templating System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Static%20Files.html">Static Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Media%20Files.html">Media Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file-uploads.html">File Uploads in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Forms.html">Forms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Models%20%26%20Database.html">Models &amp; Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Database%20Migrations%20System.html">Database Migrations System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Authorization.html">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sessions.html">Sessions in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Security%20Features.html">Security Features</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Built-in Admin Panel</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#accessing-the-admin-panel">1. Accessing the Admin Panel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#registering-your-models">2. Registering Your Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#admin-panel-and-modelform-integration">3. Admin Panel and ModelForm Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#admin-panel-and-user-permissions">4. Admin Panel and User Permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#key-features-and-customization">5. Key Features and Customization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="API%20Tools.html">API Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Signal%20System.html">Signal System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Middleware%20System.html">Middleware System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_middlewares.html">Custom Middlewares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logging_config.html">Logging Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="email-sender.html">Email Sending in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="validation_utilities.html">Validation Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="error_handling.html">Error Handling and HTTP Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Error%20Handling%20%26%20Reporting.html">Error Handling &amp; Reporting</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Deployment.html">Deployment</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html">Signals from BaseView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-apidocs">Signals from APIDocs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-basemodelserializer">Signals from BaseModelSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-registry-signals.html">Signals from AdminRegistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user.html">Signals from AdminUser and Role Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-manager.html">Signals from AdminUserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-repository.html">Signals from AdminUserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html">Signals from AdminAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-jwtauth">Signals from JWTAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-oauth2auth">Signals from OAuth2Auth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-permissionrequired">Signals from PermissionRequired</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-sessionauth">Signals from SessionAuth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/error-handler.html">Signals from ErrorHandler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/middleware-manager.html">Signals from MiddlewareManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/migration_commands.html">Signals from MigrationCommands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/permission-repository.html">Signals from PermissionRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/role-repository.html">Signals from RoleRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/session-manager.html">Signals from SessionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/template-renderer.html">Signals from TemplateRenderer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-manager.html">Signals from UserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-model.html">Signals from User Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-repository.html">Signals from UserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/wsgi-application.html">Signals from WSGI Application and Server</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Modules and Classes Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API%20Reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lback/lback.html">lback package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">lback</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Built-in Admin Panel</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/features/Admin Panel.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="built-in-admin-panel">
+<h1>Built-in Admin Panel<a class="headerlink" href="#built-in-admin-panel" title="Link to this heading"></a></h1>
+<p>The Lback Framework comes with a powerful and ready-to-use <strong>administrative panel</strong> designed to simplify the management of your application’s data models. This panel automatically generates user interfaces for common database operations (Create, Read, Update, Delete), significantly reducing the boilerplate code you need to write for data management.</p>
+<p>—</p>
+<section id="accessing-the-admin-panel">
+<h2>1. Accessing the Admin Panel<a class="headerlink" href="#accessing-the-admin-panel" title="Link to this heading"></a></h2>
+<p>The Admin panel URLs are typically included under the <code class="docutils literal notranslate"><span class="pre">/admin/</span></code> prefix in your project’s main URL configuration file (e.g., <code class="docutils literal notranslate"><span class="pre">myproject/urls.py</span></code>):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># myproject/urls.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.core.urls_utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">include</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># ... other paths ...</span>
+    <span class="n">include</span><span class="p">(</span><span class="s1">&#39;lback.admin.urls&#39;</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;/admin/&#39;</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Once configured, you can access the admin panel by navigating to <code class="docutils literal notranslate"><span class="pre">/admin/</span></code> in your web browser. You’ll need to log in with an <strong>admin user account</strong> (e.g., a Supreme Admin or Super-admin) to gain access.</p>
+<p>—</p>
+</section>
+<section id="registering-your-models">
+<h2>2. Registering Your Models<a class="headerlink" href="#registering-your-models" title="Link to this heading"></a></h2>
+<p>To make your application’s data models manageable through the Admin panel, you need to <strong>register</strong> them. This is typically done within an <code class="docutils literal notranslate"><span class="pre">admin.py</span></code> file inside your application directory.</p>
+<p>When you register a model, the framework automatically generates:</p>
+<ul class="simple">
+<li><p>A list view showing all instances of that model.</p></li>
+<li><p>An <code class="docutils literal notranslate"><span class="pre">Add</span></code> form to create new instances.</p></li>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">Change</span></code> form to modify existing instances.</p></li>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">Delete</span></code> action for removing instances.</p></li>
+</ul>
+<p><strong>Example:</strong> Registering a <code class="docutils literal notranslate"><span class="pre">Course</span></code> Model</p>
+<p>Assuming you have a <code class="docutils literal notranslate"><span class="pre">Course</span></code> model defined (e.g., in <code class="docutils literal notranslate"><span class="pre">myapp/models.py</span></code>):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># myapp/admin.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.admin.registry</span><span class="w"> </span><span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">Course</span><span class="p">,</span> <span class="n">Student</span> <span class="c1"># Import the models you want to manage</span>
+
+<span class="c1"># Register the Course model</span>
+<span class="n">admin</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Course</span><span class="p">)</span>
+
+<span class="c1"># You can register multiple models</span>
+<span class="n">admin</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Student</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>—</p>
+</section>
+<section id="admin-panel-and-modelform-integration">
+<h2>3. Admin Panel and ModelForm Integration<a class="headerlink" href="#admin-panel-and-modelform-integration" title="Link to this heading"></a></h2>
+<p>The Admin panel heavily leverages the framework’s <code class="docutils literal notranslate"><span class="pre">ModelForm</span></code> system. When you register a model, the Admin panel automatically generates a <code class="docutils literal notranslate"><span class="pre">ModelForm</span></code> for it behind the scenes to handle data input, validation, and saving.</p>
+<p>For more advanced control over the forms used in the Admin panel (e.g., custom validation, custom widgets, specific field ordering), you can provide a custom <code class="docutils literal notranslate"><span class="pre">ModelForm</span></code> when registering your model.</p>
+<p><strong>Example:</strong> Registering with a Custom <code class="docutils literal notranslate"><span class="pre">ModelForm</span></code></p>
+<p>Let’s say you want to customize the <code class="docutils literal notranslate"><span class="pre">Course</span></code> form in the admin to use a <code class="docutils literal notranslate"><span class="pre">Textarea</span></code> for the description and add custom validation:</p>
+<p>First, define your <code class="docutils literal notranslate"><span class="pre">ModelForm</span></code> (e.g., in <code class="docutils literal notranslate"><span class="pre">myapp/forms.py</span></code>):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># myapp/forms.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.forms.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModelForm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.forms.widgets</span><span class="w"> </span><span class="kn">import</span> <span class="n">Textarea</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.forms.validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">ValidationError</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">Course</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">CourseAdminForm</span><span class="p">(</span><span class="n">ModelForm</span><span class="p">):</span>
+    <span class="k">class</span><span class="w"> </span><span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Course</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="s1">&#39;duration_hours&#39;</span><span class="p">,</span> <span class="s1">&#39;is_active&#39;</span><span class="p">]</span> <span class="c1"># Specify fields</span>
+        <span class="n">widgets</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="n">Textarea</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;rows&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;cols&#39;</span><span class="p">:</span> <span class="mi">60</span><span class="p">}),</span>
+        <span class="p">}</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">clean_duration_hours</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">duration</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;duration_hours&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">duration</span> <span class="ow">and</span> <span class="n">duration</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ValidationError</span><span class="p">(</span><span class="s2">&quot;Course duration must be a positive number.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">duration</span>
+</pre></div>
+</div>
+<p>Then, register your model with this custom form:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># myapp/admin.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lback.admin.registry</span><span class="w"> </span><span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">Course</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.forms</span><span class="w"> </span><span class="kn">import</span> <span class="n">CourseAdminForm</span> <span class="c1"># Import your custom ModelForm</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">CourseAdminConfig</span><span class="p">:</span>
+    <span class="c1"># Link the custom ModelForm to the admin configuration for Course</span>
+    <span class="n">form_class</span> <span class="o">=</span> <span class="n">CourseAdminForm</span>
+    <span class="c1"># You can also add other configurations like list_display, search_fields here</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;duration_hours&#39;</span><span class="p">,</span> <span class="s1">&#39;is_active&#39;</span><span class="p">]</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">]</span>
+
+<span class="c1"># Register the Course model with its custom configuration</span>
+<span class="n">admin</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Course</span><span class="p">,</span> <span class="n">CourseAdminConfig</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>—</p>
+</section>
+<section id="admin-panel-and-user-permissions">
+<h2>4. Admin Panel and User Permissions<a class="headerlink" href="#admin-panel-and-user-permissions" title="Link to this heading"></a></h2>
+<p>The Admin panel is fully integrated with the framework’s <strong>Admin User Permissions and Hierarchy</strong> system (as detailed in the :ref:<code class="docutils literal notranslate"><span class="pre">authorization</span></code> section).</p>
+<p>Access to specific models and actions (add, change, view, delete) within the Admin panel is strictly controlled by the permissions assigned to the logged-in admin user.</p>
+<ul class="simple">
+<li><p><strong>Supreme Admin (User ID 1)</strong> and <strong>Super-admin</strong> (<code class="docutils literal notranslate"><span class="pre">is_superuser=True</span></code>) users automatically have full access to all registered models and actions.</p></li>
+<li><p><strong>Regular Admin</strong> users’ access is determined by the specific <code class="docutils literal notranslate"><span class="pre">add_&lt;model_name&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">change_&lt;model_name&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">view_&lt;model_name&gt;</span></code>, and <code class="docutils literal notranslate"><span class="pre">delete_&lt;model_name&gt;</span></code> permissions assigned to their <strong>Admin User Groups</strong>.</p></li>
+</ul>
+<p>The Admin panel itself is where you manage these <strong>Admin Users</strong>, <strong>Admin User Groups</strong>, and their <strong>permissions</strong>, providing a centralized control point for your application’s administrative access.</p>
+<p>—</p>
+</section>
+<section id="key-features-and-customization">
+<h2>5. Key Features and Customization<a class="headerlink" href="#key-features-and-customization" title="Link to this heading"></a></h2>
+<p>The Built-in Admin Panel offers several features for efficient data management:</p>
+<ul class="simple">
+<li><p><strong>Auto-generated CRUD Interfaces:</strong> Immediately get functional forms and lists for your models upon registration.</p></li>
+<li><p><strong>User and Permission Management:</strong> The primary interface for creating and managing all types of users (standard and admin), user groups, and their associated permissions.</p></li>
+<li><p><strong>Search and Filtering:</strong> Basic search and filtering capabilities for registered models.</p></li>
+<li><p><strong>Customization Options:</strong> Beyond providing a custom <code class="docutils literal notranslate"><span class="pre">form_class</span></code>, you can configure <code class="docutils literal notranslate"><span class="pre">list_display</span></code> (columns to show in list view), <code class="docutils literal notranslate"><span class="pre">search_fields</span></code> (fields to enable search on), and more through the <code class="docutils literal notranslate"><span class="pre">AdminConfig</span></code> class when registering models.</p></li>
+<li><p><strong>Extensibility:</strong> While providing a robust default, the admin panel is designed to be extendable if you need highly specialized views or functionality not covered by the generic interface.</p></li>
+</ul>
+<p>For detailed information on configuring specific aspects of the Admin panel and its underlying permission system, refer to the :ref: <code class="docutils literal notranslate"><span class="pre">authorization</span></code> documentation.</p>
+<p>—</p>
+<p><strong>[Optional: Placeholder for Screenshots]</strong></p>
+<p><em>Include screenshots here showing:</em>
+* <em>The main Admin dashboard.</em>
+* <em>An example list view for a registered model (e.g., ‘Courses’).</em>
+* <em>An example ‘Add’ or ‘Change’ form for a model, possibly showing a custom widget.</em>
+* <em>The User/Group/Permission management interfaces.</em></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Security%20Features.html" class="btn btn-neutral float-left" title="Security Features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="API%20Tools.html" class="btn btn-neutral float-right" title="API Tools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ibrahem abo kila.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
