@@ -1,6 +1,11 @@
 lback.commands package
 ======================
 
+.. automodule:: lback.commands
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
 Submodules
 ----------
 
@@ -48,14 +53,6 @@ lback.commands.runner module
 ----------------------------
 
 .. automodule:: lback.commands.runner
-   :members:
-   :show-inheritance:
-   :undoc-members:
-
-Module contents
----------------
-
-.. automodule:: lback.commands
    :members:
    :show-inheritance:
    :undoc-members:

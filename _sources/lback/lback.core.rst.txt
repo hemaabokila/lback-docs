@@ -1,6 +1,11 @@
 lback.core package
 ==================
 
+.. automodule:: lback.core
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
 Submodules
 ----------
 
@@ -152,14 +157,6 @@ lback.core.websocket module
 ---------------------------
 
 .. automodule:: lback.core.websocket
-   :members:
-   :show-inheritance:
-   :undoc-members:
-
-Module contents
----------------
-
-.. automodule:: lback.core
    :members:
    :show-inheritance:
    :undoc-members:

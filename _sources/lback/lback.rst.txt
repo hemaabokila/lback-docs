@@ -1,6 +1,11 @@
 lback package
 =============
 
+.. automodule:: lback
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
 Subpackages
 -----------
 
@@ -27,14 +32,6 @@ lback.main module
 -----------------
 
 .. automodule:: lback.main
-   :members:
-   :show-inheritance:
-   :undoc-members:
-
-Module contents
----------------
-
-.. automodule:: lback
    :members:
    :show-inheritance:
    :undoc-members:

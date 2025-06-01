@@ -12,6 +12,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=95f010fd" />
 
   
+    <link rel="canonical" href="https://hemaabokila.github.io/lback-docs/lback/lback.security.html" />
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../_static/documentation_options.js?v=8d563738"></script>
@@ -44,70 +45,58 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../features/Configuration%20System.html">Configuration System</a></li>
-</ul>
-<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/Admin%20Panel.html">Built-in Admin Panel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features/routing_system.html">Routing System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Models%20%26%20Database.html">Models &amp; Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features/Views%20%26%20Responses.html">Views &amp; Responses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features/Templating%20System.html">Templating System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features/Static%20Files.html">Static Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features/Media%20Files.html">Media Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features/file-uploads.html">File Uploads in Lback Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features/Forms.html">Forms</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../features/Models%20%26%20Database.html">Models &amp; Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../features/Database%20Migrations%20System.html">Database Migrations System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../features/Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/API%20Tools.html">API Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features/Authorization.html">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Signal%20System.html">Signal System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features/sessions.html">Sessions in Lback Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features/Security%20Features.html">Security Features</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../features/Admin%20Panel.html">Built-in Admin Panel</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../features/API%20Tools.html">API Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../features/Signal%20System.html">Signal System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features/Middleware%20System.html">Middleware System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../features/custom_middlewares.html">Custom Middlewares</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features/logging_config.html">Logging Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features/email-sender.html">Email Sending in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Database%20Migrations%20System.html">Database Migrations System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/custom_middlewares.html">Custom Middlewares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Configuration%20System.html">Configuration System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features/validation_utilities.html">Validation Utilities</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features/error_handling.html">Error Handling and HTTP Exceptions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features/Error%20Handling%20%26%20Reporting.html">Error Handling &amp; Reporting</a></li>
-</ul>
-<ul>
 <li class="toctree-l1"><a class="reference internal" href="../features/Deployment.html">Deployment</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html">Signals from BaseView</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-apidocs">Signals from APIDocs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-basemodelserializer">Signals from BaseModelSerializer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../signals/admin-registry-signals.html">Signals from AdminRegistry</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user.html">Signals from AdminUser and Role Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-manager.html">Signals from AdminUserManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-repository.html">Signals from AdminUserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/wsgi-application.html">Signals from WSGI Application and Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-repository.html">Signals from UserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-model.html">Signals from User Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/user-manager.html">Signals from UserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/template-renderer.html">Signals from TemplateRenderer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/session-manager.html">Signals from SessionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/role-repository.html">Signals from RoleRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/permission-repository.html">Signals from PermissionRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/migration_commands.html">Signals from MigrationCommands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/middleware-manager.html">Signals from MiddlewareManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/error-handler.html">Signals from ErrorHandler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../signals/auth.html">Signals from AdminAuth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-jwtauth">Signals from JWTAuth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-oauth2auth">Signals from OAuth2Auth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-permissionrequired">Signals from PermissionRequired</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../signals/auth.html#signals-from-sessionauth">Signals from SessionAuth</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../signals/error-handler.html">Signals from ErrorHandler</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../signals/middleware-manager.html">Signals from MiddlewareManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../signals/migration_commands.html">Signals from MigrationCommands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../signals/permission-repository.html">Signals from PermissionRepository</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../signals/role-repository.html">Signals from RoleRepository</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../signals/session-manager.html">Signals from SessionManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../signals/template-renderer.html">Signals from TemplateRenderer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../signals/user-manager.html">Signals from UserManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../signals/user-model.html">Signals from User Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../signals/user-repository.html">Signals from UserRepository</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../signals/wsgi-application.html">Signals from WSGI Application and Server</a></li>
-</ul>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../modules.html">Modules and Classes Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html">Signals from BaseView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-apidocs">Signals from APIDocs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/api-signals.html#signals-from-basemodelserializer">Signals from BaseModelSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user.html">Signals from AdminUser and Role Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-repository.html">Signals from AdminUserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-user-manager.html">Signals from AdminUserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals/admin-registry-signals.html">Signals from AdminRegistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">lback</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../API%20Reference.html">API Reference</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="lback.html">lback package</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="lback.html#subpackages">Subpackages</a><ul class="current">
@@ -127,7 +116,6 @@
 <li class="toctree-l4"><a class="reference internal" href="#module-lback.security.headers">lback.security.headers module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-lback.security.rate_limiter">lback.security.rate_limiter module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-lback.security.sql_injection">lback.security.sql_injection module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#module-lback.security">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="lback.utils.html">lback.utils package</a></li>
@@ -135,9 +123,9 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="lback.html#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lback.html#module-lback.main">lback.main module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lback.html#module-lback">Module contents</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../Contact.html">About the Author / Contact</a></li>
 </ul>
 
         </div>
@@ -165,282 +153,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="lback-security-package">
-<h1>lback.security package<a class="headerlink" href="#lback-security-package" title="Link to this heading"></a></h1>
-<section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
-</section>
-<section id="module-lback.security.firewall">
-<span id="lback-security-firewall-module"></span><h2>lback.security.firewall module<a class="headerlink" href="#module-lback.security.firewall" title="Link to this heading"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="lback.security.firewall.AdvancedFirewall">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.security.firewall.</span></span><span class="sig-name descname"><span class="pre">AdvancedFirewall</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">allowed_ips</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocked_ips</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocked_networks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocked_user_agents</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocked_url_patterns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ddos_max_requests</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ddos_window_seconds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temp_block_seconds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">300</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/security/firewall.html#AdvancedFirewall"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.security.firewall.AdvancedFirewall" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>A robust and customizable firewall system for filtering incoming requests
-based on IP addresses, networks, user agents, URL patterns, and basic DDoS detection.</p>
-<p>This class helps protect your application from malicious traffic by providing
-various blocking mechanisms and a rate-limiting system to mitigate distributed
-denial-of-service (DDoS) attacks.</p>
-<p>It is designed to be integrated into the request/response cycle of a web framework,
-typically as a middleware or a pre-processing step.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="lback.security.firewall.AdvancedFirewall.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">allowed_ips</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocked_ips</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocked_networks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocked_user_agents</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocked_url_patterns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ddos_max_requests</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ddos_window_seconds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temp_block_seconds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">300</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/security/firewall.html#AdvancedFirewall.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.security.firewall.AdvancedFirewall.__init__" title="Link to this definition"></a></dt>
-<dd><p>Initializes the AdvancedFirewall with specified rules and DDoS detection parameters.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>allowed_ips</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – A list of IP addresses explicitly allowed to access the application.
-If provided, only IPs in this list are allowed.</p></li>
-<li><p><strong>blocked_ips</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – A list of specific IP addresses to block.</p></li>
-<li><p><strong>blocked_networks</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – A list of IP network strings (e.g., “192.168.1.0/24”) to block.</p></li>
-<li><p><strong>blocked_user_agents</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – A list of User-Agent strings to block.</p></li>
-<li><p><strong>blocked_url_patterns</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – A list of regular expression strings for URLs to block.
-Case-insensitive matching is applied.</p></li>
-<li><p><strong>ddos_max_requests</strong> (<em>int</em>) – The maximum number of requests allowed from a single IP
-within the <cite>ddos_window_seconds</cite> before temporary blocking.</p></li>
-<li><p><strong>ddos_window_seconds</strong> (<em>int</em>) – The time window (in seconds) for DDoS detection.</p></li>
-<li><p><strong>temp_block_seconds</strong> (<em>int</em>) – The duration (in seconds) for which an IP is
-temporarily blocked due to suspected DDoS activity.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lback.security.firewall.AdvancedFirewall.add_blocked_url_pattern">
-<span class="sig-name descname"><span class="pre">add_blocked_url_pattern</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/security/firewall.html#AdvancedFirewall.add_blocked_url_pattern"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.security.firewall.AdvancedFirewall.add_blocked_url_pattern" title="Link to this definition"></a></dt>
-<dd><p>Adds a URL regex pattern to the list of blocked URL patterns.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>pattern</strong> (<em>str</em>) – The regular expression string for URLs to block.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lback.security.firewall.AdvancedFirewall.add_blocked_user_agent">
-<span class="sig-name descname"><span class="pre">add_blocked_user_agent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_agent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/security/firewall.html#AdvancedFirewall.add_blocked_user_agent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.security.firewall.AdvancedFirewall.add_blocked_user_agent" title="Link to this definition"></a></dt>
-<dd><p>Adds a User-Agent string to the list of blocked user agents.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>user_agent</strong> (<em>str</em>) – The User-Agent string to block.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lback.security.firewall.AdvancedFirewall.block_ip">
-<span class="sig-name descname"><span class="pre">block_ip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ip</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/security/firewall.html#AdvancedFirewall.block_ip"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.security.firewall.AdvancedFirewall.block_ip" title="Link to this definition"></a></dt>
-<dd><p>Adds an IP address to the blocked list.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>ip</strong> (<em>str</em>) – The IP address to block.</p></li>
-<li><p><strong>temp</strong> (<em>bool</em>) – If True, the IP is temporarily blocked for <cite>temp_block_seconds</cite>.
-Otherwise, it’s added to the permanent blocked IPs list.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lback.security.firewall.AdvancedFirewall.is_allowed">
-<span class="sig-name descname"><span class="pre">is_allowed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ip</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_agent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/lback/security/firewall.html#AdvancedFirewall.is_allowed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.security.firewall.AdvancedFirewall.is_allowed" title="Link to this definition"></a></dt>
-<dd><p>Determines if an incoming request is allowed based on configured firewall rules
-(IPs, networks, user agents, URL patterns) and DDoS detection.</p>
-<p>The checks are performed in a specific order:
-1. Temporary blocks (DDoS mitigation).
-2. Explicitly blocked IPs.
-3. IPs within blocked networks.
-4. Explicitly allowed IPs (if <cite>allowed_ips</cite> list is not empty).
-5. Blocked User-Agents.
-6. Blocked URL patterns.
-7. DDoS rate limiting check.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>ip</strong> (<em>str</em>) – The IP address of the request origin.</p></li>
-<li><p><strong>user_agent</strong> (<em>str</em>) – The User-Agent string from the request header. Defaults to empty string.</p></li>
-<li><p><strong>url</strong> (<em>str</em>) – The full URL of the request. Defaults to empty string.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>True if the request is allowed, False otherwise.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>bool</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lback.security.firewall.AdvancedFirewall.unblock_ip">
-<span class="sig-name descname"><span class="pre">unblock_ip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ip</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/security/firewall.html#AdvancedFirewall.unblock_ip"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.security.firewall.AdvancedFirewall.unblock_ip" title="Link to this definition"></a></dt>
-<dd><p>Removes an IP address from both the permanent and temporary blocked lists.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>ip</strong> (<em>str</em>) – The IP address to unblock.</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-</section>
-<section id="module-lback.security.headers">
-<span id="lback-security-headers-module"></span><h2>lback.security.headers module<a class="headerlink" href="#module-lback.security.headers" title="Link to this heading"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="lback.security.headers.SecurityHeadersConfigurator">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.security.headers.</span></span><span class="sig-name descname"><span class="pre">SecurityHeadersConfigurator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.core.html#lback.core.config.Config" title="lback.core.config.Config"><span class="pre">Config</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/security/headers.html#SecurityHeadersConfigurator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.security.headers.SecurityHeadersConfigurator" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Manages the configuration and application of various HTTP security headers
-to enhance the web application’s defense against common web vulnerabilities.</p>
-<p>This class reads security header settings from the application’s Config instance
-and prepares a dictionary of headers and their corresponding values. These headers
-are then typically applied to HTTP responses by a middleware.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="lback.security.headers.SecurityHeadersConfigurator.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.core.html#lback.core.config.Config" title="lback.core.config.Config"><span class="pre">Config</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/security/headers.html#SecurityHeadersConfigurator.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.security.headers.SecurityHeadersConfigurator.__init__" title="Link to this definition"></a></dt>
-<dd><p>Initializes the SecurityHeadersConfigurator.</p>
-<p>It loads security header settings from the provided Config instance
-and immediately prepares the headers to be applied.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>config</strong> (<a class="reference internal" href="lback.core.html#lback.core.config.Config" title="lback.core.config.Config"><em>Config</em></a>) – The application Config instance containing all application settings,
-including the ‘SECURITY_HEADERS’ dictionary.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lback.security.headers.SecurityHeadersConfigurator.get_headers">
-<span class="sig-name descname"><span class="pre">get_headers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/lback/security/headers.html#SecurityHeadersConfigurator.get_headers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.security.headers.SecurityHeadersConfigurator.get_headers" title="Link to this definition"></a></dt>
-<dd><p>Returns the dictionary of HTTP security headers prepared by the configurator.
-These headers are ready to be added to an HTTP response.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>A dictionary of security headers (e.g., “Content-Security-Policy”: “value”).</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>Dict[str, str]</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-</section>
-<section id="module-lback.security.rate_limiter">
-<span id="lback-security-rate-limiter-module"></span><h2>lback.security.rate_limiter module<a class="headerlink" href="#module-lback.security.rate_limiter" title="Link to this heading"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="lback.security.rate_limiter.RateLimiter">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.security.rate_limiter.</span></span><span class="sig-name descname"><span class="pre">RateLimiter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_requests</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window_seconds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/security/rate_limiter.html#RateLimiter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.security.rate_limiter.RateLimiter" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Implements a generic rate limiting mechanism to control the frequency of operations
-or requests based on a specified key.</p>
-<p>This class tracks the number of requests made within a defined time window
-and prevents further requests if a maximum limit is exceeded. It is thread-safe,
-making it suitable for use in multi-threaded environments like web servers.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="lback.security.rate_limiter.RateLimiter.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_requests</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window_seconds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/security/rate_limiter.html#RateLimiter.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.security.rate_limiter.RateLimiter.__init__" title="Link to this definition"></a></dt>
-<dd><p>Initializes the RateLimiter with the maximum allowed requests and the time window.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>max_requests</strong> (<em>int</em>) – The maximum number of requests allowed within the <cite>window_seconds</cite>.</p></li>
-<li><p><strong>window_seconds</strong> (<em>int</em>) – The time window (in seconds) during which <cite>max_requests</cite> are allowed.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lback.security.rate_limiter.RateLimiter.is_allowed">
-<span class="sig-name descname"><span class="pre">is_allowed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/lback/security/rate_limiter.html#RateLimiter.is_allowed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.security.rate_limiter.RateLimiter.is_allowed" title="Link to this definition"></a></dt>
-<dd><p>Checks if a request identified by a unique key is allowed based on the rate limit.</p>
-<p>This method logs the current request’s timestamp. If the number of requests
-for the given key within the defined <cite>window_seconds</cite> exceeds <cite>max_requests</cite>,
-the request is denied. Otherwise, it is allowed.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>key</strong> (<em>str</em>) – A unique identifier for the request source (e.g., IP address, user ID, API key).</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>True if the request is allowed by the rate limit, False otherwise.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>bool</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-</section>
-<section id="module-lback.security.sql_injection">
-<span id="lback-security-sql-injection-module"></span><h2>lback.security.sql_injection module<a class="headerlink" href="#module-lback.security.sql_injection" title="Link to this heading"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="lback.security.sql_injection.SQLInjectionProtection">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.security.sql_injection.</span></span><span class="sig-name descname"><span class="pre">SQLInjectionProtection</span></span><a class="reference internal" href="../_modules/lback/security/sql_injection.html#SQLInjectionProtection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.security.sql_injection.SQLInjectionProtection" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Provides utility methods to detect and prevent potential SQL Injection attacks
-by scanning input strings and dictionaries for suspicious patterns.</p>
-<p>This class offers a basic layer of protection by identifying common SQL keywords,
-operators, and attack signatures within user-provided data. It’s intended to
-be used as a preliminary check before interacting with a database, complementing
-the use of parameterized queries (which is the primary defense against SQL injection).</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="lback.security.sql_injection.SQLInjectionProtection.SUSPICIOUS_PATTERNS">
-<span class="sig-name descname"><span class="pre">SUSPICIOUS_PATTERNS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['(--|\\#|;|/\\*|\\*/|xp_)',</span> <span class="pre">'(\\b(OR|AND)\\b\\s+\\d+=\\d+)',</span> <span class="pre">'(\\bUNION\\b|\\bSELECT\\b|\\bINSERT\\b|\\bUPDATE\\b|\\bDELETE\\b)',</span> <span class="pre">'(\\bDROP\\b|\\bALTER\\b|\\bCREATE\\b|\\bEXEC\\b)',</span> <span class="pre">'([\'\\&quot;]\\s*or\\s*[\'\\&quot;]?\\d+[\'\\&quot;]?\\s*=\\s*[\'\\&quot;]?\\d+)']</span></em><a class="headerlink" href="#lback.security.sql_injection.SQLInjectionProtection.SUSPICIOUS_PATTERNS" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lback.security.sql_injection.SQLInjectionProtection.is_safe">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_safe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/lback/security/sql_injection.html#SQLInjectionProtection.is_safe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.security.sql_injection.SQLInjectionProtection.is_safe" title="Link to this definition"></a></dt>
-<dd><p>Checks if a given string value contains any suspicious patterns indicative of SQL Injection.</p>
-<p>This method iterates through predefined regular expressions. If any pattern is found
-within the input string (case-insensitive), it logs a warning and returns False.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>value</strong> (<em>str</em>) – The string to be checked for SQL Injection patterns.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>True if the string is considered safe (no suspicious patterns found), False otherwise.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>bool</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lback.security.sql_injection.SQLInjectionProtection.validate_inputs">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">validate_inputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/lback/security/sql_injection.html#SQLInjectionProtection.validate_inputs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.security.sql_injection.SQLInjectionProtection.validate_inputs" title="Link to this definition"></a></dt>
-<dd><p>Validates all string values within a dictionary for potential SQL Injection patterns.</p>
-<p>This method is useful for checking incoming request data (e.g., form submissions, JSON payloads)
-before processing. It recursively checks string values, returning False immediately
-upon detection of any suspicious pattern.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>data</strong> (<em>dict</em>) – A dictionary containing input data to be validated.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>True if all string values in the dictionary are safe, False if any suspicious
-SQL Injection pattern is found.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>bool</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-</section>
-<section id="module-lback.security">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-lback.security" title="Link to this heading"></a></h2>
+  <section id="module-lback.security">
+<span id="lback-security-package"></span><h1>lback.security package<a class="headerlink" href="#module-lback.security" title="Link to this heading"></a></h1>
 <p>This file serves as the initialization point for the ‘lback_framework/lback/security’ package.
 It is designed to expose the core components necessary for implementing various security
 measures and protections within the Lback web framework. This package centralizes the
@@ -474,6 +188,277 @@ or pattern detection) to prevent malicious SQL code from being injected into
 database queries through user input, thereby safeguarding the integrity and
 confidentiality of the application’s data.</p></li>
 </ol>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-lback.security.firewall">
+<span id="lback-security-firewall-module"></span><h2>lback.security.firewall module<a class="headerlink" href="#module-lback.security.firewall" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.security.firewall.AdvancedFirewall">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.security.firewall.</span></span><span class="sig-name descname"><span class="pre">AdvancedFirewall</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">allowed_ips</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocked_ips</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocked_networks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocked_user_agents</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocked_url_patterns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ddos_max_requests</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ddos_window_seconds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temp_block_seconds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">300</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/security/firewall.html#AdvancedFirewall"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="reference external" href="https://github.com/hemaabokila/lback_framework/blob/main/lback/security/firewall.py#L10-L224"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.security.firewall.AdvancedFirewall" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A robust and customizable firewall system for filtering incoming requests
+based on IP addresses, networks, user agents, URL patterns, and basic DDoS detection.</p>
+<p>This class helps protect your application from malicious traffic by providing
+various blocking mechanisms and a rate-limiting system to mitigate distributed
+denial-of-service (DDoS) attacks.</p>
+<p>It is designed to be integrated into the request/response cycle of a web framework,
+typically as a middleware or a pre-processing step.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.security.firewall.AdvancedFirewall.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">allowed_ips</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocked_ips</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocked_networks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocked_user_agents</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocked_url_patterns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ddos_max_requests</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ddos_window_seconds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temp_block_seconds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">300</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/security/firewall.html#AdvancedFirewall.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="reference external" href="https://github.com/hemaabokila/lback_framework/blob/main/lback/security/firewall.py#L23-L68"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.security.firewall.AdvancedFirewall.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initializes the AdvancedFirewall with specified rules and DDoS detection parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>allowed_ips</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – A list of IP addresses explicitly allowed to access the application.
+If provided, only IPs in this list are allowed.</p></li>
+<li><p><strong>blocked_ips</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – A list of specific IP addresses to block.</p></li>
+<li><p><strong>blocked_networks</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – A list of IP network strings (e.g., “192.168.1.0/24”) to block.</p></li>
+<li><p><strong>blocked_user_agents</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – A list of User-Agent strings to block.</p></li>
+<li><p><strong>blocked_url_patterns</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – A list of regular expression strings for URLs to block.
+Case-insensitive matching is applied.</p></li>
+<li><p><strong>ddos_max_requests</strong> (<em>int</em>) – The maximum number of requests allowed from a single IP
+within the <cite>ddos_window_seconds</cite> before temporary blocking.</p></li>
+<li><p><strong>ddos_window_seconds</strong> (<em>int</em>) – The time window (in seconds) for DDoS detection.</p></li>
+<li><p><strong>temp_block_seconds</strong> (<em>int</em>) – The duration (in seconds) for which an IP is
+temporarily blocked due to suspected DDoS activity.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.security.firewall.AdvancedFirewall.add_blocked_url_pattern">
+<span class="sig-name descname"><span class="pre">add_blocked_url_pattern</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/security/firewall.html#AdvancedFirewall.add_blocked_url_pattern"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="reference external" href="https://github.com/hemaabokila/lback_framework/blob/main/lback/security/firewall.py#L216-L224"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.security.firewall.AdvancedFirewall.add_blocked_url_pattern" title="Link to this definition"></a></dt>
+<dd><p>Adds a URL regex pattern to the list of blocked URL patterns.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>pattern</strong> (<em>str</em>) – The regular expression string for URLs to block.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.security.firewall.AdvancedFirewall.add_blocked_user_agent">
+<span class="sig-name descname"><span class="pre">add_blocked_user_agent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_agent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/security/firewall.html#AdvancedFirewall.add_blocked_user_agent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="reference external" href="https://github.com/hemaabokila/lback_framework/blob/main/lback/security/firewall.py#L206-L214"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.security.firewall.AdvancedFirewall.add_blocked_user_agent" title="Link to this definition"></a></dt>
+<dd><p>Adds a User-Agent string to the list of blocked user agents.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>user_agent</strong> (<em>str</em>) – The User-Agent string to block.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.security.firewall.AdvancedFirewall.block_ip">
+<span class="sig-name descname"><span class="pre">block_ip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ip</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/security/firewall.html#AdvancedFirewall.block_ip"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="reference external" href="https://github.com/hemaabokila/lback_framework/blob/main/lback/security/firewall.py#L173-L189"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.security.firewall.AdvancedFirewall.block_ip" title="Link to this definition"></a></dt>
+<dd><p>Adds an IP address to the blocked list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ip</strong> (<em>str</em>) – The IP address to block.</p></li>
+<li><p><strong>temp</strong> (<em>bool</em>) – If True, the IP is temporarily blocked for <cite>temp_block_seconds</cite>.
+Otherwise, it’s added to the permanent blocked IPs list.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.security.firewall.AdvancedFirewall.is_allowed">
+<span class="sig-name descname"><span class="pre">is_allowed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ip</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_agent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/lback/security/firewall.html#AdvancedFirewall.is_allowed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="reference external" href="https://github.com/hemaabokila/lback_framework/blob/main/lback/security/firewall.py#L112-L171"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.security.firewall.AdvancedFirewall.is_allowed" title="Link to this definition"></a></dt>
+<dd><p>Determines if an incoming request is allowed based on configured firewall rules
+(IPs, networks, user agents, URL patterns) and DDoS detection.</p>
+<p>The checks are performed in a specific order:
+1. Temporary blocks (DDoS mitigation).
+2. Explicitly blocked IPs.
+3. IPs within blocked networks.
+4. Explicitly allowed IPs (if <cite>allowed_ips</cite> list is not empty).
+5. Blocked User-Agents.
+6. Blocked URL patterns.
+7. DDoS rate limiting check.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ip</strong> (<em>str</em>) – The IP address of the request origin.</p></li>
+<li><p><strong>user_agent</strong> (<em>str</em>) – The User-Agent string from the request header. Defaults to empty string.</p></li>
+<li><p><strong>url</strong> (<em>str</em>) – The full URL of the request. Defaults to empty string.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the request is allowed, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.security.firewall.AdvancedFirewall.unblock_ip">
+<span class="sig-name descname"><span class="pre">unblock_ip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ip</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/security/firewall.html#AdvancedFirewall.unblock_ip"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="reference external" href="https://github.com/hemaabokila/lback_framework/blob/main/lback/security/firewall.py#L191-L204"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.security.firewall.AdvancedFirewall.unblock_ip" title="Link to this definition"></a></dt>
+<dd><p>Removes an IP address from both the permanent and temporary blocked lists.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ip</strong> (<em>str</em>) – The IP address to unblock.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lback.security.headers">
+<span id="lback-security-headers-module"></span><h2>lback.security.headers module<a class="headerlink" href="#module-lback.security.headers" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.security.headers.SecurityHeadersConfigurator">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.security.headers.</span></span><span class="sig-name descname"><span class="pre">SecurityHeadersConfigurator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.core.html#lback.core.config.Config" title="lback.core.config.Config"><span class="pre">Config</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/security/headers.html#SecurityHeadersConfigurator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="reference external" href="https://github.com/hemaabokila/lback_framework/blob/main/lback/security/headers.py#L7-L102"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.security.headers.SecurityHeadersConfigurator" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Manages the configuration and application of various HTTP security headers
+to enhance the web application’s defense against common web vulnerabilities.</p>
+<p>This class reads security header settings from the application’s Config instance
+and prepares a dictionary of headers and their corresponding values. These headers
+are then typically applied to HTTP responses by a middleware.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.security.headers.SecurityHeadersConfigurator.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lback.core.html#lback.core.config.Config" title="lback.core.config.Config"><span class="pre">Config</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/security/headers.html#SecurityHeadersConfigurator.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="reference external" href="https://github.com/hemaabokila/lback_framework/blob/main/lback/security/headers.py#L18-L32"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.security.headers.SecurityHeadersConfigurator.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initializes the SecurityHeadersConfigurator.</p>
+<p>It loads security header settings from the provided Config instance
+and immediately prepares the headers to be applied.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>config</strong> (<a class="reference internal" href="lback.core.html#lback.core.config.Config" title="lback.core.config.Config"><em>Config</em></a>) – The application Config instance containing all application settings,
+including the ‘SECURITY_HEADERS’ dictionary.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.security.headers.SecurityHeadersConfigurator.get_headers">
+<span class="sig-name descname"><span class="pre">get_headers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/lback/security/headers.html#SecurityHeadersConfigurator.get_headers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="reference external" href="https://github.com/hemaabokila/lback_framework/blob/main/lback/security/headers.py#L94-L102"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.security.headers.SecurityHeadersConfigurator.get_headers" title="Link to this definition"></a></dt>
+<dd><p>Returns the dictionary of HTTP security headers prepared by the configurator.
+These headers are ready to be added to an HTTP response.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A dictionary of security headers (e.g., “Content-Security-Policy”: “value”).</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict[str, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lback.security.rate_limiter">
+<span id="lback-security-rate-limiter-module"></span><h2>lback.security.rate_limiter module<a class="headerlink" href="#module-lback.security.rate_limiter" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.security.rate_limiter.RateLimiter">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.security.rate_limiter.</span></span><span class="sig-name descname"><span class="pre">RateLimiter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_requests</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window_seconds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/security/rate_limiter.html#RateLimiter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="reference external" href="https://github.com/hemaabokila/lback_framework/blob/main/lback/security/rate_limiter.py#L4-L52"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.security.rate_limiter.RateLimiter" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Implements a generic rate limiting mechanism to control the frequency of operations
+or requests based on a specified key.</p>
+<p>This class tracks the number of requests made within a defined time window
+and prevents further requests if a maximum limit is exceeded. It is thread-safe,
+making it suitable for use in multi-threaded environments like web servers.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.security.rate_limiter.RateLimiter.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_requests</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window_seconds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lback/security/rate_limiter.html#RateLimiter.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="reference external" href="https://github.com/hemaabokila/lback_framework/blob/main/lback/security/rate_limiter.py#L15-L27"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.security.rate_limiter.RateLimiter.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initializes the RateLimiter with the maximum allowed requests and the time window.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>max_requests</strong> (<em>int</em>) – The maximum number of requests allowed within the <cite>window_seconds</cite>.</p></li>
+<li><p><strong>window_seconds</strong> (<em>int</em>) – The time window (in seconds) during which <cite>max_requests</cite> are allowed.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.security.rate_limiter.RateLimiter.is_allowed">
+<span class="sig-name descname"><span class="pre">is_allowed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/lback/security/rate_limiter.html#RateLimiter.is_allowed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="reference external" href="https://github.com/hemaabokila/lback_framework/blob/main/lback/security/rate_limiter.py#L30-L52"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.security.rate_limiter.RateLimiter.is_allowed" title="Link to this definition"></a></dt>
+<dd><p>Checks if a request identified by a unique key is allowed based on the rate limit.</p>
+<p>This method logs the current request’s timestamp. If the number of requests
+for the given key within the defined <cite>window_seconds</cite> exceeds <cite>max_requests</cite>,
+the request is denied. Otherwise, it is allowed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>key</strong> (<em>str</em>) – A unique identifier for the request source (e.g., IP address, user ID, API key).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the request is allowed by the rate limit, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lback.security.sql_injection">
+<span id="lback-security-sql-injection-module"></span><h2>lback.security.sql_injection module<a class="headerlink" href="#module-lback.security.sql_injection" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lback.security.sql_injection.SQLInjectionProtection">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lback.security.sql_injection.</span></span><span class="sig-name descname"><span class="pre">SQLInjectionProtection</span></span><a class="reference internal" href="../_modules/lback/security/sql_injection.html#SQLInjectionProtection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="reference external" href="https://github.com/hemaabokila/lback_framework/blob/main/lback/security/sql_injection.py#L6-L65"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.security.sql_injection.SQLInjectionProtection" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Provides utility methods to detect and prevent potential SQL Injection attacks
+by scanning input strings and dictionaries for suspicious patterns.</p>
+<p>This class offers a basic layer of protection by identifying common SQL keywords,
+operators, and attack signatures within user-provided data. It’s intended to
+be used as a preliminary check before interacting with a database, complementing
+the use of parameterized queries (which is the primary defense against SQL injection).</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lback.security.sql_injection.SQLInjectionProtection.SUSPICIOUS_PATTERNS">
+<span class="sig-name descname"><span class="pre">SUSPICIOUS_PATTERNS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['(--|\\#|;|/\\*|\\*/|xp_)',</span> <span class="pre">'(\\b(OR|AND)\\b\\s+\\d+=\\d+)',</span> <span class="pre">'(\\bUNION\\b|\\bSELECT\\b|\\bINSERT\\b|\\bUPDATE\\b|\\bDELETE\\b)',</span> <span class="pre">'(\\bDROP\\b|\\bALTER\\b|\\bCREATE\\b|\\bEXEC\\b)',</span> <span class="pre">'([\'\\&quot;]\\s*or\\s*[\'\\&quot;]?\\d+[\'\\&quot;]?\\s*=\\s*[\'\\&quot;]?\\d+)']</span></em><a class="headerlink" href="#lback.security.sql_injection.SQLInjectionProtection.SUSPICIOUS_PATTERNS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.security.sql_injection.SQLInjectionProtection.is_safe">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_safe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/lback/security/sql_injection.html#SQLInjectionProtection.is_safe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="reference external" href="https://github.com/hemaabokila/lback_framework/blob/main/lback/security/sql_injection.py#L25-L44"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.security.sql_injection.SQLInjectionProtection.is_safe" title="Link to this definition"></a></dt>
+<dd><p>Checks if a given string value contains any suspicious patterns indicative of SQL Injection.</p>
+<p>This method iterates through predefined regular expressions. If any pattern is found
+within the input string (case-insensitive), it logs a warning and returns False.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>str</em>) – The string to be checked for SQL Injection patterns.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the string is considered safe (no suspicious patterns found), False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lback.security.sql_injection.SQLInjectionProtection.validate_inputs">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">validate_inputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/lback/security/sql_injection.html#SQLInjectionProtection.validate_inputs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="reference external" href="https://github.com/hemaabokila/lback_framework/blob/main/lback/security/sql_injection.py#L47-L65"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#lback.security.sql_injection.SQLInjectionProtection.validate_inputs" title="Link to this definition"></a></dt>
+<dd><p>Validates all string values within a dictionary for potential SQL Injection patterns.</p>
+<p>This method is useful for checking incoming request data (e.g., form submissions, JSON payloads)
+before processing. It recursively checks string values, returning False immediately
+upon detection of any suspicious pattern.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>dict</em>) – A dictionary containing input data to be validated.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if all string values in the dictionary are safe, False if any suspicious
+SQL Injection pattern is found.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 </section>
 

@@ -1,6 +1,11 @@
 lback.forms package
 ===================
 
+.. automodule:: lback.forms
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
 Submodules
 ----------
 
@@ -56,14 +61,6 @@ lback.forms.widgets\_datetime module
 ------------------------------------
 
 .. automodule:: lback.forms.widgets_datetime
-   :members:
-   :show-inheritance:
-   :undoc-members:
-
-Module contents
----------------
-
-.. automodule:: lback.forms
    :members:
    :show-inheritance:
    :undoc-members:

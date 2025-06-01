@@ -1,6 +1,11 @@
 lback.admin package
 ===================
 
+.. automodule:: lback.admin
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
 Submodules
 ----------
 
@@ -48,14 +53,6 @@ lback.admin.views module
 ------------------------
 
 .. automodule:: lback.admin.views
-   :members:
-   :show-inheritance:
-   :undoc-members:
-
-Module contents
----------------
-
-.. automodule:: lback.admin
    :members:
    :show-inheritance:
    :undoc-members:

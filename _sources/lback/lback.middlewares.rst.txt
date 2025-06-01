@@ -1,6 +1,11 @@
 lback.middlewares package
 =========================
 
+.. automodule:: lback.middlewares
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
 Submodules
 ----------
 
@@ -120,14 +125,6 @@ lback.middlewares.timer module
 ------------------------------
 
 .. automodule:: lback.middlewares.timer
-   :members:
-   :show-inheritance:
-   :undoc-members:
-
-Module contents
----------------
-
-.. automodule:: lback.middlewares
    :members:
    :show-inheritance:
    :undoc-members:

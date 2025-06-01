@@ -1,6 +1,11 @@
 lback.security package
 ======================
 
+.. automodule:: lback.security
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
 Submodules
 ----------
 
@@ -32,14 +37,6 @@ lback.security.sql\_injection module
 ------------------------------------
 
 .. automodule:: lback.security.sql_injection
-   :members:
-   :show-inheritance:
-   :undoc-members:
-
-Module contents
----------------
-
-.. automodule:: lback.security
    :members:
    :show-inheritance:
    :undoc-members:

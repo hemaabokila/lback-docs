@@ -1,6 +1,11 @@
 lback.utils package
 ===================
 
+.. automodule:: lback.utils
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
 Submodules
 ----------
 
@@ -96,14 +101,6 @@ lback.utils.validation module
 -----------------------------
 
 .. automodule:: lback.utils.validation
-   :members:
-   :show-inheritance:
-   :undoc-members:
-
-Module contents
----------------
-
-.. automodule:: lback.utils
    :members:
    :show-inheritance:
    :undoc-members:

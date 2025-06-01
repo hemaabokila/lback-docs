@@ -1,6 +1,11 @@
 lback.api package
 =================
 
+.. automodule:: lback.api
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
 Submodules
 ----------
 
@@ -40,14 +45,6 @@ lback.api.view module
 ---------------------
 
 .. automodule:: lback.api.view
-   :members:
-   :show-inheritance:
-   :undoc-members:
-
-Module contents
----------------
-
-.. automodule:: lback.api
    :members:
    :show-inheritance:
    :undoc-members:

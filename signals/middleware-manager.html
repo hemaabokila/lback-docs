@@ -12,6 +12,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=95f010fd" />
 
   
+    <link rel="canonical" href="https://hemaabokila.github.io/lback-docs/signals/middleware-manager.html" />
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../_static/documentation_options.js?v=8d563738"></script>
@@ -20,8 +21,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Signals from MigrationCommands" href="migration_commands.html" />
-    <link rel="prev" title="Signals from ErrorHandler" href="error-handler.html" /> 
+    <link rel="next" title="Signals from ErrorHandler" href="error-handler.html" />
+    <link rel="prev" title="Signals from MigrationCommands" href="migration_commands.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,72 +45,61 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../features/Configuration%20System.html">Configuration System</a></li>
-</ul>
-<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/Admin%20Panel.html">Built-in Admin Panel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features/routing_system.html">Routing System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Models%20%26%20Database.html">Models &amp; Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features/Views%20%26%20Responses.html">Views &amp; Responses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features/Templating%20System.html">Templating System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features/Static%20Files.html">Static Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features/Media%20Files.html">Media Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features/file-uploads.html">File Uploads in Lback Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features/Forms.html">Forms</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../features/Models%20%26%20Database.html">Models &amp; Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../features/Database%20Migrations%20System.html">Database Migrations System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../features/Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/API%20Tools.html">API Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features/Authorization.html">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Signal%20System.html">Signal System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features/sessions.html">Sessions in Lback Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features/Security%20Features.html">Security Features</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../features/Admin%20Panel.html">Built-in Admin Panel</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../features/API%20Tools.html">API Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../features/Signal%20System.html">Signal System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features/Middleware%20System.html">Middleware System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../features/custom_middlewares.html">Custom Middlewares</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features/logging_config.html">Logging Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features/email-sender.html">Email Sending in Lback Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Database%20Migrations%20System.html">Database Migrations System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/custom_middlewares.html">Custom Middlewares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/Configuration%20System.html">Configuration System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features/validation_utilities.html">Validation Utilities</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features/error_handling.html">Error Handling and HTTP Exceptions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../features/Error%20Handling%20%26%20Reporting.html">Error Handling &amp; Reporting</a></li>
-</ul>
-<ul>
 <li class="toctree-l1"><a class="reference internal" href="../features/Deployment.html">Deployment</a></li>
-</ul>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="api-signals.html">Signals from BaseView</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api-signals.html#signals-from-apidocs">Signals from APIDocs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api-signals.html#signals-from-basemodelserializer">Signals from BaseModelSerializer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="admin-registry-signals.html">Signals from AdminRegistry</a></li>
-<li class="toctree-l1"><a class="reference internal" href="admin-user.html">Signals from AdminUser and Role Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="admin-user-manager.html">Signals from AdminUserManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="admin-user-repository.html">Signals from AdminUserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wsgi-application.html">Signals from WSGI Application and Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user-repository.html">Signals from UserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user-model.html">Signals from User Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user-manager.html">Signals from UserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="template-renderer.html">Signals from TemplateRenderer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="session-manager.html">Signals from SessionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="role-repository.html">Signals from RoleRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="permission-repository.html">Signals from PermissionRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration_commands.html">Signals from MigrationCommands</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Signals from MiddlewareManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="error-handler.html">Signals from ErrorHandler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auth.html">Signals from AdminAuth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auth.html#signals-from-jwtauth">Signals from JWTAuth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auth.html#signals-from-oauth2auth">Signals from OAuth2Auth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auth.html#signals-from-permissionrequired">Signals from PermissionRequired</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auth.html#signals-from-sessionauth">Signals from SessionAuth</a></li>
-<li class="toctree-l1"><a class="reference internal" href="error-handler.html">Signals from ErrorHandler</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Signals from MiddlewareManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="migration_commands.html">Signals from MigrationCommands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="permission-repository.html">Signals from PermissionRepository</a></li>
-<li class="toctree-l1"><a class="reference internal" href="role-repository.html">Signals from RoleRepository</a></li>
-<li class="toctree-l1"><a class="reference internal" href="session-manager.html">Signals from SessionManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="template-renderer.html">Signals from TemplateRenderer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="user-manager.html">Signals from UserManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="user-model.html">Signals from User Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="user-repository.html">Signals from UserRepository</a></li>
-<li class="toctree-l1"><a class="reference internal" href="wsgi-application.html">Signals from WSGI Application and Server</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../modules.html">Modules and Classes Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-signals.html">Signals from BaseView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-signals.html#signals-from-apidocs">Signals from APIDocs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-signals.html#signals-from-basemodelserializer">Signals from BaseModelSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="admin-user.html">Signals from AdminUser and Role Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="admin-user-repository.html">Signals from AdminUserRepository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="admin-user-manager.html">Signals from AdminUserManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="admin-registry-signals.html">Signals from AdminRegistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">lback</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../API%20Reference.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lback/lback.html">lback package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contact.html">About the Author / Contact</a></li>
 </ul>
 
         </div>
@@ -232,8 +222,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="error-handler.html" class="btn btn-neutral float-left" title="Signals from ErrorHandler" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="migration_commands.html" class="btn btn-neutral float-right" title="Signals from MigrationCommands" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="migration_commands.html" class="btn btn-neutral float-left" title="Signals from MigrationCommands" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="error-handler.html" class="btn btn-neutral float-right" title="Signals from ErrorHandler" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
