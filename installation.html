@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Installation &mdash; lback 1.0.0 documentation</title>
+  <title>Installation &mdash; lback 1.0.3 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/custom.css?v=95f010fd" />
@@ -15,7 +15,7 @@
     <link rel="canonical" href="https://hemaabokila.github.io/lback-docs/installation.html" />
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/documentation_options.js?v=baaebd52"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -154,34 +154,66 @@
 </section>
 <section id="installation-steps">
 <h2>Installation Steps<a class="headerlink" href="#installation-steps" title="Link to this heading"></a></h2>
-<p>Follow these steps to get lback up and running:</p>
+<p>To ensure a smooth installation and proper functioning of Lback Framework, especially for file handling features, please follow these steps:</p>
 <ol class="arabic simple">
 <li><p><strong>Create and Activate a Virtual Environment (Recommended)</strong></p></li>
 </ol>
-<p>It’s good practice to create a virtual environment for your project. This keeps its dependencies separate from other Python projects.</p>
+<p>It’s highly recommended to create a dedicated virtual environment for your project. This isolates your project’s dependencies and prevents conflicts with other Python projects on your system.</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a virtual environment (e.g., named &#39;lback_env&#39;)</span>
-python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>lback_env
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a virtual environment named &#39;venv&#39; in your project directory</span>
+python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
 
 <span class="c1"># Activate the virtual environment</span>
-<span class="c1"># On Windows:</span>
-lback_env<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
+
 <span class="c1"># On macOS and Linux:</span>
-<span class="nb">source</span><span class="w"> </span>lback_env/bin/activate
+<span class="nb">source</span><span class="w"> </span>venv/bin/activate
+
+<span class="c1"># On Windows:</span>
+.<span class="se">\v</span>env<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
 </pre></div>
 </div>
 </div></blockquote>
+<p>Once activated, your terminal prompt will typically show <cite>(venv)</cite> indicating you are in the virtual environment.</p>
 <ol class="arabic simple" start="2">
+<li><p><strong>Install System-level Dependencies (for File Type Detection)</strong></p></li>
+</ol>
+<p>Lback Framework utilizes <cite>python-magic</cite> for robust file type detection.</p>
+<p>This Python library relies on a native system library called <cite>libmagic</cite>.</p>
+<p>You need to install <cite>libmagic</cite> using your system’s package manager <strong>before</strong> installing Lback’s Python packages.</p>
+<p><strong>For macOS and Linux users:</strong></p>
+<p><strong>On Debian/Ubuntu-based systems:</strong></p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libmagic
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>On Fedora/RHEL/CentOS-based systems:</strong></p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>file-libs<span class="w"> </span><span class="c1"># or sudo yum install file-libs</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>On macOS (using Homebrew):</strong></p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>install<span class="w"> </span>libmagic
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>For Windows users:</strong></p>
+<p>No manual steps are typically required for <cite>libmagic</cite>.</p>
+<p>Lback’s installation process will automatically handle this dependency for you using <cite>python-magic-bin</cite>.</p>
+<ol class="arabic simple" start="3">
 <li><p><strong>Install lback from PyPI</strong></p></li>
 </ol>
 <p>Once your virtual environment is activated (if you chose to use one), you can install lback using pip:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>lback_framework
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>lback-framework
 </pre></div>
 </div>
 </div></blockquote>
-<ol class="arabic" start="3">
-<li><p><strong>create a progect</strong>:</p>
+<ol class="arabic" start="4">
+<li><p><strong>create a project</strong>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lback<span class="w"> </span>startproject<span class="w"> </span>myproject
 </pre></div>
 </div>
@@ -190,7 +222,7 @@ lback_env<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
 <li><p><strong>Run initial setup</strong>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>manage.py<span class="w"> </span>makemigrations
 python<span class="w"> </span>manage.py<span class="w"> </span>migrate
-python<span class="w"> </span>manage.py<span class="w"> </span>createsuperuser
+python<span class="w"> </span>manage.py<span class="w"> </span>create_superuser
 python<span class="w"> </span>manage.py<span class="w"> </span>runserver
 </pre></div>
 </div>

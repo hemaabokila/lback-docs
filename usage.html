@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Usage &mdash; lback 1.0.0 documentation</title>
+  <title>Usage &mdash; lback 1.0.3 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/custom.css?v=95f010fd" />
@@ -15,7 +15,7 @@
     <link rel="canonical" href="https://hemaabokila.github.io/lback-docs/usage.html" />
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/documentation_options.js?v=baaebd52"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -157,13 +157,17 @@
 <p>Replace <code class="docutils literal notranslate"><span class="pre">myproject</span></code> with your desired project name. This command sets up a new directory structure for your project, including all necessary files and boilerplate code.</p>
 <p>The new project will include:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>myproject/
-├──<span class="w"> </span>manage.py<span class="w">           </span><span class="c1"># Command-line utility for project management</span>
+├──<span class="w"> </span>alembic/
+│<span class="w">   </span>├──<span class="w"> </span>versions/
+│<span class="w">   </span>├──<span class="w"> </span>env.py
+│<span class="w">   </span>└──<span class="w"> </span>script.py.mako
 ├──<span class="w"> </span>myproject/<span class="w">          </span><span class="c1"># Main project package folder</span>
 │<span class="w">   </span>├──<span class="w"> </span>__init__.py
 │<span class="w">   </span>├──<span class="w"> </span>urls.py<span class="w">         </span><span class="c1"># Main URL configurations</span>
 │<span class="w">   </span>└──<span class="w"> </span>wsgi.py<span class="w">         </span><span class="c1"># WSGI entry point for production deployment</span>
 ├──<span class="w"> </span>.env<span class="w">                </span><span class="c1"># Environment variables file (optional)</span>
 ├──<span class="w"> </span>config.json<span class="w">         </span><span class="c1"># Additional JSON format config file (optional)</span>
+├──<span class="w"> </span>manage.py<span class="w">           </span><span class="c1"># Command-line utility for project management</span>
 └──<span class="w"> </span>settings.py<span class="w">         </span><span class="c1"># Main settings file</span>
 </pre></div>
 </div>
@@ -234,7 +238,7 @@
 <ul>
 <li><dl>
 <dt><strong>Create a Superuser:</strong></dt><dd><p>Initiates an interactive prompt to create a new administrative superuser account, granting full access to the admin dashboard.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>manage.py<span class="w"> </span>createsuperuser
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>manage.py<span class="w"> </span>create_superuser
 </pre></div>
 </div>
 <p><em>Login to the admin dashboard via `/admin/` in your browser using your superuser credentials.</em></p>

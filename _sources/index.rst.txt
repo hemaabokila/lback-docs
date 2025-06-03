@@ -172,7 +172,11 @@ About
 The lback documentation is maintained and authored by Ibrahem Abo Kila, providing developers with detailed guidance and references for building with the framework.
 
 **Author:** Ibrahem Abo Kila
+
 **Email:** ibrahemabokila@gmail.com
+
 **GitHub:** `https://github.com/hemaabokila/lback_framework <https://github.com/hemaabokila/lback_framework>`_
+
 **LinkedIn:** `https://www.linkedin.com/in/ibrahem-abo-kila/ <https://www.linkedin.com/in/ibrahem-abo-kila/>`_
+
 **YouTube:** `https://www.youtube.com/channel/UC... <https://www.youtube.com/@cryptodome22>`_

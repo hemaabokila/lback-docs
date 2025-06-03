@@ -13,32 +13,71 @@ Requirements
 Installation Steps
 ------------------
 
-Follow these steps to get lback up and running:
+To ensure a smooth installation and proper functioning of Lback Framework, especially for file handling features, please follow these steps:
 
 1. **Create and Activate a Virtual Environment (Recommended)**
 
-It's good practice to create a virtual environment for your project. This keeps its dependencies separate from other Python projects.
+It's highly recommended to create a dedicated virtual environment for your project. This isolates your project's dependencies and prevents conflicts with other Python projects on your system.
 
     .. code-block:: bash
 
-        # Create a virtual environment (e.g., named 'lback_env')
-        python -m venv lback_env
+        # Create a virtual environment named 'venv' in your project directory
+        python3 -m venv venv
 
         # Activate the virtual environment
-        # On Windows:
-        lback_env\Scripts\activate
-        # On macOS and Linux:
-        source lback_env/bin/activate
 
-2. **Install lback from PyPI**
+        # On macOS and Linux:
+        source venv/bin/activate
+
+        # On Windows:
+        .\venv\Scripts\activate
+
+Once activated, your terminal prompt will typically show `(venv)` indicating you are in the virtual environment.
+
+2. **Install System-level Dependencies (for File Type Detection)**
+
+Lback Framework utilizes `python-magic` for robust file type detection.
+
+This Python library relies on a native system library called `libmagic`.
+
+You need to install `libmagic` using your system's package manager **before** installing Lback's Python packages.
+
+**For macOS and Linux users:**
+
+**On Debian/Ubuntu-based systems:**
+
+    .. code-block:: bash
+
+        sudo apt-get update
+        sudo apt-get install libmagic
+
+**On Fedora/RHEL/CentOS-based systems:**
+
+    .. code-block:: bash
+
+        sudo dnf install file-libs # or sudo yum install file-libs
+
+**On macOS (using Homebrew):**
+
+    .. code-block:: bash
+
+        brew install libmagic
+
+**For Windows users:**
+
+No manual steps are typically required for `libmagic`.
+
+Lback's installation process will automatically handle this dependency for you using `python-magic-bin`.
+
+3. **Install lback from PyPI**
 
 Once your virtual environment is activated (if you chose to use one), you can install lback using pip:
 
     .. code-block:: bash
 
-        pip install lback_framework
+        pip install lback-framework
 
-3. **create a progect**:
+4. **create a project**:
 
    .. code-block:: bash
 
@@ -46,13 +85,13 @@ Once your virtual environment is activated (if you chose to use one), you can in
 
    Replace ``myproject`` with your desired project name.
 
-4. **Run initial setup**:
+5. **Run initial setup**:
 
    .. code-block:: bash
 
        python manage.py makemigrations
        python manage.py migrate
-       python manage.py createsuperuser
+       python manage.py create_superuser
        python manage.py runserver
 
 

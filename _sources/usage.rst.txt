@@ -21,13 +21,17 @@ The new project will include:
 .. code-block:: bash
 
     myproject/
-    ├── manage.py           # Command-line utility for project management
+    ├── alembic/
+    │   ├── versions/
+    │   ├── env.py
+    │   └── script.py.mako  
     ├── myproject/          # Main project package folder
     │   ├── __init__.py
     │   ├── urls.py         # Main URL configurations
     │   └── wsgi.py         # WSGI entry point for production deployment
     ├── .env                # Environment variables file (optional)
     ├── config.json         # Additional JSON format config file (optional)
+    ├── manage.py           # Command-line utility for project management
     └── settings.py         # Main settings file
 
 ---
@@ -103,7 +107,7 @@ Lback provides a robust command-line interface for managing users and the admin 
 
     .. code-block:: bash
 
-        python manage.py createsuperuser
+        python manage.py create_superuser
 
     *Login to the admin dashboard via `/admin/` in your browser using your superuser credentials.*
 
